@@ -1,0 +1,14 @@
+.education{
+	font-family: 'Poiret One', cursive;
+	font-size: 80px;
+	color: #3E2723;
+	padding-left: 5%;
+	text-shadow: 3px 5px 8px #000000;
+	padding-top: 3%;
+}
+.rit{
+	text-align: left;
+}
+.college{
+	text-align: right;
+}
