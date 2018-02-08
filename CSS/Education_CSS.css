@@ -1,14 +1,70 @@
-.education{
-	font-family: 'Poiret One', cursive;
-	font-size: 80px;
-	color: #3E2723;
-	padding-left: 5%;
-	text-shadow: 3px 5px 8px #000000;
-	padding-top: 3%;
+/* Laptop View*/
+
+@media screen and (min-width: 992px){
+	.education{
+		font-family: 'Poiret One', cursive;
+		font-size: 80px;
+		color: #3E2723;
+		padding-left: 5%;
+		text-shadow: 3px 5px 8px #000000;
+		padding-top: 3%;
+	}
+	.rit{
+		text-align: left;
+	}
+	.mpstme{
+		text-align: right;
+	}
+	.ritMobile{
+		display: none;
+	}
+	.mpstmeMobile{
+		display: none;
+	}
 }
-.rit{
-	text-align: left;
-}
-.college{
-	text-align: right;
+
+/* Mobile View */
+
+@media screen and (min-width: 320px) and (max-width: 992px){
+	.education{
+		font-family: 'Poiret One', cursive;
+		font-size: 45px;
+		color: #3E2723;
+		padding-left: 5%;
+		text-align: left;
+		text-shadow: 3px 5px 8px #000000;
+		padding-top: 15%;
+	}
+	.rit{
+		display: none;
+	}
+	.mpstme{
+		display: none;
+	}
+	.ritMobile{
+		text-align: center;
+	}
+	.mpstmeMobile{
+		text-align: center;
+		padding-top: 8%;
+	}
+	.collegeName{
+		font-size: 20px;
+		font-family: 'Open Sans', sans-serif;
+		font-weight: 700;
+	}
+	.collegeLogo{
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.collegeLocation{
+
+	}
+	.collegeDegree{
+
+	}
+	.collegeGradDate{
+
+	}
 }

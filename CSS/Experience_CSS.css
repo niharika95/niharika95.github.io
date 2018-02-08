@@ -1,35 +1,90 @@
-.experience{
-	font-family: 'Poiret One', cursive;
-	font-size: 80px;
-	color: #3E2723;
-	padding-left: 5%;
-	text-shadow: 3px 5px 8px #000000;
-	padding-top: 3%;
+/* Laptop View*/
+
+@media screen and (min-width: 992px){
+	.experience{
+		font-family: 'Poiret One', cursive;
+		font-size: 80px;
+		color: #3E2723;
+		padding-left: 5%;
+		text-shadow: 3px 5px 8px #000000;
+		padding-top: 3%;
+	}
+	.content{
+		padding-top: 1%;
+	}
+	.name{
+		font-size: 30px;
+		font-family: 'Fira Sans Extra Condensed', sans-serif;
+		font-weight: 700;
+		color: #008000;
+		padding-bottom: 0%;
+	}
+	.location{
+		font-size: 20px;
+		font-family: 'Fira Sans Extra Condensed', sans-serif;
+		font-weight: 400;
+		padding-top: 0%;
+	}
+	.position{
+		font-size: 20px;
+		font-family: 'Fira Sans', sans-serif;
+		font-weight: 600;
+	}
+	.description{
+		font-size: 18px;
+		font-family: 'Fira Sans', sans-serif;
+		font-weight: 400;
+		text-align: justify;
+	}
+	.mobileView{
+		display: none;
+	}
 }
-.content{
-	padding-top: 1%;
-}
-.name{
-	font-size: 30px;
-	font-family: 'Fira Sans Extra Condensed', sans-serif;
-	font-weight: 700;
-	color: #008000;
-	padding-bottom: 0%;
-}
-.location{
-	font-size: 20px;
-	font-family: 'Fira Sans Extra Condensed', sans-serif;
-	font-weight: 400;
-	padding-top: 0%;
-}
-.position{
-	font-size: 20px;
-	font-family: 'Fira Sans', sans-serif;
-	font-weight: 600;
-}
-.description{
-	font-size: 18px;
-	font-family: 'Fira Sans', sans-serif;
-	font-weight: 400;
-	text-align: justify;
+
+/* Mobile View */
+
+@media screen and (min-width: 320px) and (max-width: 992px){
+	.experience{
+		font-family: 'Poiret One', cursive;
+		font-size: 45px;
+		color: #3E2723;
+		padding-left: 5%;
+		text-align: left;
+		text-shadow: 3px 5px 8px #000000;
+		padding-top: 15%;
+	}
+	.content{
+		display: none;
+	}
+	.name{
+		font-size: 20px;
+		font-family: 'Fira Sans Extra Condensed', sans-serif;
+		font-weight: 700;
+		color: #008000;
+		padding-bottom: 0%;
+	}
+	.location{
+		font-size: 18px;
+		font-family: 'Fira Sans Extra Condensed', sans-serif;
+		font-weight: 400;
+		padding-top: 0%;
+	}
+	.position{
+		font-size: 18px;
+		font-family: 'Fira Sans', sans-serif;
+		font-weight: 600;
+	}
+	.description{
+		font-size: 16px;
+		font-family: 'Fira Sans', sans-serif;
+		font-weight: 400;
+		text-align: justify;
+	}
+	.diagram{
+		display: none;
+	}
+	.mobileView{
+		padding-left: 3%;
+		padding-right: 3%;
+	}
 }
