@@ -1,13 +1,19 @@
 /* Laptop View*/
 
 @media screen and (min-width: 992px){
-	.experience{
+	.navigationBar{
+		height: 45px;
+	}
+	.navigationLinks{
+	}
+	.gitLinkedinResumeLinks{
+	}
+	.exprerience{
 		font-family: 'Poiret One', cursive;
 		font-size: 80px;
 		color: #3E2723;
 		padding-left: 5%;
 		text-shadow: 3px 5px 8px #000000;
-		padding-top: 3%;
 	}
 	.content{
 		padding-top: 1%;
@@ -51,7 +57,6 @@
 		padding-left: 5%;
 		text-align: left;
 		text-shadow: 3px 5px 8px #000000;
-		padding-top: 15%;
 	}
 	.content{
 		display: none;
