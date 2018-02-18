@@ -15,7 +15,7 @@
 		padding-left: 5%;
 		text-shadow: 3px 5px 8px #000000;
 	}
-	.main{
+	.mobileMain{
 		display: none;
 	}
 }
@@ -31,8 +31,7 @@
 		text-align: left;
 		text-shadow: 3px 5px 8px #000000;
 	}
-	}
-	.diagram{
+	.desktopMain{
 		display: none;
 	}
 	.main{
