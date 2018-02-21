@@ -27,8 +27,16 @@
 		line-height: 200%;
 		font-family: 'Handlee', cursive;
 	}
-	.knowMoreButton{
+	.knowMoreButtonMobile{
+		display: none;
+	}
+	.knowMoreButtonDesktop{
 		text-align: center;
+	}
+	.knowMoreButton{
+		padding-left: 1%;
+		padding-right: 1%;
+		display: inline-block;
 	}
 	.knowMoreButton:hover{
 		transform: scale(1.1);
@@ -86,20 +94,16 @@
 		line-height: 150%;
 		font-family: 'Handlee', cursive;
 	}
+	.knowMoreButtonDesktop{
+		display: none;
+	}
 	.knowMoreButton{
 		text-align: center;
-		margin-bottom: 20%;
-	}
-	.knowMoreButton:hover{
-		transform: scale(1.1);
+		padding-bottom: 2%;
 	}
 	.knowMore{
-		color: white;
-		font-size: 18px;
-	}
-	.knowMore:hover{
-		color: white;
-		text-decoration: none;
+		color: #E50028;
+		font-size: 16px;
 	}
 	.links{
 		display: none;
