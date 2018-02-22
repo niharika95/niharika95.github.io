@@ -4,10 +4,6 @@
 	.navigationBar{
 		height: 45px;
 	}
-	.navigationLinks{
-	}
-	.gitLinkedinResumeLinks{
-	}
 	.skills{
 		font-family: 'Poiret One', cursive;
 		font-size: 80px;
@@ -28,13 +24,12 @@
 		font-size: 45px;
 		color: #3E2723;
 		padding-left: 5%;
-		text-align: left;
 		text-shadow: 3px 5px 8px #000000;
 	}
 	.desktopMain{
 		display: none;
 	}
-	.main{
+	.mobileMain{
 		text-align: center;
 	}
 	.title{
