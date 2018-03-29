@@ -20,6 +20,9 @@
 		margin: auto;
 		width: 100%;
 	}
+	.contentMobile{
+		display: none;
+	}
 }
 
 /* Mobile View */
