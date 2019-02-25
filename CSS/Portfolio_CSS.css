@@ -1,0 +1,108 @@
+/* Laptop View*/
+
+.imgImg {
+	width:65%;
+	border-radius: 10px;
+	filter: drop-shadow(5px 2px 2px grey);
+	margin: 0 auto;
+}
+
+@media screen and (min-width: 992px){
+	.navigationBar{
+		height: 45px;
+	}
+	.navigationLinks{
+	}
+	.gitLinkedinResumeLinks{
+	}
+	.portfolio{
+		font-family: 'Poiret One', cursive;
+		font-size: 80px;
+		color: #3E2723;
+		padding-left: 5%;
+		text-shadow: 3px 5px 8px #000000;
+		margin-bottom: 40px;
+	}
+	.jumbotron{
+		filter: drop-shadow(5px 2px 2px grey);
+	}
+	.imgPart{
+		margin-bottom: 6%;
+	}
+	.imgImg{
+		/* width: 100%; */
+		/*height: 15%;*/
+		
+	}
+	.textPart > p{
+		font-size: 20px;
+		line-height: 2;
+		font-family: 'Open Sans', sans-serif;
+	}
+	#rolodexModal{
+	}
+	.img_Keep_div{
+		margin-bottom: 10px;
+	}
+	.img_Keep_div > img{
+		width: 30%;
+		height: auto;
+		border: 1px grey solid;
+		margin: 10px;
+	}
+	.budgetMeImages > img{
+		width: 100%;
+		height: auto;
+		border: 1px grey solid;
+		margin-bottom: 20px;
+	}
+	.rolodexImages > img{
+		width: 100%;
+		height: auto;
+		border: 1px grey solid;
+		margin-bottom: 20px;
+	}
+}
+
+/* Mobile View */
+
+@media screen and (min-width: 320px) and (max-width: 992px){
+	.portfolio{
+		font-family: 'Poiret One', cursive;
+		font-size: 45px;
+		color: #3E2723;
+		padding-left: 5%;
+		text-align: left;
+		text-shadow: 3px 5px 8px #000000;
+	}
+	.rit{
+		display: none;
+	}
+	.mpstme{
+		display: none;
+	}
+	.ritMobile{
+		text-align: center;
+	}
+	.mpstmeMobile{
+		text-align: center;
+		padding-top: 8%;
+	}
+	.collegeName{
+		font-size: 20px;
+		font-family: 'Open Sans', sans-serif;
+		font-weight: 700;
+	}
+	.collegeLog{
+		
+	}
+	.collegeLocation{
+
+	}
+	.collegeDegree{
+
+	}
+	.collegeGradDate{
+
+	}
+}

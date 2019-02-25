@@ -1,0 +1,191 @@
+<html>
+	<head>
+		<title>
+			Portfolio
+		</title>
+		<!-- CSS -->
+		<link rel="stylesheet" href="CSS/Portfolio_CSS.css">
+		<!-- Bootstrap and animations -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+		 <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+		<!-- Fonts -->
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Handlee" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
+	</head>
+<body>
+
+		<!-- Navigation Bar -->
+
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark navigationBar">
+  <a href="index.html" class="navbar-brand" style="font-size: 20px; font-family: 'Handlee', cursive;">Niharika Dalal</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse navigationLinks" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+    	<a class="nav-link" href="Education.html" style="font-size: 18px; font-family: 'Handlee', cursive;">Education</a>
+      	<a class="nav-link" href="Experience.html" style="font-size: 18px; font-family: 'Handlee', cursive;">Experience</a>
+		<a class="nav-link" href="Projects.html" style="font-size: 18px; font-family: 'Handlee', cursive;">Projects</a>
+		<a class="nav-link" href="Portfolio.html" style="font-size: 18px; font-family: 'Handlee', cursive; color: white;">Portfolio</a>
+		<a class="nav-link" href="Illustrations.html" style="font-size: 18px; font-family: 'Handlee', cursive;">Illustrations</a>
+		<a class="nav-link" href="Skills.html" style="font-size: 18px; font-family: 'Handlee', cursive;">Skills</a>
+		<a class="nav-link" href="Extracurricular.html" style="font-size: 18px; font-family: 'Handlee', cursive;">Extracurricular</a>
+    </div>
+    <ul class="nav navbar-nav gitLinkedinResumeLinks ml-auto">
+		<li class="nav-item"><a class="nav-link" href="https://github.com/niharika95" target="_blank"><img src="Images/github-white.png" alt="Github" style="width: 30px; height: 30px;"></a></li>
+		<li class="nav-item"><a class="nav-link" href="https://www.linkedin.com/in/niharikadalal/" target="_blank"><img src="Images/linkedin-white.png" alt="LinkedIn" style="width: 30px; height: 30px;"></a></li>
+		<li class="nav-item"><a class="nav-link" href="Documents/Resume.pdf" target="_blank"><img src="Images/resume-white.png" alt="Resume" style="width: 30px; height: 30px;"></a></li>
+
+</nav>
+		<div class="portfolio">
+			<p>Portfolio</p>
+		</div>
+
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-lg-6">
+					<a data-toggle="modal" data-target="#rolodexModal">
+						<div class="jumbotron">
+							<div class="imgPart text-center"><img class="imgImg" src="Images/Rolodex/RolodexLogo.png" alt=""></div>
+							<div class="textPart">
+								<p>An app that scans qr codes to store contact information directly to your phone contacts, so that you won't have to manually enter it in!</p>
+							</div>
+						</div>
+					</a>
+					
+				</div>
+				<div class="col-lg-6">
+					<a data-toggle="modal" data-target="#budgetMeModal">
+						<div class="jumbotron">
+							<div class="imgPart text-center"><img class="imgImg" src="Images/BudgetMe/BudgetMeLogo.png" alt=""></div>
+							<div class="textPart">
+								<p>An app that helps keep track of the amount of money you spend, by allowing you to store purchase information!</p>
+							</div>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal fade" id="rolodexModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+			<div class="modal-dialog modal-lg" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h2 class="modal-title" id="exampleModalLongTitle">Rolodex</h2>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<br>
+						<h5>Problem</h5>
+						<p style="text-align: justify; font-family: 'Open Sans', sans-serif;">You’re at an official party and someone gives you their business card. Or, you’re talking to a potential recruiter and they hand over their business card to you. And once you get home, you manually enter their first and last name, phone number, email address, the company they work for and their designation.<br><br>
+							It’s ok if it’s just one or two people who gave their business cards to you. But, imagine yourself at a gathering where people have come with the intention of networking and now you have many more than just 2-3 business cards shared with you. In this scenario, you wouldn’t want to spend time manually putting in people’s information on your phone.<br><br>
+							How nice would it be if the business cards had also a little QR code on them which contained all the information that was visible on the card; and then just scanning this code would store all contacts details of that specific individual on your phone. That’s what this app does!
+						</p>
+						<br>
+						<h5>Solution</h5>
+						<p style="text-align: justify; font-family: 'Open Sans', sans-serif;">
+								The application opens with a splash screen and then opens the ‘Camera’ tab to scan the QR code on a business card. Once the code has been scanned by the phone camera, a prompt comes up showing the data and asking for confirmation to save the information. On clicking ‘Save’, the data gets stored into the phone contact list as well as the app itself. The ‘Contact List’ tab shows a list of the people whose business card were scanned using the app and clicking on one of the names of the people, opens a page which displays their information, including the bar code in case it must be shared with another person. The ‘Account’ tab shows the personal information of the user of the device, including the bar code which contains that information.
+						</p>
+						<br>
+						<div class= "container col-lg-12 text-center">
+							<div class="row">
+								<div class="col-lg-4 text-center rolodexImages">
+									<img src="Images/Rolodex/SplashScreen.png" alt="">
+								</div>
+								<div class="col-lg-4 text-center rolodexImages">
+									<img src="Images/Rolodex/CameraScreen.png" alt="">
+								</div>
+								<div class="col-lg-4 text-center rolodexImages">
+									<img src="Images/Rolodex/Prompt.png" alt="">
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-4 text-center rolodexImages">
+									<img src="Images/Rolodex/ContactList.png" alt="">
+								</div>
+								<div class="col-lg-4 text-center rolodexImages">
+									<img src="Images/Rolodex/SpecificContact.png" alt="">
+								</div>
+								<div class="col-lg-4 text-center rolodexImages">
+									<img src="Images/Rolodex/Account.png" alt="">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="modal fade" id="budgetMeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+			<div class="modal-dialog modal-lg" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h2 class="modal-title" id="exampleModalLongTitle">Budget Me</h2>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<br>
+						<h5>Problem</h5>
+						<p style="text-align: justify; font-family: 'Open Sans', sans-serif;">
+								Keeping track of my finances wasn't difficult for me! I was so much in love with Google Keep that I wanted to put every information in there - including the amount of money I spent every month! So, while I was responsible enough to make sure I didn't spend over my budget, I kept track of how much I spent every month, in Keep; and added the amount to the amount that was already spent in that month.
+						</p>
+						<div class = "img_Keep_div text-center">
+							<img src="Images/BudgetMe/Keep.jpg" alt="Google Keep">
+						</div>
+						<p>
+								Even though it wasn't difficult to just add, it was an inefficient way. That's when I decided to build an app to keep track of my expenses!
+						</p>
+						<br>
+						<h5>Solution</h5>
+						<p style="text-align: justify; font-family: 'Open Sans', sans-serif;">
+								To put the idea into action, I chose the simplest tool - pencil and paper! Before I started designing, I imagined how I wanted my app to look. I started with deciding the different components my app would have, which in this case were:
+						</p>
+						<p>
+								-	A home page with two buttons, one leading to a page to enter purchase description, and another leading to a page showing the different purchases made.
+								<br>
+								-	A page to enter the date, amount and description of purchase.
+								<br>
+								-	A page that displays all the months of a year (as buttons), and on clicking on one of those, it opens a modal which displays the purchases for that month.
+						</p>
+						<p>
+								Once I drew these on paper, I used Figma to create the prototypes of these and added some colors. I decided on a coffee-colored theme (shades of brown). I feel it’s best when an app is developed to be simple and intuitive!
+						</p>
+						<div class= "container col-lg-12 text-center">
+							<div class="row">
+								<div class="col-lg-3 text-center budgetMeImages">
+									<img src="Images/BudgetMe/HomeScreen.png" alt="">
+								</div>
+								<div class="col-lg-3 text-center budgetMeImages">
+									<img src="Images/BudgetMe/SpentMoneyScreen.png" alt="">
+								</div>
+								<div class="col-lg-3 text-center budgetMeImages">
+									<img src="Images/BudgetMe/HistoryScreen.png" alt="">
+								</div>
+								<div class="col-lg-3 text-center budgetMeImages">
+										<img src="Images/BudgetMe/ModalScreen.png" alt="">
+									</div>
+							</div>
+						</div>
+						<p>
+								The first screen shows two buttons. Clicking on the ‘I spent more money’ button takes you to the screen which lets you to enter the date, amount and description of the purchase made. On filling this information, and clicking on the green check button, this information gets saved and you are redirected to the home page. If the red cross button is pressed, the information is not saved and you are redirected to the home page.
+						</p>
+						<p>
+								On the home page, if you click on ‘History’, it takes you to a page with the months listed as buttons, and on clicking on one of the month buttons, a modal opens up which shows the purchases made during that month, along with the total amount spent (on the header).								
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
