@@ -47,8 +47,18 @@
 			<p>Portfolio</p>
 		</div>
 
-		<div class="container-fluid">
+		<div class="container-fluid text-center">
 			<div class="row">
+				<div class="col-lg-6">
+					<a data-toggle="modal" data-target="#listenerModal">
+						<div class="jumbotron">
+							<div class="imgPart text-center"><img class="imgImg" src="Images/Listener/ListenerLogo.png" alt=""></div>
+							<div class="textPart">
+								<p>An app for hard-of-hearing students in a team meeting scenario, which converts speech to text and transcribes speech of multiple speakers.</p>
+							</div>
+						</div>
+					</a>
+				</div>
 				<div class="col-lg-6">
 					<a data-toggle="modal" data-target="#rolodexModal">
 						<div class="jumbotron">
@@ -58,9 +68,10 @@
 							</div>
 						</div>
 					</a>
-					
 				</div>
-				<div class="col-lg-6">
+			</div>
+			<div class="row">
+				<div class="col-lg-6" style = "margin: 0 auto;">
 					<a data-toggle="modal" data-target="#budgetMeModal">
 						<div class="jumbotron">
 							<div class="imgPart text-center"><img class="imgImg" src="Images/BudgetMe/BudgetMeLogo.png" alt=""></div>
@@ -73,6 +84,43 @@
 			</div>
 		</div>
 
+		<!-- ListenerModal starts -->
+		<div class="modal fade" id="listenerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+			<div class="modal-dialog modal-lg" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h2 class="modal-title" id="exampleModalLongTitle">Listener <i> (in progress)</i></h2>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<br>
+						<h5>Problem</h5>
+						<p style="text-align: justify; font-family: 'Open Sans', sans-serif;">
+							Imagine a situation - a group of people in a meeting, trying to brainstorm or discuss ideas by collaborating and putting forth their viewpoints. This group of people consist of people who can hear and speak comfortably, and those who are hard-of hearing or have difficulty speaking. In such a scenario, it becomes difficult for the latter set of people to easily put their points forth or contribute equally to the discussions. The reasons for this might be:
+						</p>
+						<p style="text-align: justify; font-family: 'Open Sans', sans-serif;">
+							- It could be difficult for the interpreter to keep up with the pace if a speaker is talking fast and would take more time to interpret and explain to the hard-of-hearing individual.
+						</p>
+						<p style="text-align: justify; font-family: 'Open Sans', sans-serif;">
+							- If there are multiple speakers speaking, it would be difficult for the interpreter to explain (by pointing out) and the deaf individual to understand who’s speaking what, and it could lead to a confusion.
+						</p>
+						<br>
+						<h5>Solution</h5>
+						<p style="text-align: justify; font-family: 'Open Sans', sans-serif;">
+							An application that converts speech-to-text and assists the user in keeping track of the points in the discussion. When a person in the team speaks, the application converts the transcribes the speech and displays it on the screen for the hard-of-hearing team members. The application would have the capability of separating each speaker so that the deaf member is aware of who the speaker is whenever someone speaks.
+						</p>
+						<p style="text-align: justify; font-family: 'Open Sans', sans-serif;">
+							In cases where the deaf member feels that a speaker is speaking fast (text conversion is fast) and that it is difficult to follow what the person is saying, or if they want to put forth their own points, or ask a question, the application has clickable buttons which on clicking, produce a sound as to notify the speakers that the deaf member has requested for a pause. This would help the discussion to progress smoothly while providing every member in the team to having equal chance to voice their ideas and have a say in the discussion.		
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- ListenerModal ends -->
+
+		<!-- RolodexModal starts -->
 		<div class="modal fade" id="rolodexModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
 			<div class="modal-dialog modal-lg" role="document">
 				<div class="modal-content">
@@ -123,13 +171,14 @@
 				</div>
 			</div>
 		</div>
+		<!-- RolodexModal ends -->
 
-
+		<!-- BudgetMeModal starts -->
 		<div class="modal fade" id="budgetMeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
 			<div class="modal-dialog modal-lg" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h2 class="modal-title" id="exampleModalLongTitle">Budget Me</h2>
+						<h2 class="modal-title" id="exampleModalLongTitle">BudgetMe</h2>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
@@ -138,27 +187,27 @@
 						<br>
 						<h5>Problem</h5>
 						<p style="text-align: justify; font-family: 'Open Sans', sans-serif;">
-								Keeping track of my finances wasn't difficult for me! I was so much in love with Google Keep that I wanted to put every information in there - including the amount of money I spent every month! So, while I was responsible enough to make sure I didn't spend over my budget, I kept track of how much I spent every month, in Keep; and added the amount to the amount that was already spent in that month.
+							Keeping track of my finances wasn't difficult for me! I was so much in love with Google Keep that I wanted to put every information in there - including the amount of money I spent every month! So, while I was responsible enough to make sure I didn't spend over my budget, I kept track of how much I spent every month, in Keep; and added the amount to the amount that was already spent in that month.
 						</p>
 						<div class = "img_Keep_div text-center">
 							<img src="Images/BudgetMe/Keep.jpg" alt="Google Keep">
 						</div>
-						<p>
-								Even though it wasn't difficult to just add, it was an inefficient way. That's when I decided to build an app to keep track of my expenses!
+						<p style="text-align: justify; font-family: 'Open Sans', sans-serif;">
+							Even though it wasn't difficult to just add, it was an inefficient way. That's when I decided to build an app to keep track of my expenses!
 						</p>
 						<br>
 						<h5>Solution</h5>
 						<p style="text-align: justify; font-family: 'Open Sans', sans-serif;">
 								To put the idea into action, I chose the simplest tool - pencil and paper! Before I started designing, I imagined how I wanted my app to look. I started with deciding the different components my app would have, which in this case were:
 						</p>
-						<p>
+						<p style="text-align: justify; font-family: 'Open Sans', sans-serif;">
 								-	A home page with two buttons, one leading to a page to enter purchase description, and another leading to a page showing the different purchases made.
 								<br>
 								-	A page to enter the date, amount and description of purchase.
 								<br>
 								-	A page that displays all the months of a year (as buttons), and on clicking on one of those, it opens a modal which displays the purchases for that month.
 						</p>
-						<p>
+						<p style="text-align: justify; font-family: 'Open Sans', sans-serif;">
 								Once I drew these on paper, I used Figma to create the prototypes of these and added some colors. I decided on a coffee-colored theme (shades of brown). I feel it’s best when an app is developed to be simple and intuitive!
 						</p>
 						<div class= "container col-lg-12 text-center">
@@ -177,15 +226,16 @@
 									</div>
 							</div>
 						</div>
-						<p>
+						<p style="text-align: justify; font-family: 'Open Sans', sans-serif;">
 								The first screen shows two buttons. Clicking on the ‘I spent more money’ button takes you to the screen which lets you to enter the date, amount and description of the purchase made. On filling this information, and clicking on the green check button, this information gets saved and you are redirected to the home page. If the red cross button is pressed, the information is not saved and you are redirected to the home page.
 						</p>
-						<p>
+						<p style="text-align: justify; font-family: 'Open Sans', sans-serif;">
 								On the home page, if you click on ‘History’, it takes you to a page with the months listed as buttons, and on clicking on one of the month buttons, a modal opens up which shows the purchases made during that month, along with the total amount spent (on the header).								
 						</p>
 					</div>
 				</div>
 			</div>
 		</div>
+		<!-- BudgetMeModal ends -->
 	</body>
 </html>
