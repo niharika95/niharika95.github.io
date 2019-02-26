@@ -75,34 +75,22 @@
 		text-align: left;
 		text-shadow: 3px 5px 8px #000000;
 	}
-	.rit{
-		display: none;
+	.img_Keep_div > img{
+		width: 100%;
+		height: auto;
+		border: 1px grey solid;
+		margin: 10px;
 	}
-	.mpstme{
-		display: none;
+	.budgetMeImages > img{
+		width: 100%;
+		height: auto;
+		border: 1px grey solid;
+		margin-bottom: 20px;
 	}
-	.ritMobile{
-		text-align: center;
-	}
-	.mpstmeMobile{
-		text-align: center;
-		padding-top: 8%;
-	}
-	.collegeName{
-		font-size: 20px;
-		font-family: 'Open Sans', sans-serif;
-		font-weight: 700;
-	}
-	.collegeLog{
-		
-	}
-	.collegeLocation{
-
-	}
-	.collegeDegree{
-
-	}
-	.collegeGradDate{
-
+	.rolodexImages > img{
+		width: 100%;
+		height: auto;
+		border: 1px grey solid;
+		margin-bottom: 20px;
 	}
 }
