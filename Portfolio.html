@@ -11,8 +11,7 @@
 		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-		 <link rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 		<!-- Fonts -->
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Handlee" rel="stylesheet">
@@ -47,7 +46,56 @@
 			<p>Portfolio</p>
 		</div>
 
-		<div class="container-fluid text-center">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-lg-3">
+					<a data-toggle="modal" data-target="#listenerModal">
+						<div class="card" style="width: 22rem; height: 20rem">
+							<img class="card-img-top imgPart" src="Images/Listener/ListenerLogo.png" alt="Card image cap">
+							<div class="card-body" style="text-align: left">
+								<h5 class="card-title">Listener</h5>
+								<p class="card-text">An app for hard-of-hearing students in a team meeting scenario, which converts speech to text and transcribes speech of multiple speakers.</p>
+							</div> 
+						</div>
+					</a>
+				</div>
+				<div class="col-lg-3">
+					<a data-toggle="modal" data-target="#rolodexModal">
+						<div class="card" style="width: 22rem; height: 20rem">
+							<img class="card-img-top" src="Images/Rolodex/RolodexLogo.png" alt="Card image cap">
+							<div class="card-body" style="text-align: left">
+								<h5 class="card-title">Rolodex</h5>
+								<p class="card-text">An app that scans qr codes to store contact information directly to your phone contacts, so that you won't have to manually enter it in!</p>
+							</div> 
+						</div>
+					</a>
+				</div>
+				<div class="col-lg-3">
+					<a data-toggle="modal" data-target="#budgetMeModal">
+						<div class="card" style="width: 22rem; height: 20rem">
+							<img class="card-img-top" src="Images/BudgetMe/BudgetMeLogo.png" alt="Card image cap">
+							<div class="card-body" style="text-align: left">
+								<h5 class="card-title">BudgetMe</h5>
+								<p class="card-text">An app that helps keep track of the amount of money you spend, by allowing you to store purchase information!</p>
+							</div> 
+						</div>
+					</a>
+				</div>
+				<div class="col-lg-3">
+					<a data-toggle="modal" data-target="#googleModal">
+						<div class="card" style="width: 22rem; height: 20rem">
+							<img class="card-img-top" src="Images/Google/GDE2019.png" alt="Card image cap">
+							<div class="card-body" style="text-align: left">
+								<h5 class="card-title">Google Design Exercise 2019</h5>
+								<p class="card-text">A design exercise submitted to Google.</p>
+							</div> 
+						</div>
+					</a>
+				</div>
+			</div>
+
+			<!-- <br><br>
+
 			<div class="row">
 				<div class="col-lg-6">
 					<a data-toggle="modal" data-target="#listenerModal">
@@ -82,7 +130,7 @@
 					</a>
 				</div>
 			</div>
-		</div>
+		</div> -->
 
 		<!-- ListenerModal starts -->
 		<div class="modal fade" id="listenerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
@@ -98,7 +146,7 @@
 						<br>
 						<h5>Problem</h5>
 						<p style="text-align: justify; font-family: 'Open Sans', sans-serif;">
-							Imagine a situation - a group of people in a meeting, trying to brainstorm or discuss ideas by collaborating and putting forth their viewpoints. This group of people consist of people who can hear and speak comfortably, and those who are hard-of hearing or have difficulty speaking. In such a scenario, it becomes difficult for the latter set of people to easily put their points forth or contribute equally to the discussions. The reasons for this might be:
+							Imagine a situation - a group of people in a meeting, trying to brainstorm or discuss ideas by collaborating and putting forth their viewpoints. This group of people consist of people who can hear and speak comfortably, and those who are hard-of-hearing or have difficulty speaking. In such a scenario, it becomes difficult for the latter set of people to easily put their points forth or contribute equally to the discussions. The reasons for this might be:
 						</p>
 						<p style="text-align: justify; font-family: 'Open Sans', sans-serif;">
 							- It could be difficult for the interpreter to keep up with the pace if a speaker is talking fast and would take more time to interpret and explain to the hard-of-hearing individual.
@@ -134,7 +182,7 @@
 						<br>
 						<h5>Problem</h5>
 						<p style="text-align: justify; font-family: 'Open Sans', sans-serif;">You’re at an official party and someone gives you their business card. Or, you’re talking to a potential recruiter and they hand over their business card to you. And once you get home, you manually enter their first and last name, phone number, email address, the company they work for and their designation.<br><br>
-							It’s ok if it’s just one or two people who gave their business cards to you. But, imagine yourself at a gathering where people have come with the intention of networking and now you have many more than just 2-3 business cards shared with you. In this scenario, you wouldn’t want to spend time manually putting in people’s information on your phone.<br><br>
+							It’s ok if it’s just one or two people, but, imagine yourself at a gathering where people have come with the intention of networking and now you have many more than just 2-3 business cards shared with you. In this scenario, you wouldn’t want to spend time manually putting in people’s information on your phone.<br><br>
 							How nice would it be if the business cards had also a little QR code on them which contained all the information that was visible on the card; and then just scanning this code would store all contacts details of that specific individual on your phone. That’s what this app does!
 						</p>
 						<br>
@@ -238,7 +286,7 @@
 							</div>
 						</div>
 						<p style="text-align: justify; font-family: 'Open Sans', sans-serif;">
-								The first screen shows two buttons. Clicking on the ‘I spent more money’ button takes you to the screen which lets you to enter the date, amount and description of the purchase made. On filling this information, and clicking on the green check button, this information gets saved and you are redirected to the home page. If the red cross button is pressed, the information is not saved and you are redirected to the home page.
+								The first screen shows two buttons. Clicking on the ‘I spent more money’ button takes you to the screen which lets you enter the date, amount and description of the purchase made. On filling this information, and clicking on the green check button, this information gets saved and you are redirected to the home page. If the red cross button is pressed, the information is not saved and you are redirected to the home page.
 						</p>
 						<p style="text-align: justify; font-family: 'Open Sans', sans-serif;">
 								On the home page, if you click on ‘History’, it takes you to a page with the months listed as buttons, and on clicking on one of the month buttons, a modal opens up which shows the purchases made during that month, along with the total amount spent (on the header).								
@@ -248,5 +296,70 @@
 			</div>
 		</div>
 		<!-- BudgetMeModal ends -->
+
+		<!-- GoogleModal starts -->
+		<div class="modal fade" id="googleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+			<div class="modal-dialog modal-lg" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h2 class="modal-title" id="exampleModalLongTitle">Google Design Exercise</h2>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<br>
+						<h5>Problem</h5>
+						<p style="text-align: justify; font-family: 'Open Sans', sans-serif;">
+							A new school year is approaching and the orientation team is looking to you for some design expertise. Please create your proposal based on one option from the prompts listed below:
+						</p>
+						<p style="text-align: justify; font-family: 'Open Sans', sans-serif;">
+							<i>Option 1</i><br>
+							Design an experience for new students to browse, search, and propose new student organizations. Provide your overall process, a wireframe flow, and one to two screens at higher fidelity.
+						</p>
+						<p style="text-align: justify; font-family: 'Open Sans', sans-serif;">
+							<i>Option 2</i><br>
+							Design an experience for students to discover orientation events and craft a visual system to accommodate different types of events: sports, music, visual arts, social groups, and volunteering events. Provide high-fidelity mocks for searching, browsing, and viewing the details for these different events.
+						<p style="text-align: justify; font-family: 'Open Sans', sans-serif;">
+							<i>Option 3</i><br>
+							Design a digital billboard experience to welcome incoming students and their families. These will be displayed on various screens on campus, and will show orientation information, advertise student organizations and events, and include delightful moments of school branding. Create three motion sequences that will be looped, transitioning between the different types of content.
+						</p>
+						<br>
+						<h5>Solution</h5>
+						<p style="text-align: justify; font-family: 'Open Sans', sans-serif;">
+							I decided to go with Option 2.
+							<br><br>
+							The primary components in an orientation website would include details of events, marking them as ‘favourite’ and registering for them.	I believe, displaying the events in the form of a list would help a user conveniently browse through them. Also, having a map of the campus that shows the locations of the events can help students find the venues easily and familiarize with the locations on the campus. Marking events as ‘Favourite’ and registering to them will help students keep track of events they are interested in attending.
+						</p>
+						<br>
+						<div class="googleImages">
+							<p>[Browsing Events]</p>
+							<img src="Images/Google/BrowsingEvents.png" alt="Browsing Events">
+						</div>
+						<br>
+						<div class="googleImages">
+							<p>[Viewing Events]</p>
+							<img src="Images/Google/ViewingEvents1.png" alt="Viewing Events">
+						</div>
+						<br>
+						<div class="googleImages">
+							<p>[Viewing Events]</p>
+							<img src="Images/Google/ViewingEvents2.png" alt="Viewing Events">
+						</div>
+						<br>
+						<div class="googleImages">
+							<p>[Searching Events]</p>
+							<img src="Images/Google/SearchingEvents.png" alt="Searching Events">
+						</div>
+						<br>
+						<p>The mocks were put together in <a href="https://bit.ly/2G73woR" target="_blank">Figma</a>.</p>
+						<br>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- GoogleModal ends -->
+
+		<script src="https://unpkg.com/ionicons@4.4.4/dist/ionicons.js"></script>
 	</body>
 </html>

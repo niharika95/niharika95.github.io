@@ -6,14 +6,24 @@
 	filter: drop-shadow(5px 2px 2px grey);
 	margin: 0 auto;
 }
+.card{
+	box-shadow: 0px 25px 25px -25px #000000;
+}
+.card:hover{
+	/* filter: drop-shadow(5px 5px grey); */
+	transform: scale(1.1);
+}
+.googleImages > img{
+	width: 100%;
+	border: 1px gray solid;
+}
+.googleImages > p{
+	text-align: center;
+}
 
 @media screen and (min-width: 992px){
 	.navigationBar{
 		height: 45px;
-	}
-	.navigationLinks{
-	}
-	.gitLinkedinResumeLinks{
 	}
 	.portfolio{
 		font-family: 'Poiret One', cursive;
@@ -27,7 +37,7 @@
 		filter: drop-shadow(5px 2px 2px grey);
 	}
 	.imgPart{
-		margin-bottom: 6%;
+		/* margin-bottom: 6%; */
 	}
 	.imgImg{
 		/* width: 100%; */
