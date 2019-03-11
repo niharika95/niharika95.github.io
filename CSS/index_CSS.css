@@ -106,7 +106,7 @@
 	.name{
 		font-size: 45px;
 		text-align: center;
-		margin-top: 60%;
+		/* margin-top: 60%; */
 		padding-top: 25%;
 		padding-bottom: 2%;
 		font-family: 'Roboto', sans-serif;
@@ -120,7 +120,7 @@
 		line-height: 150%;
 		font-family: 'Roboto', sans-serif;
 		font-weight: 300;
-		width: 30%;
+		width: 100%;
 	}
 	.knowMoreButtonDesktop{
 		display: none;
