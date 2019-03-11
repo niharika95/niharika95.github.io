@@ -11,7 +11,7 @@
 		background-color: white;
 		display: flex;
 		flex-direction: row;
-		/* justify-content: space-around; */
+		justify-content: space-around;
 	}
 	.nav-link{
 		margin-left: 10px;
@@ -130,7 +130,7 @@
 		padding-bottom: 2%;
 	}
 	.knowMore{
-		color: #E50028;
+		color: #343a40;
 		font-size: 16px;
 	}
 	.links{
