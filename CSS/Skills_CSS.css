@@ -4,6 +4,13 @@
 	.navigationBar{
 		height: 45px;
 	}
+	.nav-link{
+		margin-left: 10px;
+		margin-right: 10px;
+		font-size: 16px;
+		font-family: 'Roboto', sans-serif;
+		font-weight: 400;
+	}
 	.skills{
 		font-family: 'Poiret One', cursive;
 		font-size: 80px;
