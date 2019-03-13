@@ -91,11 +91,10 @@
 	}
 }
 
-
 /* Mobile View */
 
 
-@media screen and (min-width: 0px) and (max-width: 992px){
+@media screen and (min-width: 320px) and (max-width: 992px){
 	.minilogo:hover{
 		transform: scale(1.1);
 	}
