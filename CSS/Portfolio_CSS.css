@@ -67,6 +67,12 @@
 		border: 1px grey solid;
 		margin: 10px;
 	}
+	.listenerImages > img{
+		width: 100%;
+		height: auto;
+		border: 1px #D0D0D0 solid;
+		margin-bottom: 20px;
+	}
 	.budgetMeImages > img{
 		width: 100%;
 		height: auto;
