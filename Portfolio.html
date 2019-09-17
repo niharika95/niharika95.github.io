@@ -61,11 +61,11 @@
 		<p>Portfolio</p>
 	</div>
 
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-lg-3">
+	<div class="container-fluid" style="display: flex; flex-direction: column">
+		<div class="row" style="display: flex; flex-direction: row; justify-content: center; margin-bottom: 20px;">
+			<div class="col-lg-4 projectCard">
 				<a data-toggle="modal" data-target="#listenerModal">
-					<div class="card" style="width: 22rem; height: 20rem">
+					<div class="card" style="width: 22rem; height: 20rem; margin: auto">
 						<img class="card-img-top imgPart" src="Images/Listener/ListenerLogo.png" alt="Card image cap">
 						<div class="card-body" style="text-align: left">
 							<h5 class="card-title">Listener</h5>
@@ -75,9 +75,9 @@
 					</div>
 				</a>
 			</div>
-			<div class="col-lg-3">
+			<div class="col-lg-4 projectCard">
 				<a data-toggle="modal" data-target="#rolodexModal">
-					<div class="card" style="width: 22rem; height: 20rem">
+					<div class="card" style="width: 22rem; height: 20rem; margin: auto">
 						<img class="card-img-top" src="Images/Rolodex/RolodexLogo.png" alt="Card image cap">
 						<div class="card-body" style="text-align: left">
 							<h5 class="card-title">Rolodex</h5>
@@ -87,9 +87,9 @@
 					</div>
 				</a>
 			</div>
-			<div class="col-lg-3">
+			<div class="col-lg-4 projectCard">
 				<a data-toggle="modal" data-target="#budgetMeModal">
-					<div class="card" style="width: 22rem; height: 20rem">
+					<div class="card" style="width: 22rem; height: 20rem; margin: auto">
 						<img class="card-img-top" src="Images/BudgetMe/BudgetMeLogo.png" alt="Card image cap">
 						<div class="card-body" style="text-align: left">
 							<h5 class="card-title">BudgetMe</h5>
@@ -99,13 +99,26 @@
 					</div>
 				</a>
 			</div>
-			<div class="col-lg-3">
+		</div>
+		<div class="row" style="display: flex; flex-direction: row; justify-content: center;">
+			<div class="col-lg-6 projectCard">
 				<a data-toggle="modal" data-target="#googleModal">
-					<div class="card" style="width: 22rem; height: 20rem">
+					<div class="card" style="width: 22rem; height: 20rem; margin: auto">
 						<img class="card-img-top" src="Images/Google/GDE2019.png" alt="Card image cap">
 						<div class="card-body" style="text-align: left">
 							<h5 class="card-title">Google Design Exercise 2019</h5>
 							<p class="card-text">A design exercise submitted to Google.</p>
+						</div>
+					</div>
+				</a>
+			</div>
+			<div class="col-lg-6 projectCard">
+				<a data-toggle="modal" data-target="#iOSAlarmModal">
+					<div class="card" style="width: 22rem; height: 20rem; margin: auto">
+						<img class="card-img-top" src="Images/iOSAlarm/alarmClock.png" alt="Card image cap">
+						<div class="card-body" style="text-align: left">
+							<h5 class="card-title">iOS Alarm</h5>
+							<p class="card-text">A redesign of the existing iOS Alarm application on iPhones.</p>
 						</div>
 					</div>
 				</a>
@@ -201,7 +214,7 @@
 							helped us create an affinity diagram.</p>
 						<div class="container col-lg-12 text-center">
 							<div class="row">
-								<div class="col-lg-6 text-center listenerImages">
+								<div class="col-lg-12 text-center listenerImages">
 									<img src="Images/Listener/AffinityDiagram.png" alt="Affinity Diagram">
 									<p>[Affinity Diagram]</p>
 								</div>
@@ -455,6 +468,19 @@
 							shows the personal information of the user of the device, including the bar code which
 							contains that information.
 						</p>
+						<br>
+						<h6>Lo-fi</h6>
+						<br>
+						<div class="container col-lg-12 text-center">
+							<div class="row">
+								<div class="col-lg-12 text-center rolodexImages">
+									<img src="Images/Rolodex/rolodexLoFi.JPG" alt="Rolodex Lo-fi">
+									<p>[Lo-fi]</p>
+								</div>
+							</div>
+						</div>
+						<br>
+						<h6>Hi-fi</h6>
 						<p style="text-align: justify; font-family: 'Open Sans', sans-serif;">The color theme of the
 							application is yellow and brown and a very light grey. The constrast
 							between these colors makes the application looks lively and provides a clean interface. The
@@ -552,7 +578,7 @@
 						</p>
 						<div class="container col-lg-12 text-center">
 							<div class="row">
-								<div class="col-lg-6 text-center budgetMeImages">
+								<div class="col-lg-12 text-center budgetMeImages">
 									<img src="Images/BudgetMe/BudgetMeLoFi.jpeg" alt="">
 									<p>[Lo-fi]</p>
 								</div>
@@ -674,8 +700,7 @@
 						<br>
 						<h5>Target Users</h5>
 						<p style="text-align: justify; font-family: 'Open Sans', sans-serif;">Students and parents who
-							attend the orientation events at school at the beginning of a new
-							school year.
+							attend the orientation events at school at the beginning of a new school year.
 						</p>
 						<br>
 						<h5>Design Solution</h5>
@@ -719,7 +744,137 @@
 		</div>
 		<!-- GoogleModal ends -->
 
-		<script src="https://unpkg.com/ionicons@4.4.4/dist/ionicons.js"></script>
+		<!-- iOSAlarmModal starts -->
+		<div class="modal fade" id="iOSAlarmModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+			aria-hidden="true">
+			<div class="modal-dialog modal-lg" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h2 class="modal-title" id="exampleModalLongTitle">iOS Alarm</h2>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<br>
+						<h5>Problem</h5>
+						<p style="text-align: justify; font-family: 'Open Sans', sans-serif;">
+							A person sets multiple alarms for multiple reasons. Some prefer to set wake up alarms at
+							close intervals to each other rather than ‘snooze’ the first one to avoid accidentally
+							turning off the alarm instead of snoozing it. Some use it for daily chores and wish there
+							were better ways to distinguish between so many alarms than to go through the entire list
+							and find the one they’re looking for.
+						</p>
+						<p style="text-align: justify; font-family: 'Open Sans', sans-serif;">
+							The current iOS alarm application also does not provide a very convenient method to edit an
+							already created alarm. To edit an alarm, the user first has to click on ‘Edit’, then select
+							the alarm to be edited which takes the user to the actual edit screen. This increases the
+							points of interaction between the user and the application which can lead to frustration for
+							the user. Also, there is no way to select multiple alarms at once to delete them, and each
+							alarm has to be deleted individually.
+						</p>
+						<br>
+						<h5>Target Users</h5>
+						<p style="text-align: justify; font-family: 'Open Sans', sans-serif;">Individuals who use the
+							in-built iOS alarm application on their iPhones and need to set multiple alarms of a certain
+							type while preferring to have their alarms categorized as per their needs.
+						</p>
+						<br>
+						<h5>Design Solution</h5>
+						<p style="text-align: justify; font-family: 'Open Sans', sans-serif;">
+							The design solution improves upon and provides a guide to help the user have a better
+							experience while interacting with the application. To solve the problem of having numerous
+							alarms and not the most easy method to distinguish between them, the alarms could be
+							segregated into folders. Each folder could contain alarms which relate to just that category
+							and when a user wishes to turn on/off the alarms, it could be done by toggling the button on
+							that folder.
+						</p>
+						<p style="text-align: justify; font-family: 'Open Sans', sans-serif;">
+							When new alarms are created using the ‘+’ button (existing), alarms can be grouped together
+							into one folder by dragging one alarm over the other. The folder can be renamed by long
+							pressing on the current name of the folder.
+						</p>
+						<p style="text-align: justify; font-family: 'Open Sans', sans-serif;">
+							To edit a specific alarm, the user can swipe right which would bring up an option to edit
+							it; in a way similar to how an alarm can be deleted by swiping left.
+						</p>
+						<p style="text-align: justify; font-family: 'Open Sans', sans-serif;">
+							To select multiple alarms to delete, the user can click on the ‘Select’ button which shows
+							check circles next to the alarms for selection. On selecting the alarms to delete, the user
+							can then click on the ‘trash’ icon to delete those alarms, or the ‘Cancel’ button to not
+							delete.
+						</p>
+						<br>
+						<div class="container col-lg-12 text-center">
+							<div class="row">
+								<div class="col-lg-4 text-center budgetMeImages">
+									<img src="Images/iOSAlarm/dragAnAlarm.png" alt="Drag an Alarm to form a group">
+									<p>[Drag an Alarm to form a group]</p>
+								</div>
+								<div class="col-lg-4 text-center budgetMeImages">
+									<img src="Images/iOSAlarm/folders.png" alt="Folders">
+									<p>[Folders]</p>
+								</div>
+								<div class="col-lg-4 text-center budgetMeImages">
+									<img src="Images/iOSAlarm/openFolder.png" alt="Open Folder">
+									<p>[Open Folder]</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-4 text-center budgetMeImages">
+									<img src="Images/iOSAlarm/editOption.png" alt="Edit Alarm">
+									<p>[Edit Alarm]</p>
+								</div>
+								<div class="col-lg-4 text-center budgetMeImages">
+									<img src="Images/iOSAlarm/folderSelection.png" alt="Folder Selection">
+									<p>[Folder Selection]</p>
+								</div>
+								<div class="col-lg-4 text-center budgetMeImages">
+									<img src="Images/iOSAlarm/openFolderSelection.png" alt="Open Folder Selection">
+									<p>[Open Folder Selection]</p>
+								</div>
+							</div>
+						</div>
+						<p style="text-align: justify; font-family: 'Open Sans', sans-serif;">
+							The mocks for these can be found <a href="http://bit.ly/2kLcO1G" target="_blank">here</a>.
+						</p>
+						<br>
+
+
+
+
+						<!-- <div class="googleImages">
+							<p>[Browsing Events]</p>
+							<img src="Images/Google/BrowsingEvents.png" alt="Browsing Events">
+						</div>
+						<br>
+						<div class="googleImages">
+							<p>[Viewing Events]</p>
+							<img src="Images/Google/ViewingEvents1.png" alt="Viewing Events">
+						</div>
+						<br>
+						<div class="googleImages">
+							<p>[Viewing Events]</p>
+							<img src="Images/Google/ViewingEvents2.png" alt="Viewing Events">
+						</div>
+						<br>
+						<div class="googleImages">
+							<p>[Searching Events]</p>
+							<img src="Images/Google/SearchingEvents.png" alt="Searching Events">
+						</div>
+						<br>
+						<p style="text-align: justify; font-family: 'Open Sans', sans-serif;">The mocks were put
+							together in <a href="https://bit.ly/2G73woR" target="_blank">Figma</a>.
+						</p>
+						<br> -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- iOSAlarmModal ends -->
+	</div>
+	<br><br>
+	<script src="https://unpkg.com/ionicons@4.4.4/dist/ionicons.js"></script>
 </body>
 
 </html>
