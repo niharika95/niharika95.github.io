@@ -140,7 +140,7 @@ const Project = styled.div`
 `;
 
 const ProjectImage = styled.img`
-  max-width: 1024px;
+  max-width: 600px;
 `;
 
 const ProjectDetails = styled.div`
