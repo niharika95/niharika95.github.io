@@ -23,7 +23,7 @@ const links = [
     component: HashLink,
   },
   {
-    href: '/resume',
+    href: '#/resume',
     label: 'Resume',
     component: Link,
   },

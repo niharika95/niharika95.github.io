@@ -48,7 +48,7 @@ const contactLinks = [
   {
     icon: 'ant-design:file-text-filled',
     label: 'Resume (pdf)',
-    href: '/resume',
+    href: '#/resume',
   },
 ];
 
