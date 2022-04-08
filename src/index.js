@@ -2,7 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 // import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Home from './screens/Home/Home';
@@ -13,17 +13,17 @@ import Resume from './screens/Resume/Resume';
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <HashRouter>
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/#projects" element={<Home />} />
         <Route path="/#about" element={<Home />} />
-        <Route path="/project/:id" element={<Project />} />
+        <Route path="/project/:id" element={<Project />} exact />
         <Route path="/resume" element={<Resume />} />
       </Routes>
       {/* <Footer /> */}
-    </BrowserRouter>
+    </HashRouter>
   </React.StrictMode>,
   document.getElementById('root'),
 );
