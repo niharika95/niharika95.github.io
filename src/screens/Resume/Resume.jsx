@@ -24,7 +24,9 @@ const ResumeContainer = styled(Gutter)`
   justify-content: center;
   align-items: center;
   margin-bottom: 100px;
-  
+  @media screen and (max-width: 600px) {
+    margin-top: 100px;
+  }
 `;
 
 const DownloadButton = styled.a`

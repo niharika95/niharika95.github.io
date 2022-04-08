@@ -67,7 +67,14 @@ function Header() {
       {(!isSmallScreen || isNavVisible) && (
         <Links>
           {links.map(({ href, label, component: Element }) => (
-            <Element smooth to={href} key={label}>{label}</Element>
+            <Element
+              onClick={() => setIsNavVisible(false)}
+              smooth
+              to={href}
+              key={label}
+            >
+              {label}
+            </Element>
           ))}
         </Links>
       )}

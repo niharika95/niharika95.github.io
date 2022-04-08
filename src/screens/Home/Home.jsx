@@ -66,7 +66,12 @@ function Home() {
             <ProjectDetails iteration={i}>
               <ProjectTitle color={project.color}>{project.title}</ProjectTitle>
               <ProjectDescription>{project.description}</ProjectDescription>
-              <ProjectLink iteration={i} color={project.color} href={project.href}>
+              <ProjectLink
+                onClick={() => window.scrollTo({ top: 0 })}
+                iteration={i}
+                color={project.color}
+                href={project.href}
+              >
                 Case study
                 <Icon color={project.color} icon="ep:right" />
               </ProjectLink>
