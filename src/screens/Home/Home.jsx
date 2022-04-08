@@ -55,11 +55,6 @@ const contactLinks = [
 function Home() {
   return (
     <Gutter>
-      {/* <ComingSoonContainer>
-        <ComingSoonTitle>Coming soon!</ComingSoonTitle>
-        <ComingSoonSubtitle>The mobile version of the portfolio is in progress but is coming soon!</ComingSoonSubtitle>
-      </ComingSoonContainer> */}
-
       <SubHeader>
         <Title>Hi, I&apos;m Niharika</Title>
         <SubTitle>a UX designer with a zeal for designing intuitive user interfaces</SubTitle>
