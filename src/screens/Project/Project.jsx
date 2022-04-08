@@ -130,6 +130,7 @@ const ImageContainer = styled.div`
   padding-left: 10px;
   padding-right: 10px;
   background: #f1f1f1;
+  margin-bottom: 48px;
 `;
 
 const Image = styled.img`

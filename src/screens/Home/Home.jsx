@@ -55,6 +55,11 @@ const contactLinks = [
 function Home() {
   return (
     <Gutter>
+      {/* <ComingSoonContainer>
+        <ComingSoonTitle>Coming soon!</ComingSoonTitle>
+        <ComingSoonSubtitle>The mobile version of the portfolio is in progress but is coming soon!</ComingSoonSubtitle>
+      </ComingSoonContainer> */}
+
       <SubHeader>
         <Title>Hi, I&apos;m Niharika</Title>
         <SubTitle>a UX designer with a zeal for designing intuitive user interfaces</SubTitle>
@@ -103,6 +108,24 @@ function Home() {
     </Gutter>
   );
 }
+
+// const ComingSoonContainer = styled.div`
+//   margin-top: 600px;
+//   margin-bottom: 600px;
+//   width: 100%;
+// `;
+
+// const ComingSoonTitle = styled.h1`
+//   font-size: 40px;
+//   font-weight: 300;
+//   margin: 0px;
+// `;
+
+// const ComingSoonSubtitle = styled.h2`
+//   font-size: 20px;
+//   font-weight: 300;
+//   margin: 0px;
+// `;
 
 // SubHeader
 const SubHeader = styled.div`

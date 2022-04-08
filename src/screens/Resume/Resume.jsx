@@ -23,6 +23,7 @@ const ResumeContainer = styled(Gutter)`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 100px;
 `;
 
 const DownloadButton = styled.a`

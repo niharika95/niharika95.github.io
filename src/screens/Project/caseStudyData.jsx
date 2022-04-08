@@ -213,27 +213,27 @@ const caseStudyData = {
       },
       {
         title: 'LO-FI WIREFRAMES',
-        description: '',
+        description: 'Paper wireframes',
         img: swiftbikesPaperWireframes,
       },
       {
         title: '',
-        description: '',
+        description: 'Digital wireframes (mobile)',
         img: swiftbikesLofiWireframesMobile,
       },
       {
         title: '',
-        description: '',
+        description: 'Digital wireframes (desktop)',
         img: swiftbikesLofiWireframesDesktop,
       },
       {
         title: 'HI-FI WIREFRAMES',
-        description: '',
+        description: 'Mobile screens',
         img: swiftbikesHifiWireframesMobile,
       },
       {
         title: '',
-        description: '',
+        description: 'Desktop screens',
         img: swiftbikesHifiWireframesDesktop,
       },
       {
@@ -299,12 +299,12 @@ const caseStudyData = {
       },
       {
         title: 'LO-FI WIREFRAMES',
-        description: '',
+        description: 'Paper wireframes',
         img: svaasthyaPaperWireframes,
       },
       {
         title: '',
-        description: '',
+        description: 'Digital wireframes',
         img: svaasthyaLofiWireframesMobile,
       },
       {
