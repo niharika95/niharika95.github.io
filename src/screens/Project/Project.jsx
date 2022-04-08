@@ -97,6 +97,10 @@ const CaseStudyContainer = styled.div`
   grid-template-columns: 40% auto auto;
   grid-template-rows: auto;
   column-gap: 40px;
+  @media screen and (max-width: 600px) {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 const CaseStudyInfo = styled.div`
@@ -149,6 +153,9 @@ const PersonaImage = styled.img`
   width: 70%;
   :nth-child(even){
     align-self: flex-end;
+  }
+  @media screen and (max-width: 600px) {
+    width: 100%;
   }
 `;
 

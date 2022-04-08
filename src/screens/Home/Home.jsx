@@ -66,7 +66,7 @@ function Home() {
       </SubHeader>
       <Projects id="projects">
         {projects.map((project, i) => (
-          <Project>
+          <Project key={project.title}>
             <ProjectImage src={project.img} />
             <ProjectDetails iteration={i}>
               <ProjectTitle color={project.color}>{project.title}</ProjectTitle>
@@ -94,7 +94,7 @@ function Home() {
           </P>
           <ContactLinks>
             {contactLinks.map((link) => (
-              <ContactLink target={link.target} href={link.href}>
+              <ContactLink key={link.label} target={link.target} href={link.href}>
                 <Icon color="106066" icon={link.icon} />
                 {link.label}
               </ContactLink>
@@ -108,24 +108,6 @@ function Home() {
     </Gutter>
   );
 }
-
-// const ComingSoonContainer = styled.div`
-//   margin-top: 600px;
-//   margin-bottom: 600px;
-//   width: 100%;
-// `;
-
-// const ComingSoonTitle = styled.h1`
-//   font-size: 40px;
-//   font-weight: 300;
-//   margin: 0px;
-// `;
-
-// const ComingSoonSubtitle = styled.h2`
-//   font-size: 20px;
-//   font-weight: 300;
-//   margin: 0px;
-// `;
 
 // SubHeader
 const SubHeader = styled.div`
@@ -160,10 +142,20 @@ const Project = styled.div`
   :nth-child(even) {
     flex-direction: row-reverse;
   }
+
+  @media screen and (max-width: 600px) {
+    flex-direction: column;
+    :nth-child(even) {
+    flex-direction: column;
+  }
+  }
 `;
 
 const ProjectImage = styled.img`
   max-width: 600px;
+  @media screen and (max-width: 600px) {
+    width: 100%;
+  }
 `;
 
 const ProjectDetails = styled.div`
@@ -192,16 +184,27 @@ const Line = styled.div`
   margin-left: 247px;
   margin-right: 247px;
   border-top: 1px solid #D6D6D6;
+  @media screen and (max-width: 600px) {
+    border-top: 1px solid #D6D6D6;
+    margin-left: 48px;
+    margin-right: 48px;
+  }
 `;
 
 const AboutContainer = styled.div`
   display: flex;
   justify-content: center;
   margin-bottom: 200px;
+  @media screen and (max-width: 600px) {
+    flex-direction: column-reverse;
+  }
 `;
 
 const ProfileImage = styled.img`
   width: 600px;
+  @media screen and (max-width: 600px) {
+    width: 100%;
+  }
 `;
 
 const Quote = styled.p`
