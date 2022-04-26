@@ -61,7 +61,7 @@ const caseStudyData = {
           'UX designer',
           'Interaction designer',
           'Visual designer',
-          'Usability Tester',
+          // 'Usability Tester',
         ],
       },
       {
