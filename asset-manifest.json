@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.3c12701d.css",
-    "main.js": "/static/js/main.146e9f2a.js",
+    "main.css": "/static/css/main.6bd676ff.css",
+    "main.js": "/static/js/main.ecb72b4b.js",
     "static/js/787.039e41eb.chunk.js": "/static/js/787.039e41eb.chunk.js",
     "static/media/swiftbikesPaperWireframes.png": "/static/media/swiftbikesPaperWireframes.1e9288b2e1233b3e6e80.png",
     "static/media/svaasthyaStyleGuide.png": "/static/media/svaasthyaStyleGuide.49e7b7fc3effdfd2ae18.png",
@@ -20,32 +20,32 @@
     "static/media/femhealthHifiWireframesDesktop1.png": "/static/media/femhealthHifiWireframesDesktop1.b305f81911fd221143e7.png",
     "static/media/femhealthPersona1Julia.png": "/static/media/femhealthPersona1Julia.eaeb045bffd198f41e7a.png",
     "static/media/femhealthHifiWireframesDesktop2.png": "/static/media/femhealthHifiWireframesDesktop2.626a83e13d9006e21af8.png",
-    "static/media/resume.png": "/static/media/resume.df72ed9172e78e2192d8.png",
+    "static/media/resume.png": "/static/media/resume.e0ad91d4f8e241ced5ae.png",
     "static/media/femhealthPersona2Eve.png": "/static/media/femhealthPersona2Eve.67e27b4ed43bc32863c4.png",
     "static/media/femhealthHifiWireframesDesktop3.png": "/static/media/femhealthHifiWireframesDesktop3.3625bbc80c985752f2b4.png",
     "static/media/femhealthHifiWireframesTablet.png": "/static/media/femhealthHifiWireframesTablet.f3447a92170dadeb9ffe.png",
-    "static/media/resume.pdf": "/static/media/resume.eb3f4f91e8a086c501b2.pdf",
+    "static/media/resume.pdf": "/static/media/resume.c6e38eb6679ba29503b3.pdf",
     "static/media/femhealthLofiWireframesDesktop.png": "/static/media/femhealthLofiWireframesDesktop.49f4f9470b342b088d45.png",
     "static/media/femhealthHifiWireframesDesktop4.png": "/static/media/femhealthHifiWireframesDesktop4.633e78f54ea1c9faf4bf.png",
     "static/media/svaasthya.png": "/static/media/svaasthya.d0572873f12034cff26d.png",
     "static/media/swiftbikesLofiWireframesMobile.png": "/static/media/swiftbikesLofiWireframesMobile.ba520e05a9ee36c10dd1.png",
     "static/media/swiftbikes.png": "/static/media/swiftbikes.620ea2568351eb906519.png",
-    "static/media/TT Norms Pro Bold.otf": "/static/media/TT Norms Pro Bold.b3d2a1611bdbcb6bec24.otf",
-    "static/media/TT Norms Pro Italic.otf": "/static/media/TT Norms Pro Italic.ea6faff245c7a031e30d.otf",
-    "static/media/TT Norms Pro Medium.otf": "/static/media/TT Norms Pro Medium.a3dc2d380103c718f45f.otf",
-    "static/media/TT Norms Pro Regular.otf": "/static/media/TT Norms Pro Regular.afdec721305148234e0a.otf",
-    "static/media/TT Norms Pro Light.otf": "/static/media/TT Norms Pro Light.0371b80fb8b8fa87e43f.otf",
     "static/media/swiftbikesLofiWireframesDesktop.png": "/static/media/swiftbikesLofiWireframesDesktop.2c8e451339bb93002eb5.png",
     "static/media/femhealth.png": "/static/media/femhealth.3b842719c7a88b43546f.png",
     "static/media/femhealthUserflow.png": "/static/media/femhealthUserflow.f773643d5b4c153bb0fc.png",
+    "static/media/Mulish-Italic.ttf": "/static/media/Mulish-Italic.ca8a28f6c2287e5bee64.ttf",
+    "static/media/Mulish-Light.ttf": "/static/media/Mulish-Light.5957f99d603e0c1dc013.ttf",
+    "static/media/Mulish-Medium.ttf": "/static/media/Mulish-Medium.dd646491799545c3e334.ttf",
+    "static/media/Mulish-Bold.ttf": "/static/media/Mulish-Bold.14efde3cf96011d61f01.ttf",
+    "static/media/Mulish-Regular.ttf": "/static/media/Mulish-Regular.18a0df44f5ffb1a651c6.ttf",
     "static/media/niharikaProfileImg.png": "/static/media/niharikaProfileImg.7e0380ba2cc522480267.png",
     "index.html": "/index.html",
-    "main.3c12701d.css.map": "/static/css/main.3c12701d.css.map",
-    "main.146e9f2a.js.map": "/static/js/main.146e9f2a.js.map",
+    "main.6bd676ff.css.map": "/static/css/main.6bd676ff.css.map",
+    "main.ecb72b4b.js.map": "/static/js/main.ecb72b4b.js.map",
     "787.039e41eb.chunk.js.map": "/static/js/787.039e41eb.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3c12701d.css",
-    "static/js/main.146e9f2a.js"
+    "static/css/main.6bd676ff.css",
+    "static/js/main.ecb72b4b.js"
   ]
 }
