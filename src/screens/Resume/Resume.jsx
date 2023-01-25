@@ -48,6 +48,7 @@ const DownloadButton = styled.a`
 const ResumeImage = styled.img`
   width: 70%;
   border: 2px solid #106066;
+  border-radius: 8px;
   @media screen and (max-width: 600px) {
     width: 100%;
   }
