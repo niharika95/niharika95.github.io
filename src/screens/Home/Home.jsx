@@ -6,6 +6,7 @@ import femhealthImg from '../../assets/images/femhealth.png';
 import swiftbikesImg from '../../assets/images/swiftbikes.png';
 import svaasthyaImg from '../../assets/images/svaasthya.png';
 import niharikaProfileImg from '../../assets/images/niharikaProfileImg.png';
+import quotesSymbol from '../../assets/images/quotes.png';
 import { Gutter, ProjectTitle } from '../../common';
 
 const projects = [
@@ -49,6 +50,19 @@ const contactLinks = [
     icon: 'ant-design:file-text-filled',
     label: 'Resume (pdf)',
     href: '#/resume',
+  },
+];
+
+const recommendations = [
+  {
+    message: 'Niharika interned for us at Alstom Signaling during the winter of 2018, and she was by far one of our best!  I was so impressed with how quickly she learned!  The tasks she was given were quite complex, but she completed all of them with such efficiency. She was always motivated, had a strong desire to contribute, and never hesitated to ask questions to better learn her responsibilities.  In fact, I struggled to keep her busy!  I’m very grateful for her time with us. I would be very happy to have her back one day.',
+    name: 'Chris Brucker',
+    job: 'Application Engineer | Alstom',
+  },
+  {
+    message: 'Niharika joined Alstom as coop for RIT for a full quarter and she worked for the Automation and Simulators department. Fast learner, not afraid to take on new challenges, proactive with good initiative and easy to work with!',
+    name: 'Ralph Ades',
+    job: 'Director of Automation Tools & Simulators (Retired) | Alstom',
   },
 ];
 
@@ -105,6 +119,26 @@ function Home() {
           <ProfileImage src={niharikaProfileImg} />
         </Right>
       </AboutContainer>
+      <Abc>
+        <RecommendationTitle>Recommendations</RecommendationTitle>
+        <RecommendationsContainer id="recommendations">
+          {recommendations.map((recommendation) => (
+            <Recommendation>
+              <QuoteSymbol src={quotesSymbol} />
+              <Copy>
+                <RecommendationMessage>{recommendation.message}</RecommendationMessage>
+                <RecommenderContainer>
+                  <RecommendationDetailsDesign />
+                  <RecommenderDetails>
+                    <RecommenderName>{recommendation.name}</RecommenderName>
+                    <RecommenderJob>{recommendation.job}</RecommenderJob>
+                  </RecommenderDetails>
+                </RecommenderContainer>
+              </Copy>
+            </Recommendation>
+          ))}
+        </RecommendationsContainer>
+      </Abc>
     </Gutter>
   );
 }
@@ -194,9 +228,10 @@ const Line = styled.div`
 const AboutContainer = styled.div`
   display: flex;
   justify-content: center;
-  margin-bottom: 200px;
+  margin-bottom: 120px;
   @media screen and (max-width: 600px) {
     flex-direction: column-reverse;
+    margin-bottom: 80px;
   }
 `;
 
@@ -243,6 +278,79 @@ const ContactLink = styled.a`
   :hover{
     text-decoration: underline;
   }
+`;
+
+const RecommendationTitle = styled.p`
+  font-size: 28px;
+  margin-bottom: 60px;
+  @media screen and (max-width: 600px) {
+    margin-bottom: 40px;
+  }
+`;
+
+const RecommendationsContainer = styled.div`
+  display: inline-flex;
+  margin-bottom: 150px;
+  justify-content: space-between;
+  max-width: 1396px;
+  @media screen and (max-width: 600px) {
+    display: block;
+    margin-bottom: 100px;
+  }
+`;
+
+const Abc = styled.div`
+  text-align: center;
+`;
+
+const Recommendation = styled.div`
+  display: flex;
+  width: 45%;
+  text-align: left;
+  @media screen and (max-width: 600px) {
+    width: 100%;
+    margin-bottom: 80px;
+  }
+`;
+
+const QuoteSymbol = styled.img`
+  height: 28px;
+  margin-right: 12px;
+`;
+
+const Copy = styled.div``;
+
+const RecommendationMessage = styled.p`
+  font-size: 16px;
+  font-style: italic;
+  font-weight: 300;
+  margin-top: 0;
+`;
+
+const RecommenderContainer = styled.div`
+  display: flex;
+`;
+
+const RecommendationDetailsDesign = styled.div`
+  width: 10px;
+  background-color: #106066;
+  opacity: 20%;
+  height: auto;
+  margin-right: 8px;
+`;
+
+const RecommenderDetails = styled.div``;
+
+const RecommenderName = styled.p`
+  font-size: 18px;
+  font-weight: 400;
+  margin: 0;
+`;
+
+const RecommenderJob = styled.p`
+  font-size: 16px;
+  font-weight: 300;
+  margin: 0;
 `;
 
 export default Home;
