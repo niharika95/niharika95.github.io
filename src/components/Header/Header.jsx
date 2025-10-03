@@ -1,38 +1,28 @@
-import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
-import { Link as RLink } from 'react-router-dom';
-import { HashLink as RHashLink } from 'react-router-hash-link';
+import React, { useEffect, useState } from 'react';
+
 import { Icon } from '@iconify/react';
+import { HashLink as RHashLink } from 'react-router-hash-link';
+import { Link as RLink } from 'react-router-dom';
 import niharikaLogo from '/niharikaLogo.png';
 
-const Link = styled(RLink)`
-  font-size: 20px;
-  text-decoration: none;
-  color: black;
-`;
+const Link = ({ className = '', smooth, ...rest }) => (
+  <RLink
+    {...rest}
+    className={`text-[20px] no-underline hover:no-underline text-black visited:text-black ${className}`}
+  />
+);
 
-const HashLink = styled(RHashLink)`
-  font-size: 20px;
-  text-decoration: none;
-  color: black;
-`;
+const HashLink = ({ className = '', ...rest }) => (
+  <RHashLink
+    {...rest}
+    className={`text-[20px] no-underline hover:no-underline text-black visited:text-black ${className}`}
+  />
+);
 
 const links = [
-  {
-    href: '/#projects',
-    label: 'Projects',
-    component: HashLink,
-  },
-  {
-    href: '/resume',
-    label: 'Resume',
-    component: Link,
-  },
-  {
-    href: '/#about',
-    label: 'About',
-    component: HashLink,
-  },
+  { href: '/#projects', label: 'Projects', component: HashLink },
+  { href: '/resume', label: 'Resume', component: Link },
+  { href: '/#about', label: 'About', component: HashLink },
 ];
 
 function Header() {
@@ -51,7 +41,6 @@ function Header() {
     const mediaQuery = window.matchMedia('(max-width: 600px)');
     mediaQuery.addEventListener('change', handleMediaQueryChange);
     handleMediaQueryChange(mediaQuery);
-
     return () => {
       mediaQuery.removeEventListener('change', handleMediaQueryChange);
     };
@@ -60,12 +49,24 @@ function Header() {
   const toggleNav = () => setIsNavVisible(!isNavVisible);
 
   return (
-    <HeaderContainer>
-      <HashLink smooth to="/#">
-        <Logo src={niharikaLogo} />
-      </HashLink>
-      {(!isSmallScreen || isNavVisible) && (
-        <Links>
+    <header className="fixed top-0 left-0 bg-white border-b border-[#cecece] w-full">
+      <div className="flex justify-between items-center px-[100px] max-[600px]:px-[12px] py-[8px] min-h-[72px] max-[600px]:grid max-[600px]:grid-cols-[auto_1fr_auto] max-[600px]:gap-x-[12px]">
+        <HashLink smooth to="/#" className="max-[600px]:col-start-1">
+          <img src={niharikaLogo} alt="logo" className="h-[56px]" />
+        </HashLink>
+        <Icon
+          onClick={toggleNav}
+          color="#000000"
+          icon="icon-park:hamburger-button"
+          className="hidden max-[600px]:block col-start-3 justify-self-end self-center text-[30px] cursor-pointer"
+          role="button"
+          tabIndex={0}
+          aria-expanded={isNavVisible}
+          aria-label="Toggle navigation"
+          onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && toggleNav()}
+        />
+        {(!isSmallScreen || isNavVisible) && (
+          <nav className="flex items-center gap-x-[60px] max-[600px]:grid max-[600px]:grid-cols-1 max-[600px]:gap-y-[40px] max-[600px]:mt-[20px] max-[600px]:mb-[20px] max-[600px]:col-span-3 max-[600px]:justify-items-center">
           {links.map(({ href, label, component: Element }) => (
             <Element
               onClick={() => setIsNavVisible(false)}
@@ -76,82 +77,11 @@ function Header() {
               {label}
             </Element>
           ))}
-        </Links>
-      )}
-      <BurgerIcon onClick={toggleNav} color="#000000" icon="icon-park:hamburger-button" />
-    </HeaderContainer>
+          </nav>
+        )}
+      </div>
+    </header>
   );
 }
-
-const BurgerIcon = styled(Icon)`
-  display: none;
-  grid-area: burger;
-  @media screen and (max-width: 600px) {
-    display: block;
-    justify-self: right;
-    align-self: center;
-    font-size: 30px;
-  }
-`;
-
-const HeaderContainer = styled.div`
-  display: grid;
-  grid-template-areas: "logo nav";
-  padding-left: 100px;
-  padding-right: 100px;
-  position: fixed;
-  top:0;
-  background: white;
-  width: 100vw;
-  border-bottom: 1px solid #cecece;
-  box-sizing: border-box;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  /* display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-left: 100px;
-  padding-right: 100px;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  background: white;
-  box-shadow: 0px 6px 49px -35px rgba(0,0,0,0.63);
-  position: fixed;
-  width: 100vw;
-  top:0;
-  box-sizing: border-box;
-
-  @media screen and (max-width: 600px) {
-    padding-left: 12px;
-    padding-right: 12px;
-  } */
-
-  @media screen and (max-width: 600px) {
-    padding-left: 12px;
-    padding-right: 12px;
-    grid-template-areas: "logo burger" "nav nav";
-  }
-`;
-
-const Logo = styled.img`
-  height: 56px;
-  grid-area: logo;
-`;
-
-const Links = styled.div`
-  display: grid;
-  grid-template-columns: auto auto auto;
-  justify-items: end;
-  align-items: center;
-  grid-area: nav;
-  @media screen and (max-width: 600px) {
-    grid-template-columns: none;
-    grid-template-rows: auto auto auto;
-    grid-row-gap: 40px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-  }
-  /* grid-gap: 60px; */
-`;
 
 export default Header;

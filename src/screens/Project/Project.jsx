@@ -1,8 +1,8 @@
+import { Gutter, ProjectTitle } from '../../common';
+import { Link, useLocation } from 'react-router-dom';
+
 import { Icon } from '@iconify/react';
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import styled from 'styled-components';
-import { Gutter, ProjectTitle } from '../../common';
 import caseStudyData from './caseStudyData';
 
 function Project() {
@@ -11,161 +11,73 @@ function Project() {
   const projectName = pathname.split('/').pop();
   const currentProject = caseStudyData[projectName];
   return (
-    <div style={{ marginTop: 150 }}>
+    <div className="pt-[100px] mt-[100px]">
       <Gutter>
-        <Back to="/">
+        <Link
+          to="/"
+          className="flex items-center text-[28px] text-[var(--color-brand-primary)] no-underline gap-[12px] mb-[100px]"
+        >
           <Icon icon="ep:back" />
           Projects
-        </Back>
+        </Link>
 
-        <ProjectInfo>
+        <div className="mb-[48px]">
           <ProjectTitle color={currentProject.color}>{currentProject.title}</ProjectTitle>
           {/* <P>{currentProject.subtitle}</P> */}
-          <P>{currentProject.description}</P>
-        </ProjectInfo>
+          <p className="font-light text-[20px]">{currentProject.description}</p>
+        </div>
 
-        <CaseStudyContainer>
-          {currentProject?.caseStudyInfo?.map((item) => (
-            <CaseStudyInfo>
-              <CaseStudyHeader color={currentProject.color}>{item.title}</CaseStudyHeader>
-              {item?.description && (
-              <P>{item.description}</P>
-              )}
+        <div className="grid [grid-template-columns:40%_auto_auto] [grid-template-rows:auto] gap-x-[40px] max-[600px]:flex max-[600px]:flex-col">
+          {currentProject?.caseStudyInfo?.map((item, idx) => (
+            <div key={idx} className="mb-[48px] col-span-full">
+              <h2 className="font-medium text-[20px]" style={{ color: currentProject.color }}>
+                {item.title}
+              </h2>
+              {item?.description && <p className="font-light text-[20px]">{item.description}</p>}
               {item?.list && (
-              <UL>
-                {item.list.map((listItem) => (
-                  <LI>{listItem}</LI>
-                ))}
-              </UL>
+                <ul>
+                  {item.list.map((listItem, li) => (
+                    <li key={li} className="font-light text-[20px]">
+                      {listItem}
+                    </li>
+                  ))}
+                </ul>
               )}
-            </CaseStudyInfo>
+            </div>
           ))}
-        </CaseStudyContainer>
+        </div>
       </Gutter>
 
-      {currentProject.designInfo.map((designitem) => (
-        <DesignInfo>
+      {currentProject.designInfo.map((designitem, di) => (
+        <div key={di}>
           <Gutter>
-            <CaseStudyHeader color={currentProject.color}>{designitem.title}</CaseStudyHeader>
-            <P>{designitem.description}</P>
+            <h2 className="font-medium text-[20px]" style={{ color: currentProject.color }}>
+              {designitem.title}
+            </h2>
+            <p className="font-light text-[20px]">{designitem.description}</p>
             {designitem?.personas && (
-            <PersonaContainer>
-              {designitem.personas.map((persona) => (
-                <PersonaImage src={persona.img} />
-              ))}
-            </PersonaContainer>
+              <div className="flex flex-col gap-[60px] mt-[48px] mb-[48px]">
+                {designitem.personas.map((persona, pi) => (
+                  <img
+                    key={pi}
+                    src={persona.img}
+                    className={`w-[70%] max-[600px]:w-full ${pi % 2 === 1 ? 'self-end' : ''}`}
+                  />
+                ))}
+              </div>
             )}
-            <Element>{designitem?.element && designitem.element}</Element>
+            <div className="mb-[48px]">{designitem?.element && designitem.element}</div>
           </Gutter>
           {designitem?.img && (
-            <ImageContainer>
-              <Image src={designitem.img} />
-            </ImageContainer>
+            <div className="pt-[50px] pb-[50px] pl-[10px] pr-[10px] bg-[#f1f1f1] mb-[48px]">
+              <img src={designitem.img} className="w-full bg-[#f1f1f1]" />
+            </div>
           )}
-        </DesignInfo>
+        </div>
       ))}
-      <FooterSpace />
+      <div className="w-full h-[150px]" />
     </div>
   );
 }
-
-const Back = styled(Link)`
-  display: flex;
-  align-items: center;
-  font-size: 28px;
-  color: #106066;
-  text-decoration: none;
-  column-gap: 12px;
-  margin-bottom: 100px;
-`;
-
-const ProjectInfo = styled.div`
-  margin-bottom: 48px;
-`;
-
-const P = styled.p`
-  font-weight: 300;
-  font-size: 20px;
-`;
-
-const CaseStudyContainer = styled.div`
-  display: grid;
-  grid-template-areas: 
-    "full full full"
-    "full2 full2 full2"
-  ;
-  grid-template-columns: 40% auto auto;
-  grid-template-rows: auto;
-  column-gap: 40px;
-  @media screen and (max-width: 600px) {
-    display: flex;
-    flex-direction: column;
-  }
-`;
-
-const CaseStudyInfo = styled.div`
-  :nth-child(1){
-    grid-area: full;
-  }
-  :nth-child(2){
-    grid-area: full2;
-  }
-  margin-bottom: 48px;
-`;
-
-const CaseStudyHeader = styled.h2`
-  font-weight: 500;
-  font-size: 20px;
-  color: ${(props) => props.color}
-`;
-
-const UL = styled.ul``;
-
-const LI = styled.li`
-  font-weight: 300;
-  font-size: 20px;
-`;
-
-const DesignInfo = styled.div``;
-
-const ImageContainer = styled.div`
-  padding-top: 50px;
-  padding-bottom: 50px;
-  padding-left: 10px;
-  padding-right: 10px;
-  background: #f1f1f1;
-  margin-bottom: 48px;
-`;
-
-const Image = styled.img`
-  width: 100%;
-  background: #f1f1f1;
-`;
-
-const PersonaContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  row-gap: 60px;
-  margin-top: 48px;
-  margin-bottom: 48px;
-`;
-const PersonaImage = styled.img`
-  width: 70%;
-  :nth-child(even){
-    align-self: flex-end;
-  }
-  @media screen and (max-width: 600px) {
-    width: 100%;
-  }
-`;
-
-const Element = styled.div`
-  margin-bottom: 48px;
-`;
-
-const FooterSpace = styled.div`
-  width: 100%;
-  height: 150px;
-`;
 
 export default Project;

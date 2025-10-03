@@ -1,13 +1,14 @@
 /* eslint-disable max-len */
-import React from 'react';
-import styled from 'styled-components';
+
+import { Gutter, ProjectTitle } from '../../common';
+
 import { Icon } from '@iconify/react';
+import React from 'react';
 import femhealthImg from '../../assets/images/femhealth.png';
-import swiftbikesImg from '../../assets/images/swiftbikes.png';
-import svaasthyaImg from '../../assets/images/svaasthya.png';
 import niharikaProfileImg from '../../assets/images/niharikaProfileImg.png';
 import quotesSymbol from '../../assets/images/quotes.png';
-import { Gutter, ProjectTitle } from '../../common';
+import svaasthyaImg from '../../assets/images/svaasthya.png';
+import swiftbikesImg from '../../assets/images/swiftbikes.png';
 
 const projects = [
   {
@@ -68,289 +69,89 @@ const recommendations = [
 
 function Home() {
   return (
-    <Gutter>
-      <SubHeader>
-        <Title>Hi, I&apos;m Niharika</Title>
-        <SubTitle>a UX designer with a zeal for designing intuitive user interfaces</SubTitle>
-      </SubHeader>
-      <Projects id="projects">
+    <Gutter className="pt-[100px]">
+      <div className="mt-[100px]">
+        <h1 className="text-[60px] font-light m-0 leading-[72px]">Hi, I'm Niharika</h1>
+        <h2 className="text-[28px] leading-[34px] font-light mt-[12px] mb-0">a UX designer with a zeal for designing intuitive user interfaces</h2>
+      </div>
+      <div id="projects" className="mt-[120px]">
         {projects.map((project, i) => (
-          <Project key={project.title}>
-            <ProjectImage src={project.img} />
-            <ProjectDetails iteration={i}>
+          <div
+            key={project.title}
+            className={`mt-[150px] flex gap-[100px] justify-center items-center ${i % 2 === 0 ? 'flex-row' : 'flex-row-reverse'} max-[600px]:flex-col`}
+          >
+            <img src={project.img} alt={project.title} className="max-w-[600px] max-[600px]:w-full" />
+            <div className={`${i % 2 === 0 ? 'text-left' : 'text-right'}`}>
               <ProjectTitle color={project.color}>{project.title}</ProjectTitle>
-              <ProjectDescription>{project.description}</ProjectDescription>
-              <ProjectLink
+              <p className="text-[28px] font-light">{project.description}</p>
+              <a
                 onClick={() => window.scrollTo({ top: 0 })}
-                iteration={i}
-                color={project.color}
                 href={project.href}
+                style={{ color: project.color }}
+                className={`flex items-center gap-[8px] no-underline text-[20px] font-medium ${i % 2 === 0 ? 'float-left' : 'float-right'}`}
               >
                 Case study
                 <Icon color={project.color} icon="ep:right" />
-              </ProjectLink>
-            </ProjectDetails>
-          </Project>
+              </a>
+            </div>
+          </div>
         ))}
-      </Projects>
-      <Line />
-      <AboutContainer id="about">
-        <Left>
-          <Quote>I believe that an intuitive, organized and detail-attentive design is what gives the user a seamless experience.</Quote>
-          <P>
-            I&apos;m passionate about creating minimal yet intuitive designs for diverse digital interfaces.
+      </div>
+      <div className="mt-[100px] mb-[100px] ml-[247px] mr-[247px] border-t border-[var(--color-border-muted)] max-[600px]:ml-[48px] max-[600px]:mr-[48px]" />
+      <div id="about" className="flex justify-center mb-[120px] max-[600px]:flex-col-reverse max-[600px]:mb-[80px]">
+        <div>
+          <p className="italic text-[28px] max-w-[796px] text-[var(--color-brand-primary)]">
+            I believe that an intuitive, organized and detail-attentive design is what gives the user a seamless experience.
+          </p>
+          <p className="text-[20px] font-light leading-[30px] max-w-[550px]">
+            I'm passionate about creating minimal yet intuitive designs for diverse digital interfaces.
             <br />
             <br />
-            I started off as a Front-end Developer and my interest in implementing user interfaces came from designing simple and intuitive ones. With a Master&apos;s degree in Software Engineering, I have experience developing digital interfaces and have also learned a lot about UX design through professional and personal projects and the Google UX Design certification.
+            I started off as a Front-end Developer and my interest in implementing user interfaces came from designing simple and intuitive ones. With a Master's degree in Software Engineering, I have experience developing digital interfaces and have also learned a lot about UX design through professional and personal projects and the Google UX Design certification.
             <br />
             <br />
-            When I&apos;m not coding or designing, I like to sit with a thriller novel or with some paints and a canvas!
-          </P>
-          <ContactLinks>
+            When I'm not coding or designing, I like to sit with a thriller novel or with some paints and a canvas!
+          </p>
+          <div className="flex flex-col gap-[12px] mt-[60px]">
             {contactLinks.map((link) => (
-              <ContactLink key={link.label} target={link.target} href={link.href}>
-                <Icon color="106066" icon={link.icon} />
+              <a
+                key={link.label}
+                target={link.target}
+                href={link.href}
+                className="font-light text-[20px] no-underline text-black flex gap-[12px] items-center hover:underline"
+              >
+                <Icon color="#106066" icon={link.icon} />
                 {link.label}
-              </ContactLink>
+              </a>
             ))}
-          </ContactLinks>
-        </Left>
-        <Right>
-          <ProfileImage src={niharikaProfileImg} />
-        </Right>
-      </AboutContainer>
-      <Abc>
-        <RecommendationTitle>Recommendations</RecommendationTitle>
-        <RecommendationsContainer id="recommendations">
-          {recommendations.map((recommendation) => (
-            <Recommendation>
-              <QuoteSymbol src={quotesSymbol} />
-              <Copy>
-                <RecommendationMessage>{recommendation.message}</RecommendationMessage>
-                <RecommenderContainer>
-                  <RecommendationDetailsDesign />
-                  <RecommenderDetails>
-                    <RecommenderName>{recommendation.name}</RecommenderName>
-                    <RecommenderJob>{recommendation.job}</RecommenderJob>
-                  </RecommenderDetails>
-                </RecommenderContainer>
-              </Copy>
-            </Recommendation>
+          </div>
+        </div>
+        <div>
+          <img src={niharikaProfileImg} alt="profile" className="w-[600px] max-[600px]:w-full" />
+        </div>
+      </div>
+      <div className="text-center">
+        <p className="text-[28px] mb-[60px] max-[600px]:mb-[40px]">Recommendations</p>
+        <div id="recommendations" className="inline-flex mb-[150px] justify-between max-w-[1396px] max-[600px]:block max-[600px]:mb-[100px]">
+          {recommendations.map((recommendation, i) => (
+            <div key={`${recommendation.name}-${i}`} className="flex w-[45%] text-left max-[600px]:w-full max-[600px]:mb-[80px]">
+              <img src={quotesSymbol} alt="quote" className="h-[28px] mr-[12px]" />
+              <div>
+                <p className="text-[16px] italic font-light mt-0">{recommendation.message}</p>
+                <div className="flex">
+                  <div className="w-[10px] bg-[var(--color-brand-primary)] opacity-20 h-auto mr-[8px]" />
+                  <div>
+                    <p className="text-[18px] font-normal m-0">{recommendation.name}</p>
+                    <p className="text-[16px] font-light m-0">{recommendation.job}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           ))}
-        </RecommendationsContainer>
-      </Abc>
+        </div>
+      </div>
     </Gutter>
   );
 }
-
-// SubHeader
-const SubHeader = styled.div`
-  margin-top: 200px;
-`;
-
-const Title = styled.h1`
-  font-size: 60px;
-  font-weight: 300;
-  margin: 0px;
-  line-height: 72px;
-`;
-
-const SubTitle = styled.h2`
-  font-size: 28px;
-  line-height: 34px;
-  font-weight: 300;
-  margin-top: 12px;
-  margin-bottom: 0px;
-`;
-
-const Projects = styled.div`
-  margin-top: 120px;
-`;
-
-const Project = styled.div`
-  margin-top: 150px;
-  display: flex;
-  column-gap: 100px;
-  justify-content: center;
-  align-items: center;
-  :nth-child(even) {
-    flex-direction: row-reverse;
-  }
-
-  @media screen and (max-width: 600px) {
-    flex-direction: column;
-    :nth-child(even) {
-    flex-direction: column;
-  }
-  }
-`;
-
-const ProjectImage = styled.img`
-  max-width: 600px;
-  @media screen and (max-width: 600px) {
-    width: 100%;
-  }
-`;
-
-const ProjectDetails = styled.div`
-  text-align: ${(props) => (props.iteration % 2 === 0 ? 'left' : 'right')};
-`;
-
-const ProjectDescription = styled.p`
-  font-size: 28px;
-  font-weight: 300;
-`;
-
-const ProjectLink = styled.a`
-  column-gap: 8px;
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  color: ${(props) => props.color};
-  font-size: 20px;
-  font-weight: 500;
-  float: ${(props) => (props.iteration % 2 === 0 ? 'left' : 'right')};
-`;
-
-const Line = styled.div`
-  margin-top: 100px;
-  margin-bottom: 100px;
-  margin-left: 247px;
-  margin-right: 247px;
-  border-top: 1px solid #D6D6D6;
-  @media screen and (max-width: 600px) {
-    border-top: 1px solid #D6D6D6;
-    margin-left: 48px;
-    margin-right: 48px;
-  }
-`;
-
-const AboutContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  margin-bottom: 120px;
-  @media screen and (max-width: 600px) {
-    flex-direction: column-reverse;
-    margin-bottom: 80px;
-  }
-`;
-
-const ProfileImage = styled.img`
-  width: 600px;
-  @media screen and (max-width: 600px) {
-    width: 100%;
-  }
-`;
-
-const Quote = styled.p`
-  font-style: italic;
-  font-size: 28px;
-  max-width: 796px;
-  color: #106066;
-`;
-
-const P = styled.p`
-  font-size: 20px;
-  font-weight: 300;
-  line-height: 30px;
-  max-width: 550px;
-`;
-
-const Right = styled.div``;
-
-const Left = styled.div``;
-
-const ContactLinks = styled.div`
-  display: flex;
-  flex-direction: column;
-  row-gap: 12px;
-  margin-top: 60px;
-`;
-
-const ContactLink = styled.a`
-  font-weight: 300;
-  font-size: 20px;
-  text-decoration: none;
-  color: black;
-  display: flex;
-  column-gap: 12px;
-  align-items: center;
-  :hover{
-    text-decoration: underline;
-  }
-`;
-
-const RecommendationTitle = styled.p`
-  font-size: 28px;
-  margin-bottom: 60px;
-  @media screen and (max-width: 600px) {
-    margin-bottom: 40px;
-  }
-`;
-
-const RecommendationsContainer = styled.div`
-  display: inline-flex;
-  margin-bottom: 150px;
-  justify-content: space-between;
-  max-width: 1396px;
-  @media screen and (max-width: 600px) {
-    display: block;
-    margin-bottom: 100px;
-  }
-`;
-
-const Abc = styled.div`
-  text-align: center;
-`;
-
-const Recommendation = styled.div`
-  display: flex;
-  width: 45%;
-  text-align: left;
-  @media screen and (max-width: 600px) {
-    width: 100%;
-    margin-bottom: 80px;
-  }
-`;
-
-const QuoteSymbol = styled.img`
-  height: 28px;
-  margin-right: 12px;
-`;
-
-const Copy = styled.div``;
-
-const RecommendationMessage = styled.p`
-  font-size: 16px;
-  font-style: italic;
-  font-weight: 300;
-  margin-top: 0;
-`;
-
-const RecommenderContainer = styled.div`
-  display: flex;
-`;
-
-const RecommendationDetailsDesign = styled.div`
-  width: 10px;
-  background-color: #106066;
-  opacity: 20%;
-  height: auto;
-  margin-right: 8px;
-`;
-
-const RecommenderDetails = styled.div``;
-
-const RecommenderName = styled.p`
-  font-size: 18px;
-  font-weight: 400;
-  margin: 0;
-`;
-
-const RecommenderJob = styled.p`
-  font-size: 16px;
-  font-weight: 300;
-  margin: 0;
-`;
 
 export default Home;

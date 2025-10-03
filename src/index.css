@@ -1,3 +1,12 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-primary: #106066;
+  --color-surface-muted: #DBE7E8;
+  --color-border-muted: #D6D6D6;
+}
+
+
 @font-face {
   font-family: "Mulish";
   src: url("./assets/fonts/Mulish/Mulish-Light.ttf");
