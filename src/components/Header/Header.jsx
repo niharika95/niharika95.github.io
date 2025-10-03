@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Link as RLink } from 'react-router-dom';
 import { HashLink as RHashLink } from 'react-router-hash-link';
 import { Icon } from '@iconify/react';
-import niharikaLogo from '../../assets/images/niharikaLogo.png';
+import niharikaLogo from '/niharikaLogo.png';
 
 const Link = styled(RLink)`
   font-size: 20px;
