@@ -81,14 +81,14 @@ function Home() {
             className={`mt-[150px] flex gap-[100px] justify-center items-center ${i % 2 === 0 ? 'flex-row' : 'flex-row-reverse'} max-[600px]:flex-col`}
           >
             <img src={project.img} alt={project.title} className="max-w-[600px] max-[600px]:w-full" />
-            <div className={`${i % 2 === 0 ? 'text-left' : 'text-right'}`}>
+            <div className={`flex flex-col gap-[20px] ${i % 2 === 0 ? 'text-left items-start' : 'text-right items-end'}`}>
               <ProjectTitle color={project.color}>{project.title}</ProjectTitle>
               <p className="text-[28px] font-light">{project.description}</p>
               <a
                 onClick={() => window.scrollTo({ top: 0 })}
                 href={project.href}
                 style={{ color: project.color }}
-                className={`flex items-center gap-[8px] no-underline text-[20px] font-medium ${i % 2 === 0 ? 'float-left' : 'float-right'}`}
+                className="flex items-center gap-[8px] no-underline text-[20px] font-medium"
               >
                 Case study
                 <Icon color={project.color} icon="ep:right" />
