@@ -29,6 +29,7 @@ const links = [
 function Header() {
   const [isNavVisible, setIsNavVisible] = useState(false);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   const handleMediaQueryChange = (mediaQuery) => {
     if (mediaQuery.matches) {
@@ -47,10 +48,36 @@ function Header() {
     };
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const offset = window.scrollY;
+      setScrolled(offset > 20);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   const toggleNav = () => setIsNavVisible(!isNavVisible);
 
   return (
-    <header className="fixed top-0 left-0 bg-white border-b border-[#cecece] w-full z-50">
+    <motion.header
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-out ${
+        scrolled
+          ? 'bg-white/40 backdrop-blur-2xl border-b border-white/30 shadow-2xl shadow-black/10'
+          : 'bg-white border-b border-[#cecece]'
+      }`}
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+      style={{
+        backdropFilter: scrolled ? 'blur(32px) saturate(200%) brightness(1.05)' : 'none',
+        WebkitBackdropFilter: scrolled ? 'blur(32px) saturate(200%) brightness(1.05)' : 'none',
+        boxShadow: scrolled ? '0 8px 32px 0 rgba(31, 38, 135, 0.15), inset 0 1px 0 0 rgba(255, 255, 255, 0.5)' : 'none',
+      }}
+    >
       <div className="flex justify-between items-center px-[100px] max-[600px]:px-[12px] py-[8px] min-h-[72px] max-[600px]:grid max-[600px]:grid-cols-[auto_1fr_auto] max-[600px]:gap-x-[12px]">
         <motion.div
           initial={{ opacity: 0, x: -20 }}
@@ -98,7 +125,7 @@ function Header() {
           </nav>
         )}
       </div>
-    </header>
+    </motion.header>
   );
 }
 
