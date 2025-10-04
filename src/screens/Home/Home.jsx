@@ -1,9 +1,10 @@
 /* eslint-disable max-len */
 
-import { Gutter, ProjectTitle } from '../../common';
-
+import { Gutter } from '../../common';
 import { Icon } from '@iconify/react';
+import ProjectCard from '../../components/ProjectCard';
 import React from 'react';
+import caseStudyData from '../Project/caseStudyData';
 import { easeOutExpo } from '../../utils/animations';
 import femhealthImg from '../../assets/images/femhealth.png';
 import { motion } from 'framer-motion';
@@ -38,130 +39,37 @@ function Home() {
       {/* Projects Section */}
       <div id="projects" className="mt-[96px]">
         {/* Project 1: FemHealth */}
-        <motion.div
-          initial={{ opacity: 0, y: 60 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7, ease: easeOutExpo }}
-          className="mt-[128px] md:mt-[192px] flex gap-[64px] md:gap-[96px] lg:gap-[128px] justify-center items-center flex-row max-[600px]:flex-col"
-        >
-          <div className="relative">
-            <img
-              src={femhealthImg}
-              alt="FemHealth"
-              className="max-w-[600px] max-[600px]:w-full"
-              loading="lazy"
-            />
-          </div>
-          <motion.div
-            whileHover={{ y: -4 }}
-            transition={{ duration: 0.3, ease: easeOutExpo }}
-            className="flex flex-col gap-[24px] text-left items-start bg-white p-[32px] rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300"
-          >
-            <ProjectTitle color="#3E122D">FemHealth</ProjectTitle>
-            <p className="text-[18px] md:text-[20px] font-normal leading-[1.7] text-gray-700 max-w-[480px]">
-              A platform for Women to get access to Health Resources
-            </p>
-            <motion.a
-              whileHover={{ x: 4 }}
-              transition={{ duration: 0.2 }}
-              onClick={() => window.scrollTo({ top: 0 })}
-              href="#/project/femhealth"
-              style={{ color: '#3E122D' }}
-              className="group flex items-center gap-[8px] no-underline text-[18px] font-semibold relative"
-            >
-              Case study
-              <motion.div className="transition-transform duration-300 group-hover:translate-x-1">
-                <Icon color="#3E122D" icon="ep:right" />
-              </motion.div>
-              <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-current transition-all duration-300 group-hover:w-[calc(100%-28px)]" />
-            </motion.a>
-          </motion.div>
-        </motion.div>
+        <ProjectCard
+          image={femhealthImg}
+          title={caseStudyData.femhealth.title}
+          color={caseStudyData.femhealth.color}
+          description="A platform helping women access reliable health information anonymously and find clinics accepting their insurance. Addresses challenges of expensive consultations and provides verified answers to health questions."
+          tools={caseStudyData.femhealth.caseStudyInfo.find(i => i.title === 'TOOLS').list}
+          caseStudyLink="#/project/femhealth"
+          imagePosition="left"
+        />
 
         {/* Project 2: Swift Bikes */}
-        <motion.div
-          initial={{ opacity: 0, y: 60 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7, ease: easeOutExpo }}
-          className="mt-[128px] md:mt-[192px] flex gap-[64px] md:gap-[96px] lg:gap-[128px] justify-center items-center flex-row-reverse max-[600px]:flex-col"
-        >
-          <div className="relative">
-            <img
-              src={swiftbikesImg}
-              alt="Swift Bikes"
-              className="max-w-[600px] max-[600px]:w-full"
-              loading="lazy"
-            />
-          </div>
-          <motion.div
-            whileHover={{ y: -4 }}
-            transition={{ duration: 0.3, ease: easeOutExpo }}
-            className="flex flex-col gap-[24px] text-right items-end bg-white p-[32px] rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300 max-[600px]:text-left max-[600px]:items-start min-w-[400px] max-[600px]:min-w-0"
-          >
-            <ProjectTitle color="#FF980A">Swift Bikes</ProjectTitle>
-            <p className="text-[18px] md:text-[20px] font-normal leading-[1.7] text-gray-700 max-w-[520px]">
-              An online solution to buying Custom Bikes
-            </p>
-            <motion.a
-              whileHover={{ x: 4 }}
-              transition={{ duration: 0.2 }}
-              onClick={() => window.scrollTo({ top: 0 })}
-              href="#/project/swiftbikes"
-              style={{ color: '#FF980A' }}
-              className="group flex items-center gap-[8px] no-underline text-[18px] font-semibold relative"
-            >
-              Case study
-              <motion.div className="transition-transform duration-300 group-hover:translate-x-1">
-                <Icon color="#FF980A" icon="ep:right" />
-              </motion.div>
-              <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-current transition-all duration-300 group-hover:w-[calc(100%-28px)]" />
-            </motion.a>
-          </motion.div>
-        </motion.div>
+        <ProjectCard
+          image={swiftbikesImg}
+          title={caseStudyData.swiftbikes.title}
+          color={caseStudyData.swiftbikes.color}
+          description="An e-commerce platform enabling users to customize bikes for work, athletics, or leisure. Solves the problem of pre-made bikes not meeting individual needs through personalized bike building."
+          tools={caseStudyData.swiftbikes.caseStudyInfo.find(i => i.title === 'TOOLS').list}
+          caseStudyLink="#/project/swiftbikes"
+          imagePosition="right"
+        />
 
         {/* Project 3: Svaasthya */}
-        <motion.div
-          initial={{ opacity: 0, y: 60 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7, ease: easeOutExpo }}
-          className="mt-[128px] md:mt-[192px] flex gap-[64px] md:gap-[96px] lg:gap-[128px] justify-center items-center flex-row max-[600px]:flex-col"
-        >
-          <div className="relative">
-            <img
-              src={svaasthyaImg}
-              alt="Svaasthya"
-              className="max-w-[600px] max-[600px]:w-full"
-              loading="lazy"
-            />
-          </div>
-          <motion.div
-            whileHover={{ y: -4 }}
-            transition={{ duration: 0.3, ease: easeOutExpo }}
-            className="flex flex-col gap-[24px] text-left items-start bg-white p-[32px] rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300"
-          >
-            <ProjectTitle color="#1D5D82">Svaasthya</ProjectTitle>
-            <p className="text-[18px] md:text-[20px] font-normal leading-[1.7] text-gray-700 max-w-[480px]">
-              A Support Chatbot for a Hospital in India
-            </p>
-            <motion.a
-              whileHover={{ x: 4 }}
-              transition={{ duration: 0.2 }}
-              onClick={() => window.scrollTo({ top: 0 })}
-              href="#/project/svaasthya"
-              style={{ color: '#1D5D82' }}
-              className="group flex items-center gap-[8px] no-underline text-[18px] font-semibold relative"
-            >
-              Case study
-              <motion.div className="transition-transform duration-300 group-hover:translate-x-1">
-                <Icon color="#1D5D82" icon="ep:right" />
-              </motion.div>
-              <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-current transition-all duration-300 group-hover:w-[calc(100%-28px)]" />
-            </motion.a>
-          </motion.div>
-        </motion.div>
+        <ProjectCard
+          image={svaasthyaImg}
+          title={caseStudyData.svaasthya.title}
+          color={caseStudyData.svaasthya.color}
+          description="A chatbot application for a hospital in India streamlining patient services through appointment booking and online payments. Eliminates long wait times and reduces unnecessary formalities."
+          tools={caseStudyData.svaasthya.caseStudyInfo.find(i => i.title === 'TOOLS').list}
+          caseStudyLink="#/project/svaasthya"
+          imagePosition="left"
+        />
       </div>
 
       {/* Divider */}
