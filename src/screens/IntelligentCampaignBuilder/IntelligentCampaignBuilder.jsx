@@ -92,9 +92,9 @@ const IntelligentCampaignBuilder = () => {
       <header className='w-full bg-[#fb4e0b]'>
         <div className='max-w-[1440px] mx-auto'>
             <div className='grid grid-cols-1 md:grid-cols-2 min-h-[500px]'>
-                <div className='relative bg-[#fb4e0b] overflow-hidden flex items-center py-10 px-5 lg:px-[100px]'>
+                <div className='relative bg-[#fb4e0b] overflow-hidden flex items-center py-5 md:py-[50px] lg:py-[100px] px-5 lg:px-[100px]'>
                     <div>
-                        <div className='text-white py-12 md:py-16'>
+                        <div className='text-white'>
                             <h1 className='text-4xl md:text-5xl font-extrabold leading-tight tracking-tight'>
                             Intelligent Campaign Builder Overhaul
                             </h1>
@@ -122,7 +122,7 @@ const IntelligentCampaignBuilder = () => {
 
       <main className='w-full'>
         {/* Meta row */}
-        <section className="py-10">
+        <section className="py-5 md:py-[50px] lg:py-[100px]">
           <ContentContainer>
             <div className="grid grid-cols-[auto,auto] justify-start gap-x-2.5 gap-y-4 items-start">
                 {/* Role */}
@@ -165,7 +165,7 @@ const IntelligentCampaignBuilder = () => {
         </div>
 
         {/* Context */}
-        <section className="py-10">
+        <section className="py-5 md:py-[50px] lg:py-[100px]">
           <ContentContainer>
             <h2 className='text-3xl font-bold mb-4'>Context</h2>
             <p className='text-lg leading-relaxed'>
@@ -182,7 +182,7 @@ const IntelligentCampaignBuilder = () => {
         </section>
 
         {/* Unlocking Power Through Usability with right-side peach block */}
-        <section className='py-10'>
+        <section className='py-5 md:py-[50px] lg:py-[100px]'>
             <ContentContainer>
                 <div className='grid md:grid-cols-2 gap-12'>
                     <div>
@@ -227,7 +227,7 @@ const IntelligentCampaignBuilder = () => {
         </section>
 
         {/* The Challenge: full-width orange band with right callout */}
-        <section className='w-full bg-[#FF4F00] text-white py-10'>
+        <section className='w-full bg-[#FF4F00] text-white py-5 md:py-[50px] lg:py-[100px]'>
           <ContentContainer>
             <div className='grid md:grid-cols-3 gap-8 items-center'>
               <h2 className='text-2xl md:text-3xl font-bold'>The Challenge</h2>
@@ -241,7 +241,7 @@ const IntelligentCampaignBuilder = () => {
         </section>
 
         {/* Discovery & Key Insights: dark band */}
-        <section className='bg-[#222222] text-white py-10'>
+        <section className='bg-[#222222] text-white py-5 md:py-[50px] lg:py-[100px]'>
           <ContentContainer>
             <h2 className='text-3xl font-bold mb-4'>Discovery & Key Insights</h2>
             <p className='text-lg leading-relaxed mb-8 opacity-95'>
@@ -261,7 +261,7 @@ const IntelligentCampaignBuilder = () => {
         </section>
 
         {/* Laying the Foundation: text + large dark placeholder block */}
-        <section className="py-10">
+        <section className="py-5 md:py-[50px] lg:py-[100px]">
           <ContentContainer>
             <h2 className='text-3xl font-bold mb-4'>
               Laying the Foundation for a Simpler Experience
@@ -303,7 +303,7 @@ const IntelligentCampaignBuilder = () => {
         </section>
 
         {/* A Design for Clarity and Consistency: two-column with right orange block */}
-        <section className="py-10">
+        <section className="py-5 md:py-[50px] lg:py-[100px]">
             <ContentContainer>
                 <div className='grid md:grid-cols-2 gap-14'>
                     <div>
@@ -342,7 +342,7 @@ const IntelligentCampaignBuilder = () => {
         </section>
 
         {/* Outcomes & Impact: dark band with icons */}
-        <section className='bg-[#222222] text-white py-10'>
+        <section className='bg-[#222222] text-white py-5 md:py-[50px] lg:py-[100px]'>
           <ContentContainer>
             <h2 className='text-3xl font-bold mb-8'>Outcomes & Impact</h2>
             <p className='text-lg leading-relaxed mb-8 opacity-95'>
@@ -360,7 +360,7 @@ const IntelligentCampaignBuilder = () => {
         </section>
 
         {/* Key Takeaways with bottom-right dots */}
-        <section className="py-10">
+        <section className="py-5 md:py-[50px] lg:py-[100px]">
           <ContentContainer>
             <h2 className='text-3xl font-bold mb-4'>Key Takeaways</h2>
             <p className='text-lg leading-relaxed'>
