@@ -124,7 +124,7 @@ const IntelligentCampaignBuilder = () => {
         {/* Meta row */}
         <section className="py-10">
           <ContentContainer>
-            <div className="grid grid-cols-[auto,1fr] gap-x-5 gap-y-4 items-start">
+            <div className="grid grid-cols-[auto,auto] justify-start gap-x-2.5 gap-y-4 items-start">
                 {/* Role */}
                 <div className="col-start-1 flex items-center whitespace-nowrap">
                     <Icon icon='mdi:user' className='text-2xl text-gray-500 mr-4' />
