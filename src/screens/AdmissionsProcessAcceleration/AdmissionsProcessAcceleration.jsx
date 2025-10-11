@@ -11,8 +11,8 @@ const Tag = ({ children }) => (
 
 const Result = ({ icon, title, children }) => (
   <div>
-    <div className='text-4xl mb-4'>
-      <Icon icon={icon} style={{ color: '#E8DEF7', fontWeight: 200 }} />
+    <div className='mb-4'>
+      <Icon icon={icon} width="100px" height="100px" style={{ color: '#E8DEF7', fontWeight: 200 }} />
     </div>
     <h3 className='text-xl font-bold mb-2'>{title}</h3>
     <p className='opacity-95'>{children}</p>
@@ -227,8 +227,8 @@ const AdmissionsProcessAcceleration = () => {
         </section>
 
         {/* Defining the Path & The Solution */}
-        <section className='relative py-5 md:py-[50px] lg:py-[100px]'>
-          <ContentContainer>
+        <section className='py-5 md:py-[50px] lg:py-[100px] overflow-hidden'>
+          <ContentContainer className='relative z-10'>
             <div
               className='absolute top-0 -right-20 w-[242px] h-[242px] pointer-events-none'
               style={lightDotsPattern}
@@ -275,6 +275,66 @@ const AdmissionsProcessAcceleration = () => {
           </ContentContainer>
         </section>
 
+        {/* New section with images and steps */}
+        <section className='w-full bg-[#522398] text-white py-5 md:py-[50px] lg:py-[100px]'>
+          <ContentContainer>
+            <div className='flex flex-col gap-12'>
+              <div className='flex flex-row items-center gap-8'>
+                <img
+                  src='/admissions-process-acceleration/image 25.png'
+                  alt='Step 1 and 2'
+                  className='w-full lg:w-4/5 object-contain'
+                />
+                <div className='flex-1'>
+                  <p className='text-lg leading-relaxed mb-4'>
+                    <strong>Step 1</strong><br />
+                    The counselor enters course information from the transcripts.
+                  </p>
+                  <p className='text-lg leading-relaxed'>
+                    <strong>Step 2</strong><br />
+                    Once entered, they mark this step as complete.
+                  </p>
+                </div>
+              </div>
+              <div className='flex flex-row items-center gap-8'>
+                <img
+                  src='/admissions-process-acceleration/image 28.png'
+                  alt='Step 3 and 4'
+                  className='w-full lg:w-4/5 object-contain'
+                />
+                <div className='flex-1'>
+                  <p className='text-lg leading-relaxed mb-4'>
+                    <strong>Step 3</strong><br />
+                    They add programs against which they want to calculate the transfer credits.
+                  </p>
+                  <p className='text-lg leading-relaxed'>
+                    <strong>Step 4</strong><br />
+                    They start the process of evaluating against selected programs.
+                  </p>
+                </div>
+              </div>
+              <div className='flex flex-row items-center gap-8'>
+                <img
+                  src='/admissions-process-acceleration/image 26.png'
+                  alt='Step 5 and 6'
+                  className='w-full lg:w-4/5 object-contain'
+                />
+                <div className='flex-1'>
+                  <p className='text-lg leading-relaxed mb-4'>
+                    <strong>Step 5</strong><br />
+                    The rules engine maps the transfer credits of the student to the respective courses which reduces a large chunk of the counselor's workload.
+                  </p>
+                  <p className='text-lg leading-relaxed'>
+                    <strong>Step 6</strong><br />
+                    The counselor reviews the mapped courses to ensure its correctness, and as a final step sends it to the requestor.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </ContentContainer>
+        </section>
+
+        {/* Measurable & Meaningful Results: dark band with icons */}
         {/* Measurable & Meaningful Results: dark band with icons */}
         <section className='bg-[#222222] text-white py-5 md:py-[50px] lg:py-[100px]'>
           <ContentContainer>
