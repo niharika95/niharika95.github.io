@@ -1,12 +1,13 @@
+import { Icon } from '@iconify/react';
 import React from 'react';
 
 const Tag = ({ children }) => (
-  <span className="bg-white text-[#FF4F00] rounded-full px-4 py-1 text-sm">{children}</span>
+  <span className="bg-[#ffded2] text-black rounded-full px-4 py-1 text-sm">{children}</span>
 );
 
 const Insight = ({ number, text }) => (
-  <div className="flex flex-col items-center text-center">
-    <span className="w-12 h-12 rounded-full bg-white/90 text-gray-900 font-bold flex items-center justify-center mb-4">{number}</span>
+  <div>
+    <span className="w-12 h-12 rounded-full bg-[#ffded2] text-gray-900 font-bold flex items-center justify-center mb-4">{number}</span>
     <p>{text}</p>
   </div>
 );
@@ -22,12 +23,12 @@ const Outcome = ({ icon, title, children }) => (
 const IntelligentCampaignBuilder = () => {
   // Decorative dot patterns used in the composition
   const dotsTopLeft = {
-    backgroundImage: 'radial-gradient(rgba(255,255,255,0.45) 2px, transparent 2px)',
-    backgroundSize: '14px 14px'
+    backgroundImage: 'radial-gradient(rgba(255,255,255,0.45) 4px, transparent 4px)',
+    backgroundSize: '22px 22px'
   };
   const dotsBottomRight = {
-    backgroundImage: 'radial-gradient(rgba(255,79,0,0.18) 2px, transparent 2px)',
-    backgroundSize: '14px 14px'
+    backgroundImage: 'radial-gradient(rgba(255,79,0,0.18) 4px, transparent 4px)',
+    backgroundSize: '22px 22px'
   };
 
   const tags = ["Figma", "UX Research", "Wireframing", "UX Design", "Visual Design", "Design System", "Prototyping"];
@@ -47,8 +48,8 @@ const IntelligentCampaignBuilder = () => {
       {/* Hero: split composition (left orange, right peach) */}
       <header className="w-full">
         <div className="grid grid-cols-1 md:grid-cols-2 min-h-[340px]">
-          <div className="relative bg-[#FF4F00] overflow-hidden flex items-center">
-            <div className="max-w-6xl mx-auto px-6 md:px-8 w-full">
+          <div className="relative bg-[#fb4e0b] overflow-hidden flex items-center">
+            <div className="max-w-6xl mx-auto px-12 md:px-24 w-full">
               <div className="text-white py-12 md:py-16">
                 <h1 className="text-4xl md:text-5xl font-extrabold leading-tight tracking-tight">
                   Intelligent Campaign Builder Overhaul
@@ -74,27 +75,36 @@ const IntelligentCampaignBuilder = () => {
 
       <main className="w-full">
         {/* Meta row */}
-        <section className="px-6 md:px-8 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mt-10 mb-10 text-sm">
-          <div>
-            <h3 className="uppercase tracking-wide text-gray-800 font-semibold">Role</h3>
-            <p className="text-gray-600">UX/UI Designer</p>
+        <section className="px-12 md:px-24 my-16 space-y-4">
+          <div className="flex items-start">
+            <div className="flex items-center w-48">
+              <Icon icon="mdi:user" className="text-2xl text-gray-500 mr-4" />
+              <h3 className="font-bold text-lg">Role:</h3>
+            </div>
+            <p className="text-gray-600 text-lg">UX/UI Designer</p>
           </div>
-          <div>
-            <h3 className="uppercase tracking-wide text-gray-800 font-semibold">Team</h3>
-            <p className="text-gray-600">
-              Product Owner, UX/UI Designer, Tech Lead, Front-end Developer, 2 Back-end Developers
-            </p>
+          <div className="flex items-start">
+            <div className="flex items-center w-48">
+              <Icon icon="mdi:account-group" className="text-2xl text-gray-500 mr-4" />
+              <h3 className="font-bold text-lg">Team:</h3>
+            </div>
+            <p className="text-gray-600 text-lg">Product Owner, UX/UI Designer, Tech Lead, Front-end Developer, 2 Back-end Developers</p>
           </div>
-          <div>
-            <h3 className="uppercase tracking-wide text-gray-800 font-semibold">Duration</h3>
-            <p className="text-gray-600">6 months</p>
+          <div className="flex items-start">
+            <div className="flex items-center w-48">
+              <Icon icon="mdi:clock-outline" className="text-2xl text-gray-500 mr-4" />
+              <h3 className="font-bold text-lg">Duration:</h3>
+            </div>
+            <p className="text-gray-600 text-lg">6 months</p>
           </div>
         </section>
 
-        <hr className="border-gray-200 mb-12" />
+        <div className="px-12 md:px-24">
+        <hr className="border-[#fb4e0b] mb-12" />
+      </div>
 
         {/* Context */}
-        <section className="px-6 md:px-8 mb-12">
+        <section className="pl-12 md:pl-24 pr-32 md:pr-64 my-32">
           <h2 className="text-3xl font-bold mb-4">Context</h2>
           <p className="text-lg leading-relaxed">
             For marketers, speed and precision are everything. EXL's platform offered the data for precision,
@@ -106,8 +116,8 @@ const IntelligentCampaignBuilder = () => {
         </section>
 
         {/* Unlocking Power Through Usability with right-side peach block */}
-        <section className="px-6 md:px-8 my-16 grid md:grid-cols-2 gap-10 items-start">
-          <div>
+        <section className="mt-16 grid md:grid-cols-2 gap-24">
+          <div className="pl-12 md:pl-24 py-16">
             <h2 className="text-3xl font-bold mb-4">Unlocking Power Through Usability</h2>
             <p className="text-lg leading-relaxed mb-4">
               The existing platform was a robust lead-generation engine, rich with data and powerful capabilities.
@@ -133,15 +143,15 @@ const IntelligentCampaignBuilder = () => {
             </ul>
           </div>
           <div className="hidden md:block">
-            <div className="bg-[#FFE0D6] rounded-lg h-72 w-full shadow-inner" />
+            <div className="bg-[#FFE0D6] h-full w-full shadow-inner" />
           </div>
         </section>
 
         {/* The Challenge: full-width orange band with right callout */}
-        <section className="w-full bg-[#FF4F00] text-white py-12 md:py-16 my-16">
-          <div className="max-w-6xl mx-auto px-6 md:px-8 grid md:grid-cols-3 gap-8 items-center">
+        <section className="w-full bg-[#FF4F00] text-white py-12 md:py-16">
+          <div className="max-w-6xl mx-auto px-12 md:px-24 grid md:grid-cols-3 gap-8 items-center">
             <h2 className="text-2xl md:text-3xl font-bold">The Challenge</h2>
-            <div className="md:col-span-2 bg-[#FF7A3A] text-white rounded-md p-6 md:p-8 shadow-md text-lg md:text-xl leading-relaxed">
+            <div className="md:col-span-2 text-white rounded-md p-6 md:p-8 text-lg md:text-xl leading-relaxed">
               How could we redesign the experience to guide users toward their goals, organize functionality with
               intention, and establish a strong, trustworthy brand identity?
             </div>
@@ -149,8 +159,8 @@ const IntelligentCampaignBuilder = () => {
         </section>
 
         {/* Discovery & Key Insights: dark band */}
-        <section className="bg-[#111827] text-white py-14 md:py-16 my-16 rounded-none">
-          <div className="max-w-6xl mx-auto px-6 md:px-8">
+        <section className="bg-[#222222] text-white py-14 md:py-16 mb-16 rounded-none">
+          <div className="max-w-6xl mx-auto px-12 md:px-24">
             <h2 className="text-3xl font-bold mb-4">Discovery & Key Insights</h2>
             <p className="text-lg leading-relaxed mb-8 opacity-95">
               I analyzed existing user workflows and gathered qualitative feedback from users who used the platform
@@ -165,7 +175,7 @@ const IntelligentCampaignBuilder = () => {
         </section>
 
         {/* Laying the Foundation: text + large dark placeholder block */}
-        <section className="px-6 md:px-8 my-16">
+        <section className="px-12 md:px-24 my-16">
           <h2 className="text-3xl font-bold mb-4">Laying the Foundation for a Simpler Experience</h2>
           <p className="text-lg leading-relaxed">
             I collaborated closely with the product owner and engineers to ground every decision in user needs and
@@ -188,33 +198,37 @@ const IntelligentCampaignBuilder = () => {
         </section>
 
         {/* A Design for Clarity and Consistency: two-column with right orange block */}
-        <section className="px-6 md:px-8 my-16 grid md:grid-cols-2 gap-10 items-center">
-          <div>
+        <section>
+          <div className="px-12 md:px-24 pb-8">
             <h2 className="text-3xl font-bold mb-4">A Design for Clarity and Consistency</h2>
-            <p className="text-lg leading-relaxed">
-              I streamlined the primary interface, moving from a cluttered dashboard to a guided, step-by-step process.
-              This simplified the UI, reduced distractions, and allowed marketers to focus on one key task at a time,
-              from audience segmentation to final deployment.
-            </p>
-            <p className="text-lg leading-relaxed mt-4">
-              The segmentation workflow was completely reimagined. I introduced clear visual cues and real-time feedback,
-              making the process of targeting specific audiences more intuitive and actionable.
-            </p>
-            <p className="text-lg leading-relaxed mt-4">
-              To address inconsistency, I designed and implemented a set of reusable components, patterns, and styles.
-              This modular design system not only unified the visual language across the platform but also enabled our
-              development team to build and iterate faster. The refreshed, modern visual identity reinforced a sense of
-              trust and professionalism.
-            </p>
           </div>
-          <div className="hidden md:block">
-            <div className="bg-[#FF4F00] rounded-lg h-80 w-full" />
+          <div className="grid md:grid-cols-2 gap-24">
+            <div className="pl-12 md:pl-24 py-16 flex flex-col gap-40">
+              <p className="text-lg leading-relaxed">
+                I streamlined the primary interface, moving from a cluttered dashboard to a guided, step-by-step process.
+                This simplified the UI, reduced distractions, and allowed marketers to focus on one key task at a time,
+                from audience segmentation to final deployment.
+              </p>
+              <p className="text-lg leading-relaxed mt-8">
+                The segmentation workflow was completely reimagined. I introduced clear visual cues and real-time feedback,
+                making the process of targeting specific audiences more intuitive and actionable.
+              </p>
+              <p className="text-lg leading-relaxed mt-8">
+                To address inconsistency, I designed and implemented a set of reusable components, patterns, and styles.
+                This modular design system not only unified the visual language across the platform but also enabled our
+                development team to build and iterate faster. The refreshed, modern visual identity reinforced a sense of
+                trust and professionalism.
+              </p>
+            </div>
+            <div className="hidden md:block">
+              <div className="bg-[#FF4F00] h-full w-full" />
+            </div>
           </div>
         </section>
 
         {/* Outcomes & Impact: dark band with icons */}
-        <section className="bg-[#111827] text-white py-14 md:py-16 my-16">
-          <div className="max-w-6xl mx-auto px-6 md:px-8">
+        <section className="bg-[#111827] text-white py-14 md:py-16">
+          <div className="max-w-6xl mx-auto px-12 md:px-24">
             <h2 className="text-3xl font-bold mb-8 text-center">Outcomes & Impact</h2>
             <p className="text-lg leading-relaxed mb-8 text-center opacity-95">
               The redesign had a significant and positive impact on both the user experience and the product's development lifecycle.
@@ -226,7 +240,7 @@ const IntelligentCampaignBuilder = () => {
         </section>
 
         {/* Key Takeaways with bottom-right dots */}
-        <section className="relative px-6 md:px-8 my-16">
+        <section className="relative px-12 md:px-24 my-16">
           <h2 className="text-3xl font-bold mb-4">Key Takeaways</h2>
           <p className="text-lg leading-relaxed">
             This project reinforced a core design principle: the more powerful the platform, the more crucial a simple,
