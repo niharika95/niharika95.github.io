@@ -26,6 +26,14 @@ const Outcome = ({ icon, title, children }) => (
   </div>
 );
 
+const Section = ({ children, className }) => (
+  <section className={`px-14 py-10 ${className}`}>{children}</section>
+);
+
+const SectionDiv = ({ children, className }) => (
+  <div className={`px-14 py-10 ${className}`}>{children}</div>
+);
+
 const IntelligentCampaignBuilder = () => {
   // Decorative dot patterns used in the composition
   const dotsTopLeft = {
@@ -115,7 +123,7 @@ const IntelligentCampaignBuilder = () => {
 
       <main className='w-full'>
         {/* Meta row */}
-        <section className='px-14 py-10'>
+        <Section>
           <div className='flex items-start'>
             <div className='flex items-center w-48'>
               <Icon icon='mdi:user' className='text-2xl text-gray-500 mr-4' />
@@ -146,14 +154,14 @@ const IntelligentCampaignBuilder = () => {
             </div>
             <p className='text-gray-600 text-lg'>6 months</p>
           </div>
-        </section>
+        </Section>
 
         <div className='px-14 py-2'>
           <hr className='border-[#fb4e0b] mb-12' />
         </div>
 
         {/* Context */}
-        <section className='px-14 py-10'>
+        <Section>
           <h2 className='text-3xl font-bold mb-4'>Context</h2>
           <p className='text-lg leading-relaxed'>
             For marketers, speed and precision are everything. EXL's platform
@@ -165,11 +173,11 @@ const IntelligentCampaignBuilder = () => {
             marketers to build targeted campaigns with confidence and
             efficiency.
           </p>
-        </section>
+        </Section>
 
         {/* Unlocking Power Through Usability with right-side peach block */}
         <section className='grid md:grid-cols-2 gap-12'>
-          <div className='px-14 py-10'>
+          <SectionDiv>
             <h2 className='text-3xl font-bold mb-4'>
               Unlocking Power Through Usability
             </h2>
@@ -202,7 +210,7 @@ const IntelligentCampaignBuilder = () => {
                 brand presence and user trust.
               </li>
             </ul>
-          </div>
+          </SectionDiv>
           <div className='hidden md:block'>
             <div className='bg-[#FFE0D6] h-full w-full shadow-inner' />
           </div>
@@ -210,7 +218,7 @@ const IntelligentCampaignBuilder = () => {
 
         {/* The Challenge: full-width orange band with right callout */}
         <section className='w-full bg-[#FF4F00] text-white'>
-          <div className='px-14 py-10'>
+          <SectionDiv>
             <div className='grid md:grid-cols-3 gap-8 items-center'>
               <h2 className='text-2xl md:text-3xl font-bold'>The Challenge</h2>
               <div className='md:col-span-2 text-white rounded-md p-6 md:p-8 text-lg md:text-xl leading-relaxed'>
@@ -219,11 +227,11 @@ const IntelligentCampaignBuilder = () => {
                 strong, trustworthy brand identity?
               </div>
             </div>
-          </div>
+          </SectionDiv>
         </section>
 
         {/* Discovery & Key Insights: dark band */}
-        <section className='bg-[#222222] text-white px-14 py-10'>
+        <Section className='bg-[#222222] text-white'>
           <h2 className='text-3xl font-bold mb-4'>Discovery & Key Insights</h2>
           <p className='text-lg leading-relaxed mb-8 opacity-95'>
             I analyzed existing user workflows and gathered qualitative feedback
@@ -238,10 +246,10 @@ const IntelligentCampaignBuilder = () => {
               <Insight key={insight.number} {...insight} />
             ))}
           </div>
-        </section>
+        </Section>
 
         {/* Laying the Foundation: text + large dark placeholder block */}
-        <section className='px-14 py-10'>
+        <Section>
           <h2 className='text-3xl font-bold mb-4'>
             Laying the Foundation for a Simpler Experience
           </h2>
@@ -278,15 +286,15 @@ const IntelligentCampaignBuilder = () => {
           </p>
 
           <div className='mt-8 bg-[#1F2937] h-64 md:h-72 rounded-lg' />
-        </section>
+        </Section>
 
         {/* A Design for Clarity and Consistency: two-column with right orange block */}
-        <section >
-          <div className='px-14 py-10'>
+        <section>
+          <SectionDiv>
             <h2 className='text-3xl font-bold mb-4'>
               A Design for Clarity and Consistency
             </h2>
-          </div>
+          </SectionDiv>
           <div className='grid md:grid-cols-2 gap-14'>
             <div className='px-14 py-10 flex flex-col gap-40'>
               <p className='text-lg leading-relaxed'>
@@ -318,25 +326,23 @@ const IntelligentCampaignBuilder = () => {
         </section>
 
         {/* Outcomes & Impact: dark band with icons */}
-        <section className='bg-[#222222] text-white py-12 md:py-12'>
-          <div className='mx-16'>
-            <h2 className='text-3xl font-bold mb-8'>Outcomes & Impact</h2>
-            <p className='text-lg leading-relaxed mb-8 opacity-95'>
-              The redesign had a significant and positive impact on both the
-              user experience and the product's development lifecycle.
-            </p>
-            <div className='grid md:grid-cols-3 gap-10'>
-              {outcomes.map((outcome) => (
-                <Outcome key={outcome.title} {...outcome}>
-                  {outcome.text}
-                </Outcome>
-              ))}
-            </div>
+        <Section className='bg-[#222222] text-white'>
+          <h2 className='text-3xl font-bold mb-8'>Outcomes & Impact</h2>
+          <p className='text-lg leading-relaxed mb-8 opacity-95'>
+            The redesign had a significant and positive impact on both the user
+            experience and the product's development lifecycle.
+          </p>
+          <div className='grid md:grid-cols-3 gap-10'>
+            {outcomes.map((outcome) => (
+              <Outcome key={outcome.title} {...outcome}>
+                {outcome.text}
+              </Outcome>
+            ))}
           </div>
-        </section>
+        </Section>
 
         {/* Key Takeaways with bottom-right dots */}
-        <section className='px-14 py-10'>
+        <Section>
           <h2 className='text-3xl font-bold mb-4'>Key Takeaways</h2>
           <p className='text-lg leading-relaxed'>
             This project reinforced a core design principle: the more powerful
@@ -349,7 +355,7 @@ const IntelligentCampaignBuilder = () => {
             className='absolute -right-2 bottom-0 w-40 h-40 opacity-70 pointer-events-none'
             style={dotsBottomRight}
           />
-        </section>
+        </Section>
       </main>
     </div>
   );
