@@ -33,6 +33,10 @@ const InsuranceCompanyWebsiteRedesign = () => {
     backgroundImage: 'radial-gradient(rgba(255,255,255,0.1) 2px, transparent 2px)',
     backgroundSize: '20px 20px',
   };
+  const lightDotsPattern = {
+    backgroundImage: 'radial-gradient(rgba(160, 0, 40, 0.05) 2px, transparent 2px)',
+    backgroundSize: '22px 22px',
+  };
 
   const tags = [
     'Figma', 'FigJam', 'Product Design', 'UX Research', 'Wireframing',
@@ -42,7 +46,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
   const metrics = [
       { name: 'Desktop Performance', before: '64', after: '88', improvement: '+37.5%', icon: 'mdi:desktop-mac' },
       { name: 'Accessibility Score', before: '88', after: '90', improvement: '+2.3%', icon: 'mdi:accessibility' },
-      { name: 'Best Practices', before: '76', after: '96', improvement: '+26%', icon: 'mdi:star-check' },
+      { name: 'Best Practices', before: '76', after: '96', improvement: '+28%', icon: 'mdi:star-check' },
       { name: 'SEO Score', before: '64', after: '92', improvement: '+43.7%', icon: 'mdi:magnify' },
   ];
 
@@ -106,29 +110,38 @@ const InsuranceCompanyWebsiteRedesign = () => {
         </div>
 
         {/* Context & Digital Experience */}
-        <section className="py-5 md:py-[50px] lg:py-[100px]">
+        <section className="relative py-5 md:py-[50px] lg:py-[100px] overflow-hidden">
           <ContentContainer>
-            <h2 className='text-3xl font-bold mb-4'>Context</h2>
-            <p className='text-lg leading-relaxed mb-12'>
-            A mid-sized, third-fastest-growing U.S. home insurance provider, on a trajectory to reach $1 billion in revenue, sought to overhaul its public-facing website. The existing site suffered from an outdated design, poor usability, and low conversion rates, failing to reflect the company's market position as a tech-forward industry leader. I joined the project as one of two UX/UI designers tasked with redesigning the user experience from the ground up. We began with a proof of concept (POC) for the home page, successfully winning the contract, and then proceeded to a full-scale redesign of their marketing website.
-            </p>
+            <div className="grid md:grid-cols-2 gap-x-12">
+                <div>
+                    <h2 className='text-3xl font-bold mb-4'>Context</h2>
+                    <p className='text-lg leading-relaxed mb-12'>
+                    A mid-sized, third-fastest-growing U.S. home insurance provider, on a trajectory to reach $1 billion in revenue, sought to overhaul its public-facing website. The existing site suffered from an outdated design, poor usability, and low conversion rates, failing to reflect the company's market position as a tech-forward industry leader. I joined the project as one of two UX/UI designers tasked with redesigning the user experience from the ground up. We began with a proof of concept (POC) for the home page, successfully winning the contract, and then proceeded to a full-scale redesign of their marketing website.
+                    </p>
 
-            <h2 className='text-3xl font-bold mb-4'>A Digital Experience Lagging Behind Business Ambition</h2>
-            <blockquote className="relative my-8 p-6 bg-gray-50 border-l-4 border-[#A00028]">
-                <Icon icon="mdi:format-quote-open" className="absolute top-2 left-2 text-4xl text-[#A00028] opacity-20" />
-                <p className="text-lg italic text-gray-700">The new site must be visually striking, bold, and impactful, with seamless functionality and exceptional B2B and B2C content. We aim to create an enjoyable experience where customers, independent agents, prospective customers, employees and potential investors can easily find what they need and accomplish their tasks with minimal efforts and few clicks.</p>
-                <footer className="text-right mt-4 text-gray-600">— Client</footer>
-            </blockquote>
+                    <h2 className='text-3xl font-bold mb-4'>A Digital Experience Lagging Behind Business Ambition</h2>
+                    <blockquote className="relative my-8 p-6 bg-gray-50 border-l-4 border-[#A00028]">
+                        <Icon icon="mdi:format-quote-open" className="absolute top-2 left-2 text-4xl text-[#A00028] opacity-20" />
+                        <p className="text-lg italic text-gray-700">The new site must be visually striking, bold, and impactful, with seamless functionality and exceptional B2B and B2C content. We aim to create an enjoyable experience where customers, independent agents, prospective customers, employees and potential investors can easily find what they need and accomplish their tasks with minimal efforts and few clicks.</p>
+                        <footer className="text-right mt-4 text-gray-600">— Client</footer>
+                    </blockquote>
 
-            <p className='text-lg leading-relaxed mt-8'>Their core problems were clear:</p>
-            <ul className='list-disc list-inside text-lg leading-relaxed space-y-2 mt-4'>
-                <li><span className='font-bold'>Outdated & Inconsistent design:</span> The visual design was aged, and inconsistent UI elements created a disjointed user experience.</li>
-                <li><span className='font-bold'>Poor Usability:</span> The site was text-heavy, difficult to scan, and offered a poor mobile experience.</li>
-                <li><span className='font-bold'>Low Performance:</span> The site was failing to convert visitors, and its brand visibility lagged behind competitors in search rankings.</li>
-                <li><span className='font-bold'>Technical Debt:</span> The existing WordPress CMS was no longer scalable or usable for their internal teams.</li>
-            </ul>
-            <p className='text-lg leading-relaxed mt-4'>Our goal was to create an "out-of-this-world" digital experience that not only solved these issues but also established a new benchmark in the insurance industry, supporting their expansion into new states and their ambitious financial goals.</p>
+                    <p className='text-lg leading-relaxed mt-8'>Their core problems were clear:</p>
+                    <ul className='list-disc list-inside text-lg leading-relaxed space-y-2 mt-4'>
+                        <li><span className='font-bold'>Outdated & Inconsistent design:</span> The visual design was aged, and inconsistent UI elements created a disjointed user experience.</li>
+                        <li><span className='font-bold'>Poor Usability:</span> The site was text-heavy, difficult to scan, and offered a poor mobile experience.</li>
+                        <li><span className='font-bold'>Low Performance:</span> The site was failing to convert visitors, and its brand visibility lagged behind competitors in search rankings.</li>
+                        <li><span className='font-bold'>Technical Debt:</span> The existing WordPress CMS was no longer scalable or usable for their internal teams.</li>
+                    </ul>
+                    <p className='text-lg leading-relaxed mt-4'>Our goal was to create an "out-of-this-world" digital experience that not only solved these issues but also established a new benchmark in the insurance industry, supporting their expansion into new states and their ambitious financial goals.</p>
+                </div>
+                <div className="hidden md:block"></div>
+            </div>
           </ContentContainer>
+          <div
+            className='absolute top-1/4 -right-24 w-48 h-full pointer-events-none'
+            style={lightDotsPattern}
+          />
         </section>
 
         {/* Diagnosis & Discovery */}
@@ -167,16 +180,30 @@ const InsuranceCompanyWebsiteRedesign = () => {
         <div className='bg-black h-32 md:h-64' />
 
         {/* Rebuilding & Crafting */}
-        <section className="py-5 md:py-[50px] lg:py-[100px]">
+        <section className="relative py-5 md:py-[50px] lg:py-[100px] overflow-hidden">
           <ContentContainer>
-            <h2 className='text-3xl font-bold mb-4'>Rebuilding the Foundation</h2>
-            <p className='text-lg leading-relaxed mb-6'>The existing site's structure was convoluted. Our process to fix it involved:</p>
-            <ul className='space-y-4 text-lg'>
-                <li><p><span className='font-bold'>Information Architecture Audit:</span> We mapped the current sitemap and identified redundant pages and misplaced components.</p></li>
-                <li><p><span className='font-bold'>Competitive Analysis:</span> We analyzed other competitor websites, uncovering opportunities to include valuable features the client was missing, such as a Spanish language option, a prominent 'Find an Agent' tool, and dedicated sections for 'Investors' and 'Sustainability' to build trust.</p></li>
-                <li><p><span className='font-bold'>Strategic Alignment:</span> A key debate emerged: should the site have separate experiences for agents and customers, or a unified view? Since agents were as crucial to their business as customers, we presented the pros and cons of each approach. After several discussions with the client and iterations, we landed on a finalized, user-centric sitemap.</p></li>
-            </ul>
+            <div className="grid md:grid-cols-2 gap-x-12">
+                <div>
+                    <h2 className='text-3xl font-bold mb-4'>Understanding the Audience</h2>
+                    <p className='text-lg leading-relaxed mb-12'>
+                    The client serves two distinct primary audiences: Customers (homeowners) and Agents (B2B partners). We created personas, informed by demographic data provided by the client. Creating these personas was critical as it built empathy, focused our decision-making on user needs, and created alignment between our team and the client who we were building for.
+                    </p>
+
+                    <h2 className='text-3xl font-bold mb-4'>Rebuilding the Foundation</h2>
+                    <p className='text-lg leading-relaxed mb-6'>The existing site's structure was convoluted. Our process to fix it involved:</p>
+                    <ul className='space-y-4 text-lg'>
+                        <li><p><span className='font-bold'>Information Architecture Audit:</span> We mapped the current sitemap and identified redundant pages and misplaced components.</p></li>
+                        <li><p><span className='font-bold'>Competitive Analysis:</span> We analyzed other competitor websites, uncovering opportunities to include valuable features the client was missing, such as a Spanish language option, a prominent 'Find an Agent' tool, and dedicated sections for 'Investors' and 'Sustainability' to build trust.</p></li>
+                        <li><p><span className='font-bold'>Strategic Alignment:</span> A key debate emerged: should the site have separate experiences for agents and customers, or a unified view? Since agents were as crucial to their business as customers, we presented the pros and cons of each approach. After several discussions with the client and iterations, we landed on a finalized, user-centric sitemap.</p></li>
+                    </ul>
+                </div>
+                <div className="hidden md:block"></div>
+            </div>
           </ContentContainer>
+          <div
+            className='absolute top-1/4 -right-24 w-48 h-full pointer-events-none'
+            style={lightDotsPattern}
+          />
         </section>
         <div className='bg-black h-32 md:h-64' />
 

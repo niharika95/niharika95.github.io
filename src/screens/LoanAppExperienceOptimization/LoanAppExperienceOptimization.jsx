@@ -65,27 +65,35 @@ const LoanAppExperienceOptimization = () => {
 
   return (
     <div className='relative bg-white text-gray-900 font-sans'>
-      {/* Hero: Blue background */}
+      {/* Hero: split composition (left blue, right light-blue) */}
       <header className='w-full bg-[#1E3A8A]'>
-        <ContentContainer className='relative overflow-hidden min-h-[450px] flex items-center py-5 md:py-[50px] lg:py-[100px]'>
-            <div className='text-white'>
-                <h1 className='text-4xl md:text-5xl font-extrabold leading-tight tracking-tight'>
-                Loan App Experience Optimization
-                </h1>
-                <p className='text-lg md:text-xl mt-4 opacity-95 max-w-3xl'>
-                Slashing projected loan application time by 40% by redesigning for trust and efficiency.
-                </p>
-                <div className='flex flex-wrap gap-3 mt-6'>
-                {tags.map((tag) => (
-                    <Tag key={tag}>{tag}</Tag>
-                ))}
+        <div className='max-w-[1440px] mx-auto'>
+            <div className='grid grid-cols-1 md:grid-cols-2 min-h-[450px]'>
+                <div className='relative bg-[#1E3A8A] overflow-hidden flex items-center py-5 md:py-[50px] lg:py-[100px] px-5 lg:px-[100px]'>
+                    <div>
+                        <div className='text-white'>
+                            <h1 className='text-4xl md:text-5xl font-extrabold leading-tight tracking-tight'>
+                            Loan App Experience Optimization
+                            </h1>
+                            <p className='text-lg md:text-xl mt-4 opacity-95'>
+                            Slashing projected loan application time by 40% by redesigning for trust and efficiency.
+                            </p>
+                            <div className='flex flex-wrap gap-3 mt-6'>
+                            {tags.map((tag) => (
+                                <Tag key={tag}>{tag}</Tag>
+                            ))}
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        className='absolute -top-4 -left-4 w-48 h-48 opacity-60 pointer-events-none'
+                        style={dotsPattern}
+                    />
                 </div>
+
+                <div className='bg-blue-50 min-h-[280px]' />
             </div>
-            <div
-                className='absolute -top-4 -left-4 w-48 h-48 opacity-60 pointer-events-none'
-                style={dotsPattern}
-            />
-        </ContentContainer>
+        </div>
       </header>
 
       <main className='w-full'>

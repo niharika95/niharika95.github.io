@@ -31,6 +31,10 @@ const AdmissionsProcessAcceleration = () => {
     backgroundImage: 'radial-gradient(rgba(255,255,255,0.15) 2px, transparent 2px)',
     backgroundSize: '20px 20px',
   };
+  const lightDotsPattern = {
+    backgroundImage: 'radial-gradient(rgba(95, 51, 225, 0.1) 4px, transparent 4px)',
+    backgroundSize: '22px 22px',
+  };
 
   const tags = [
     'Figma',
@@ -142,7 +146,7 @@ const AdmissionsProcessAcceleration = () => {
         </div>
 
         {/* Context & Challenge */}
-        <section className="py-5 md:py-[50px] lg:py-[100px]">
+        <section className="relative py-5 md:py-[50px] lg:py-[100px] overflow-hidden">
           <ContentContainer>
             <div className='grid md:grid-cols-2 gap-12'>
                 <div>
@@ -162,6 +166,10 @@ const AdmissionsProcessAcceleration = () => {
                 </div>
             </div>
           </ContentContainer>
+          <div
+            className='absolute top-1/2 -right-20 -translate-y-1/2 w-48 h-96 pointer-events-none'
+            style={lightDotsPattern}
+          />
         </section>
 
         {/* Core Problems: full-width purple band */}
