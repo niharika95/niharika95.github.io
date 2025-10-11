@@ -27,11 +27,11 @@ const Outcome = ({ icon, title, children }) => (
 );
 
 const Section = ({ children, className }) => (
-  <section className={`px-14 py-10 ${className}`}>{children}</section>
+  <section className={`px-8 md:px-24 lg:px-60 py-10 ${className}`}>{children}</section>
 );
 
 const SectionDiv = ({ children, className }) => (
-  <div className={`px-14 py-10 ${className}`}>{children}</div>
+  <div className={`px-8 md:px-24 lg:px-60 py-10 ${className}`}>{children}</div>
 );
 
 const IntelligentCampaignBuilder = () => {
@@ -94,7 +94,7 @@ const IntelligentCampaignBuilder = () => {
       <header className='w-full'>
         <div className='grid grid-cols-1 md:grid-cols-2 min-h-[500px]'>
           <div className='relative bg-[#fb4e0b] overflow-hidden flex items-center'>
-            <div className='max-w-6xl mx-14 w-full'>
+            <SectionDiv className='w-full'>
               <div className='text-white py-12 md:py-16'>
                 <h1 className='text-4xl md:text-5xl font-extrabold leading-tight tracking-tight'>
                   Intelligent Campaign Builder Overhaul
@@ -109,7 +109,7 @@ const IntelligentCampaignBuilder = () => {
                   ))}
                 </div>
               </div>
-            </div>
+            </SectionDiv>
             <div
               className='absolute -top-4 -left-4 w-40 h-40 opacity-60 pointer-events-none'
               style={dotsTopLeft}
@@ -296,7 +296,7 @@ const IntelligentCampaignBuilder = () => {
             </h2>
           </SectionDiv>
           <div className='grid md:grid-cols-2 gap-14'>
-            <div className='px-14 py-10 flex flex-col gap-40'>
+            <SectionDiv className='flex flex-col gap-40'>
               <p className='text-lg leading-relaxed'>
                 I streamlined the primary interface, moving from a cluttered
                 dashboard to a guided, step-by-step process. This simplified the
@@ -318,7 +318,7 @@ const IntelligentCampaignBuilder = () => {
                 faster. The refreshed, modern visual identity reinforced a sense
                 of trust and professionalism.
               </p>
-            </div>
+            </SectionDiv>
             <div className='hidden md:block'>
               <div className='bg-[#FF4F00] h-full w-full' />
             </div>
