@@ -1,11 +1,12 @@
 /* eslint-disable max-len */
 
+import { ContentContainer } from '../../common';
 import { Icon } from '@iconify/react';
 import ProjectCard from '../../components/ProjectCard';
 import React from 'react';
 import caseStudyData from '../Project/caseStudyData';
-import featureFlags from '../../config/featureFlags';
 import { easeOutExpo } from '../../utils/animations';
+import featureFlags from '../../config/featureFlags';
 import femhealthImg from '../../assets/images/femhealth.png';
 import { motion } from 'framer-motion';
 import niharikaProfileImg from '../../assets/images/niharikaProfileImg.png';
@@ -15,7 +16,7 @@ import swiftbikesImg from '../../assets/images/swiftbikes.png';
 
 function Home() {
   return (
-    <>
+    <ContentContainer>
       {/* Hero Section */}
       <div className="mt-[160px] md:mt-[240px] mb-[96px] md:mb-[160px]">
         <motion.h1
@@ -293,7 +294,7 @@ function Home() {
         </div>
       </motion.div>
       </>}
-    </>
+    </ContentContainer>
   );
 }
 

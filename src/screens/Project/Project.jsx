@@ -1,4 +1,4 @@
-import { Gutter, ProjectTitle } from '../../common';
+import { ContentContainer, Gutter, ProjectTitle } from '../../common';
 import { Link, useLocation } from 'react-router-dom';
 
 import { Icon } from '@iconify/react';
@@ -11,7 +11,7 @@ function Project() {
   const projectName = pathname.split('/').pop();
   const currentProject = caseStudyData[projectName];
   return (
-    <div className="pt-[100px] mt-[100px]">
+    <ContentContainer className="pt-[100px] mt-[100px]">
       <Gutter>
         <Link
           to="/"
@@ -76,7 +76,7 @@ function Project() {
         </div>
       ))}
       <div className="w-full h-[150px]" />
-    </div>
+    </ContentContainer>
   );
 }
 
