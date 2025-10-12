@@ -1,6 +1,8 @@
 const featureFlags = {
   // Set to true to show the new links section and pages
   showNewLinks: process.env.NODE_ENV === 'development',
+  // Set to true to use the new home page design (HomeV2)
+  useNewHomePage: process.env.NODE_ENV === 'development',
 };
 
 export function getFeatureFlag(flagName) {
@@ -36,6 +38,7 @@ export function getAllFeatureFlags() {
 
 const resolvedFeatureFlags = {
   showNewLinks: getFeatureFlag('showNewLinks'),
+  useNewHomePage: getFeatureFlag('useNewHomePage'),
 };
 
 export default resolvedFeatureFlags;

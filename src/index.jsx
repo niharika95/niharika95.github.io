@@ -4,6 +4,7 @@ import { HashRouter, Route, Routes } from 'react-router-dom';
 
 import AdmissionsProcessAcceleration from './screens/AdmissionsProcessAcceleration/AdmissionsProcessAcceleration';
 import Home from './screens/Home/Home';
+import HomeV2 from './screens/Home/HomeV2';
 import InsuranceCompanyWebsiteRedesign from './screens/InsuranceCompanyWebsiteRedesign/InsuranceCompanyWebsiteRedesign';
 import IntelligentCampaignBuilder from './screens/IntelligentCampaignBuilder/IntelligentCampaignBuilder';
 import LoanAppExperienceOptimization from './screens/LoanAppExperienceOptimization/LoanAppExperienceOptimization';
@@ -24,9 +25,9 @@ root.render(
       <ScrollToTop />
       <Routes>
         <Route element={<MainLayout />}>
-          <Route path="/" element={<Home />} />
-          <Route path="/#projects" element={<Home />} />
-          <Route path="/#about" element={<Home />} />
+          <Route path="/" element={featureFlags.useNewHomePage ? <HomeV2 /> : <Home />} />
+          <Route path="/#projects" element={featureFlags.useNewHomePage ? <HomeV2 /> : <Home />} />
+          <Route path="/#about" element={featureFlags.useNewHomePage ? <HomeV2 /> : <Home />} />
           <Route path="/project/:id" element={<Project />} />
           <Route path="/resume" element={<Resume />} />
           {featureFlags.showNewLinks && (
