@@ -19,7 +19,12 @@ const Insight = ({ number, text }) => (
 const Result = ({ icon, title, children }) => (
   <div>
     <div className='mb-4'>
-      <Icon icon={icon} width="100px" height="100px" style={{ color: '#ffded2', fontWeight: 200 }} />
+      <Icon
+        icon={icon}
+        width='100px'
+        height='100px'
+        style={{ color: '#ffded2', fontWeight: 200 }}
+      />
     </div>
     <h3 className='text-xl font-bold mb-2'>{title}</h3>
     <p className='opacity-95'>{children}</p>
@@ -27,9 +32,11 @@ const Result = ({ icon, title, children }) => (
 );
 
 const ContentContainer = ({ children, className }) => (
-    <div className={`max-w-[1440px] mx-auto px-5 lg:px-[100px] ${className || ''}`}>
-        {children}
-    </div>
+  <div
+    className={`max-w-[1440px] mx-auto px-5 lg:px-[100px] ${className || ''}`}
+  >
+    {children}
+  </div>
 );
 
 const IntelligentCampaignBuilder = () => {
@@ -89,41 +96,38 @@ const IntelligentCampaignBuilder = () => {
 
   return (
     <div className='relative bg-white text-gray-900 font-sans'>
-      {/* Hero: split composition (left orange, right peach) */}
+      {/* Hero: split composition (left orange, right hero image) */}
       <header className='w-full bg-[#fb4e0b]'>
-        <div className='max-w-[1440px] mx-auto'>
-            <div className='grid grid-cols-1 md:grid-cols-2 min-h-[500px]'>
-                <div className='relative bg-[#fb4e0b] overflow-hidden flex items-center py-5 md:py-[50px] lg:py-[100px] px-5 lg:px-[100px]'>
-                    <div>
-                        <div className='text-white'>
-                            <h1 className='text-4xl md:text-5xl font-extrabold leading-tight tracking-tight'>
-                            Intelligent Campaign Builder Overhaul
-                            </h1>
-                            <p className='text-lg md:text-xl mt-4 opacity-95'>
-                            Empowering Marketers with a Data-Driven, Intuitive Lead
-                            Generation Engine.
-                            </p>
-                            <div className='flex flex-wrap gap-2 mt-6'>
-                            {tags.map((tag) => (
-                                <Tag key={tag}>{tag}</Tag>
-                            ))}
-                            </div>
-                        </div>
-                    </div>
-                    <div
-                      className='absolute -top-4 -left-4 w-[242px] h-[242px] opacity-60 pointer-events-none'
-                      style={dotsTopLeft}
-                    />
-                </div>
-
-                <div className='bg-[#FFE0D6] min-h-[280px]' />
+        <ContentContainer className='relative flex flex-col md:flex-row'>
+          <div className='text-white max-w-2xl py-5 md:py-[50px] lg:py-[100px]'>
+            <h1 className='text-4xl md:text-5xl font-extrabold leading-tight tracking-tight'>
+              Intelligent Campaign Builder Overhaul
+            </h1>
+            <p className='text-lg md:text-xl mt-4 opacity-95'>
+              Empowering Marketers with a Data-Driven, Intuitive Lead Generation
+              Engine.
+            </p>
+            <div className='flex flex-wrap gap-2 mt-6'>
+              {tags.map((tag) => (
+                <Tag key={tag}>{tag}</Tag>
+              ))}
             </div>
-        </div>
+          </div>
+          <img
+            src='/intelligent-campaign-builder-overhaul/hero.png'
+            alt='Intelligent Campaign Builder Hero'
+            className='w-full max-w-[600px] self-end h-auto object-contain max-h-[500px]'
+          />
+          <div
+            className='absolute -top-4 -left-4 w-[242px] h-[242px] opacity-60 pointer-events-none'
+            style={dotsTopLeft}
+          />
+        </ContentContainer>
       </header>
 
       <main className='w-full'>
         {/* Meta row */}
-        <section className="py-5 md:py-[50px] lg:py-[100px]">
+        <section className='py-5 md:py-[50px] lg:py-[100px]'>
           <ContentContainer>
             <div className='grid grid-cols-[auto,1fr] justify-start gap-x-4 gap-y-4 items-start'>
               {/* Role */}
@@ -148,7 +152,8 @@ const IntelligentCampaignBuilder = () => {
                 <h3 className='font-bold text-lg'>Team:</h3>
               </div>
               <p className='col-start-2 text-gray-600 text-lg'>
-                Product Owner, UX/UI Designer, Tech Lead, Front-end Developer, 2 Back-end Developers
+                Product Owner, UX/UI Designer, Tech Lead, Front-end Developer, 2
+                Back-end Developers
               </p>
 
               {/* Duration */}
@@ -165,9 +170,9 @@ const IntelligentCampaignBuilder = () => {
         </section>
 
         <div className='py-2'>
-            <ContentContainer>
-                <hr className='border-[#fb4e0b] mb-12' />
-            </ContentContainer>
+          <ContentContainer>
+            <hr className='border-[#fb4e0b] mb-12' />
+          </ContentContainer>
         </div>
 
         {/* Context */}
@@ -200,21 +205,22 @@ const IntelligentCampaignBuilder = () => {
                   Unlocking Power Through Usability
                 </h2>
                 <p className='text-lg leading-relaxed mb-4 max-w-[800px]'>
-                  The existing platform was a robust lead-generation engine, rich
-                  with data and powerful capabilities. However, its potential was
-                  bottlenecked by a challenging user experience. Marketers, our
-                  primary users, were struggling to execute core tasks efficiently.
+                  The existing platform was a robust lead-generation engine,
+                  rich with data and powerful capabilities. However, its
+                  potential was bottlenecked by a challenging user experience.
+                  Marketers, our primary users, were struggling to execute core
+                  tasks efficiently.
                 </p>
                 <p className='text-lg leading-relaxed max-w-[800px]'>
-                  From initial discovery and user feedback, we identified three core
-                  problems:
+                  From initial discovery and user feedback, we identified three
+                  core problems:
                 </p>
                 <ul className='list-disc list-inside text-lg leading-relaxed space-y-2 mt-4 max-w-[800px]'>
                   <li>
                     <span className='font-bold'>Cognitive Overload:</span> The
-                    interface presented too many options simultaneously, making it
-                    difficult for users to focus and navigate the campaign creation
-                    process.
+                    interface presented too many options simultaneously, making
+                    it difficult for users to focus and navigate the campaign
+                    creation process.
                   </li>
                   <li>
                     <span className='font-bold'>Unclear Workflows:</span> The
@@ -223,9 +229,9 @@ const IntelligentCampaignBuilder = () => {
                     errors.
                   </li>
                   <li>
-                    <span className='font-bold'>Inconsistent Identity:</span> The
-                    lack of a cohesive design language across the platform diluted
-                    brand presence and user trust.
+                    <span className='font-bold'>Inconsistent Identity:</span>{' '}
+                    The lack of a cohesive design language across the platform
+                    diluted brand presence and user trust.
                   </li>
                 </ul>
               </div>
@@ -242,9 +248,9 @@ const IntelligentCampaignBuilder = () => {
               </h2>
               <div className='md:col-span-2 grid gap-8'>
                 <p className='text-lg md:text-xl leading-relaxed opacity-90'>
-                  How could we redesign the experience to guide users toward their
-                  goals, organize functionality with intention, and establish a
-                  strong, trustworthy brand identity?
+                  How could we redesign the experience to guide users toward
+                  their goals, organize functionality with intention, and
+                  establish a strong, trustworthy brand identity?
                 </p>
               </div>
             </div>
@@ -254,14 +260,16 @@ const IntelligentCampaignBuilder = () => {
         {/* Discovery & Key Insights: dark band */}
         <section className='bg-[#222222] text-white py-5 md:py-[50px] lg:py-[100px]'>
           <ContentContainer>
-            <h2 className='text-3xl font-bold mb-4'>Discovery & Key Insights</h2>
+            <h2 className='text-3xl font-bold mb-4'>
+              Discovery & Key Insights
+            </h2>
             <p className='text-lg leading-relaxed mb-8 opacity-95'>
-              I analyzed existing user workflows and gathered qualitative feedback
-              from users who used the platform daily. This research phase yielded
-              critical insights which became the foundation of our design
-              strategy, highlighting a clear need for reusable components that
-              would not only improve design consistency but also accelerate the
-              development cycle.
+              I analyzed existing user workflows and gathered qualitative
+              feedback from users who used the platform daily. This research
+              phase yielded critical insights which became the foundation of our
+              design strategy, highlighting a clear need for reusable components
+              that would not only improve design consistency but also accelerate
+              the development cycle.
             </p>
             <div className='grid md:grid-cols-3 gap-8'>
               {insights.map((insight) => (
@@ -278,36 +286,42 @@ const IntelligentCampaignBuilder = () => {
               Laying the Foundation for a Simpler Experience
             </h2>
             <p className='text-lg leading-relaxed max-w-[800px]'>
-              I collaborated closely with the product owner and engineers to
-              ground every decision in user needs and business goals. My process
-              was iterative and focused on validating the approach at each stage.
-              With a clear understanding of the pain points, I moved into
-              low-fidelity design. I developed wireframes that mapped out the core
-              structure and key user flows of the redesigned application.
+              My process was grounded in close collaboration with the product
+              owner and engineers to ensure every decision was rooted in user
+              needs and business goals. We worked iteratively, focusing on
+              validating our approach at each stage to de-risk our design
+              direction.
             </p>
             <p className='text-lg leading-relaxed mt-4 max-w-[800px]'>
-              These wireframes focused on:
+              To address inconsistency, I designed and implemented a set of
+              reusable components, patterns, and styles. This modular design
+              system not only unified the visual language across the platform
+              but also enabled our development team to build and iterate faster.
+              The refreshed, modern visual identity reinforced a sense of trust
+              and professionalism.
             </p>
-            <ul className='list-disc list-inside text-lg leading-relaxed space-y-2 mt-4 max-w-[800px]'>
-              <li>
-                <span className='font-bold'>Information Architecture:</span>{' '}
-                Restructuring the layout to create a logical hierarchy.
-              </li>
-              <li>
-                <span className='font-bold'>Navigation Logic:</span> Simplifying
-                the primary navigation to be task-oriented.
-              </li>
-              <li>
-                <span className='font-bold'>User Flow Validation:</span> Outlining
-                the ideal path for campaign creation and segmentation.
-              </li>
-            </ul>
-            <p className='text-lg leading-relaxed mt-4 max-w-[800px]'>
-              Presenting these early drafts to stakeholders and the development
-              team allowed us to align on the core usability and functionality
-              before committing to high-fidelity visuals, saving valuable time and
-              resources.
-            </p>
+          </ContentContainer>
+        </section>
+        {/* Images for Laying the Foundation */}
+        <section className='w-full bg-[#222222] pt-5 md:pt-[50px] lg:pt-[100px] pb-0'>
+          <ContentContainer>
+            <div className='grid grid-cols-3 gap-[30px] items-end'>
+              <img
+                src='/intelligent-campaign-builder-overhaul/laying1.png'
+                alt='Laying the Foundation Image 1'
+                className='w-full h-auto object-cover'
+              />
+              <img
+                src='/intelligent-campaign-builder-overhaul/laying2.png'
+                alt='Laying the Foundation Image 2'
+                className='w-full h-auto object-cover'
+              />
+              <img
+                src='/intelligent-campaign-builder-overhaul/laying3.png'
+                alt='Laying the Foundation Image 3'
+                className='w-full h-auto object-cover'
+              />
+            </div>
           </ContentContainer>
         </section>
 
@@ -325,26 +339,94 @@ const IntelligentCampaignBuilder = () => {
                 </h2>
                 <p className='text-lg leading-relaxed max-w-[800px]'>
                   I streamlined the primary interface, moving from a cluttered
-                  dashboard to a guided, step-by-step process. This simplified the
-                  UI, reduced distractions, and allowed marketers to focus on one
-                  key task at a time, from audience segmentation to final
+                  dashboard to a guided, step-by-step process. This simplified
+                  the UI, reduced distractions, and allowed marketers to focus
+                  on one key task at a time, from audience segmentation to final
                   deployment.
                 </p>
                 <p className='text-lg leading-relaxed mt-4 max-w-[800px]'>
                   The segmentation workflow was completely reimagined. I
-                  introduced clear visual cues and real-time feedback, making the
-                  process of targeting specific audiences more intuitive and
+                  introduced clear visual cues and real-time feedback, making
+                  the process of targeting specific audiences more intuitive and
                   actionable.
                 </p>
                 <p className='text-lg leading-relaxed mt-4 max-w-[800px]'>
                   To address inconsistency, I designed and implemented a set of
                   reusable components, patterns, and styles. This modular design
-                  system not only unified the visual language across the platform
-                  but also enabled our development team to build and iterate
-                  faster. The refreshed, modern visual identity reinforced a sense
-                  of trust and professionalism.
+                  system not only unified the visual language across the
+                  platform but also enabled our development team to build and
+                  iterate faster. The refreshed, modern visual identity
+                  reinforced a sense of trust and professionalism.
                 </p>
               </div>
+            </div>
+          </ContentContainer>
+        </section>
+
+        {/* Clarity Design Section */}
+        <section className='flex w-full bg-[#fb4e0b] text-white'>
+          <ContentContainer className='py-5 md:py-[50px] lg:py-[100px]'>
+            <div className='grid grid-cols-1 md:grid-cols-12 gap-8 items-center'>
+              <img
+                src='/intelligent-campaign-builder-overhaul/clarity1.png'
+                alt='Clarity Design Image'
+                className='w-full md:col-span-8'
+              />
+              <p className='text-md leading-relaxed md:col-span-4'>
+                We streamlined the primary interface, moving from a cluttered
+                dashboard to a guided, step-by-step process. The segmentation
+                workflow was completely reimagined. We introduced clear visual
+                cues and real-time feedback, making the process of targeting
+                specific audiences more intuitive and actionable.
+              </p>
+            </div>
+          </ContentContainer>
+        </section>
+
+        {/* Clarity Design Section 2 */}
+        <section className='flex w-full bg-[#fb4e0b] text-white'>
+          <ContentContainer className='py-5 md:py-[50px] lg:py-[100px]'>
+            <div className='grid grid-cols-1 md:grid-cols-12 gap-8 items-center'>
+              <img
+                src='/intelligent-campaign-builder-overhaul/clarity2.png'
+                alt='Clarity Design Image'
+                className='w-full md:col-span-8'
+              />
+              <p className='text-md leading-relaxed md:col-span-4'>
+                Previously, marketers applied filters without seeing the immediate impact. Now, as they select a specific attribute like 'Education' or fine-tune a range for 'Income,' they can see how the target population changes on the same screen. This immediate feedback loop turns blind choices into confident exploration, empowering them to precisely sculpt the perfect audience for their campaign.
+              </p>
+            </div>
+          </ContentContainer>
+        </section>
+
+        {/* Clarity Design Section 3 */}
+        <section className='flex w-full bg-[#fb4e0b] text-white'>
+          <ContentContainer className='py-5 md:py-[50px] lg:py-[100px]'>
+            <div className='grid grid-cols-1 md:grid-cols-12 gap-8 items-center'>
+              <img
+                src='/intelligent-campaign-builder-overhaul/clarity3.png'
+                alt='Clarity Design Image'
+                className='w-full md:col-span-8'
+              />
+              <p className='text-md leading-relaxed md:col-span-4'>
+                With their ideal audience defined, the marketer can see the crucial output which provides a clear list of targetable geographic regions along with key demographic profiles of the people within them.  This bridges the gap between data and action providing the marketer with the exact intelligence needed to deploy their marketing materials effectively and with total confidence.
+              </p>
+            </div>
+          </ContentContainer>
+        </section>
+
+        {/* Clarity Design Section 4 */}
+        <section className='flex w-full bg-[#fb4e0b] text-white'>
+          <ContentContainer className='py-5 md:py-[50px] lg:py-[100px]'>
+            <div className='grid grid-cols-1 md:grid-cols-12 gap-8 items-center'>
+              <img
+                src='/intelligent-campaign-builder-overhaul/clarity4.png'
+                alt='Clarity Design Image'
+                className='w-full md:col-span-8'
+              />
+              <p className='text-md leading-relaxed md:col-span-4'>
+                The platform allows marketers to set the schedule, select communication channels, attach necessary creative assets, and select pre-defined target audiences. This helps them publish a highly targeted campaign and bring their complete strategic vision to life.
+              </p>
             </div>
           </ContentContainer>
         </section>
@@ -354,8 +436,8 @@ const IntelligentCampaignBuilder = () => {
           <ContentContainer>
             <h2 className='text-3xl font-bold mb-4'>Outcomes & Impact</h2>
             <p className='text-lg leading-relaxed mb-8 opacity-95 max-w-[800px]'>
-              The redesign had a significant and positive impact on both the user
-              experience and the product's development lifecycle.
+              The redesign had a significant and positive impact on both the
+              user experience and the product's development lifecycle.
             </p>
             <div className='grid md:grid-cols-3 gap-10'>
               {outcomes.map((outcome) => (
@@ -374,9 +456,9 @@ const IntelligentCampaignBuilder = () => {
             <p className='text-lg leading-relaxed max-w-[800px]'>
               This project reinforced a core design principle: the more powerful
               the platform, the more crucial a simple, guided user experience
-              becomes. Achieving this was a result of early alignment with product
-              and engineering, which proved essential for translating user needs
-              into feasible solutions.
+              becomes. Achieving this was a result of early alignment with
+              product and engineering, which proved essential for translating
+              user needs into feasible solutions.
             </p>
           </ContentContainer>
         </section>
