@@ -4,7 +4,7 @@ import React from 'react';
 // Reusable components for this case study's theme
 
 const Tag = ({ children }) => (
-  <span className='bg-[#fddde4] text-[#a00028] rounded-full px-4 py-1 text-sm font-medium'>
+  <span className='bg-[#fddde4] text-[#a10026] rounded-full px-4 py-1 text-sm font-medium'>
     {children}
   </span>
 );
@@ -67,7 +67,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
   return (
     <div className='relative bg-white text-gray-900 font-sans'>
       {/* Hero: Red background */}
-      <header className='w-full bg-[#A00028]'>
+      <header className='w-full bg-[#A10026]'>
         <ContentContainer className='relative flex flex-col md:flex-row'>
           <div className='text-white max-w-2xl py-5 md:py-[50px] lg:py-[100px]'>
             <h1 className='text-4xl md:text-5xl font-extrabold leading-tight tracking-tight'>
@@ -82,6 +82,12 @@ const InsuranceCompanyWebsiteRedesign = () => {
               ))}
             </div>
           </div>
+          <img
+            src='/insurance-company-website-design/hero.png'
+            alt='Insurance Company Website Redesign Hero'
+            className='w-full max-w-[600px] self-end h-auto object-cover max-h-[500px] mt-50'
+            style={{ boxShadow: '0 -10px 15px -3px rgba(0, 0, 0, 0.1), 0 -4px 6px -2px rgba(0, 0, 0, 0.05)' }}
+          />
           <div
             className='absolute -top-4 -left-4 w-[242px] h-[242px] opacity-60 pointer-events-none'
             style={dotsTopLeft}
@@ -154,8 +160,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
               </div>
               <div>
                 <h2 className='text-3xl font-bold mb-4'>A Digital Experience Lagging Behind Business Ambition</h2>
-                <blockquote className="relative my-8 p-6 bg-gray-50 border-l-4 border-[#A00028]">
-                  <Icon icon="mdi:format-quote-open" className="absolute top-2 left-2 text-4xl text-[#A00028] opacity-20" />
+                <blockquote className="relative my-8 p-6 bg-gray-50 border-l-4 border-[#A10026]">
                   <p className="text-lg italic text-gray-700">The new site must be visually striking, bold, and impactful, with seamless functionality and exceptional B2B and B2C content. We aim to create an enjoyable experience where customers, independent agents, prospective customers, employees and potential investors can easily find what they need and accomplish their tasks with minimal efforts and few clicks.</p>
                   <footer className="text-right mt-4 text-gray-600">— Client</footer>
                 </blockquote>
@@ -184,7 +189,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
         </section>
 
         {/* Red Band Section 1 */}
-        <section className='w-full bg-[#A00028] text-white py-5 md:py-[50px] lg:py-[100px]'>
+        <section className='w-full bg-[#A10026] text-white py-5 md:py-[50px] lg:py-[100px]'>
           <ContentContainer>
             <div className='grid md:grid-cols-2 gap-12'>
               <div>
@@ -220,6 +225,10 @@ const InsuranceCompanyWebsiteRedesign = () => {
                 <p className='text-lg leading-relaxed max-w-[800px]'>
                   The client serves two distinct primary audiences: Customers (homeowners) and Agents (B2B partners). We created personas, informed by demographic data provided by the client. Creating these personas was critical as it built empathy, focused our decision-making on user needs, and created alignment between our team and the client who we were building for.
                 </p>
+                <div className='flex flex-col md:flex-row gap-4 mt-8'>
+                  <img src='/insurance-company-website-design/persona1.png' alt='Persona 1' className='w-full md:w-1/2 h-auto' />
+                  <img src='/insurance-company-website-design/persona2.png' alt='Persona 2' className='w-full md:w-1/2 h-auto object-cover' />
+                </div>
               </div>
               <div>
                 <h2 className='text-3xl font-bold mb-4'>Rebuilding the Foundation</h2>
@@ -232,6 +241,10 @@ const InsuranceCompanyWebsiteRedesign = () => {
               </div>
             </div>
           </ContentContainer>
+        </section>
+
+        <section className='w-full'>
+          <img src='/insurance-company-website-design/foundation.png' alt='Foundation' className='w-full h-auto' />
         </section>
 
         <section className='py-5 md:py-[50px] lg:py-[100px]'>
@@ -249,7 +262,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
         </section>
 
         {/* Red Band Section 2 */}
-        <section className='w-full bg-[#A00028] text-white py-5 md:py-[50px] lg:py-[100px]'>
+        <section className='w-full bg-[#A10026] text-white py-5 md:py-[50px] lg:py-[100px]'>
           <ContentContainer>
             <h2 className='text-3xl font-bold mb-4'>A Stakeholder-driven Pivot</h2>
             <p className='text-lg leading-relaxed opacity-90 max-w-[800px]'>Based on the 'Hybrid' style, we developed a high-fidelity visual design with a light, airy, and open feel. The light theme projected friendliness and the use of airy / negative space gave the impression of modernness. Until now, we had been working with the client's marketing team and receiving feedback from them. However, in a demo with the CEO and CTO, the hybrid design was met with disapproval. The upper leadership had envisioned a dark, and bold theme. This was a critical moment. We quickly pivoted, revisiting our design explorations and adopted them into a sophisticated dark theme. Over a few iterations involving continuous feedback from the upper leadership, the revised mockup was presented to the client, including the CEO and CTO, and it was met with an enthusiastic approval. This was our finalized direction.</p>
@@ -268,6 +281,10 @@ const InsuranceCompanyWebsiteRedesign = () => {
               <li>It also streamlined the development process, ensuring visual consistency and speeding up implementation.</li>
             </ul>
           </ContentContainer>
+        </section>
+
+        <section className='w-full'>
+          <img src='/insurance-company-website-design/impact.png' alt='Impact' className='w-full h-auto' />
         </section>
 
         {/* The Impact: dark band with table */}
@@ -305,15 +322,15 @@ const InsuranceCompanyWebsiteRedesign = () => {
             </p>
             <ul className='space-y-6 max-w-[800px]'>
               <li className='flex items-start gap-4'>
-                <Icon icon='mdi:account-group' className='text-2xl text-[#A00028] mt-1 flex-shrink-0' />
+                <Icon icon='mdi:account-group' className='text-2xl text-[#A10026] mt-1 flex-shrink-0' />
                 <p className='text-lg leading-relaxed'>Engage final decision-makers early and often. Securing their buy-in on foundational elements is crucial to prevent wasted cycles.</p>
               </li>
               <li className='flex items-start gap-4'>
-                <Icon icon='mdi:lightbulb-on-outline' className='text-2xl text-[#A00028] mt-1 flex-shrink-0' />
+                <Icon icon='mdi:lightbulb-on-outline' className='text-2xl text-[#A10026] mt-1 flex-shrink-0' />
                 <p className='text-lg leading-relaxed'>A strong brand foundation is a prerequisite for a strong website. In the future, I would advocate for a brand strategy engagement before commencing a full site redesign.</p>
               </li>
               <li className='flex items-start gap-4'>
-                <Icon icon='mdi:clock-outline' className='text-2xl text-[#A00028] mt-1 flex-shrink-0' />
+                <Icon icon='mdi:clock-outline' className='text-2xl text-[#A10026] mt-1 flex-shrink-0' />
                 <p className='text-lg leading-relaxed'>Delays in client feedback and approvals pushed our timeline back by several weeks. Set clear expectations for feedback turnaround times in the project plan and proactively communicate the impact of delays on the timeline.</p>
               </li>
             </ul>
