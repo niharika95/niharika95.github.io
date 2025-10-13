@@ -26,12 +26,12 @@ function HomeV2() {
             {/* Title and Description */}
             <div className='flex flex-col gap-[20px]'>
               <div className='flex flex-col'>
-                <h1 className='font-playfair font-normal text-[60px] text-[#000] tracking-[-0.04em] leading-[1.5] m-0 max-md:text-[48px]'>
+                <h1 className='font-playfair font-normal text-[60px] text-[#000] tracking-[-0.04em] leading-[1.5] m-0 max-md:text-[48px] max-md:leading-[1.2]'>
                   Niharika Dalal
                 </h1>
-                <p className='font-playfair font-normal text-[60px] text-[#898989] tracking-[-0.04em] leading-[1.5] m-0 max-md:text-[48px]'>
+                <h2 className='font-playfair font-normal text-[60px] text-[#898989] tracking-[-0.04em] leading-[1.5] m-0 max-md:text-[48px] max-md:leading-[1.2]'>
                   Product Designer
-                </p>
+                </h2>
               </div>
               <p className='font-mulish text-[20px] text-black tracking-[-0.05em] leading-[1.5] m-0 max-md:text-[18px]'>
                 Designing 0-to-1 solutions that drive growth, in collaboration

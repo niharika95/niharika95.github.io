@@ -240,60 +240,6 @@ function Home() {
           </motion.div>
         </div>
       </motion.div>
-
-{featureFlags.showNewLinks && <>
-      {/* Divider */}
-      <div className="my-[96px] md:my-[128px]">
-        <div className="relative h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent max-w-[800px] mx-auto" />
-      </div>
-
-      {/* Links Section */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.8 }}
-        className="py-[96px] md:py-[160px]"
-      >
-        <h3 className="text-[32px] md:text-[40px] font-semibold mb-[64px] md:mb-[96px] text-center tracking-tight">
-          Links
-        </h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-[48px] md:gap-[64px] max-w-[1200px] mx-auto">
-          <motion.a
-            whileHover={{ y: -4 }}
-            transition={{ duration: 0.2 }}
-            href="#/intelligent-campaign-builder"
-            className="group font-light text-[20px] no-underline text-black flex gap-[12px] items-center"
-          >
-            Intelligent Campaign Builder
-          </motion.a>
-          <motion.a
-            whileHover={{ y: -4 }}
-            transition={{ duration: 0.2 }}
-            href="#/loan-app-experience-optimization"
-            className="group font-light text-[20px] no-underline text-black flex gap-[12px] items-center"
-          >
-            Loan App Experience Optimization
-          </motion.a>
-          <motion.a
-            whileHover={{ y: -4 }}
-            transition={{ duration: 0.2 }}
-            href="#/admissions-process-acceleration"
-            className="group font-light text-[20px] no-underline text-black flex gap-[12px] items-center"
-          >
-            Admissions Process Acceleration
-          </motion.a>
-          <motion.a
-            whileHover={{ y: -4 }}
-            transition={{ duration: 0.2 }}
-            href="#/insurance-company-website-redesign"
-            className="group font-light text-[20px] no-underline text-black flex gap-[12px] items-center"
-          >
-            Insurance Company Website Redesign
-          </motion.a>
-        </div>
-      </motion.div>
-      </>}
     </ContentContainer>
   );
 }
