@@ -64,4 +64,14 @@ html::-webkit-scrollbar-thumb {
   background: #ababab;
   border-radius: 48px;
   box-shadow: 0px 6px 49px -35px rgba(0,0,0,0.63);
+
+/* Highlighter animation for project grid */
+@keyframes slideIn {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
 }
