@@ -62,7 +62,7 @@ function GeometricPattern({
       className={`w-full h-full overflow-hidden ${className}`}
       style={{
         display: 'grid',
-        gridTemplateColumns: `repeat(15, ${BOX_SIZE}px)`,
+        gridTemplateColumns: `repeat(auto-fit, ${BOX_SIZE}px)`,
         gridAutoRows: `${BOX_SIZE}px`,
         gridAutoFlow: 'row',
         ...(maxRows && { maxHeight: `${maxRows * BOX_SIZE}px` })

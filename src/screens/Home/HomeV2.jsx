@@ -1,5 +1,6 @@
 import { ContentContainer } from '../../common';
 import GeometricPattern from '../../components/GeometricPattern';
+import PersonalProjectsGrid from '../../components/PersonalProjectsGrid';
 import ProjectGrid from '../../components/ProjectGrid';
 import React from 'react';
 
@@ -61,6 +62,9 @@ function HomeV2() {
 
       {/* Projects Section */}
       <ProjectGrid />
+
+      {/* Personal Projects Section */}
+      <PersonalProjectsGrid />
 
       {/* Contact Footer */}
       <footer className='py-[40px] px-[40px] flex justify-center items-center gap-[20px] flex-wrap max-md:px-[20px] max-md:gap-[15px]'>
