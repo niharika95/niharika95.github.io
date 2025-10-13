@@ -2,16 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import { Icon } from '@iconify/react';
 import { HashLink as RHashLink } from 'react-router-hash-link';
-import { Link as RLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import niharikaLogo from '/niharikaLogo.png';
-
-const Link = ({ className = '', smooth, ...rest }) => (
-  <RLink
-    {...rest}
-    className={`text-[20px] no-underline hover:no-underline text-black visited:text-black ${className}`}
-  />
-);
 
 const HashLink = ({ className = '', ...rest }) => (
   <RHashLink
@@ -22,8 +13,7 @@ const HashLink = ({ className = '', ...rest }) => (
 
 const links = [
   { href: '/#projects', label: 'Projects', component: HashLink },
-  { href: '/resume', label: 'Resume', component: Link },
-  { href: '/#about', label: 'About', component: HashLink },
+  { href: '/#about', label: 'About Me', component: HashLink },
 ];
 
 function Header() {
@@ -85,8 +75,10 @@ function Header() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="max-[600px]:col-start-1"
         >
-          <HashLink smooth to="/#">
-            <img src={niharikaLogo} alt="logo" className="h-[56px]" />
+          <HashLink smooth to="/#" className="no-underline">
+            <h1 className="font-['Playfair_Display',serif] text-[24px] text-black m-0 font-normal">
+              Niharika Dalal
+            </h1>
           </HashLink>
         </motion.div>
         <Icon
@@ -107,8 +99,8 @@ function Header() {
               key={label}
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ 
-                duration: 0.5, 
+              transition={{
+                duration: 0.5,
                 delay: 0.2 + (index * 0.1),
                 ease: [0.22, 1, 0.36, 1]
               }}

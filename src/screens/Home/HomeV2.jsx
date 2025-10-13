@@ -40,34 +40,6 @@ const stats = [
 function HomeV2() {
   return (
     <div className="bg-white min-h-screen w-full">
-      {/* Header */}
-      <header className="bg-[#f8f8f8] flex items-center justify-between px-[40px] py-[12px] w-full max-md:px-[20px]">
-        {/* Left - Text Logo */}
-        <HashLink smooth to="/#" className="no-underline">
-          <h1 className="font-['Playfair_Display',serif] text-[24px] text-black m-0 font-normal">
-            Niharika Dalal
-          </h1>
-        </HashLink>
-        
-        {/* Right - Navigation */}
-        <nav className="flex gap-[40px] items-center max-md:gap-[20px]">
-          <HashLink 
-            smooth 
-            to="/#projects" 
-            className="font-['Mulish',sans-serif] text-[16px] text-black no-underline hover:underline"
-          >
-            Projects
-          </HashLink>
-          <HashLink 
-            smooth 
-            to="/#about" 
-            className="font-['Mulish',sans-serif] text-[16px] text-black no-underline hover:underline"
-          >
-            About Me
-          </HashLink>
-        </nav>
-      </header>
-
       {/* Hero Section */}
       <section className="flex items-center justify-between px-[40px] py-[60px] w-full max-lg:flex-col max-lg:gap-[60px] max-md:px-[20px] max-md:py-[40px]">
         {/* Left - Decorative SVG Pattern */}
