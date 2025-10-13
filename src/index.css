@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Mulish:wght@300;400;500;600;700&display=swap');
 
 @theme {
   --color-brand-primary: #106066;
@@ -13,43 +14,13 @@
   --color-background-subtle: #fafafa;
   --color-border-light: #e5e5e5;
   --color-hover-bg: #f5f5f5;
+  
+  /* Font families */
+  --font-playfair: "Playfair Display", serif;
+  --font-mulish: "Mulish", sans-serif;
+  --font-sans: "Mulish", sans-serif;
 }
 
-
-@font-face {
-  font-family: "Mulish";
-  src: url("./assets/fonts/Mulish/Mulish-Light.ttf");
-  font-weight: 300;
-}
-
-@font-face {
-  font-family: "Mulish";
-  src: url("./assets/fonts/Mulish/Mulish-Regular.ttf");
-  font-weight: 400;
-}
-
-@font-face {
-  font-family: "Mulish";
-  src: url("./assets/fonts/Mulish/Mulish-Italic.ttf");
-  font-style: italic;
-  font-weight: 400;
-}
-
-@font-face {
-  font-family: "Mulish";
-  src: url("./assets/fonts/Mulish/Mulish-Medium.ttf");
-  font-weight: 500;
-}
-
-@font-face {
-  font-family: "Mulish";
-  src: url("./assets/fonts/Mulish/Mulish-Bold.ttf");
-  font-weight: 700;
-}
-
-*{
-  font-family: "Mulish";
-}
 
 p, li{
   line-height: 30px;

@@ -12,78 +12,71 @@ const svgPaths = {
   p6152200: "M5.66238e-06 45C5.90949 45 11.7611 43.836 17.2208 41.5746C22.6804 39.3131 27.6412 35.9984 31.8198 31.8198C35.9984 27.6412 39.3131 22.6804 41.5746 17.2208C43.836 11.7611 45 5.90948 45 0L7.62939e-06 0L5.66238e-06 45Z",
 };
 
-// Hero pattern configuration (5x5 grid)
-const heroPattern = [
-  // Row 1
-  { type: 'svg', bg: '#313C5F', path: 'p38a39500', pathFill: '#F7B000', rotate: 0, scaleY: 1, width: 90 },
-  { type: 'solid', bg: '#dcd7e8', width: 135 },
-  { type: 'svg', bg: '#DCD7E8', path: 'p6152200', pathFill: '#E3F3EE', rotate: 0, scaleY: 1, width: 90 },
-  { type: 'svg', bg: '#313C5F', path: 'p3dabb800', pathFill: '#E3F3EE', rotate: 270, scaleY: 1, width: 90 },
-  { type: 'svg', bg: '#F7B000', path: 'p2012a640', pathFill: '#E3F3EE', rotate: 180, scaleY: -1, width: 90 },
-  
-  // Row 2
-  { type: 'svg', bg: '#FF4C4C', path: 'p38a39500', pathFill: '#F47A2D', rotate: 270, scaleY: 1, width: 90 },
-  { type: 'solid', bg: '#8fdfc6', width: 135 },
-  { type: 'solid', bg: '#e3f3ee', width: 90 },
-  { type: 'svg', bg: '#F7B000', path: 'p3caaa200', pathFill: '#313C5F', rotate: 270, scaleY: 1, width: 90 },
-  { type: 'svg', bg: '#FF4C4C', path: 'p204a6cf0', pathFill: '#F47A2D', rotate: 180, scaleY: -1, width: 90 },
-  
-  // Row 3
-  { type: 'solid', bg: '#f7b000', width: 90 },
-  { type: 'solid', bg: '#dcd7e8', width: 135 },
-  { type: 'svg', bg: '#F47A2D', path: 'p13416900', pathFill: '#DCD7E8', rotate: 0, scaleY: 1, width: 90 },
-  { type: 'svg', bg: '#313C5F', path: 'p3658de00', pathFill: '#E3F3EE', rotate: 270, scaleY: 1, width: 90 },
-  { type: 'solid', bg: '#8fdfc6', width: 90 },
-  
-  // Row 4
-  { type: 'svg', bg: '#313C5F', path: 'p38a39500', pathFill: '#E3F3EE', rotate: 180, scaleY: -1, width: 90 },
-  { type: 'solid', bg: '#f7b000', width: 135 },
-  { type: 'svg', bg: '#313C5F', path: 'p38a39500', pathFill: '#E3F3EE', rotate: 270, scaleY: 1, width: 90 },
-  { type: 'svg', bg: '#DCD7E8', path: 'p3dabb800', pathFill: '#E3F3EE', rotate: 270, scaleY: 1, width: 90 },
-  { type: 'solid', bg: '#e3f3ee', width: 90 },
-  
-  // Row 5
-  { type: 'svg', bg: '#313C5F', path: 'p3658de00', pathFill: '#E3F3EE', rotate: 270, scaleY: 1, width: 90 },
-  { type: 'solid', bg: '#ff4c4c', width: 135 },
-  { type: 'svg', bg: '#DCD7E8', path: 'p3dabb800', pathFill: '#E3F3EE', rotate: 90, scaleY: -1, width: 90 },
-  { type: 'svg', bg: '#F7B000', path: 'p38a39500', pathFill: '#8FDFC6', rotate: 270, scaleY: 1, width: 90 },
-  { type: 'svg', bg: '#DCD7E8', path: 'p38a39500', pathFill: '#E3F3EE', rotate: 180, scaleY: -1, width: 90 },
+// Default tile definitions - can be customized via props
+const defaultTiles = [
+  { type: 'svg', bg: '#313C5F', path: 'p38a39500', pathFill: '#F7B000', rotate: 0, scaleY: 1 },
+  { type: 'solid', bg: '#dcd7e8' },
+  { type: 'svg', bg: '#DCD7E8', path: 'p6152200', pathFill: '#E3F3EE', rotate: 0, scaleY: 1 },
+  { type: 'svg', bg: '#313C5F', path: 'p3dabb800', pathFill: '#E3F3EE', rotate: 270, scaleY: 1 },
+  { type: 'svg', bg: '#F7B000', path: 'p2012a640', pathFill: '#E3F3EE', rotate: 180, scaleY: -1 },
+  { type: 'svg', bg: '#FF4C4C', path: 'p38a39500', pathFill: '#F47A2D', rotate: 270, scaleY: 1 },
+  { type: 'solid', bg: '#8fdfc6' },
+  { type: 'solid', bg: '#e3f3ee' },
+  { type: 'svg', bg: '#F7B000', path: 'p3caaa200', pathFill: '#313C5F', rotate: 270, scaleY: 1 },
+  { type: 'svg', bg: '#FF4C4C', path: 'p204a6cf0', pathFill: '#F47A2D', rotate: 180, scaleY: -1 },
+  { type: 'solid', bg: '#f7b000' },
+  { type: 'svg', bg: '#F47A2D', path: 'p13416900', pathFill: '#DCD7E8', rotate: 0, scaleY: 1 },
+  { type: 'svg', bg: '#313C5F', path: 'p3658de00', pathFill: '#E3F3EE', rotate: 270, scaleY: 1 },
+  { type: 'solid', bg: '#8fdfc6' },
+  { type: 'svg', bg: '#313C5F', path: 'p38a39500', pathFill: '#E3F3EE', rotate: 180, scaleY: -1 },
+  { type: 'svg', bg: '#DCD7E8', path: 'p3dabb800', pathFill: '#E3F3EE', rotate: 270, scaleY: 1 },
+  { type: 'svg', bg: '#313C5F', path: 'p3658de00', pathFill: '#E3F3EE', rotate: 270, scaleY: 1 },
+  { type: 'solid', bg: '#ff4c4c' },
+  { type: 'svg', bg: '#DCD7E8', path: 'p3dabb800', pathFill: '#E3F3EE', rotate: 90, scaleY: -1 },
+  { type: 'svg', bg: '#F7B000', path: 'p38a39500', pathFill: '#8FDFC6', rotate: 270, scaleY: 1 },
+  { type: 'svg', bg: '#DCD7E8', path: 'p38a39500', pathFill: '#E3F3EE', rotate: 180, scaleY: -1 },
+  { type: 'svg', bg: '#FF4C4C', path: 'p38a39500', pathFill: '#313C5F', rotate: 0, scaleY: 1 },
+  { type: 'svg', bg: '#313C5F', path: 'p38a39500', pathFill: '#E3F3EE', rotate: 180, scaleY: -1 },
+  { type: 'svg', bg: '#FF4C4C', path: 'p11dd1a80', pathFill: '#F47A2D', rotate: 90, scaleY: -1 },
 ];
 
-// Footer pattern configuration (1x16 grid)
-const footerPattern = [
-  { type: 'svg', bg: '#313C5F', path: 'p38a39500', pathFill: '#F7B000', rotate: 0, scaleY: 1, width: 90 },
-  { type: 'solid', bg: '#dcd7e8', width: 135 },
-  { type: 'svg', bg: '#DCD7E8', path: 'p6152200', pathFill: '#E3F3EE', rotate: 0, scaleY: 1, width: 90 },
-  { type: 'svg', bg: '#313C5F', path: 'p3dabb800', pathFill: '#E3F3EE', rotate: 270, scaleY: 1, width: 90 },
-  { type: 'svg', bg: '#F7B000', path: 'p2012a640', pathFill: '#E3F3EE', rotate: 180, scaleY: -1, width: 90 },
-  { type: 'solid', bg: '#8fdfc6', width: 135 },
-  { type: 'svg', bg: '#FF4C4C', path: 'p38a39500', pathFill: '#313C5F', rotate: 0, scaleY: 1, width: 90 },
-  { type: 'svg', bg: '#313C5F', path: 'p38a39500', pathFill: '#E3F3EE', rotate: 180, scaleY: -1, width: 90 },
-  { type: 'svg', bg: '#FF4C4C', path: 'p38a39500', pathFill: '#F47A2D', rotate: 270, scaleY: 1, width: 90 },
-  { type: 'solid', bg: '#f7b000', width: 90 },
-  { type: 'solid', bg: '#e3f3ee', width: 135 },
-  { type: 'svg', bg: '#F47A2D', path: 'p13416900', pathFill: '#DCD7E8', rotate: 0, scaleY: 1, width: 90 },
-  { type: 'svg', bg: '#FF4C4C', path: 'p204a6cf0', pathFill: '#F47A2D', rotate: 180, scaleY: -1, width: 90 },
-  { type: 'svg', bg: '#FF4C4C', path: 'p11dd1a80', pathFill: '#F47A2D', rotate: 90, scaleY: -1, width: 90 },
-  { type: 'svg', bg: '#313C5F', path: 'p3658de00', pathFill: '#E3F3EE', rotate: 270, scaleY: 1, width: 90 },
-];
-
-function GeometricPattern({ variant = 'hero', className = '' }) {
-  const pattern = variant === 'hero' ? heroPattern : footerPattern;
-  const gridCols = variant === 'hero' ? 5 : 16;
+function GeometricPattern({ 
+  tiles = defaultTiles, 
+  maxRows = null, // null = fill available height, number = limit rows
+  className = '' 
+}) {
+  const BOX_SIZE = 90;
+  
+  // Generate enough tiles to fill a large area (will be clipped by CSS grid)
+  // We generate 200 tiles which should be more than enough for most screens
+  const repeatedTiles = [];
+  const totalTilesToGenerate = 200;
+  
+  for (let i = 0; i < totalTilesToGenerate; i++) {
+    const tile = tiles[i % tiles.length];
+    repeatedTiles.push({ ...tile, key: i });
+  }
   
   return (
-    <div className={`inline-grid gap-0 ${className}`} style={{ gridTemplateColumns: `repeat(${gridCols}, 90px)` }}>
-      {pattern.map((tile, index) => {
+    <div 
+      className={`w-full h-full overflow-hidden ${className}`}
+      style={{
+        display: 'grid',
+        gridTemplateColumns: `repeat(15, ${BOX_SIZE}px)`,
+        gridAutoRows: `${BOX_SIZE}px`,
+        gridAutoFlow: 'row',
+        ...(maxRows && { maxHeight: `${maxRows * BOX_SIZE}px` })
+      }}
+    >
+      {repeatedTiles.map((tile) => {
         if (tile.type === 'solid') {
           return (
             <div
-              key={index}
-              className="h-[90px]"
-              style={{ 
+              key={tile.key}
+              style={{
                 backgroundColor: tile.bg,
-                width: `${tile.width}px`
+                width: `${BOX_SIZE}px`,
+                height: `${BOX_SIZE}px`
               }}
             />
           );
@@ -94,10 +87,11 @@ function GeometricPattern({ variant = 'hero', className = '' }) {
         
         return (
           <div
-            key={index}
-            className="relative h-[90px]"
-            style={{ 
-              width: `${tile.width}px`,
+            key={tile.key}
+            className="relative"
+            style={{
+              width: `${BOX_SIZE}px`,
+              height: `${BOX_SIZE}px`,
               transform: tile.rotate !== 0 || tile.scaleY !== 1 ? transform : undefined
             }}
           >

@@ -20,7 +20,7 @@ const KeyInsight = ({ number, children }) => (
     <div className="flex-shrink-0 w-12 h-12 rounded-full bg-white text-gray-900 font-bold flex items-center justify-center text-xl">
       {number}
     </div>
-    <p className="text-lg leading-relaxed opacity-95 pt-2">{children}</p>
+    <p className="font-mulish text-lg leading-relaxed opacity-95 pt-2">{children}</p>
   </div>
 );
 
@@ -29,8 +29,8 @@ const Result = ({ icon, title, children }) => (
     <div className='mb-4'>
       <Icon icon={icon} width="100px" height="100px" style={{ color: '#dbeafe', fontWeight: 200 }} />
     </div>
-    <h3 className='text-xl font-bold mb-2'>{title}</h3>
-    <p className='opacity-95'>{children}</p>
+    <h3 className='font-playfair text-xl font-bold mb-2'>{title}</h3>
+    <p className='font-mulish opacity-95'>{children}</p>
   </div>
 );
 
@@ -76,10 +76,10 @@ const LoanAppExperienceOptimization = () => {
                 <div className='relative bg-[#1E3A8A] overflow-hidden flex items-center py-5 md:py-[50px] lg:py-[100px] px-5 lg:px-[100px]'>
                     <div>
                         <div className='text-white'>
-                            <h1 className='text-4xl md:text-5xl font-extrabold leading-tight tracking-tight'>
+                            <h1 className='font-playfair text-4xl md:text-5xl font-extrabold leading-tight tracking-tight'>
                             Loan App Experience Optimization
                             </h1>
-                            <p className='text-lg md:text-xl mt-4 opacity-95'>
+                            <p className='font-mulish text-lg md:text-xl mt-4 opacity-95'>
                             Slashing projected loan application time by 40% by redesigning for trust and efficiency.
                             </p>
                             <div className='flex flex-wrap gap-3 mt-6'>
@@ -111,9 +111,9 @@ const LoanAppExperienceOptimization = () => {
                   icon='material-symbols:person-outline'
                   className='text-2xl text-black mr-4'
                 />
-                <h3 className='font-bold text-lg'>Role:</h3>
+                <h3 className='font-playfair font-bold text-lg'>Role:</h3>
               </div>
-              <p className='col-start-2 text-gray-600 text-lg'>
+              <p className='font-mulish col-start-2 text-gray-600 text-lg'>
                 UX/UI Designer
               </p>
 
@@ -124,9 +124,9 @@ const LoanAppExperienceOptimization = () => {
                   className='text-2xl text-black mr-4'
                   style={{ fill: 'none', fontWeight: 100 }}
                 />
-                <h3 className='font-bold text-lg'>Team:</h3>
+                <h3 className='font-playfair font-bold text-lg'>Team:</h3>
               </div>
-              <p className='col-start-2 text-gray-600 text-lg'>
+              <p className='font-mulish col-start-2 text-gray-600 text-lg'>
                 Project Manager, UX/UI Designer
               </p>
 
@@ -136,9 +136,9 @@ const LoanAppExperienceOptimization = () => {
                   icon='mdi:clock-outline'
                   className='text-2xl text-black mr-4'
                 />
-                <h3 className='font-bold text-lg'>Duration:</h3>
+                <h3 className='font-playfair font-bold text-lg'>Duration:</h3>
               </div>
-              <p className='col-start-2 text-gray-600 text-lg'>2 months</p>
+              <p className='font-mulish col-start-2 text-gray-600 text-lg'>2 months</p>
             </div>
           </ContentContainer>
         </section>
@@ -158,8 +158,8 @@ const LoanAppExperienceOptimization = () => {
             />
             <div className='flex flex-col gap-12'>
               <div>
-                <h2 className='text-3xl font-bold mb-4'>Context</h2>
-                <p className='text-lg leading-relaxed max-w-[800px]'>
+                <h2 className='font-playfair text-3xl font-bold mb-4'>Context</h2>
+                <p className='font-mulish text-lg leading-relaxed max-w-[800px]'>
                   A top-tier global bank's digital loan application was underperforming. Despite having a pool of pre-qualified candidates, the platform was seeing significant user drop-off. I joined the project to lead the UX/UI design effort, tasked with overhauling this critical experience on an accelerated 2-month timeline. The primary goal was to deliver a finalized, streamlined design for a seamless handoff to the client's internal development team for implementation.
                 </p>
               </div>
@@ -171,17 +171,17 @@ const LoanAppExperienceOptimization = () => {
         <section className='w-full bg-[#1E3A8A] text-white py-5 md:py-[50px] lg:py-[100px]'>
           <ContentContainer>
             <div className='grid md:grid-cols-3 gap-8 items-center'>
-              <h2 className='text-2xl md:text-3xl font-bold self-center'>
+              <h2 className='font-playfair text-2xl md:text-3xl font-bold self-center'>
                 Problem in a nutshell
               </h2>
               <div className='md:col-span-2 grid gap-8'>
                 <div>
-                  <h3 className='font-bold text-xl mb-2'>For the business:</h3>
-                  <p className='opacity-90 text-lg leading-relaxed'>High user drop-off rate and low number of submitted applications.</p>
+                  <h3 className='font-playfair font-bold text-xl mb-2'>For the business:</h3>
+                  <p className='font-mulish opacity-90 text-lg leading-relaxed'>High user drop-off rate and low number of submitted applications.</p>
                 </div>
                 <div>
-                  <h3 className='font-bold text-xl mb-2'>For the customer:</h3>
-                  <p className='opacity-90 text-lg leading-relaxed'>Forced through a 11-page long form that asked for excessive information, leading to fatigue and abandonment.</p>
+                  <h3 className='font-playfair font-bold text-xl mb-2'>For the customer:</h3>
+                  <p className='font-mulish opacity-90 text-lg leading-relaxed'>Forced through a 11-page long form that asked for excessive information, leading to fatigue and abandonment.</p>
                 </div>
               </div>
             </div>
@@ -197,18 +197,18 @@ const LoanAppExperienceOptimization = () => {
             />
             <div className='flex flex-col gap-12'>
               <div>
-                <h2 className='text-3xl font-bold mb-4'>Discovery Under Pressure</h2>
-                <p className='text-lg leading-relaxed mb-6 max-w-[800px]'>
+                <h2 className='font-playfair text-3xl font-bold mb-4'>Discovery Under Pressure</h2>
+                <p className='font-mulish text-lg leading-relaxed mb-6 max-w-[800px]'>
                   With a tight deadline preventing a full-fledged research phase, I focused on a pragmatic and collaborative approach to gain insights quickly.
                 </p>
                 <div className="space-y-6 max-w-[800px]">
                   <div>
-                    <h3 className="font-bold text-xl mb-2">Leveraging Client Insights & Existing Feedback</h3>
-                    <p className='text-lg leading-relaxed'>Through in-depth discussions with the client, we analyzed their business pain points and existing customer feedback. This strategy provided a rapid path to understanding user needs.</p>
+                    <h3 className="font-playfair font-bold text-xl mb-2">Leveraging Client Insights & Existing Feedback</h3>
+                    <p className='font-mulish text-lg leading-relaxed'>Through in-depth discussions with the client, we analyzed their business pain points and existing customer feedback. This strategy provided a rapid path to understanding user needs.</p>
                   </div>
                   <div>
-                    <h3 className="font-bold text-xl mb-2">Auditing the Existing Flow</h3>
-                    <p className='text-lg leading-relaxed'>I audited the original application by mapping every screen, field, and click. This process established a clear, quantitative baseline for user friction and pinpointed key areas for optimization.</p>
+                    <h3 className="font-playfair font-bold text-xl mb-2">Auditing the Existing Flow</h3>
+                    <p className='font-mulish text-lg leading-relaxed'>I audited the original application by mapping every screen, field, and click. This process established a clear, quantitative baseline for user friction and pinpointed key areas for optimization.</p>
                   </div>
                 </div>
               </div>
@@ -219,7 +219,7 @@ const LoanAppExperienceOptimization = () => {
         {/* Key Insights */}
         <section className='bg-[#222222] text-white py-5 md:py-[50px] lg:py-[100px]'>
           <ContentContainer>
-            <h2 className='text-3xl font-bold mb-8'>Key Insights</h2>
+            <h2 className='font-playfair text-3xl font-bold mb-8'>Key Insights</h2>
             <div className='grid md:grid-cols-2 gap-12'>
               <KeyInsight number="1">
                 Asking pre-qualified users for information the bank already possessed was a major source of friction.
@@ -240,11 +240,11 @@ const LoanAppExperienceOptimization = () => {
             />
             <div className='flex flex-col gap-12'>
               <div>
-                <h2 className='text-3xl font-bold mb-4'>A Streamlined, Human-Centered Workflow</h2>
-                <p className='text-lg leading-relaxed mb-6 max-w-[800px]'>
+                <h2 className='font-playfair text-3xl font-bold mb-4'>A Streamlined, Human-Centered Workflow</h2>
+                <p className='font-mulish text-lg leading-relaxed mb-6 max-w-[800px]'>
                   My solution was centered on three principles: progressive disclosure, smart defaults, and motivational design.
                 </p>
-                <div className="space-y-6 text-lg leading-relaxed max-w-[800px]">
+                <div className="font-mulish space-y-6 text-lg leading-relaxed max-w-[800px]">
                   <p>I reorganized the form sections into logical chunks (e.g., Personal Information, Financials, Review). A prominent progress bar was introduced to manage user expectations and clearly show them how close they were to the end.</p>
                   <p>Leveraging the bank's existing design system, I scrutinized every form field. Inefficient components were replaced with more effective alternatives. For example, I introduced an interactive slider for the loan amount. As a user adjusted the slider, their estimated monthly payment updated in real-time, allowing them to make informed decisions more quickly.</p>
                   <p>To reduce application anxiety and frustration, I introduced subtle, encouraging illustrations at key milestones. For instance, after a user successfully completed the personal information section, an illustration would appear, reinforcing their progress and motivating them to continue to the next step.</p>
@@ -257,8 +257,8 @@ const LoanAppExperienceOptimization = () => {
         {/* A Measurable Impact */}
         <section className='bg-[#222222] text-white py-5 md:py-[50px] lg:py-[100px]'>
           <ContentContainer>
-            <h2 className='text-3xl font-bold mb-4'>A Measurable Impact</h2>
-            <p className='text-lg leading-relaxed mb-8 opacity-95 max-w-[800px]'>
+            <h2 className='font-playfair text-3xl font-bold mb-4'>A Measurable Impact</h2>
+            <p className='font-mulish text-lg leading-relaxed mb-8 opacity-95 max-w-[800px]'>
               While the implementation was handled by the client's development team post-handoff, the redesigned flow was projected to deliver significant improvements.
             </p>
             <div className='grid md:grid-cols-2 gap-10'>
@@ -274,11 +274,11 @@ const LoanAppExperienceOptimization = () => {
         {/* Challenges & Learnings */}
         <section className='py-5 md:py-[50px] lg:py-[100px]'>
           <ContentContainer>
-            <h2 className='text-3xl font-bold mb-4'>Challenges & Learnings</h2>
-            <p className='text-lg leading-relaxed max-w-[800px] mb-5'>
+            <h2 className='font-playfair text-3xl font-bold mb-4'>Challenges & Learnings</h2>
+            <p className='font-mulish text-lg leading-relaxed max-w-[800px] mb-5'>
               The most challenging trade-off on this project was balancing time with certainty. We made the strategic decision to move forward without a formal round of usability testing to meet the tight deadline, relying on stakeholder insights and UX best practices instead.
             </p>
-            <p className='text-lg leading-relaxed max-w-[800px]'>
+            <p className='font-mulish text-lg leading-relaxed max-w-[800px]'>
               If this project were to continue, my top recommendation would be to validate our design with a data-driven feedback loop. I would advocate for conducting moderated usability tests with 5-7 real users. This would provide important qualitative feedback to confirm our design assumptions and uncover any remaining friction points.
             </p>
           </ContentContainer>

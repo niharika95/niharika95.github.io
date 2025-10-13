@@ -1,3 +1,4 @@
+import { ContentContainer } from '../../common';
 import GeometricPattern from '../../components/GeometricPattern';
 import { HashLink } from 'react-router-hash-link';
 import React from 'react';
@@ -41,25 +42,27 @@ function HomeV2() {
   return (
     <div className="bg-white min-h-screen w-full">
       {/* Hero Section */}
-      <section className="flex items-center justify-between px-[40px] py-[60px] w-full max-lg:flex-col max-lg:gap-[60px] max-md:px-[20px] max-md:py-[40px]">
-        {/* Left - Decorative SVG Pattern */}
-        <div className="flex flex-col items-start shrink-0 max-lg:self-center">
-          <GeometricPattern variant="hero" className="max-md:scale-75 max-md:origin-center" />
+      <ContentContainer>
+
+      <section className="flex w-full max-lg:flex-col">
+        {/* Left - Decorative SVG Pattern (50% width on large screens) */}
+        <div className='w-1/2 max-lg:w-full h-[720px]'>
+          <GeometricPattern />
         </div>
 
-        {/* Right - Hero Content */}
-        <div className="flex flex-col gap-[80px] max-w-[600px] px-[80px] max-lg:px-[40px] max-lg:max-w-full max-md:px-[20px] max-md:gap-[60px]">
+        {/* Right - Hero Content (50% width on large screens) */}
+        <div className="flex flex-col gap-[80px] w-1/2 px-[80px] py-[60px] justify-center max-lg:w-full max-lg:order-1 max-lg:px-[40px] max-md:px-[20px] max-md:py-[40px] max-md:gap-[60px]">
           {/* Title and Description */}
           <div className="flex flex-col gap-[20px]">
             <div className="flex flex-col">
-              <h1 className="font-['Playfair_Display',serif] text-[60px] text-black tracking-[-2.4px] leading-none m-0 max-md:text-[48px]">
+              <h1 className="font-playfair font-normal text-[60px] text-[#000] tracking-[-0.04em] leading-[1.5] m-0 max-md:text-[48px]">
                 Niharika Dalal
               </h1>
-              <p className="font-['Playfair_Display',serif] text-[60px] text-[#898989] tracking-[-2.4px] leading-none m-0 max-md:text-[48px]">
+              <p className="font-playfair font-normal text-[60px] text-[#898989] tracking-[-0.04em] leading-[1.5] m-0 max-md:text-[48px]">
                 Product Designer
               </p>
             </div>
-            <p className="font-['Mulish',sans-serif] text-[20px] text-black tracking-[-1px] leading-[1.5] m-0 max-md:text-[18px]">
+            <p className="font-mulish text-[20px] text-black tracking-[-0.05em] leading-[1.5] m-0 max-md:text-[18px]">
               Designing 0-to-1 solutions that drive growth, in collaboration with cross-functional and cross-cultural Agile teams.
             </p>
           </div>
@@ -68,10 +71,10 @@ function HomeV2() {
           <div className="flex gap-[20px] max-lg:grid max-lg:grid-cols-2 max-md:grid-cols-1 max-md:gap-[30px]">
             {stats.map((stat, index) => (
               <div key={index} className="flex flex-col gap-[4px] w-[205px] max-lg:w-auto">
-                <p className="font-['Mulish',sans-serif] font-bold text-[40px] text-black leading-[1.5] m-0 max-md:text-[36px]">
+                <p className="font-mulish font-bold text-[40px] text-black leading-[1.5] m-0 max-md:text-[36px]">
                   {stat.value}
                 </p>
-                <p className="font-['Mulish',sans-serif] text-[16px] text-black leading-[1.5] m-0 max-md:text-[15px]">
+                <p className="font-mulish text-[16px] text-black leading-[1.5] m-0 max-md:text-[15px]">
                   {stat.label}
                 </p>
               </div>
@@ -79,6 +82,7 @@ function HomeV2() {
           </div>
         </div>
       </section>
+      </ContentContainer>
 
       {/* Projects Section */}
       <section className="py-[60px] px-[40px] max-md:px-[20px] max-md:py-[40px]" id="projects">
@@ -90,10 +94,10 @@ function HomeV2() {
               className="bg-neutral-100 flex flex-col gap-[10px] h-[500px] overflow-hidden px-[100px] py-[60px] relative no-underline hover:bg-neutral-200 transition-colors max-lg:px-[60px] max-md:px-[40px] max-md:h-[400px]"
             >
               <div className="flex flex-col gap-[20px] z-10 max-w-[400px]">
-                <h3 className="font-['Playfair_Display',serif] font-semibold text-[32px] text-black leading-normal m-0 max-md:text-[28px]">
+                <h3 className="font-playfair font-semibold text-[32px] text-black leading-normal m-0 max-md:text-[28px]">
                   {project.title}
                 </h3>
-                <p className="font-['Mulish',sans-serif] font-light text-[20px] text-black leading-[1.5] m-0 max-md:text-[18px]">
+                <p className="font-mulish font-light text-[20px] text-black leading-[1.5] m-0 max-md:text-[18px]">
                   {project.description}
                 </p>
               </div>
@@ -125,31 +129,33 @@ function HomeV2() {
 
       {/* Bottom Decorative Pattern */}
       <section className="py-[40px] px-[40px] flex justify-center overflow-x-auto max-md:px-[20px]">
-        <GeometricPattern variant="footer" />
+        <div className="h-[90px]">
+          <GeometricPattern maxRows={1} />
+        </div>
       </section>
 
       {/* Contact Footer */}
       <footer className="py-[40px] px-[40px] flex justify-center items-center gap-[20px] flex-wrap max-md:px-[20px] max-md:gap-[15px]">
         <a 
           href="mailto:niharika13dalal@gmail.com" 
-          className="font-['Mulish',sans-serif] font-light text-[20px] text-black underline decoration-solid leading-[1.5] hover:text-[#106066] max-md:text-[18px]"
+          className="font-mulish font-light text-[20px] text-black underline decoration-solid leading-[1.5] hover:text-[#106066] max-md:text-[18px]"
         >
           niharika13dalal@gmail.com
         </a>
-        <span className="font-['Mulish',sans-serif] font-light text-[20px] text-[#c8c8c8] leading-[1.5] max-md:hidden">|</span>
+        <span className="font-mulish font-light text-[20px] text-[#c8c8c8] leading-[1.5] max-md:hidden">|</span>
         <a 
           href="https://linkedin.com/in/niharikadalal" 
           target="_blank"
           rel="noopener noreferrer"
-          className="font-['Mulish',sans-serif] font-light text-[20px] text-black underline decoration-solid leading-[1.5] hover:text-[#106066] max-md:text-[18px]"
+          className="font-mulish font-light text-[20px] text-black underline decoration-solid leading-[1.5] hover:text-[#106066] max-md:text-[18px]"
         >
           linkedin.com/in/niharikadalal
         </a>
-        <span className="font-['Mulish',sans-serif] font-light text-[20px] text-[#c8c8c8] leading-[1.5] max-md:hidden">|</span>
+        <span className="font-mulish font-light text-[20px] text-[#c8c8c8] leading-[1.5] max-md:hidden">|</span>
         <a 
           href="/resume.pdf"
           download
-          className="flex gap-[8px] items-center font-['Mulish',sans-serif] font-light text-[20px] text-black underline decoration-solid leading-[1.5] hover:text-[#106066] no-underline max-md:text-[18px]"
+          className="flex gap-[8px] items-center font-mulish font-light text-[20px] text-black underline decoration-solid leading-[1.5] hover:text-[#106066] no-underline max-md:text-[18px]"
         >
           <svg className="size-[30px] max-md:size-[24px]" fill="none" viewBox="0 0 30 30">
             <path 

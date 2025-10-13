@@ -14,8 +14,8 @@ const Result = ({ icon, title, children }) => (
     <div className='mb-4'>
       <Icon icon={icon} width="100px" height="100px" style={{ color: '#E8DEF7', fontWeight: 200 }} />
     </div>
-    <h3 className='text-xl font-bold mb-2'>{title}</h3>
-    <p className='opacity-95'>{children}</p>
+    <h3 className='font-playfair text-xl font-bold mb-2'>{title}</h3>
+    <p className='font-mulish opacity-95'>{children}</p>
   </div>
 );
 
@@ -89,10 +89,10 @@ const AdmissionsProcessAcceleration = () => {
       <header className='w-full bg-[#522398]'>
         <ContentContainer className='relative flex flex-col md:flex-row'>
           <div className='text-white max-w-2xl py-5 md:py-[50px] lg:py-[100px]'>
-            <h1 className='text-4xl md:text-5xl font-extrabold leading-tight tracking-tight'>
+            <h1 className='font-playfair text-4xl md:text-5xl font-extrabold leading-tight tracking-tight'>
               Admissions Process Acceleration
             </h1>
-            <p className='text-lg md:text-xl mt-4 opacity-95'>
+            <p className='font-mulish text-lg md:text-xl mt-4 opacity-95'>
               How user-centric design unlocked a 60% productivity gain and
               empowered counselors to focus on high-value decisions.
             </p>
@@ -125,9 +125,9 @@ const AdmissionsProcessAcceleration = () => {
                   icon='material-symbols:person-outline'
                   className='text-2xl text-black mr-4'
                 />
-                <h3 className='font-bold text-lg'>Role:</h3>
+                <h3 className='font-playfair font-bold text-lg'>Role:</h3>
               </div>
-              <p className='col-start-2 text-gray-600 text-lg'>
+              <p className='font-mulish col-start-2 text-gray-600 text-lg'>
                 UX/UI Designer
               </p>
 
@@ -138,9 +138,9 @@ const AdmissionsProcessAcceleration = () => {
                   className='text-2xl text-black mr-4'
                   style={{ fill: 'none', fontWeight: 100 }}
                 />
-                <h3 className='font-bold text-lg'>Team:</h3>
+                <h3 className='font-playfair font-bold text-lg'>Team:</h3>
               </div>
-              <p className='col-start-2 text-gray-600 text-lg'>
+              <p className='font-mulish col-start-2 text-gray-600 text-lg'>
                 Product Owner, UX/UI Designer, 2 Front-end Developer, 2 Back-end
                 Developers, QA Tester
               </p>
@@ -151,9 +151,9 @@ const AdmissionsProcessAcceleration = () => {
                   icon='mdi:clock-outline'
                   className='text-2xl text-black mr-4'
                 />
-                <h3 className='font-bold text-lg'>Duration:</h3>
+                <h3 className='font-playfair font-bold text-lg'>Duration:</h3>
               </div>
-              <p className='col-start-2 text-gray-600 text-lg'>4 months</p>
+              <p className='font-mulish col-start-2 text-gray-600 text-lg'>4 months</p>
             </div>
           </ContentContainer>
         </section>
@@ -173,8 +173,8 @@ const AdmissionsProcessAcceleration = () => {
             />
             <div className='flex flex-col gap-12'>
               <div>
-                <h2 className='text-3xl font-bold mb-4'>Context</h2>
-                <p className='text-lg leading-relaxed bg-[#fff]/90 max-w-[800px]'>
+                <h2 className='font-playfair text-3xl font-bold mb-4'>Context</h2>
+                <p className='font-mulish text-lg leading-relaxed bg-[#fff]/90 max-w-[800px]'>
                   University admissions counselors were burdened by a manual,
                   error-prone process for evaluating student transfer credits,
                   leading to significant delays and risking the loss of top
@@ -186,17 +186,17 @@ const AdmissionsProcessAcceleration = () => {
                 </p>
               </div>
               <div className='relative'>
-                <h2 className='text-3xl font-bold mb-4'>
+                <h2 className='font-playfair text-3xl font-bold mb-4'>
                   The Challenge of a High-Volume Manual Workflow
                 </h2>
-                <p className='text-lg leading-relaxed max-w-[800px]'>
+                <p className='font-mulish text-lg leading-relaxed max-w-[800px]'>
                   The university's admissions process was facing a critical
                   bottleneck. Counselors were manually evaluating every
                   student's transfer credits against a complex set of
                   institutional rules. This workflow was not just inefficient;
                   it was a major source of stress and burnout.
                 </p>
-                <p className='text-lg leading-relaxed mt-4 max-w-[800px]'>
+                <p className='font-mulish text-lg leading-relaxed mt-4 max-w-[800px]'>
                   During discovery, I identified three core problems. We needed
                   to redesign this process from the ground up to empower
                   counselors, eliminate errors, and accelerate the entire
@@ -211,14 +211,14 @@ const AdmissionsProcessAcceleration = () => {
         <section className='w-full bg-[#522398] text-white py-5 md:py-[50px] lg:py-[100px]'>
           <ContentContainer>
             <div className='grid md:grid-cols-3 gap-8 items-start'>
-              <h2 className='text-2xl md:text-3xl font-bold self-center'>
+              <h2 className='font-playfair text-2xl md:text-3xl font-bold self-center'>
                 Core problems
               </h2>
               <div className='md:col-span-2 grid gap-8'>
                 {coreProblems.map((problem) => (
                   <div key={problem.title}>
-                    <h3 className='font-bold text-xl mb-2'>{problem.title}</h3>
-                    <p className='opacity-90'>{problem.text}</p>
+                    <h3 className='font-playfair font-bold text-xl mb-2'>{problem.title}</h3>
+                    <p className='font-mulish opacity-90'>{problem.text}</p>
                   </div>
                 ))}
               </div>
@@ -235,10 +235,10 @@ const AdmissionsProcessAcceleration = () => {
             />
             <div className='flex flex-col gap-12'>
               <div>
-                <h2 className='text-3xl font-bold mb-4'>
+                <h2 className='font-playfair text-3xl font-bold mb-4'>
                   Defining the Path Forward
                 </h2>
-                <p className='relative text-lg leading-relaxed bg-[#fff] max-w-[800px]'>
+                <p className='font-mulish relative text-lg leading-relaxed bg-[#fff] max-w-[800px]'>
                   We fostered a close partnership with university stakeholders
                   who acted as a proxy for the end-users. By synthesizing their
                   deep institutional knowledge and the extensive feedback they
@@ -246,7 +246,7 @@ const AdmissionsProcessAcceleration = () => {
                   challenges of the manual workflow and define our user-centered
                   goals.
                 </p>
-                <p className='text-lg leading-relaxed mt-4 max-w-[800px]'>
+                <p className='font-mulish text-lg leading-relaxed mt-4 max-w-[800px]'>
                   Collaborating closely with the product owner, my primary role
                   during this phase was to champion the user's voice, constantly
                   referencing the counselor feedback we'd received from the
@@ -257,10 +257,10 @@ const AdmissionsProcessAcceleration = () => {
                 </p>
               </div>
               <div>
-                <h2 className='text-3xl font-bold mb-4'>
+                <h2 className='font-playfair text-3xl font-bold mb-4'>
                   The Solution: An Intelligent Evaluation Tool
                 </h2>
-                <p className='text-lg leading-relaxed max-w-[800px]'>
+                <p className='font-mulish text-lg leading-relaxed max-w-[800px]'>
                   The final product was a clean, powerful application designed
                   to reduce complexity and provide clarity. The core feature was
                   a rules engine that intelligently automated the credit
@@ -286,11 +286,11 @@ const AdmissionsProcessAcceleration = () => {
                   className='w-full lg:w-4/5 object-contain'
                 />
                 <div className='flex-1'>
-                  <p className='text-lg leading-relaxed mb-4'>
+                  <p className='font-mulish text-lg leading-relaxed mb-4'>
                     <strong>Step 1</strong><br />
                     The counselor enters course information from the transcripts.
                   </p>
-                  <p className='text-lg leading-relaxed'>
+                  <p className='font-mulish text-lg leading-relaxed'>
                     <strong>Step 2</strong><br />
                     Once entered, they mark this step as complete.
                   </p>
@@ -303,11 +303,11 @@ const AdmissionsProcessAcceleration = () => {
                   className='w-full lg:w-4/5 object-contain'
                 />
                 <div className='flex-1'>
-                  <p className='text-lg leading-relaxed mb-4'>
+                  <p className='font-mulish text-lg leading-relaxed mb-4'>
                     <strong>Step 3</strong><br />
                     They add programs against which they want to calculate the transfer credits.
                   </p>
-                  <p className='text-lg leading-relaxed'>
+                  <p className='font-mulish text-lg leading-relaxed'>
                     <strong>Step 4</strong><br />
                     They start the process of evaluating against selected programs.
                   </p>
@@ -320,11 +320,11 @@ const AdmissionsProcessAcceleration = () => {
                   className='w-full lg:w-4/5 object-contain'
                 />
                 <div className='flex-1'>
-                  <p className='text-lg leading-relaxed mb-4'>
+                  <p className='font-mulish text-lg leading-relaxed mb-4'>
                     <strong>Step 5</strong><br />
                     The rules engine maps the transfer credits of the student to the respective courses which reduces a large chunk of the counselor's workload.
                   </p>
-                  <p className='text-lg leading-relaxed'>
+                  <p className='font-mulish text-lg leading-relaxed'>
                     <strong>Step 6</strong><br />
                     The counselor reviews the mapped courses to ensure its correctness, and as a final step sends it to the requestor.
                   </p>
@@ -338,10 +338,10 @@ const AdmissionsProcessAcceleration = () => {
         {/* Measurable & Meaningful Results: dark band with icons */}
         <section className='bg-[#222222] text-white py-5 md:py-[50px] lg:py-[100px]'>
           <ContentContainer>
-            <h2 className='text-3xl font-bold mb-4'>
+            <h2 className='font-playfair text-3xl font-bold mb-4'>
               Measurable & Meaningful Results
             </h2>
-            <p className='text-lg leading-relaxed mb-8 opacity-95 max-w-[800px]'>
+            <p className='font-mulish text-lg leading-relaxed mb-8 opacity-95 max-w-[800px]'>
               The new tool was transformative for the admissions department. The
               impact was felt immediately in both quantitative and qualitative
               terms. Beyond solving an internal workflow issue, this project
@@ -363,10 +363,10 @@ const AdmissionsProcessAcceleration = () => {
         {/* Key Takeaways */}
         <section className='py-5 md:py-[50px] lg:py-[100px]'>
           <ContentContainer>
-            <h2 className='text-3xl font-bold mb-4'>
+            <h2 className='font-playfair text-3xl font-bold mb-4'>
               Reflections & Future Scope
             </h2>
-            <p className='text-lg leading-relaxed max-w-[800px] mb-5'>
+            <p className='font-mulish text-lg leading-relaxed max-w-[800px] mb-5'>
               The most rewarding aspect of this project was seeing the tangible
               impact on the counselors' work. By collaborating closely with
               their managers, we gained a deep understanding of their daily
@@ -376,7 +376,7 @@ const AdmissionsProcessAcceleration = () => {
               university, proving that when you focus on making people's work
               lives better, everyone wins.
             </p>
-            <p className='text-lg leading-relaxed max-w-[800px]'>
+            <p className='font-mulish text-lg leading-relaxed max-w-[800px]'>
               As a future step, I would want to build on this success by
               automating the initial data entry. Allowing the system to scan and
               auto-fill transcript information would reduce their workload even
