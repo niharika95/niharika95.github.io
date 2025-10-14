@@ -52,7 +52,7 @@ function PersonalProjectsGrid() {
   }, []);
 
   return (
-    <section className='bg-[#f5f5f5] py-[60px]' id='personal-projects'>
+    <section className='bg-[#f5f5f5] pt-[120px] pb-[60px]' id='personal-projects'>
       <ContentContainer className='px-5'>
         <div className='mb-[40px]'>
           <h2 className='font-playfair font-semibold text-[36px] text-black leading-[1.3] m-0 max-md:text-[28px]'>
