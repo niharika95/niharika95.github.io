@@ -1,3 +1,4 @@
+import AnimatedCounter from '../../components/AnimatedCounter';
 import { ContentContainer } from '../../common';
 import GeometricPattern from '../../components/GeometricPattern';
 import PersonalProjectsGrid from '../../components/PersonalProjectsGrid';
@@ -48,7 +49,7 @@ function HomeV2() {
                   className='flex flex-col gap-[4px] min-w-[200px] flex-1 max-lg:w-auto max-lg:flex-none'
                 >
                   <p className='font-mulish font-bold text-[40px] text-black leading-[1.5] m-0 max-md:text-[36px]'>
-                    {stat.value}
+                    <AnimatedCounter value={stat.value} />
                   </p>
                   <p className='font-mulish text-[16px] text-black leading-[1.5] m-0 max-md:text-[15px]'>
                     {stat.label}
