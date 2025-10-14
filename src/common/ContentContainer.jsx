@@ -3,7 +3,7 @@ import React from 'react';
 function ContentContainer({ className = "", children, ...rest }) {
   return (
     <div
-      className={`max-w-[1200px] mx-auto ${className}`}
+      className={`max-w-[1440px] mx-auto ${className}`}
       {...rest}
     >
       {children}

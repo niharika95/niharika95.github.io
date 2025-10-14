@@ -143,10 +143,11 @@ function ProjectGrid() {
                       WebkitTapHighlightColor: 'transparent',
                       cursor: 'pointer',
                     }}
+                    initial={{ backgroundColor: '#f5f5f5' }}
                     animate={{
                       backgroundColor: shouldAnimate ? `#${color}` : '#f5f5f5',
                     }}
-                    transition={{ duration: 1.2, ease: [0.25, 0.1, 0.25, 1] }}
+                    transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
                   >
                     {/* Text Content */}
                     <div
@@ -159,7 +160,7 @@ function ProjectGrid() {
                         animate={{
                           color: shouldAnimate ? '#ffffff' : '#000000',
                         }}
-                        transition={{ duration: 1.2, ease: [0.25, 0.1, 0.25, 1] }}
+                        transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
                       >
                         {title}
                       </motion.h3>
@@ -168,7 +169,7 @@ function ProjectGrid() {
                         animate={{
                           color: shouldAnimate ? '#ffffff' : '#000000',
                         }}
-                        transition={{ duration: 1.2, ease: [0.25, 0.1, 0.25, 1] }}
+                        transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
                       >
                         {getDescription(index, strokeColor, shouldAnimate)}
                       </motion.p>
