@@ -6,14 +6,14 @@ import { ContentContainer } from '../../common';
 const projects = [
   {
     title: 'Insurance Company Website Redesign',
-    image: '/home-v2/insurance-website.png',
+    image: '/home-v2/insurance-website-color.png',
     link: '#/insurance-company-website-redesign',
     color: 'A10026',
     strokeColor: '000000',
   },
   {
     title: 'Loan App Experience Optimization',
-    image: '/home-v2/loan-app.png',
+    image: '/home-v2/loan-app-color.png',
     link: '#/loan-app-experience-optimization',
     isMobile: true,
     color: '1C4882',
@@ -21,14 +21,14 @@ const projects = [
   },
   {
     title: 'Admissions Process Acceleration',
-    image: '/home-v2/admissions-process.png',
+    image: '/home-v2/admissions-process-color.png',
     link: '#/admissions-process-acceleration',
     color: '522398',
     strokeColor: 'FB4E0B',
   },
   {
     title: 'Intelligent Campaign Builder Overhaul',
-    image: '/home-v2/campaign-builder.png',
+    image: '/home-v2/campaign-builder-color.png',
     link: '#/intelligent-campaign-builder',
     color: 'FB4E0B',
     strokeColor: '48A3FF',
@@ -126,22 +126,27 @@ function ProjectGrid() {
                 
                 const isHovered = hoveredIndex === index;
                 const shouldAnimate = isMobileView ? isInView : isHovered;
-                const displayImage = shouldAnimate ? image.replace('.png', '-color.png') : image;
 
                 return (
-                  <a
+                  <motion.a
                     ref={ref}
                     href={link}
                     onMouseEnter={() => !isMobileView && setHoveredIndex(index)}
                     onMouseLeave={() => !isMobileView && setHoveredIndex(null)}
-                    className={`px-[12px] sm:px-[20px] gap-[20px] sm:gap-[40px] overflow-hidden min-h-[400px] sm:h-[500px] pt-[30px] sm:pt-[50px] pb-[30px] sm:pb-0 no-underline flex transition-colors duration-300 ${
+                    className={`px-[12px] sm:px-[20px] gap-[20px] sm:gap-[40px] overflow-hidden min-h-[400px] sm:h-[500px] pt-[30px] sm:pt-[50px] pb-[30px] sm:pb-0 flex ${
                       isMobile
                         ? 'flex-col sm:flex-row justify-between sm:justify-start'
                         : 'flex-col justify-between'
                     }`}
                     style={{
+                      textDecoration: 'none',
+                      WebkitTapHighlightColor: 'transparent',
+                      cursor: 'pointer',
+                    }}
+                    animate={{
                       backgroundColor: shouldAnimate ? `#${color}` : '#f5f5f5',
                     }}
+                    transition={{ duration: 1.2, ease: [0.25, 0.1, 0.25, 1] }}
                   >
                     {/* Text Content */}
                     <div
@@ -149,58 +154,50 @@ function ProjectGrid() {
                         isMobile ? 'max-w-full sm:max-w-[250px]' : 'max-w-full sm:max-w-[400px]'
                       }`}
                     >
-                      <h3
-                        className='font-playfair font-semibold text-[24px] sm:text-[32px] leading-normal m-0 transition-colors duration-300'
-                        style={{
+                      <motion.h3
+                        className='font-playfair font-semibold text-[24px] sm:text-[32px] leading-normal m-0'
+                        animate={{
                           color: shouldAnimate ? '#ffffff' : '#000000',
                         }}
+                        transition={{ duration: 1.2, ease: [0.25, 0.1, 0.25, 1] }}
                       >
                         {title}
-                      </h3>
-                      <p
-                        className='font-mulish font-light text-[16px] sm:text-[20px] leading-[1.5] m-0 transition-colors duration-300'
-                        style={{
+                      </motion.h3>
+                      <motion.p
+                        className='font-mulish font-light text-[16px] sm:text-[20px] leading-[1.5] m-0'
+                        animate={{
                           color: shouldAnimate ? '#ffffff' : '#000000',
                         }}
+                        transition={{ duration: 1.2, ease: [0.25, 0.1, 0.25, 1] }}
                       >
                         {getDescription(index, strokeColor, shouldAnimate)}
-                      </p>
+                      </motion.p>
                     </div>
 
                     {/* Project Image */}
-                    <div className={`relative ${isMobile ? 'w-full sm:w-[60%] self-end' : 'w-full'}`}>
-                      {/* B&W Image (base layer) */}
-                      <img
+                    <div className={`relative overflow-hidden ${isMobile ? 'w-full sm:w-[60%] self-end' : 'w-full'}`}>
+                      <motion.img
                         alt={title}
                         className={`${isMobile ? 'w-full h-auto object-contain object-bottom' : 'w-full'}`}
                         src={image}
                         loading='lazy'
+                        initial={{
+                          filter: 'grayscale(100%) brightness(0.9) saturate(0) drop-shadow(0 0 0px rgba(0, 0, 0, 0))',
+                          y: 30
+                        }}
+                        animate={{
+                          filter: shouldAnimate
+                            ? 'grayscale(0%) brightness(1) saturate(1) drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4))'
+                            : 'grayscale(100%) brightness(0.9) saturate(0) drop-shadow(0 0 0px rgba(0, 0, 0, 0))',
+                          y: shouldAnimate ? 0 : 30
+                        }}
+                        transition={{
+                          duration: 0.5,
+                          ease: [0.25, 0.1, 0.25, 1]
+                        }}
                       />
-                      
-                      {/* Color Image (animated overlay) */}
-                      {shouldAnimate && (
-                        <motion.div
-                          className="absolute inset-0"
-                          initial={{ clipPath: 'inset(100% 0 0 0)' }}
-                          animate={{ clipPath: 'inset(0% 0 0 0)' }}
-                          transition={{ duration: 0.6, ease: 'easeOut' }}
-                          style={{
-                            filter: 'drop-shadow(0 0 20px rgba(255, 255, 255, 0.5))',
-                          }}
-                        >
-                          <motion.img
-                            alt={title}
-                            className={`${isMobile ? 'w-full h-auto object-contain object-bottom' : 'w-full'}`}
-                            src={displayImage}
-                            loading='lazy'
-                            initial={{ filter: 'brightness(1.2) saturate(1.3)' }}
-                            animate={{ filter: 'brightness(1) saturate(1)' }}
-                            transition={{ duration: 0.4, delay: 0.2 }}
-                          />
-                        </motion.div>
-                      )}
                     </div>
-                  </a>
+                  </motion.a>
                 );
               };
 
