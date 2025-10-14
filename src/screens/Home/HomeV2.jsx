@@ -18,7 +18,7 @@ function HomeV2() {
       <ContentContainer>
         <section className='flex w-full max-lg:flex-row max-lg:gap-[40px]'>
           {/* Left - Decorative SVG Pattern (450px on large screens, 90px on small) */}
-          <div className='w-[450px] max-w-[450px] max-lg:w-[90px] max-lg:max-w-[90px] h-[720px] flex-shrink-0'>
+          <div className='w-[450px] max-w-[450px] max-lg:w-[90px] max-lg:max-w-[90px] h-[850px] flex-shrink-0'>
             <GeometricPattern />
           </div>
 
