@@ -175,7 +175,7 @@ function ProjectGrid() {
                     </div>
 
                     {/* Project Image */}
-                    <div className={`relative overflow-hidden ${isMobile ? 'w-full sm:w-[60%] self-end' : 'w-full'}`}>
+                    <div className={`relative ${isMobile ? 'w-full sm:w-[60%] self-end' : 'w-full'}`}>
                       <motion.img
                         alt={title}
                         className={`${isMobile ? 'w-full h-auto object-contain object-bottom' : 'w-full'}`}
@@ -183,13 +183,15 @@ function ProjectGrid() {
                         loading='lazy'
                         initial={{
                           filter: 'grayscale(100%) brightness(0.9) saturate(0) drop-shadow(0 0 0px rgba(0, 0, 0, 0))',
-                          y: 30
+                          y: 30,
+                          scale: 0.95
                         }}
                         animate={{
                           filter: shouldAnimate
                             ? 'grayscale(0%) brightness(1) saturate(1) drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4))'
                             : 'grayscale(100%) brightness(0.9) saturate(0) drop-shadow(0 0 0px rgba(0, 0, 0, 0))',
-                          y: shouldAnimate ? 0 : 30
+                          y: shouldAnimate ? 0 : 30,
+                          scale: shouldAnimate ? 1 : 0.95
                         }}
                         transition={{
                           duration: 0.5,
