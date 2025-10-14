@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-import { Icon } from '@iconify/react';
 import { Link } from 'react-router-dom';
 import { HashLink as RHashLink } from 'react-router-hash-link';
 import { motion } from 'framer-motion';
@@ -249,7 +248,7 @@ function Header() {
           <div
             className="hidden max-[600px]:block col-start-3 justify-self-end self-center"
           >
-            <div
+            <motion.div
               ref={hamburgerRef}
               style={glassStyle}
               className="hover:scale-105 active:scale-95 cursor-pointer flex items-center justify-center w-[72px] h-[48px]"
@@ -259,13 +258,56 @@ function Header() {
               aria-expanded={isNavVisible}
               aria-label="Toggle navigation"
               onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && toggleNav()}
+              whileTap={{ scale: 0.95 }}
             >
-              <Icon
-                icon="icon-park:hamburger-button"
-                className="text-[24px] transition-colors duration-300"
-                style={{ color: hamburgerTextColor }}
-              />
-            </div>
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <motion.path
+                  d="M 3 6 L 21 6"
+                  stroke={hamburgerTextColor}
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  animate={{
+                    d: isNavVisible ? "M 6 6 L 18 18" : "M 3 6 L 21 6"
+                  }}
+                  transition={{
+                    duration: 0.3,
+                    ease: [0.22, 1, 0.36, 1]
+                  }}
+                />
+                <motion.path
+                  d="M 3 12 L 21 12"
+                  stroke={hamburgerTextColor}
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  animate={{
+                    opacity: isNavVisible ? 0 : 1
+                  }}
+                  transition={{
+                    duration: 0.2,
+                    ease: "easeInOut"
+                  }}
+                />
+                <motion.path
+                  d="M 3 18 L 21 18"
+                  stroke={hamburgerTextColor}
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  animate={{
+                    d: isNavVisible ? "M 6 18 L 18 6" : "M 3 18 L 21 18"
+                  }}
+                  transition={{
+                    duration: 0.3,
+                    ease: [0.22, 1, 0.36, 1]
+                  }}
+                />
+              </svg>
+            </motion.div>
           </div>
           
           {(!isSmallScreen || isNavVisible) && (
