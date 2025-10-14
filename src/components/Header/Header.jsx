@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import { Icon } from '@iconify/react';
 import { Link } from 'react-router-dom';
@@ -24,10 +24,103 @@ const links = [
   { href: '/about', label: 'About Me', component: StyledLink },
 ];
 
+// Custom hook to detect background brightness for individual elements
+const useAdaptiveTextColor = (elementRef) => {
+  const [textColor, setTextColor] = useState('black');
+
+  useEffect(() => {
+    const checkBackgroundBrightness = () => {
+      try {
+        const element = elementRef.current;
+        if (!element) {
+          setTextColor('black');
+          return;
+        }
+
+        const rect = element.getBoundingClientRect();
+        const x = rect.left + rect.width / 2;
+        const y = rect.top + rect.height / 2;
+
+        const elementBelow = document.elementFromPoint(x, y);
+        if (!elementBelow) {
+          setTextColor('black');
+          return;
+        }
+
+        const bgColor = window.getComputedStyle(elementBelow).backgroundColor;
+        
+        // Check if background is transparent or not set
+        if (!bgColor || bgColor === 'rgba(0, 0, 0, 0)' || bgColor === 'transparent') {
+          // Check parent elements
+          let parent = elementBelow.parentElement;
+          let foundColor = false;
+          
+          while (parent && !foundColor) {
+            const parentBg = window.getComputedStyle(parent).backgroundColor;
+            if (parentBg && parentBg !== 'rgba(0, 0, 0, 0)' && parentBg !== 'transparent') {
+              const rgb = parentBg.match(/\d+/g);
+              if (rgb && rgb.length >= 3) {
+                const brightness = (parseInt(rgb[0]) * 299 + parseInt(rgb[1]) * 587 + parseInt(rgb[2]) * 114) / 1000;
+                setTextColor(brightness < 100 ? 'white' : 'black');
+                foundColor = true;
+              }
+            }
+            parent = parent.parentElement;
+          }
+          
+          if (!foundColor) {
+            setTextColor('black');
+          }
+        } else {
+          const rgb = bgColor.match(/\d+/g);
+          if (rgb && rgb.length >= 3) {
+            const brightness = (parseInt(rgb[0]) * 299 + parseInt(rgb[1]) * 587 + parseInt(rgb[2]) * 114) / 1000;
+            setTextColor(brightness < 100 ? 'white' : 'black');
+          } else {
+            setTextColor('black');
+          }
+        }
+      } catch (e) {
+        setTextColor('black');
+      }
+    };
+
+    checkBackgroundBrightness();
+    
+    let scrollTimeout;
+    const handleScroll = () => {
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(checkBackgroundBrightness, 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', checkBackgroundBrightness);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', checkBackgroundBrightness);
+      clearTimeout(scrollTimeout);
+    };
+  }, [elementRef]);
+
+  return textColor;
+};
+
 function Header() {
   const [isNavVisible, setIsNavVisible] = useState(false);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [isBubbleMode, setIsBubbleMode] = useState(false);
+
+  const logoRef = useRef(null);
+  const hamburgerRef = useRef(null);
+  const projectsRef = useRef(null);
+  const aboutRef = useRef(null);
+
+  const logoTextColor = useAdaptiveTextColor(logoRef);
+  const hamburgerTextColor = useAdaptiveTextColor(hamburgerRef);
+  const projectsTextColor = useAdaptiveTextColor(projectsRef);
+  const aboutTextColor = useAdaptiveTextColor(aboutRef);
 
   const handleMediaQueryChange = (mediaQuery) => {
     if (mediaQuery.matches) {
@@ -50,6 +143,7 @@ function Header() {
     const handleScroll = () => {
       const offset = window.scrollY;
       setScrolled(offset > 20);
+      setIsBubbleMode(offset > 72);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -60,72 +154,155 @@ function Header() {
 
   const toggleNav = () => setIsNavVisible(!isNavVisible);
 
+  const glassStyle = {
+    background: 'rgba(255, 255, 255, 0.05)',
+    backdropFilter: 'url(#liquidGlass) blur(4px)',
+    WebkitBackdropFilter: 'blur(4px)',
+    borderRadius: isBubbleMode ? '9999px' : '0px',
+    padding: '12px 24px',
+    boxShadow: isBubbleMode ? `
+      inset 2px 2px 1px 0 rgba(255, 255, 255, 0.3),
+      inset -2px -2px 2px 1px rgba(255, 255, 255, 0.3),
+      0 4px 8px 0 rgba(0, 0, 0, 0.2),
+      0 6px 20px 0 rgba(0, 0, 0, 0.2)
+    ` : 'none',
+    transition: 'all 0.5s cubic-bezier(0.2, 0.9, 0.3, 1.5)',
+  };
+
+  const headerBarStyle = {
+    background: isBubbleMode ? 'transparent' : 'rgba(255, 255, 255, 0.05)',
+    backdropFilter: isBubbleMode ? 'none' : 'url(#liquidGlass) blur(4px)',
+    WebkitBackdropFilter: isBubbleMode ? 'none' : 'blur(4px)',
+    borderBottom: isBubbleMode ? 'none' : '1px solid rgba(255, 255, 255, 0.3)',
+    boxShadow: isBubbleMode ? 'none' : `
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.3),
+      0 4px 8px 0 rgba(0, 0, 0, 0.2)
+    `,
+    transition: 'all 0.5s cubic-bezier(0.2, 0.9, 0.3, 1.5)',
+  };
+
+  const linkRefs = [projectsRef, aboutRef];
+  const linkColors = [projectsTextColor, aboutTextColor];
+
   return (
-    <motion.header
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-out ${
-        scrolled
-          ? 'bg-white/40 backdrop-blur-2xl border-b border-white/30 shadow-2xl shadow-black/10'
-          : 'bg-white border-b border-[#cecece]'
-      }`}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      style={{
-        backdropFilter: scrolled ? 'blur(32px) saturate(200%) brightness(1.05)' : 'none',
-        WebkitBackdropFilter: scrolled ? 'blur(32px) saturate(200%) brightness(1.05)' : 'none',
-        boxShadow: scrolled ? '0 8px 32px 0 rgba(31, 38, 135, 0.15), inset 0 1px 0 0 rgba(255, 255, 255, 0.5)' : 'none',
-      }}
-    >
-      <div className="flex justify-between items-center px-[100px] max-[600px]:px-[12px] py-[8px] min-h-[72px] max-[600px]:grid max-[600px]:grid-cols-[auto_1fr_auto] max-[600px]:gap-x-[12px]">
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="max-[600px]:col-start-1"
+    <>
+      {/* SVG Filter Definition */}
+      <svg style={{ display: 'none' }}>
+        <filter
+          id="liquidGlass"
+          colorInterpolationFilters="linearRGB"
+          filterUnits="objectBoundingBox"
+          primitiveUnits="userSpaceOnUse"
         >
-          <HashLink smooth to="/#" className="no-underline">
-            <h1 className="font-['Playfair_Display',serif] text-[24px] text-black m-0 font-normal">
-              Niharika Dalal
-            </h1>
-          </HashLink>
-        </motion.div>
-        <Icon
-          onClick={toggleNav}
-          color="#000000"
-          icon="icon-park:hamburger-button"
-          className="hidden max-[600px]:block col-start-3 justify-self-end self-center text-[30px] cursor-pointer"
-          role="button"
-          tabIndex={0}
-          aria-expanded={isNavVisible}
-          aria-label="Toggle navigation"
-          onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && toggleNav()}
-        />
-        {(!isSmallScreen || isNavVisible) && (
-          <nav className="flex items-center gap-x-[60px] max-[600px]:grid max-[600px]:grid-cols-1 max-[600px]:gap-y-[40px] max-[600px]:mt-[20px] max-[600px]:mb-[20px] max-[600px]:col-span-3 max-[600px]:justify-items-center">
-          {links.map(({ href, label, component: Element }, index) => (
-            <motion.div
-              key={label}
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.5,
-                delay: 0.2 + (index * 0.1),
-                ease: [0.22, 1, 0.36, 1]
-              }}
-            >
-              <Element
-                onClick={() => setIsNavVisible(false)}
-                smooth
-                to={href}
+          <feDisplacementMap
+            in="SourceGraphic"
+            in2="SourceGraphic"
+            scale="20"
+            xChannelSelector="R"
+            yChannelSelector="B"
+            x="0%"
+            y="0%"
+            width="100%"
+            height="100%"
+            result="displacementMap"
+          />
+          <feGaussianBlur
+            stdDeviation="3 3"
+            x="0%"
+            y="0%"
+            width="100%"
+            height="100%"
+            in="displacementMap"
+            edgeMode="none"
+            result="blur"
+          />
+        </filter>
+      </svg>
+
+      <motion.header
+        className="fixed top-0 left-0 w-full z-50"
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        style={headerBarStyle}
+      >
+        <div className="flex justify-between items-center px-[100px] max-[600px]:px-[12px] py-[16px] min-h-[88px] max-[600px]:grid max-[600px]:grid-cols-[auto_1fr_auto] max-[600px]:gap-x-[12px]">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="max-[600px]:col-start-1"
+          >
+            <HashLink smooth to="/#" className="no-underline">
+              <div
+                ref={logoRef}
+                style={glassStyle}
+                className="hover:scale-105 active:scale-95"
               >
-                {label}
-              </Element>
-            </motion.div>
-          ))}
-          </nav>
-        )}
-      </div>
-    </motion.header>
+                <h1 className={`font-['Playfair_Display',serif] text-[24px] text-${logoTextColor} m-0 font-normal drop-shadow-lg transition-colors duration-300`}>
+                  Niharika Dalal
+                </h1>
+              </div>
+            </HashLink>
+          </motion.div>
+          
+          <div
+            className="hidden max-[600px]:block col-start-3 justify-self-end self-center"
+          >
+            <div
+              ref={hamburgerRef}
+              style={glassStyle}
+              className="hover:scale-105 active:scale-95 cursor-pointer flex items-center justify-center w-[72px] h-[48px]"
+              onClick={toggleNav}
+              role="button"
+              tabIndex={0}
+              aria-expanded={isNavVisible}
+              aria-label="Toggle navigation"
+              onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && toggleNav()}
+            >
+              <Icon
+                icon="icon-park:hamburger-button"
+                className="text-[24px] transition-colors duration-300"
+                style={{ color: hamburgerTextColor }}
+              />
+            </div>
+          </div>
+          
+          {(!isSmallScreen || isNavVisible) && (
+            <nav className="flex items-center gap-x-[32px] max-[600px]:grid max-[600px]:grid-cols-1 max-[600px]:gap-y-[24px] max-[600px]:mt-[20px] max-[600px]:mb-[20px] max-[600px]:col-span-3 max-[600px]:w-full max-[600px]:px-[12px]">
+              {links.map(({ href, label, component: Element }, index) => (
+                <motion.div
+                  key={label}
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{
+                    duration: 0.5,
+                    delay: 0.2 + (index * 0.1),
+                    ease: [0.22, 1, 0.36, 1]
+                  }}
+                  className="max-[600px]:w-full"
+                >
+                  <Element
+                    onClick={() => setIsNavVisible(false)}
+                    smooth
+                    to={href}
+                    className="max-[600px]:block max-[600px]:w-full"
+                  >
+                    <div
+                      ref={linkRefs[index]}
+                      style={glassStyle}
+                      className="hover:scale-105 active:scale-95 max-[600px]:w-full max-[600px]:text-center"
+                    >
+                      <span className={`drop-shadow-lg text-${linkColors[index]} transition-colors duration-300 font-['Playfair_Display',serif]`}>{label}</span>
+                    </div>
+                  </Element>
+                </motion.div>
+              ))}
+            </nav>
+          )}
+        </div>
+      </motion.header>
+    </>
   );
 }
 
