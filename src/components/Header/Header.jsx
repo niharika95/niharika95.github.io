@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import { Icon } from '@iconify/react';
+import { Link } from 'react-router-dom';
 import { HashLink as RHashLink } from 'react-router-hash-link';
 import { motion } from 'framer-motion';
 
@@ -11,9 +12,16 @@ const HashLink = ({ className = '', ...rest }) => (
   />
 );
 
+const StyledLink = ({ className = '', ...rest }) => (
+  <Link
+    {...rest}
+    className={`text-[20px] no-underline hover:no-underline text-black visited:text-black ${className}`}
+  />
+);
+
 const links = [
   { href: '/#projects', label: 'Projects', component: HashLink },
-  { href: '/#about', label: 'About Me', component: HashLink },
+  { href: '/about', label: 'About Me', component: StyledLink },
 ];
 
 function Header() {

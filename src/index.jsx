@@ -2,6 +2,7 @@ import './index.css';
 
 import { HashRouter, Route, Routes } from 'react-router-dom';
 
+import About from './screens/About/About';
 import AdmissionsProcessAcceleration from './screens/AdmissionsProcessAcceleration/AdmissionsProcessAcceleration';
 import Home from './screens/Home/Home';
 import HomeV2 from './screens/Home/HomeV2';
@@ -28,6 +29,7 @@ root.render(
           <Route path="/" element={featureFlags.useNewHomePage ? <HomeV2 /> : <Home />} />
           <Route path="/#projects" element={featureFlags.useNewHomePage ? <HomeV2 /> : <Home />} />
           <Route path="/#about" element={featureFlags.useNewHomePage ? <HomeV2 /> : <Home />} />
+          <Route path="/about" element={<About />} />
           <Route path="/project/:id" element={<Project />} />
           <Route path="/resume" element={<Resume />} />
           {featureFlags.showNewLinks && (

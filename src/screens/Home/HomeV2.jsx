@@ -35,7 +35,7 @@ function HomeV2() {
                 </h2>
               </div>
               <p className='font-mulish text-[20px] text-black tracking-[-0.05em] leading-[1.5] m-0 max-md:text-[18px]'>
-                Designing 0-to-1 solutions that drive growth, in collaboration
+                Designing <span className='font-light'>0 -&gt; 1</span> solutions that drive growth, in collaboration
                 with cross-functional and cross-cultural Agile teams.
               </p>
             </div>
