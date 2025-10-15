@@ -24,86 +24,315 @@ const links = [
   { href: '/about', label: 'About Me', component: StyledLink },
 ];
 
-// Custom hook to detect background brightness for individual elements
-const useAdaptiveTextColor = (elementRef) => {
-  const [textColor, setTextColor] = useState('black');
+// Component for adaptive hamburger icon
+const HamburgerIcon = ({ isNavVisible, containerRef }) => {
+  const [iconColor, setIconColor] = useState('black');
 
   useEffect(() => {
-    const checkBackgroundBrightness = () => {
+    const checkIconColor = () => {
       try {
-        const element = elementRef.current;
-        if (!element) {
-          setTextColor('black');
-          return;
+        if (!containerRef?.current) return;
+
+        const header = containerRef.current.closest('header');
+        const originalPointerEvents = header ? header.style.pointerEvents : null;
+        
+        if (header) {
+          header.style.pointerEvents = 'none';
         }
 
-        const rect = element.getBoundingClientRect();
+        const rect = containerRef.current.getBoundingClientRect();
         const x = rect.left + rect.width / 2;
         const y = rect.top + rect.height / 2;
 
         const elementBelow = document.elementFromPoint(x, y);
+        
+        if (header) {
+          header.style.pointerEvents = originalPointerEvents || '';
+        }
+
         if (!elementBelow) {
-          setTextColor('black');
+          setIconColor('black');
           return;
         }
 
-        const bgColor = window.getComputedStyle(elementBelow).backgroundColor;
-        
-        // Check if background is transparent or not set
-        if (!bgColor || bgColor === 'rgba(0, 0, 0, 0)' || bgColor === 'transparent') {
-          // Check parent elements
-          let parent = elementBelow.parentElement;
-          let foundColor = false;
-          
-          while (parent && !foundColor) {
-            const parentBg = window.getComputedStyle(parent).backgroundColor;
-            if (parentBg && parentBg !== 'rgba(0, 0, 0, 0)' && parentBg !== 'transparent') {
-              const rgb = parentBg.match(/\d+/g);
-              if (rgb && rgb.length >= 3) {
-                const brightness = (parseInt(rgb[0]) * 299 + parseInt(rgb[1]) * 587 + parseInt(rgb[2]) * 114) / 1000;
-                setTextColor(brightness < 100 ? 'white' : 'black');
-                foundColor = true;
-              }
-            }
-            parent = parent.parentElement;
-          }
-          
-          if (!foundColor) {
-            setTextColor('black');
-          }
-        } else {
-          const rgb = bgColor.match(/\d+/g);
-          if (rgb && rgb.length >= 3) {
-            const brightness = (parseInt(rgb[0]) * 299 + parseInt(rgb[1]) * 587 + parseInt(rgb[2]) * 114) / 1000;
-            setTextColor(brightness < 100 ? 'white' : 'black');
-          } else {
-            setTextColor('black');
-          }
+        const bgColor = getEffectiveBackgroundColor(elementBelow);
+        if (!bgColor) {
+          setIconColor('black');
+          return;
         }
+
+        const luminance = calculateRelativeLuminance(bgColor);
+        setIconColor(luminance > 0.179 ? 'black' : 'white');
       } catch (e) {
-        setTextColor('black');
+        console.error('Error checking icon color:', e);
+        setIconColor('black');
       }
     };
 
-    checkBackgroundBrightness();
+    const getEffectiveBackgroundColor = (element) => {
+      let current = element;
+      
+      while (current && current !== document.body) {
+        const bgColor = window.getComputedStyle(current).backgroundColor;
+        
+        if (bgColor && bgColor !== 'rgba(0, 0, 0, 0)' && bgColor !== 'transparent') {
+          const rgb = parseRgbColor(bgColor);
+          if (rgb) {
+            if (rgb.a < 1 && current.parentElement) {
+              const parentColor = getEffectiveBackgroundColor(current.parentElement);
+              if (parentColor) {
+                return blendColors(rgb, parentColor);
+              }
+            }
+            return rgb;
+          }
+        }
+        
+        current = current.parentElement;
+      }
+      
+      return { r: 255, g: 255, b: 255, a: 1 };
+    };
+
+    const parseRgbColor = (colorString) => {
+      const match = colorString.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([\d.]+))?\)/);
+      if (match) {
+        return {
+          r: parseInt(match[1]),
+          g: parseInt(match[2]),
+          b: parseInt(match[3]),
+          a: match[4] ? parseFloat(match[4]) : 1
+        };
+      }
+      return null;
+    };
+
+    const blendColors = (foreground, background) => {
+      const alpha = foreground.a;
+      return {
+        r: Math.round(foreground.r * alpha + background.r * (1 - alpha)),
+        g: Math.round(foreground.g * alpha + background.g * (1 - alpha)),
+        b: Math.round(foreground.b * alpha + background.b * (1 - alpha)),
+        a: 1
+      };
+    };
+
+    const calculateRelativeLuminance = (color) => {
+      const rsRGB = color.r / 255;
+      const gsRGB = color.g / 255;
+      const bsRGB = color.b / 255;
+
+      const r = rsRGB <= 0.03928 ? rsRGB / 12.92 : Math.pow((rsRGB + 0.055) / 1.055, 2.4);
+      const g = gsRGB <= 0.03928 ? gsRGB / 12.92 : Math.pow((gsRGB + 0.055) / 1.055, 2.4);
+      const b = bsRGB <= 0.03928 ? bsRGB / 12.92 : Math.pow((bsRGB + 0.055) / 1.055, 2.4);
+
+      return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+    };
+
+    checkIconColor();
     
     let scrollTimeout;
     const handleScroll = () => {
       clearTimeout(scrollTimeout);
-      scrollTimeout = setTimeout(checkBackgroundBrightness, 50);
+      scrollTimeout = setTimeout(checkIconColor, 50);
     };
 
     window.addEventListener('scroll', handleScroll);
-    window.addEventListener('resize', checkBackgroundBrightness);
+    window.addEventListener('resize', checkIconColor);
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('resize', checkBackgroundBrightness);
+      window.removeEventListener('resize', checkIconColor);
       clearTimeout(scrollTimeout);
     };
-  }, [elementRef]);
+  }, [containerRef]);
 
-  return textColor;
+  return (
+    <>
+      <motion.path
+        d="M 3 6 L 21 6"
+        stroke={iconColor}
+        strokeWidth="2"
+        strokeLinecap="round"
+        animate={{
+          d: isNavVisible ? "M 6 6 L 18 18" : "M 3 6 L 21 6"
+        }}
+        transition={{
+          duration: 0.3,
+          ease: [0.22, 1, 0.36, 1]
+        }}
+      />
+      <motion.path
+        d="M 3 12 L 21 12"
+        stroke={iconColor}
+        strokeWidth="2"
+        strokeLinecap="round"
+        animate={{
+          opacity: isNavVisible ? 0 : 1
+        }}
+        transition={{
+          duration: 0.2,
+          ease: "easeInOut"
+        }}
+      />
+      <motion.path
+        d="M 3 18 L 21 18"
+        stroke={iconColor}
+        strokeWidth="2"
+        strokeLinecap="round"
+        animate={{
+          d: isNavVisible ? "M 6 18 L 18 6" : "M 3 18 L 21 18"
+        }}
+        transition={{
+          duration: 0.3,
+          ease: [0.22, 1, 0.36, 1]
+        }}
+      />
+    </>
+  );
+};
+
+// Component to render text with per-character adaptive colors
+const AdaptiveText = ({ text, className = '', containerRef }) => {
+  const [charColors, setCharColors] = useState([]);
+  const charRefs = useRef([]);
+
+  useEffect(() => {
+    const checkCharacterColors = () => {
+      try {
+        if (!containerRef?.current) return;
+
+        const header = containerRef.current.closest('header');
+        const originalPointerEvents = header ? header.style.pointerEvents : null;
+        
+        // Temporarily disable pointer events to detect background
+        if (header) {
+          header.style.pointerEvents = 'none';
+        }
+
+        const colors = charRefs.current.map((charRef) => {
+          if (!charRef) return 'black';
+
+          const rect = charRef.getBoundingClientRect();
+          const x = rect.left + rect.width / 2;
+          const y = rect.top + rect.height / 2;
+
+          const elementBelow = document.elementFromPoint(x, y);
+          if (!elementBelow) return 'black';
+
+          const bgColor = getEffectiveBackgroundColor(elementBelow);
+          if (!bgColor) return 'black';
+
+          const luminance = calculateRelativeLuminance(bgColor);
+          return luminance > 0.179 ? 'black' : 'white';
+        });
+
+        // Restore pointer events
+        if (header) {
+          header.style.pointerEvents = originalPointerEvents || '';
+        }
+
+        setCharColors(colors);
+      } catch (e) {
+        console.error('Error checking character colors:', e);
+      }
+    };
+
+    // Helper functions
+    const getEffectiveBackgroundColor = (element) => {
+      let current = element;
+      
+      while (current && current !== document.body) {
+        const bgColor = window.getComputedStyle(current).backgroundColor;
+        
+        if (bgColor && bgColor !== 'rgba(0, 0, 0, 0)' && bgColor !== 'transparent') {
+          const rgb = parseRgbColor(bgColor);
+          if (rgb) {
+            if (rgb.a < 1 && current.parentElement) {
+              const parentColor = getEffectiveBackgroundColor(current.parentElement);
+              if (parentColor) {
+                return blendColors(rgb, parentColor);
+              }
+            }
+            return rgb;
+          }
+        }
+        
+        current = current.parentElement;
+      }
+      
+      return { r: 255, g: 255, b: 255, a: 1 };
+    };
+
+    const parseRgbColor = (colorString) => {
+      const match = colorString.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([\d.]+))?\)/);
+      if (match) {
+        return {
+          r: parseInt(match[1]),
+          g: parseInt(match[2]),
+          b: parseInt(match[3]),
+          a: match[4] ? parseFloat(match[4]) : 1
+        };
+      }
+      return null;
+    };
+
+    const blendColors = (foreground, background) => {
+      const alpha = foreground.a;
+      return {
+        r: Math.round(foreground.r * alpha + background.r * (1 - alpha)),
+        g: Math.round(foreground.g * alpha + background.g * (1 - alpha)),
+        b: Math.round(foreground.b * alpha + background.b * (1 - alpha)),
+        a: 1
+      };
+    };
+
+    const calculateRelativeLuminance = (color) => {
+      const rsRGB = color.r / 255;
+      const gsRGB = color.g / 255;
+      const bsRGB = color.b / 255;
+
+      const r = rsRGB <= 0.03928 ? rsRGB / 12.92 : Math.pow((rsRGB + 0.055) / 1.055, 2.4);
+      const g = gsRGB <= 0.03928 ? gsRGB / 12.92 : Math.pow((gsRGB + 0.055) / 1.055, 2.4);
+      const b = bsRGB <= 0.03928 ? bsRGB / 12.92 : Math.pow((bsRGB + 0.055) / 1.055, 2.4);
+
+      return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+    };
+
+    checkCharacterColors();
+    
+    let scrollTimeout;
+    const handleScroll = () => {
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(checkCharacterColors, 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', checkCharacterColors);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', checkCharacterColors);
+      clearTimeout(scrollTimeout);
+    };
+  }, [containerRef, text]);
+
+  return (
+    <span className={className}>
+      {text.split('').map((char, index) => (
+        <span
+          key={index}
+          ref={(el) => (charRefs.current[index] = el)}
+          style={{
+            color: charColors[index] || 'black',
+            transition: 'color 0.3s ease'
+          }}
+        >
+          {char}
+        </span>
+      ))}
+    </span>
+  );
 };
 
 function Header() {
@@ -116,11 +345,6 @@ function Header() {
   const hamburgerRef = useRef(null);
   const projectsRef = useRef(null);
   const aboutRef = useRef(null);
-
-  const logoTextColor = useAdaptiveTextColor(logoRef);
-  const hamburgerTextColor = useAdaptiveTextColor(hamburgerRef);
-  const projectsTextColor = useAdaptiveTextColor(projectsRef);
-  const aboutTextColor = useAdaptiveTextColor(aboutRef);
 
   const handleMediaQueryChange = (mediaQuery) => {
     if (mediaQuery.matches) {
@@ -182,7 +406,6 @@ function Header() {
   };
 
   const linkRefs = [projectsRef, aboutRef];
-  const linkColors = [projectsTextColor, aboutTextColor];
 
   return (
     <>
@@ -240,8 +463,11 @@ function Header() {
                 style={glassStyle}
                 className="hover:scale-105 active:scale-95"
               >
-                <h1 className={`font-['Playfair_Display',serif] text-[24px] text-${logoTextColor} m-0 font-normal drop-shadow-lg transition-colors duration-300`}>
-                  Niharika Dalal
+                <h1 className="font-['Playfair_Display',serif] text-[24px] m-0 font-normal drop-shadow-lg">
+                  <AdaptiveText
+                    text="Niharika Dalal"
+                    containerRef={logoRef}
+                  />
                 </h1>
               </div>
             </HashLink>
@@ -269,44 +495,9 @@ function Header() {
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <motion.path
-                  d="M 3 6 L 21 6"
-                  stroke={hamburgerTextColor}
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  animate={{
-                    d: isNavVisible ? "M 6 6 L 18 18" : "M 3 6 L 21 6"
-                  }}
-                  transition={{
-                    duration: 0.3,
-                    ease: [0.22, 1, 0.36, 1]
-                  }}
-                />
-                <motion.path
-                  d="M 3 12 L 21 12"
-                  stroke={hamburgerTextColor}
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  animate={{
-                    opacity: isNavVisible ? 0 : 1
-                  }}
-                  transition={{
-                    duration: 0.2,
-                    ease: "easeInOut"
-                  }}
-                />
-                <motion.path
-                  d="M 3 18 L 21 18"
-                  stroke={hamburgerTextColor}
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  animate={{
-                    d: isNavVisible ? "M 6 18 L 18 6" : "M 3 18 L 21 18"
-                  }}
-                  transition={{
-                    duration: 0.3,
-                    ease: [0.22, 1, 0.36, 1]
-                  }}
+                <HamburgerIcon
+                  isNavVisible={isNavVisible}
+                  containerRef={hamburgerRef}
                 />
               </svg>
             </motion.div>
@@ -337,7 +528,11 @@ function Header() {
                       style={glassStyle}
                       className="hover:scale-105 active:scale-95 max-[600px]:w-full max-[600px]:text-center"
                     >
-                      <span className={`drop-shadow-lg text-${linkColors[index]} transition-colors duration-300 font-['Playfair_Display',serif]`}>{label}</span>
+                      <AdaptiveText
+                        text={label}
+                        className="drop-shadow-lg font-['Playfair_Display',serif]"
+                        containerRef={linkRefs[index]}
+                      />
                     </div>
                   </Element>
                 </motion.div>
