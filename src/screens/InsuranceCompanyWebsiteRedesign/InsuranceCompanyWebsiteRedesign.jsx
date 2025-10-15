@@ -124,7 +124,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
           </ContentContainer>
         </section>
 
-        <div className='py-2'>
+        <div>
             <ContentContainer>
                 <hr className='border-[#fddde4] mb-12' />
             </ContentContainer>

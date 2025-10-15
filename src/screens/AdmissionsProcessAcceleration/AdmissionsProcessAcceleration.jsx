@@ -143,7 +143,7 @@ const AdmissionsProcessAcceleration = () => {
           </ContentContainer>
         </section>
 
-        <div className='py-2'>
+        <div>
           <ContentContainer>
             <hr className='border-[#522398] mb-12' />
           </ContentContainer>

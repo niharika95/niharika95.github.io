@@ -129,7 +129,7 @@ const LoanAppExperienceOptimization = () => {
           </ContentContainer>
         </section>
 
-        <div className='py-2'>
+        <div>
             <ContentContainer>
                 <hr className='border-[#dbeafe] mb-12' />
             </ContentContainer>

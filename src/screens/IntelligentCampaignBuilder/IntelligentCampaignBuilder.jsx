@@ -155,7 +155,7 @@ const IntelligentCampaignBuilder = () => {
           </ContentContainer>
         </section>
 
-        <div className='py-2'>
+        <div>
           <ContentContainer>
             <hr className='border-[#fb4e0b] mb-12' />
           </ContentContainer>
