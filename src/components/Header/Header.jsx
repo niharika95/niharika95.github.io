@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 
+import ContentContainer from '../../common/ContentContainer';
 import { Link } from 'react-router-dom';
 import { HashLink as RHashLink } from 'react-router-hash-link';
 import { motion } from 'framer-motion';
@@ -225,7 +226,8 @@ function Header() {
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         style={headerBarStyle}
       >
-        <div className="flex justify-between items-center px-[100px] max-[600px]:px-[12px] py-[16px] min-h-[88px] max-[600px]:grid max-[600px]:grid-cols-[auto_1fr_auto] max-[600px]:gap-x-[12px]">
+        <ContentContainer className="px-[80px] max-md:px-[20px]">
+          <div className="flex justify-between items-center py-[16px] min-h-[88px] max-[600px]:grid max-[600px]:grid-cols-[auto_1fr_auto] max-[600px]:gap-x-[12px]">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -342,7 +344,8 @@ function Header() {
               ))}
             </nav>
           )}
-        </div>
+          </div>
+        </ContentContainer>
       </motion.header>
     </>
   );
