@@ -478,7 +478,7 @@ function Header() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="max-[600px]:col-start-1"
           >
-            <HashLink smooth to="/#" className="no-underline">
+            <HashLink to="/#" className="no-underline">
               <div
                 ref={logoRef}
                 style={glassStyle}
@@ -540,7 +540,6 @@ function Header() {
                 >
                   <Element
                     onClick={() => setIsNavVisible(false)}
-                    smooth
                     to={href}
                     className="max-[600px]:block max-[600px]:w-full"
                   >
