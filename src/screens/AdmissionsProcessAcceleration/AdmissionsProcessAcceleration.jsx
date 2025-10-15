@@ -96,7 +96,7 @@ const AdmissionsProcessAcceleration = () => {
               How user-centric design unlocked a 60% productivity gain and
               empowered counselors to focus on high-value decisions.
             </p>
-            <div className='flex flex-wrap gap-2 mt-6'>
+            <div className='flex flex-wrap gap-2 mt-4 md:mt-6'>
               {tags.map((tag) => (
                 <Tag key={tag}>{tag}</Tag>
               ))}

@@ -82,7 +82,7 @@ const LoanAppExperienceOptimization = () => {
                             <p className='font-mulish text-lg md:text-xl mt-4 opacity-95'>
                             Slashing projected loan application time by 40% by redesigning for trust and efficiency.
                             </p>
-                            <div className='flex flex-wrap gap-3 mt-6'>
+                            <div className='flex flex-wrap gap-3 mt-4 md:mt-6'>
                             {tags.map((tag) => (
                                 <Tag key={tag}>{tag}</Tag>
                             ))}

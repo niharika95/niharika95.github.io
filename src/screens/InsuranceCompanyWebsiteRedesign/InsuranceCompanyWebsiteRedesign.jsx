@@ -85,7 +85,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
           <img
             src='/insurance-company-website-design/hero.png'
             alt='Insurance Company Website Redesign Hero'
-            className='w-full max-w-[600px] self-end h-auto object-cover max-h-[500px] mt-50'
+            className='w-full max-w-[600px] self-end h-auto object-cover max-h-[500px] md:mt-50'
             style={{ boxShadow: '0 -10px 15px -3px rgba(0, 0, 0, 0.1), 0 -4px 6px -2px rgba(0, 0, 0, 0.05)' }}
           />
           <div
