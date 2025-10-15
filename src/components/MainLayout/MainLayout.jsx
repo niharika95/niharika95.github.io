@@ -1,4 +1,5 @@
 import FeatureFlagPanel from '../FeatureFlagPanel/FeatureFlagPanel';
+import Footer from '../Footer/Footer';
 import { Gutter } from '../../common';
 import Header from '../Header/Header';
 import { Outlet } from 'react-router-dom';
@@ -11,6 +12,7 @@ const MainLayout = () => {
       <Gutter className="pt-[74px]">
         <Outlet />
       </Gutter>
+      <Footer />
       <FeatureFlagPanel />
     </div>
   );
