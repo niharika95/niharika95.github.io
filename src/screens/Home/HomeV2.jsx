@@ -4,6 +4,9 @@ import GeometricPattern from '../../components/GeometricPattern';
 import PersonalProjectsGrid from '../../components/PersonalProjectsGrid';
 import ProjectGrid from '../../components/ProjectGrid';
 import React from 'react';
+import { useAnalytics } from '../../hooks/useAnalytics';
+import { useScrollTracking } from '../../hooks/useScrollTracking';
+import { useTimeTracking } from '../../hooks/useTimeTracking';
 
 const stats = [
   { value: '4.5+', label: 'years of expertise designing digital interfaces' },
@@ -13,6 +16,11 @@ const stats = [
 ];
 
 function HomeV2() {
+  // Track page view, scroll depth, and time on page
+  useAnalytics('home');
+  useScrollTracking();
+  useTimeTracking();
+
   return (
     <div className='bg-white min-h-screen w-full'>
       {/* Hero Section */}

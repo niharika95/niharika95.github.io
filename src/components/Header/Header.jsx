@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { trackLogoClick, trackNavigation } from '../../utils/analytics';
 
 import ContentContainer from '../../common/ContentContainer';
 import { Link } from 'react-router-dom';
@@ -478,7 +479,11 @@ function Header() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="max-[600px]:col-start-1"
           >
-            <HashLink to="/#" className="no-underline">
+            <HashLink
+              to="/#"
+              className="no-underline"
+              onClick={() => trackLogoClick(window.location.pathname)}
+            >
               <div
                 ref={logoRef}
                 style={glassStyle}
@@ -539,7 +544,10 @@ function Header() {
                   className="max-[600px]:w-full"
                 >
                   <Element
-                    onClick={() => setIsNavVisible(false)}
+                    onClick={() => {
+                      trackNavigation(label, href, 'header', window.location.pathname);
+                      setIsNavVisible(false);
+                    }}
                     to={href}
                     className="max-[600px]:block max-[600px]:w-full"
                   >

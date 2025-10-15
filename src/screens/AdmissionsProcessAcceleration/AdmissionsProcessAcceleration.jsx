@@ -2,6 +2,9 @@ import { DecorativeDots, StrokeAnimation } from '../../common';
 
 import { Icon } from '@iconify/react';
 import React from 'react';
+import { useAnalytics } from '../../hooks/useAnalytics';
+import { useScrollTracking } from '../../hooks/useScrollTracking';
+import { useTimeTracking } from '../../hooks/useTimeTracking';
 
 // Reusable components, adapted for this case study's theme
 
@@ -30,6 +33,14 @@ const ContentContainer = ({ children, className }) => (
 );
 
 const AdmissionsProcessAcceleration = () => {
+  // Track page view, scroll depth, and time on page
+  useAnalytics('project_detail', {
+    projectName: 'admissions-process-acceleration',
+    projectType: 'professional'
+  });
+  useScrollTracking();
+  useTimeTracking();
+
   const tags = [
     'Figma',
     'UX Design',

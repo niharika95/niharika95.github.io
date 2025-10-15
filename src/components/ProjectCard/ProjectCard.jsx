@@ -1,9 +1,11 @@
 /* eslint-disable max-len */
+
 import { Icon } from '@iconify/react';
 import { ProjectTitle } from '../../common';
 import React from 'react';
 import { easeOutExpo } from '../../utils/animations';
 import { motion } from 'framer-motion';
+import { trackProjectCardClick } from '../../utils/analytics';
 
 // Tool icon mapping
 const toolIcons = {
@@ -21,8 +23,25 @@ function ProjectCard({
   tools,
   caseStudyLink,
   imagePosition = 'left',
+  cardIndex = 0, // Add cardIndex prop for tracking position
 }) {
   const isLeft = imagePosition === 'left';
+  
+  // Handle project card click tracking
+  const handleClick = () => {
+    const projectName = caseStudyLink.replace('#/project/', '');
+    trackProjectCardClick(
+      projectName,
+      {
+        title,
+        color,
+        project_type: 'personal',
+        image_position: imagePosition
+      },
+      'home_v1',
+      cardIndex
+    );
+  };
   
   return (
     <motion.div
@@ -80,7 +99,10 @@ function ProjectCard({
         <motion.a
           whileHover={{ x: isLeft ? 4 : -4 }}
           transition={{ duration: 0.2 }}
-          onClick={() => window.scrollTo({ top: 0 })}
+          onClick={() => {
+            handleClick();
+            window.scrollTo({ top: 0 });
+          }}
           href={caseStudyLink}
           style={{ color }}
           className="group flex items-center gap-[8px] no-underline text-[18px] font-semibold relative mt-[8px]"

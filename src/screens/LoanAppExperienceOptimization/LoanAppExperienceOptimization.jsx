@@ -2,6 +2,9 @@ import { DecorativeDots, StrokeAnimation } from '../../common';
 
 import { Icon } from '@iconify/react';
 import React from 'react';
+import { useAnalytics } from '../../hooks/useAnalytics';
+import { useScrollTracking } from '../../hooks/useScrollTracking';
+import { useTimeTracking } from '../../hooks/useTimeTracking';
 
 // Reusable components for this case study's theme
 
@@ -38,6 +41,14 @@ const Result = ({ icon, title, children }) => (
 
 
 const LoanAppExperienceOptimization = () => {
+  // Track page view, scroll depth, and time on page
+  useAnalytics('project_detail', {
+    projectName: 'loan-app-experience-optimization',
+    projectType: 'professional'
+  });
+  useScrollTracking();
+  useTimeTracking();
+
   const tags = [
     'Figma', 'Balsamiq', 'UX Research', 'Wireframing', 'UX Design',
     'Visual Design', 'Prototyping', 'Time Management', 'Mobile App'

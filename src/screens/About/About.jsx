@@ -1,6 +1,14 @@
 import GeometricPattern from '../../components/GeometricPattern';
+import { useAnalytics } from '../../hooks/useAnalytics';
+import { useScrollTracking } from '../../hooks/useScrollTracking';
+import { useTimeTracking } from '../../hooks/useTimeTracking';
 
 function About() {
+  // Track page view, scroll depth, and time on page
+  useAnalytics('about');
+  useScrollTracking();
+  useTimeTracking();
+
   return (
     <div className="bg-white w-full h-[80vh]">
       {/* Hero Section with Geometric Pattern Background and Circular Image */}

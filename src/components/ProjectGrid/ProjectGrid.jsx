@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 
 import { ContentContainer } from '../../common';
+import { trackProjectCardClick } from '../../utils/analytics';
 
 const projects = [
   {
@@ -119,10 +120,26 @@ function ProjectGrid() {
                 const isHovered = hoveredIndex === index;
                 const shouldAnimate = isMobileView ? isInView : isHovered;
 
+                const handleClick = () => {
+                  const projectName = link.replace('#/', '');
+                  trackProjectCardClick(
+                    projectName,
+                    {
+                      title,
+                      color,
+                      project_type: 'professional',
+                      is_mobile_layout: isMobile
+                    },
+                    'project_grid',
+                    index
+                  );
+                };
+
                 return (
                   <motion.a
                     ref={ref}
                     href={link}
+                    onClick={handleClick}
                     onMouseEnter={() => !isMobileView && setHoveredIndex(index)}
                     onMouseLeave={() => !isMobileView && setHoveredIndex(null)}
                     className={`px-[12px] sm:px-[20px] gap-[20px] sm:gap-[40px] overflow-hidden min-h-[400px] sm:h-[500px] pt-[30px] sm:pt-[50px] pb-[30px] sm:pb-0 flex ${

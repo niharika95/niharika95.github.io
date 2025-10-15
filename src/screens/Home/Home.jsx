@@ -13,8 +13,17 @@ import niharikaProfileImg from '../../assets/images/niharikaProfileImg.png';
 import quotesSymbol from '../../assets/images/quotes.png';
 import svaasthyaImg from '../../assets/images/svaasthya.png';
 import swiftbikesImg from '../../assets/images/swiftbikes.png';
+import { trackExternalLink } from '../../utils/analytics';
+import { useAnalytics } from '../../hooks/useAnalytics';
+import { useScrollTracking } from '../../hooks/useScrollTracking';
+import { useTimeTracking } from '../../hooks/useTimeTracking';
 
 function Home() {
+  // Track page view, scroll depth, and time on page
+  useAnalytics('home');
+  useScrollTracking();
+  useTimeTracking();
+
   return (
     <ContentContainer>
       {/* Hero Section */}
@@ -48,6 +57,7 @@ function Home() {
           tools={caseStudyData.femhealth.caseStudyInfo.find(i => i.title === 'TOOLS').list}
           caseStudyLink="#/project/femhealth"
           imagePosition="left"
+          cardIndex={0}
         />
 
         {/* Project 2: Swift Bikes */}
@@ -59,6 +69,7 @@ function Home() {
           tools={caseStudyData.swiftbikes.caseStudyInfo.find(i => i.title === 'TOOLS').list}
           caseStudyLink="#/project/swiftbikes"
           imagePosition="right"
+          cardIndex={1}
         />
 
         {/* Project 3: Svaasthya */}
@@ -70,6 +81,7 @@ function Home() {
           tools={caseStudyData.svaasthya.caseStudyInfo.find(i => i.title === 'TOOLS').list}
           caseStudyLink="#/project/svaasthya"
           imagePosition="left"
+          cardIndex={2}
         />
       </div>
 
@@ -127,6 +139,7 @@ function Home() {
               transition={{ duration: 0.2 }}
               target="_blank"
               href="mailto:niharika13dalal@gmail.com"
+              onClick={() => trackExternalLink('email', 'mailto:niharika13dalal@gmail.com', 'niharika13dalal@gmail.com', window.location.pathname)}
               className="group font-light text-[20px] no-underline text-black flex gap-[12px] items-center"
               rel="noreferrer"
             >
@@ -140,6 +153,7 @@ function Home() {
               transition={{ duration: 0.2 }}
               target="_blank"
               href="https://www.linkedin.com/in/niharikadalal/"
+              onClick={() => trackExternalLink('linkedin', 'https://www.linkedin.com/in/niharikadalal/', '/niharikadalal', window.location.pathname)}
               className="group font-light text-[20px] no-underline text-black flex gap-[12px] items-center"
               rel="noreferrer"
             >
@@ -152,6 +166,7 @@ function Home() {
               whileHover={{ x: 4 }}
               transition={{ duration: 0.2 }}
               href="#/resume"
+              onClick={() => trackExternalLink('resume', '#/resume', 'Resume (pdf)', window.location.pathname)}
               className="group font-light text-[20px] no-underline text-black flex gap-[12px] items-center"
             >
               <Icon color="#106066" icon="ant-design:file-text-filled" className="transition-transform duration-200 group-hover:scale-110" />

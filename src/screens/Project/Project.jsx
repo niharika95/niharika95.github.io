@@ -1,15 +1,43 @@
 import { ContentContainer, Gutter, ProjectTitle } from '../../common';
 import { Link, useLocation } from 'react-router-dom';
+import React, { useEffect } from 'react';
 
 import { Icon } from '@iconify/react';
-import React from 'react';
 import caseStudyData from './caseStudyData';
+import { trackProjectView } from '../../utils/analytics';
+import { useAnalytics } from '../../hooks/useAnalytics';
+import { useScrollTracking } from '../../hooks/useScrollTracking';
+import { useTimeTracking } from '../../hooks/useTimeTracking';
 
 function Project() {
   const { pathname } = useLocation();
 
   const projectName = pathname.split('/').pop();
   const currentProject = caseStudyData[projectName];
+  
+  // Determine project type (personal or professional)
+  const personalProjects = ['femhealth', 'swiftbikes', 'svaasthya'];
+  const projectType = personalProjects.includes(projectName) ? 'personal' : 'professional';
+
+  // Track enhanced page view with project context
+  useAnalytics('project_detail', {
+    projectName,
+    projectType
+  });
+  
+  // Track scroll depth and time on page
+  useScrollTracking();
+  useTimeTracking();
+
+  // Track project view event
+  useEffect(() => {
+    if (currentProject) {
+      trackProjectView(projectName, {
+        ...currentProject,
+        project_type: projectType
+      });
+    }
+  }, [projectName, currentProject, projectType]);
   return (
     <ContentContainer className="pt-[100px] mt-[100px]">
       <Gutter>

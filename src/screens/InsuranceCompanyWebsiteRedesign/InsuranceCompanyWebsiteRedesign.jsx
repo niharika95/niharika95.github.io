@@ -2,6 +2,9 @@ import { DecorativeDots, StrokeAnimation } from '../../common';
 
 import { Icon } from '@iconify/react';
 import React from 'react';
+import { useAnalytics } from '../../hooks/useAnalytics';
+import { useScrollTracking } from '../../hooks/useScrollTracking';
+import { useTimeTracking } from '../../hooks/useTimeTracking';
 
 // Reusable components for this case study's theme
 
@@ -41,6 +44,14 @@ const Metric = ({ name, before, after, improvement, icon }) => (
 
 
 const InsuranceCompanyWebsiteRedesign = () => {
+  // Track page view, scroll depth, and time on page
+  useAnalytics('project_detail', {
+    projectName: 'insurance-company-website-redesign',
+    projectType: 'professional'
+  });
+  useScrollTracking();
+  useTimeTracking();
+
   const tags = [
     'Figma', 'FigJam', 'Product Design', 'UX Research', 'Wireframing',
     'Interaction Design', 'Visual Design', 'Responsive Design', 'Design QA'

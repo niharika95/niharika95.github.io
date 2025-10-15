@@ -2,6 +2,9 @@ import { DecorativeDots, StrokeAnimation } from '../../common';
 
 import { Icon } from '@iconify/react';
 import React from 'react';
+import { useAnalytics } from '../../hooks/useAnalytics';
+import { useScrollTracking } from '../../hooks/useScrollTracking';
+import { useTimeTracking } from '../../hooks/useTimeTracking';
 
 const Tag = ({ children }) => (
   <span className='bg-[#ffded2] text-black rounded-full px-4 py-1 text-sm font-medium'>
@@ -42,6 +45,14 @@ const ContentContainer = ({ children, className }) => (
 );
 
 const IntelligentCampaignBuilder = () => {
+  // Track page view, scroll depth, and time on page
+  useAnalytics('project_detail', {
+    projectName: 'intelligent-campaign-builder',
+    projectType: 'professional'
+  });
+  useScrollTracking();
+  useTimeTracking();
+
   const tags = [
     'Figma',
     'UX Research',
