@@ -97,7 +97,7 @@ const LoanAppExperienceOptimization = () => {
                   icon='material-symbols:person-outline'
                   className='text-2xl text-black mr-4'
                 />
-                <h3 className='font-playfair font-bold text-lg'>Role:</h3>
+                <h3 className='font-mulish font-bold text-lg'>Role:</h3>
               </div>
               <p className='font-mulish col-start-2 text-gray-600 text-lg'>
                 UX/UI Designer
@@ -110,7 +110,7 @@ const LoanAppExperienceOptimization = () => {
                   className='text-2xl text-black mr-4'
                   style={{ fill: 'none', fontWeight: 100 }}
                 />
-                <h3 className='font-playfair font-bold text-lg'>Team:</h3>
+                <h3 className='font-mulish font-bold text-lg'>Team:</h3>
               </div>
               <p className='font-mulish col-start-2 text-gray-600 text-lg'>
                 Project Manager, UX/UI Designer
@@ -122,7 +122,7 @@ const LoanAppExperienceOptimization = () => {
                   icon='mdi:clock-outline'
                   className='text-2xl text-black mr-4'
                 />
-                <h3 className='font-playfair font-bold text-lg'>Duration:</h3>
+                <h3 className='font-mulish font-bold text-lg'>Duration:</h3>
               </div>
               <p className='font-mulish col-start-2 text-gray-600 text-lg'>2 months</p>
             </div>

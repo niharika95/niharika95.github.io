@@ -110,7 +110,7 @@ const AdmissionsProcessAcceleration = () => {
                   icon='material-symbols:person-outline'
                   className='text-2xl text-black mr-4'
                 />
-                <h3 className='font-playfair font-bold text-lg'>Role:</h3>
+                <h3 className='font-mulish font-bold text-lg'>Role:</h3>
               </div>
               <p className='font-mulish col-start-2 text-gray-600 text-lg'>
                 UX/UI Designer
@@ -123,7 +123,7 @@ const AdmissionsProcessAcceleration = () => {
                   className='text-2xl text-black mr-4'
                   style={{ fill: 'none', fontWeight: 100 }}
                 />
-                <h3 className='font-playfair font-bold text-lg'>Team:</h3>
+                <h3 className='font-mulish font-bold text-lg'>Team:</h3>
               </div>
               <p className='font-mulish col-start-2 text-gray-600 text-lg'>
                 Product Owner, UX/UI Designer, 2 Front-end Developer, 2 Back-end
@@ -136,7 +136,7 @@ const AdmissionsProcessAcceleration = () => {
                   icon='mdi:clock-outline'
                   className='text-2xl text-black mr-4'
                 />
-                <h3 className='font-playfair font-bold text-lg'>Duration:</h3>
+                <h3 className='font-mulish font-bold text-lg'>Duration:</h3>
               </div>
               <p className='font-mulish col-start-2 text-gray-600 text-lg'>4 months</p>
             </div>
