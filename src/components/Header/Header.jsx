@@ -340,6 +340,7 @@ function Header() {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [isBubbleMode, setIsBubbleMode] = useState(false);
+  const [morphProgress, setMorphProgress] = useState(0);
 
   const logoRef = useRef(null);
   const hamburgerRef = useRef(null);
@@ -367,6 +368,12 @@ function Header() {
     const handleScroll = () => {
       const offset = window.scrollY;
       setScrolled(offset > 20);
+      
+      // Calculate smooth morph progress between scroll positions 20-100
+      const morphStart = 20;
+      const morphEnd = 100;
+      const progress = Math.min(Math.max((offset - morphStart) / (morphEnd - morphStart), 0), 1);
+      setMorphProgress(progress);
       setIsBubbleMode(offset > 72);
     };
 
@@ -378,31 +385,42 @@ function Header() {
 
   const toggleNav = () => setIsNavVisible(!isNavVisible);
 
+  // Calculate border radius with smooth easing
+  const getBorderRadius = () => {
+    const maxRadius = 9999;
+    // Smooth ease-in-out curve
+    const eased = morphProgress < 0.5
+      ? 4 * morphProgress * morphProgress * morphProgress
+      : 1 - Math.pow(-2 * morphProgress + 2, 3) / 2;
+    return `${eased * maxRadius}px`;
+  };
+
   const glassStyle = {
     background: 'rgba(255, 255, 255, 0.05)',
     backdropFilter: 'url(#liquidGlass) blur(4px)',
     WebkitBackdropFilter: 'blur(4px)',
-    borderRadius: isBubbleMode ? '9999px' : '0px',
+    borderRadius: getBorderRadius(),
     padding: '12px 24px',
-    boxShadow: isBubbleMode ? `
-      inset 2px 2px 1px 0 rgba(255, 255, 255, 0.3),
-      inset -2px -2px 2px 1px rgba(255, 255, 255, 0.3),
-      0 4px 8px 0 rgba(0, 0, 0, 0.2),
-      0 6px 20px 0 rgba(0, 0, 0, 0.2)
+    border: `1px solid rgba(255, 255, 255, ${0.3 * (1 - morphProgress)})`,
+    boxShadow: morphProgress > 0.3 ? `
+      inset 2px 2px 1px 0 rgba(255, 255, 255, ${0.3 * morphProgress}),
+      inset -2px -2px 2px 1px rgba(255, 255, 255, ${0.3 * morphProgress}),
+      0 ${4 * morphProgress}px ${8 * morphProgress}px 0 rgba(0, 0, 0, ${0.2 * morphProgress}),
+      0 ${6 * morphProgress}px ${20 * morphProgress}px 0 rgba(0, 0, 0, ${0.2 * morphProgress})
     ` : 'none',
-    transition: 'all 0.5s cubic-bezier(0.2, 0.9, 0.3, 1.5)',
+    transition: 'all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)',
   };
 
   const headerBarStyle = {
-    background: isBubbleMode ? 'transparent' : 'rgba(255, 255, 255, 0.05)',
-    backdropFilter: isBubbleMode ? 'none' : 'url(#liquidGlass) blur(4px)',
-    WebkitBackdropFilter: isBubbleMode ? 'none' : 'blur(4px)',
-    borderBottom: isBubbleMode ? 'none' : '1px solid rgba(255, 255, 255, 0.3)',
-    boxShadow: isBubbleMode ? 'none' : `
-      inset 0 1px 0 0 rgba(255, 255, 255, 0.3),
-      0 4px 8px 0 rgba(0, 0, 0, 0.2)
+    background: morphProgress > 0.7 ? 'transparent' : `rgba(255, 255, 255, ${0.05 * (1 - morphProgress)})`,
+    backdropFilter: morphProgress > 0.7 ? 'none' : `url(#liquidGlass) blur(${4 * (1 - morphProgress)}px)`,
+    WebkitBackdropFilter: morphProgress > 0.7 ? 'none' : `blur(${4 * (1 - morphProgress)}px)`,
+    borderBottom: `1px solid rgba(255, 255, 255, ${0.3 * (1 - morphProgress)})`,
+    boxShadow: morphProgress > 0.7 ? 'none' : `
+      inset 0 1px 0 0 rgba(255, 255, 255, ${0.3 * (1 - morphProgress)}),
+      0 4px 8px 0 rgba(0, 0, 0, ${0.2 * (1 - morphProgress)})
     `,
-    transition: 'all 0.5s cubic-bezier(0.2, 0.9, 0.3, 1.5)',
+    transition: 'all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)',
   };
 
   const linkRefs = [projectsRef, aboutRef];
@@ -453,7 +471,10 @@ function Header() {
           <div className="flex justify-between items-center py-[16px] min-h-[88px] max-[600px]:grid max-[600px]:grid-cols-[auto_1fr_auto] max-[600px]:gap-x-[12px]">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
+            animate={{
+              opacity: 1,
+              x: 0
+            }}
             transition={{ duration: 0.6, delay: 0.1 }}
             className="max-[600px]:col-start-1"
           >
