@@ -84,7 +84,7 @@ function ProjectGrid() {
       case 0:
         return (
           <>
-            Drove a <StrongWithUnderline>44% SEO boost</StrongWithUnderline> and <StrongWithUnderline>37% performance increase</StrongWithUnderline> with a 0→1 redesign built for growth.
+            Drove a <StrongWithUnderline>44% SEO boost</StrongWithUnderline> and <StrongWithUnderline>37% performance increase</StrongWithUnderline> with a 0 -&gt; 1 redesign built for growth.
           </>
         );
       case 1:
