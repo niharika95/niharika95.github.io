@@ -1,3 +1,5 @@
+import { DecorativeDots, StrokeAnimation } from '../../common';
+
 import { Icon } from '@iconify/react';
 import React from 'react';
 
@@ -36,19 +38,6 @@ const Result = ({ icon, title, children }) => (
 
 
 const LoanAppExperienceOptimization = () => {
-  const dotsTopLeft = {
-    backgroundImage: 'url(/pattern-diamond-white.svg)',
-    backgroundSize: '242px 242px',
-    backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'top left',
-  };
-  const lightDotsPattern = {
-    backgroundImage: 'url(/pattern-diamond-purple.svg)',
-    backgroundSize: '242px 242px',
-    backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'top right',
-  };
-
   const tags = [
     'Figma', 'Balsamiq', 'UX Research', 'Wireframing', 'UX Design',
     'Visual Design', 'Prototyping', 'Time Management', 'Mobile App'
@@ -80,7 +69,7 @@ const LoanAppExperienceOptimization = () => {
                             Loan App Experience Optimization
                             </h1>
                             <p className='font-mulish text-lg md:text-xl mt-4 opacity-95'>
-                            Slashing projected loan application time by 40% by redesigning for trust and efficiency.
+                            Slashing projected loan <StrokeAnimation strokeColor="D97706">application time by 40%</StrokeAnimation> by redesigning for trust and efficiency.
                             </p>
                             <div className='flex flex-wrap gap-3 mt-4 md:mt-6'>
                             {tags.map((tag) => (
@@ -89,10 +78,7 @@ const LoanAppExperienceOptimization = () => {
                             </div>
                         </div>
                     </div>
-                    <div
-                      className='absolute -top-4 -left-4 w-[242px] h-[242px] opacity-60 pointer-events-none'
-                      style={dotsTopLeft}
-                    />
+                    <DecorativeDots color="1C4882" position="top-left" />
                 </div>
 
                 <div className='bg-blue-50 min-h-[280px]' />
@@ -150,12 +136,9 @@ const LoanAppExperienceOptimization = () => {
         </div>
 
         {/* Context */}
-        <section className='py-5 md:py-[50px] lg:py-[100px] overflow-hidden'>
-          <ContentContainer className='relative z-10'>
-            <div
-              className='absolute top-0 -right-20 w-[242px] h-[242px] pointer-events-none'
-              style={lightDotsPattern}
-            />
+        <section className='py-5 md:py-[50px] lg:py-[100px]'>
+          <ContentContainer className='relative overflow-hidden'>
+            <DecorativeDots color="1C4882" position="top-right" />
             <div className='flex flex-col gap-12'>
               <div>
                 <h2 className='font-playfair text-3xl font-bold mb-4'>Context</h2>
@@ -189,12 +172,9 @@ const LoanAppExperienceOptimization = () => {
         </section>
 
         {/* Discovery Under Pressure */}
-        <section className='py-5 md:py-[50px] lg:py-[100px] overflow-hidden'>
-          <ContentContainer className='relative z-10'>
-            <div
-              className='absolute top-0 -right-20 w-[242px] h-[242px] pointer-events-none'
-              style={lightDotsPattern}
-            />
+        <section className='py-5 md:py-[50px] lg:py-[100px]'>
+          <ContentContainer className='relative overflow-hidden'>
+            <DecorativeDots color="1C4882" position="top-right" />
             <div className='flex flex-col gap-12'>
               <div>
                 <h2 className='font-playfair text-3xl font-bold mb-4'>Discovery Under Pressure</h2>
@@ -232,12 +212,9 @@ const LoanAppExperienceOptimization = () => {
         </section>
 
         {/* A Streamlined, Human-Centered Workflow */}
-        <section className='py-5 md:py-[50px] lg:py-[100px] overflow-hidden'>
-          <ContentContainer className='relative z-10'>
-            <div
-              className='absolute top-0 -right-20 w-[242px] h-[242px] pointer-events-none'
-              style={lightDotsPattern}
-            />
+        <section className='py-5 md:py-[50px] lg:py-[100px]'>
+          <ContentContainer className='relative overflow-hidden'>
+            <DecorativeDots color="1C4882" position="top-right" />
             <div className='flex flex-col gap-12'>
               <div>
                 <h2 className='font-playfair text-3xl font-bold mb-4'>A Streamlined, Human-Centered Workflow</h2>
@@ -273,7 +250,8 @@ const LoanAppExperienceOptimization = () => {
 
         {/* Challenges & Learnings */}
         <section className='py-5 md:py-[50px] lg:py-[100px]'>
-          <ContentContainer>
+          <ContentContainer className='relative overflow-hidden'>
+            <DecorativeDots color="1C4882" position="top-right" />
             <h2 className='font-playfair text-3xl font-bold mb-4'>Challenges & Learnings</h2>
             <p className='font-mulish text-lg leading-relaxed max-w-[800px] mb-5'>
               The most challenging trade-off on this project was balancing time with certainty. We made the strategic decision to move forward without a formal round of usability testing to meet the tight deadline, relying on stakeholder insights and UX best practices instead.

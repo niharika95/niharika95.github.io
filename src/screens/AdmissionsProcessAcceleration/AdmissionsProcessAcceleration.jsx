@@ -1,3 +1,5 @@
+import { DecorativeDots, StrokeAnimation } from '../../common';
+
 import { Icon } from '@iconify/react';
 import React from 'react';
 
@@ -28,20 +30,6 @@ const ContentContainer = ({ children, className }) => (
 );
 
 const AdmissionsProcessAcceleration = () => {
-  // Decorative dot pattern for the header
-  const dotsTopLeft = {
-    backgroundImage: 'url(/pattern-diamond-white.svg)',
-    backgroundSize: '242px 242px',
-    backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'top left',
-  };
-  const lightDotsPattern = {
-    backgroundImage: 'url(/pattern-diamond-purple.svg)',
-    backgroundSize: '242px 242px',
-    backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'top right',
-  };
-
   const tags = [
     'Figma',
     'UX Design',
@@ -93,7 +81,7 @@ const AdmissionsProcessAcceleration = () => {
               Admissions Process Acceleration
             </h1>
             <p className='font-mulish text-lg md:text-xl mt-4 opacity-95'>
-              How user-centric design unlocked a 60% productivity gain and
+              How user-centric design unlocked a <StrokeAnimation strokeColor="FB4E0B">60% productivity gain</StrokeAnimation> and
               empowered counselors to focus on high-value decisions.
             </p>
             <div className='flex flex-wrap gap-2 mt-4 md:mt-6'>
@@ -107,10 +95,7 @@ const AdmissionsProcessAcceleration = () => {
             alt='Frame 167'
             className='w-full max-w[600px] self-end h-auto object-contain max-h-[500px]'
           />
-          <div
-            className='absolute -top-4 -left-4 w-[242px] h-[242px] opacity-60 pointer-events-none'
-            style={dotsTopLeft}
-          />
+          <DecorativeDots color="522398" position="top-left" />
         </ContentContainer>
       </header>
 
@@ -165,12 +150,9 @@ const AdmissionsProcessAcceleration = () => {
         </div>
 
         {/* Context & Challenge */}
-        <section className='relative py-5 md:py-[50px] lg:py-[100px] overflow-hidden'>
-          <ContentContainer className='relative z-10'>
-            <div
-              className='absolute top-0 -right-20 w-[242px] h-[242px] pointer-events-none'
-              style={lightDotsPattern}
-            />
+        <section className='py-5 md:py-[50px] lg:py-[100px]'>
+          <ContentContainer className='relative overflow-hidden'>
+            <DecorativeDots color="522398" position="top-right" />
             <div className='flex flex-col gap-12'>
               <div>
                 <h2 className='font-playfair text-3xl font-bold mb-4'>Context</h2>
@@ -227,12 +209,9 @@ const AdmissionsProcessAcceleration = () => {
         </section>
 
         {/* Defining the Path & The Solution */}
-        <section className='py-5 md:py-[50px] lg:py-[100px] overflow-hidden'>
-          <ContentContainer className='relative z-10'>
-            <div
-              className='absolute top-0 -right-20 w-[242px] h-[242px] pointer-events-none'
-              style={lightDotsPattern}
-            />
+        <section className='py-5 md:py-[50px] lg:py-[100px]'>
+          <ContentContainer className='relative overflow-hidden'>
+            <DecorativeDots color="522398" position="top-right" />
             <div className='flex flex-col gap-12'>
               <div>
                 <h2 className='font-playfair text-3xl font-bold mb-4'>
@@ -362,7 +341,8 @@ const AdmissionsProcessAcceleration = () => {
 
         {/* Key Takeaways */}
         <section className='py-5 md:py-[50px] lg:py-[100px]'>
-          <ContentContainer>
+          <ContentContainer className='relative overflow-hidden'>
+            <DecorativeDots color="522398" position="top-right" />
             <h2 className='font-playfair text-3xl font-bold mb-4'>
               Reflections & Future Scope
             </h2>

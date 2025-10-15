@@ -53,31 +53,23 @@ function ProjectGrid() {
   const getDescription = (index, strokeColor, isHovered) => {
     const strongStyle = {
       position: 'relative',
-      display: 'inline-block',
+      display: 'inline',
       padding: '0 2px',
-    };
-    
-    const underlineStyle = {
-      position: 'absolute',
-      left: 0,
-      bottom: 0,
-      height: '12px',
-      background: `#${strokeColor}`,
-      zIndex: -1,
+      backgroundImage: `linear-gradient(transparent calc(100% - 12px), #${strokeColor} 12px)`,
+      backgroundSize: '0% 100%',
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'left bottom',
     };
 
     const StrongWithUnderline = ({ children }) => (
-      <strong style={strongStyle}>
+      <motion.strong
+        style={strongStyle}
+        initial={{ backgroundSize: '0% 100%' }}
+        animate={{ backgroundSize: isHovered ? '100% 100%' : '0% 100%' }}
+        transition={{ duration: 0.4, ease: 'easeOut' }}
+      >
         {children}
-        {isHovered && (
-          <motion.span
-            style={underlineStyle}
-            initial={{ width: '0%' }}
-            animate={{ width: '100%' }}
-            transition={{ duration: 0.4, ease: 'easeOut' }}
-          />
-        )}
-      </strong>
+      </motion.strong>
     );
 
     switch (index) {

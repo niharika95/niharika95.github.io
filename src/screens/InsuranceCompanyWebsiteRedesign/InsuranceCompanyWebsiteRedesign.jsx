@@ -1,10 +1,12 @@
+import { DecorativeDots, StrokeAnimation } from '../../common';
+
 import { Icon } from '@iconify/react';
 import React from 'react';
 
 // Reusable components for this case study's theme
 
 const Tag = ({ children }) => (
-  <span className='bg-[#fddde4] text-[#a10026] rounded-full px-4 py-1 text-sm font-medium'>
+  <span className='bg-[#fddde4] text-black rounded-full px-4 py-1 text-sm font-medium'>
     {children}
   </span>
 );
@@ -39,19 +41,6 @@ const Metric = ({ name, before, after, improvement, icon }) => (
 
 
 const InsuranceCompanyWebsiteRedesign = () => {
-  const dotsTopLeft = {
-    backgroundImage: 'url(/pattern-diamond-white.svg)',
-    backgroundSize: '242px 242px',
-    backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'top left',
-  };
-  const lightDotsPattern = {
-    backgroundImage: 'url(/pattern-diamond-purple.svg)',
-    backgroundSize: '242px 242px',
-    backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'top right',
-  };
-
   const tags = [
     'Figma', 'FigJam', 'Product Design', 'UX Research', 'Wireframing',
     'Interaction Design', 'Visual Design', 'Responsive Design', 'Design QA'
@@ -74,7 +63,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
               Insurance Company Website Redesign
             </h1>
             <p className='font-mulish text-lg md:text-xl mt-4 opacity-95'>
-              0 -&gt; 1 redesign that boosted SEO performance by 44% and overall site performance by 37%, creating a platform built for growth.
+              0 -&gt; 1 redesign that boosted <StrokeAnimation strokeColor="000000">SEO performance by 44%</StrokeAnimation> and overall site <StrokeAnimation strokeColor="000000">performance by 37%</StrokeAnimation>, creating a platform built for growth.
             </p>
             <div className='flex flex-wrap gap-2 mt-6'>
               {tags.map((tag) => (
@@ -88,10 +77,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
             className='w-full max-w-[600px] self-end h-auto object-cover max-h-[500px] md:mt-50'
             style={{ boxShadow: '0 -10px 15px -3px rgba(0, 0, 0, 0.1), 0 -4px 6px -2px rgba(0, 0, 0, 0.05)' }}
           />
-          <div
-            className='absolute -top-4 -left-4 w-[242px] h-[242px] opacity-60 pointer-events-none'
-            style={dotsTopLeft}
-          />
+          <DecorativeDots color="A10026" position="top-left" />
         </ContentContainer>
       </header>
 
@@ -145,12 +131,9 @@ const InsuranceCompanyWebsiteRedesign = () => {
         </div>
 
         {/* Context & Digital Experience */}
-        <section className='relative py-5 md:py-[50px] lg:py-[100px] overflow-hidden'>
-          <ContentContainer className='relative z-10'>
-            <div
-              className='absolute top-0 -right-20 w-[242px] h-[242px] pointer-events-none'
-              style={lightDotsPattern}
-            />
+        <section className='py-5 md:py-[50px] lg:py-[100px]'>
+          <ContentContainer className='relative overflow-hidden'>
+            <DecorativeDots color="A10026" position="top-right" />
             <div className='flex flex-col gap-12'>
               <div>
                 <h2 className='font-playfair text-3xl font-bold mb-4'>Context</h2>
@@ -213,12 +196,9 @@ const InsuranceCompanyWebsiteRedesign = () => {
         </section>
 
         {/* Rebuilding & Crafting */}
-        <section className='py-5 md:py-[50px] lg:py-[100px] overflow-hidden'>
-          <ContentContainer className='relative z-10'>
-            <div
-              className='absolute top-0 -right-20 w-[242px] h-[242px] pointer-events-none'
-              style={lightDotsPattern}
-            />
+        <section className='py-5 md:py-[50px] lg:py-[100px]'>
+          <ContentContainer className='relative overflow-hidden'>
+            <DecorativeDots color="A10026" position="top-right" />
             <div className='flex flex-col gap-12'>
               <div>
                 <h2 className='font-playfair text-3xl font-bold mb-4'>Understanding the Audience</h2>
@@ -271,7 +251,8 @@ const InsuranceCompanyWebsiteRedesign = () => {
 
         {/* Designing for Scalability */}
         <section className='py-5 md:py-[50px] lg:py-[100px]'>
-          <ContentContainer>
+          <ContentContainer className='relative overflow-hidden'>
+            <DecorativeDots color="A10026" position="top-right" />
             <h2 className='font-playfair text-3xl font-bold mb-4'>Designing for Scalability</h2>
             <p className='font-mulish text-lg leading-relaxed mb-4 max-w-[800px]'>We wireframed layouts for the home page, exploring multiple versions for each section. This upfront exploration gave us a library of section layouts we could adapt later.</p>
             <p className='font-mulish text-lg leading-relaxed mb-4 max-w-[800px]'>With the visual style locked in, we designed the remaining pages. To ensure consistency and efficiency, we developed a component-based system.</p>
@@ -315,7 +296,8 @@ const InsuranceCompanyWebsiteRedesign = () => {
 
         {/* Challenges & Learnings */}
         <section className='py-5 md:py-[50px] lg:py-[100px]'>
-          <ContentContainer>
+          <ContentContainer className='relative overflow-hidden'>
+            <DecorativeDots color="A10026" position="top-right" />
             <h2 className='font-playfair text-3xl font-bold mb-4'>Challenges & Learnings</h2>
             <p className='font-mulish text-lg leading-relaxed mb-8 max-w-[800px]'>
               No project is without its hurdles. Navigating these challenges provided valuable lessons for future engagements:
