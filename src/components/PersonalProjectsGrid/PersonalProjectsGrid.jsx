@@ -5,6 +5,7 @@ import { ContentContainer } from '../../common';
 import femhealthImg from '../../assets/images/femhealth.png';
 import svaasthyaImg from '../../assets/images/svaasthya.png';
 import swiftbikesImg from '../../assets/images/swiftbikes.png';
+import { trackProjectCardClick } from '../../utils/analytics';
 
 const personalProjects = [
   {
@@ -12,7 +13,7 @@ const personalProjects = [
     description:
       'A platform helping women access reliable health information anonymously and find clinics accepting their insurance.',
     image: femhealthImg,
-    link: '#/project/femhealth',
+    link: '#/femhealth',
     color: '3E122D',
     accentColor: 'D97706',
   },
@@ -21,7 +22,7 @@ const personalProjects = [
     description:
       'An e-commerce platform enabling users to customize bikes for work, athletics, or leisure.',
     image: swiftbikesImg,
-    link: '#/project/swiftbikes',
+    link: '#/swiftbikes',
     color: 'FF980A',
     accentColor: '1E40AF',
   },
@@ -30,7 +31,7 @@ const personalProjects = [
     description:
       'A chatbot application for a hospital in India streamlining patient services through appointment booking and online payments.',
     image: svaasthyaImg,
-    link: '#/project/svaasthya',
+    link: '#/svaasthya',
     color: '1D5D82',
     accentColor: '10B981',
   },
@@ -80,10 +81,26 @@ function PersonalProjectsGrid() {
                 const isHovered = hoveredIndex === index;
                 const shouldAnimate = isMobileView ? isInView : isHovered;
 
+                const handleClick = () => {
+                  const projectName = link.replace('#/', '');
+                  trackProjectCardClick(
+                    projectName,
+                    {
+                      title,
+                      color,
+                      project_type: 'personal',
+                      description
+                    },
+                    'personal_projects_grid',
+                    index
+                  );
+                };
+
                 return (
                   <a
                     ref={ref}
                     href={link}
+                    onClick={handleClick}
                     onMouseEnter={() => !isMobileView && setHoveredIndex(index)}
                     onMouseLeave={() => !isMobileView && setHoveredIndex(null)}
                     className='bg-white rounded-[8px] overflow-hidden no-underline flex md:flex-col transition-all duration-300 hover:shadow-lg'
