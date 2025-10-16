@@ -27,7 +27,7 @@ function Footer() {
           |
         </span>
         <a
-          href='/resume.pdf'
+          href='/Dalal, Niharika Resume.pdf'
           download
           className='flex gap-[8px] items-center font-mulish font-light text-[20px] text-black underline decoration-solid leading-[1.5] hover:text-[#106066] no-underline max-md:text-[18px]'
         >

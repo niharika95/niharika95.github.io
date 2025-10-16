@@ -1,7 +1,7 @@
 import { Gutter } from '../../common';
 import { Icon } from '@iconify/react';
 import React from 'react';
-import resumePDF from '../../assets/documents/resume.pdf';
+import resumePDF from '../../assets/documents/Dalal, Niharika Resume.pdf';
 import resumePNG from '../../assets/documents/resume.png';
 import { trackExternalLink } from '../../utils/analytics';
 import { useAnalytics } from '../../hooks/useAnalytics';
