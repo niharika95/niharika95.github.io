@@ -74,7 +74,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
               Insurance Company Website Redesign
             </h1>
             <p className='font-mulish text-lg md:text-xl mt-4 opacity-95'>
-              0 -&gt; 1 redesign that boosted <StrokeAnimation strokeColor="000000">SEO performance by 44%</StrokeAnimation> and overall site <StrokeAnimation strokeColor="000000">performance by 37%</StrokeAnimation>, creating a platform built for growth.
+              0 → 1 redesign that boosted <StrokeAnimation strokeColor="000000">SEO performance by 44%</StrokeAnimation> and overall site <StrokeAnimation strokeColor="000000">performance by 37%</StrokeAnimation>, creating a platform built for growth.
             </p>
             <div className='flex flex-wrap gap-2 mt-6'>
               {tags.map((tag) => (
