@@ -5,7 +5,7 @@ function Footer() {
   return (
     <>
       {/* Contact Footer */}
-      <footer className='py-[40px] px-[40px] flex justify-center items-center gap-[20px] flex-wrap max-md:px-[20px] max-md:gap-[15px]'>
+      <footer className='py-[100px] px-[40px] flex justify-center items-center gap-[20px] flex-wrap max-md:px-[20px] max-md:gap-[15px]'>
         <a
           href='mailto:niharika13dalal@gmail.com'
           className='font-mulish font-light text-[20px] text-black underline decoration-solid leading-[1.5] hover:text-[#106066] max-md:text-[18px]'
