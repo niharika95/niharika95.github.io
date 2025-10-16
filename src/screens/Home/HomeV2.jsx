@@ -34,16 +34,16 @@ function HomeV2() {
           {/* Right - Hero Content (990px on large screens, flex-1 on small) */}
           <div className='flex flex-col gap-[80px] flex-1 max-w-[990px] max-lg:max-w-none px-[80px] py-[60px] justify-center max-md:px-[20px] max-md:py-[40px] max-md:gap-[60px]'>
             {/* Title and Description */}
-            <div className='flex flex-col gap-[20px]'>
+            <div className='flex flex-col gap-[40px]'>
               <div className='flex flex-col'>
-                <h1 className='font-playfair font-normal text-[60px] text-[#000] tracking-[-0.04em] leading-[1.5] m-0 max-md:text-[48px] max-md:leading-[1.2]'>
+                <h1 className='font-playfair font-normal text-[60px] text-[#000] tracking-[-0.04em] leading-[1.2] m-0 max-md:text-[48px] max-md:leading-[1.2]'>
                   Niharika Dalal
                 </h1>
-                <h2 className='font-playfair font-normal text-[60px] text-[#898989] tracking-[-0.04em] leading-[1.5] m-0 max-md:text-[48px] max-md:leading-[1.2]'>
+                <h2 className='font-playfair font-normal text-[60px] text-[#898989] tracking-[-0.04em] leading-[1.2] m-0 max-md:text-[48px] max-md:leading-[1.2]'>
                   Product Designer
                 </h2>
               </div>
-              <p className='font-mulish text-[20px] text-black tracking-[-0.05em] leading-[1.5] m-0 max-md:text-[18px]'>
+              <p className='font-mulish font-thin text-[20px] text-black tracking-[-0.05em] leading-[1.5] m-0 max-md:text-[18px]'>
                 Designing <span className='font-light'>0 → 1</span> solutions that drive growth, in collaboration
                 with cross-functional and cross-cultural Agile teams.
               </p>
