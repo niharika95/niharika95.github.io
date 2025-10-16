@@ -50,7 +50,7 @@ function HomeV2() {
             </div>
 
             {/* Stats */}
-            <div className='flex flex-wrap gap-[20px] max-lg:grid max-lg:grid-cols-2 max-md:grid-cols-1 max-md:gap-[30px]'>
+            <div className='grid grid-cols-2 gap-[20px] max-md:grid-cols-1'>
               {stats.map((stat, index) => (
                 <div
                   key={index}
@@ -59,7 +59,7 @@ function HomeV2() {
                   <p className='font-mulish font-bold text-[40px] text-black leading-[1.5] m-0 max-md:text-[36px]'>
                     <AnimatedCounter value={stat.value} />
                   </p>
-                  <p className='font-mulish text-[16px] text-black leading-[1.5] m-0 max-md:text-[15px]'>
+                  <p className='font-mulish text-[16px] text-black leading-[24px] m-0 max-md:text-[15px]'>
                     {stat.label}
                   </p>
                 </div>
