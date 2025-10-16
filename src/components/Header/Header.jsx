@@ -401,7 +401,7 @@ function Header() {
     backdropFilter: 'url(#liquidGlass) blur(4px)',
     WebkitBackdropFilter: 'blur(4px)',
     borderRadius: getBorderRadius(),
-    padding: '12px 24px',
+    padding: '2px 24px',
     border: `1px solid rgba(255, 255, 255, ${0.3 * (1 - morphProgress)})`,
     boxShadow: morphProgress > 0.3 ? `
       inset 2px 2px 1px 0 rgba(255, 255, 255, ${0.3 * morphProgress}),
@@ -469,7 +469,7 @@ function Header() {
         style={headerBarStyle}
       >
         <ContentContainer className="px-[80px] max-md:px-[20px]">
-          <div className="flex justify-between items-center py-[16px] min-h-[88px] max-[600px]:grid max-[600px]:grid-cols-[auto_1fr_auto] max-[600px]:gap-x-[12px]">
+          <div className="flex justify-between items-center min-h-[60px] max-[600px]:grid max-[600px]:grid-cols-[auto_1fr_auto] max-[600px]:gap-x-[12px]">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{
@@ -489,7 +489,7 @@ function Header() {
                 style={glassStyle}
                 className="hover:scale-105 active:scale-95"
               >
-                <h1 className="font-['Playfair_Display',serif] text-[24px] m-0 font-normal drop-shadow-lg">
+                <h1 className="font-['Playfair_Display',serif] text-[20px] m-0 font-normal drop-shadow-lg">
                   <AdaptiveText
                     text="Niharika Dalal"
                     containerRef={logoRef}
@@ -558,7 +558,7 @@ function Header() {
                     >
                       <AdaptiveText
                         text={label}
-                        className="drop-shadow-lg font-['Playfair_Display',serif]"
+                        className="drop-shadow-lg font-['Mulish',sans-serif] text-[16px]"
                         containerRef={linkRefs[index]}
                       />
                     </div>
