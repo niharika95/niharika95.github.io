@@ -67,34 +67,47 @@ const LoanAppExperienceOptimization = () => {
     },
   ];
 
+  const workflowItems = [
+    {
+      image: '/loan-app-experience-optimization/workflow1.png',
+      text: 'I reorganized the form sections into logical chunks (e.g., Personal Information, Financials, Review). A prominent progress bar was introduced to manage user expectations and clearly show them how close they were to the end.'
+    },
+    {
+      image: '/loan-app-experience-optimization/workflow2.png',
+      text: 'Leveraging the bank\'s existing design system, I scrutinized every form field. Inefficient components were replaced with more effective alternatives. For example, I introduced an interactive slider for the loan amount. As a user adjusted the slider, their estimated monthly payment updated in real-time, allowing them to make informed decisions more quickly.'
+    },
+    {
+      image: '/loan-app-experience-optimization/workflow3.png',
+      text: 'To reduce application anxiety and frustration, I introduced subtle, encouraging illustrations at key milestones. For instance, after a user successfully completed the personal information section, an illustration would appear, reinforcing their progress and motivating them to continue to the next step.'
+    }
+  ];
+
   return (
     <div className='relative bg-white text-gray-900 font-sans'>
-      {/* Hero: split composition (left blue, right light-blue) */}
+      {/* Hero: split composition (left blue, right image) */}
       <header className='w-full bg-[#1E3A8A]'>
-        <div className='max-w-[1440px] mx-auto'>
-            <div className='grid grid-cols-1 md:grid-cols-2 min-h-[450px]'>
-                <div className='relative bg-[#1E3A8A] overflow-hidden flex items-center py-5 md:py-[50px] lg:py-[100px] px-5 lg:px-[100px]'>
-                    <div>
-                        <div className='text-white'>
-                            <h1 className='font-playfair text-4xl md:text-5xl font-extrabold leading-tight tracking-tight'>
-                            Loan App Experience Optimization
-                            </h1>
-                            <p className='font-mulish text-lg md:text-xl mt-4 opacity-95'>
-                            Slashing projected loan <StrokeAnimation strokeColor="D97706">application time by 40%</StrokeAnimation> by redesigning for trust and efficiency.
-                            </p>
-                            <div className='flex flex-wrap gap-3 mt-4 md:mt-6'>
-                            {tags.map((tag) => (
-                                <Tag key={tag}>{tag}</Tag>
-                            ))}
-                            </div>
-                        </div>
-                    </div>
-                    <DecorativeDots color="1C4882" position="top-left" />
-                </div>
-
-                <div className='bg-blue-50 min-h-[280px]' />
+        <ContentContainer className='relative flex flex-col md:flex-row'>
+          <div className='text-white max-w-2xl py-5 md:py-[50px] lg:py-[100px]'>
+            <h1 className='font-playfair text-4xl md:text-5xl font-extrabold leading-tight tracking-tight'>
+            Loan App Experience Optimization
+            </h1>
+            <p className='font-mulish text-lg md:text-xl mt-4 opacity-95'>
+            Slashing projected loan <StrokeAnimation strokeColor="D97706">application time by 40%</StrokeAnimation> by redesigning for trust and efficiency.
+            </p>
+            <div className='flex flex-wrap gap-3 mt-4 md:mt-6'>
+            {tags.map((tag) => (
+                <Tag key={tag}>{tag}</Tag>
+            ))}
             </div>
-        </div>
+          </div>
+          <img
+            src='/loan-app-experience-optimization/hero.png'
+            alt='Loan App Experience Optimization Hero'
+            className='w-full max-w-[600px] self-end h-auto object-cover max-h-[500px] md:mt-50'
+            style={{ boxShadow: '0 -10px 15px -3px rgba(0, 0, 0, 0.1), 0 -4px 6px -2px rgba(0, 0, 0, 0.05)' }}
+          />
+          <DecorativeDots color="1C4882" position="top-left" />
+        </ContentContainer>
       </header>
 
       <main className='w-full'>
@@ -183,11 +196,11 @@ const LoanAppExperienceOptimization = () => {
         </section>
 
         {/* Discovery Under Pressure */}
-        <section className='py-5 md:py-[50px] lg:py-[100px]'>
-          <ContentContainer className='relative overflow-hidden'>
-            <DecorativeDots color="1C4882" position="top-right" />
-            <div className='flex flex-col gap-12'>
-              <div>
+        <section className='py-0'>
+          <div className='max-w-[1440px] mx-auto'>
+            <div className='grid md:grid-cols-2 gap-0 items-stretch'>
+              <div className='px-5 lg:px-[100px] py-5 md:py-[50px] lg:py-[100px] relative overflow-hidden'>
+                <DecorativeDots color="1C4882" position="top-right" />
                 <h2 className='font-playfair text-3xl font-bold mb-4'>Discovery Under Pressure</h2>
                 <p className='font-mulish text-lg leading-relaxed mb-6 max-w-[800px]'>
                   With a tight deadline preventing a full-fledged research phase, I focused on a pragmatic and collaborative approach to gain insights quickly.
@@ -203,8 +216,13 @@ const LoanAppExperienceOptimization = () => {
                   </div>
                 </div>
               </div>
+              <img
+                src='/loan-app-experience-optimization/discovery_under_pressure.png'
+                alt='Discovery Under Pressure'
+                className='w-full h-full object-cover'
+              />
             </div>
-          </ContentContainer>
+          </div>
         </section>
 
         {/* Key Insights */}
@@ -232,14 +250,37 @@ const LoanAppExperienceOptimization = () => {
                 <p className='font-mulish text-lg leading-relaxed mb-6 max-w-[800px]'>
                   My solution was centered on three principles: progressive disclosure, smart defaults, and motivational design.
                 </p>
-                <div className="font-mulish space-y-6 text-lg leading-relaxed max-w-[800px]">
-                  <p>I reorganized the form sections into logical chunks (e.g., Personal Information, Financials, Review). A prominent progress bar was introduced to manage user expectations and clearly show them how close they were to the end.</p>
-                  <p>Leveraging the bank's existing design system, I scrutinized every form field. Inefficient components were replaced with more effective alternatives. For example, I introduced an interactive slider for the loan amount. As a user adjusted the slider, their estimated monthly payment updated in real-time, allowing them to make informed decisions more quickly.</p>
-                  <p>To reduce application anxiety and frustration, I introduced subtle, encouraging illustrations at key milestones. For instance, after a user successfully completed the personal information section, an illustration would appear, reinforcing their progress and motivating them to continue to the next step.</p>
-                </div>
               </div>
             </div>
           </ContentContainer>
+        </section>
+
+        {/* Workflow Details with Images */}
+        <section className='w-full bg-[#1E3A8A]'>
+          <div className='space-y-0 max-sm:space-y-12 max-md:space-y-12'>
+            {workflowItems.map((item, index) => (
+              <div key={index} className='w-full'>
+                <div className='max-w-[1440px] mx-auto'>
+                  <div className='grid md:grid-cols-2 gap-8 md:gap-12 items-center px-5 lg:px-[100px] py-5 md:py-[50px] lg:py-[100px]'>
+                    {/* Image - Always on left */}
+                    <div className='flex justify-center md:justify-end'>
+                      <img
+                        src={item.image}
+                        alt={`Workflow ${index + 1}`}
+                        className='w-full max-w-[300px] h-auto object-contain'
+                      />
+                    </div>
+                    {/* Content - Always on right */}
+                    <div>
+                      <p className='font-mulish text-lg leading-relaxed text-white max-w-[800px]'>
+                        {item.text}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </section>
 
         {/* A Measurable Impact */}
