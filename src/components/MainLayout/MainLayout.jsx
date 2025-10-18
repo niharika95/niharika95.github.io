@@ -9,7 +9,7 @@ const MainLayout = () => {
   return (
     <div>
       <Header />
-      <Gutter className="pt-[60px]">
+      <Gutter>
         <Outlet />
       </Gutter>
       <Footer />
