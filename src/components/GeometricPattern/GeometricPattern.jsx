@@ -1,107 +1,277 @@
-import React from 'react';
+import React, {
+  forwardRef,
+  useEffect,
+  useImperativeHandle,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 
-const svgPaths = {
-  p11dd1a80: "M-1.96701e-06 45C5.90948 45 11.7611 43.8361 17.2208 41.5746C22.6804 39.3131 27.6412 35.9985 31.8198 31.8198C35.9984 27.6412 39.3131 22.6804 41.5746 17.2208C43.836 11.7611 45 5.90949 45 9.5964e-06L0 9.5964e-06L-1.96701e-06 45Z",
-  p13416900: "M5.66238e-06 45.0004C5.90949 45.0004 11.7611 43.8364 17.2208 41.5749C22.6804 39.3135 27.6412 35.9988 31.8198 31.8202C35.9984 27.6415 39.3131 22.6808 41.5746 17.2211C43.836 11.7615 45 5.90985 45 0.000366211L7.62939e-06 0.000366211L5.66238e-06 45.0004Z",
-  p2012a640: "M-9.59641e-06 45C5.90947 45 11.7611 43.836 17.2207 41.5746C22.6804 39.3131 27.6412 35.9984 31.8198 31.8198C35.9984 27.6412 39.3131 22.6804 41.5746 17.2208C43.836 11.7611 45 5.90948 45 0L-7.62939e-06 0L-9.59641e-06 45Z",
-  p204a6cf0: "M-9.59641e-06 45.0004C5.90947 45.0004 11.7611 43.8364 17.2207 41.5749C22.6804 39.3135 27.6412 35.9988 31.8198 31.8202C35.9984 27.6415 39.3131 22.6808 41.5746 17.2211C43.836 11.7615 45 5.90985 45 0.000366211L-7.62939e-06 0.000366211L-9.59641e-06 45.0004Z",
-  p3658de00: "M45 45.0012C20.1472 45.0012 -1.0864e-06 24.854 0 0.00118566C37.125 0.00265212 20.1472 8.51005e-06 45 9.59641e-06C69.8528 1.06828e-05 53.25 0.00118798 90 0.00118959C90 24.854 69.8528 45.0012 45 45.0012Z",
-  p38a39500: "M45.375 45.375L90 0V90H0L45.375 45.375Z",
-  p3caaa200: "M0.000242174 45C5.90973 45 11.7613 43.8361 17.221 41.5746C22.6806 39.3131 27.6414 35.9985 31.82 31.8198C35.9987 27.6412 39.3134 22.6804 41.5748 17.2208C43.8363 11.7611 45.0002 5.90949 45.0002 9.59641e-06L0.000244141 9.59641e-06L0.000242174 45Z",
-  p3dabb800: "M-1.96701e-06 45C5.90948 45 11.7611 43.8361 17.2208 41.5746C22.6804 39.3131 27.6412 35.9985 31.8198 31.8198C35.9984 27.6412 39.3131 22.6804 41.5746 17.2208C43.836 11.7611 45 5.90949 45 9.5964e-06L0 9.59641e-06L-1.96701e-06 45Z",
-  p6152200: "M5.66238e-06 45C5.90949 45 11.7611 43.836 17.2208 41.5746C22.6804 39.3131 27.6412 35.9984 31.8198 31.8198C35.9984 27.6412 39.3131 22.6804 41.5746 17.2208C43.836 11.7611 45 5.90948 45 0L7.62939e-06 0L5.66238e-06 45Z",
-};
+import { MorphSVGPlugin } from 'gsap/MorphSVGPlugin';
+import { gsap } from 'gsap';
 
-// Default tile definitions - can be customized via props
+// Register the plugin
+gsap.registerPlugin(MorphSVGPlugin);
+
+// Grid size
+const BOX_SIZE = 90;
+
+// Colors
 const defaultTiles = [
-  { type: 'svg', bg: '#313C5F', path: 'p38a39500', pathFill: '#F7B000', rotate: 0, scaleY: 1 },
-  { type: 'solid', bg: '#dcd7e8' },
-  { type: 'svg', bg: '#DCD7E8', path: 'p6152200', pathFill: '#E3F3EE', rotate: 0, scaleY: 1 },
-  { type: 'svg', bg: '#313C5F', path: 'p3dabb800', pathFill: '#E3F3EE', rotate: 270, scaleY: 1 },
-  { type: 'svg', bg: '#F7B000', path: 'p2012a640', pathFill: '#E3F3EE', rotate: 180, scaleY: -1 },
-  { type: 'svg', bg: '#FF4C4C', path: 'p38a39500', pathFill: '#F47A2D', rotate: 270, scaleY: 1 },
-  { type: 'solid', bg: '#8fdfc6' },
-  { type: 'solid', bg: '#e3f3ee' },
-  { type: 'svg', bg: '#F7B000', path: 'p3caaa200', pathFill: '#313C5F', rotate: 270, scaleY: 1 },
-  { type: 'svg', bg: '#FF4C4C', path: 'p204a6cf0', pathFill: '#F47A2D', rotate: 180, scaleY: -1 },
-  { type: 'solid', bg: '#f7b000' },
-  { type: 'svg', bg: '#F47A2D', path: 'p13416900', pathFill: '#DCD7E8', rotate: 0, scaleY: 1 },
-  { type: 'svg', bg: '#313C5F', path: 'p3658de00', pathFill: '#E3F3EE', rotate: 270, scaleY: 1 },
-  { type: 'solid', bg: '#8fdfc6' },
-  { type: 'svg', bg: '#313C5F', path: 'p38a39500', pathFill: '#E3F3EE', rotate: 180, scaleY: -1 },
-  { type: 'svg', bg: '#DCD7E8', path: 'p3dabb800', pathFill: '#E3F3EE', rotate: 270, scaleY: 1 },
-  { type: 'svg', bg: '#313C5F', path: 'p3658de00', pathFill: '#E3F3EE', rotate: 270, scaleY: 1 },
-  { type: 'solid', bg: '#ff4c4c' },
-  { type: 'svg', bg: '#DCD7E8', path: 'p3dabb800', pathFill: '#E3F3EE', rotate: 90, scaleY: -1 },
-  { type: 'svg', bg: '#F7B000', path: 'p38a39500', pathFill: '#8FDFC6', rotate: 270, scaleY: 1 },
-  { type: 'svg', bg: '#DCD7E8', path: 'p38a39500', pathFill: '#E3F3EE', rotate: 180, scaleY: -1 },
-  { type: 'svg', bg: '#FF4C4C', path: 'p38a39500', pathFill: '#313C5F', rotate: 0, scaleY: 1 },
-  { type: 'svg', bg: '#313C5F', path: 'p38a39500', pathFill: '#E3F3EE', rotate: 180, scaleY: -1 },
-  { type: 'svg', bg: '#FF4C4C', path: 'p11dd1a80', pathFill: '#F47A2D', rotate: 90, scaleY: -1 },
+  { bg: '#313C5F', pathFill: '#F7B000' },
+  { bg: '#DCD7E8', pathFill: '#E3F3EE' },
+  { bg: '#313C5F', pathFill: '#E3F3EE' },
+  { bg: '#F7B000', pathFill: '#E3F3EE' },
+  { bg: '#FF4C4C', pathFill: '#F47A2D' },
+  { bg: '#8fdfc6', pathFill: '#313C5F' },
+  { bg: '#e3f3ee', pathFill: '#313C5F' },
+  { bg: '#F7B000', pathFill: '#313C5F' },
+  { bg: '#FF4C4C', pathFill: '#F47A2D' },
+  { bg: '#f7b000', pathFill: '#313C5F' },
+  { bg: '#F47A2D', pathFill: '#DCD7E8' },
+  { bg: '#313C5F', pathFill: '#E3F3EE' },
+  { bg: '#8fdfc6', pathFill: '#313C5F' },
+  { bg: '#DCD7E8', pathFill: '#E3F3EE' },
+  { bg: '#FF4C4C', pathFill: '#313C5F' },
+  { bg: '#313C5F', pathFill: '#E3F3EE' },
+  { bg: '#FF4C4C', pathFill: '#F47A2D' },
 ];
 
-function GeometricPattern({ 
-  tiles = defaultTiles, 
-  maxRows = null, // null = fill available height, number = limit rows
-  className = '' 
-}) {
-  const BOX_SIZE = 90;
-  
-  // Generate enough tiles to fill a large area (will be clipped by CSS grid)
-  // We generate 200 tiles which should be more than enough for most screens
-  const repeatedTiles = [];
-  const totalTilesToGenerate = 200;
-  
-  for (let i = 0; i < totalTilesToGenerate; i++) {
-    const tile = tiles[i % tiles.length];
-    repeatedTiles.push({ ...tile, key: i });
+// Helper: sample unique indices
+function sampleUniqueIndices(n, max) {
+  const result = new Set();
+  if (n <= 0) return [];
+  const count = Math.min(n, max);
+  while (result.size < count) {
+    result.add(Math.floor(Math.random() * max));
   }
-  
+  return Array.from(result);
+}
+
+// --- UPDATED SHAPES (v4) ---
+// Fixes the broken 'half' paths and correctly implements 'quarter' paths.
+const SHAPES = {
+  slash: {
+    forward: 'M 0 90 L 90 0 L 90 90 Z',
+    backward: 'M 0 0 L 0 90 L 90 90 Z',
+  },
+  quarter: {
+    // Concave Notch: Fills the remaining 3/4 area, leaving a concave notch at the corner.
+    // tl: Notch at (0, 0). Path goes clockwise around the perimeter.
+    tl: 'M 45 0 L 90 0 L 90 90 L 0 90 L 0 45 A 45 45 0 0 0 45 0 Z',
+    // tr: Notch at (90, 0). Path goes clockwise around the perimeter.
+    tr: 'M 90 45 L 90 90 L 0 90 L 0 0 L 45 0 A 45 45 0 0 0 90 45 Z',
+    // br: Notch at (90, 90). Refactored for stability.
+    br: 'M 0 0 L 90 0 L 90 45 A 45 45 0 0 0 45 90 L 0 90 Z',
+    // bl: Notch at (0, 90). Path goes clockwise around the perimeter.
+    bl: 'M 0 45 L 0 0 L 90 0 L 90 90 L 45 90 A 45 45 0 0 0 0 45 Z',
+  },
+  half: {
+    // These semi-circles have their straight edge on the perimeter (y=0 for top).
+    top: 'M 0 0 A 45 45 0 0 0 90 0 Z',
+    right: 'M 90 0 A 45 45 0 0 0 90 90 Z',
+    bottom: 'M 90 90 A 45 45 0 0 0 0 90 Z',
+    left: 'M 0 90 A 45 45 0 0 0 0 0 Z',
+  },
+};
+// --- END UPDATED SHAPES ---
+
+// Group orders for cyc transitions
+const GROUP_KEYS = {
+  slash: ['forward', 'backward'],
+  quarter: ['tl', 'tr', 'br', 'bl'],
+  half: ['top', 'right', 'bottom', 'left'],
+};
+
+const GROUP_NAMES = Object.keys(GROUP_KEYS);
+
+// Helper: pick random element
+function randomOf(arr) {
+  return arr[Math.floor(Math.random() * arr.length)];
+}
+
+// Helper: initial random state
+function randomInitialState() {
+  const group = randomOf(GROUP_NAMES);
+  const subKeys = GROUP_KEYS[group];
+  const subIndex = Math.floor(Math.random() * subKeys.length);
+  return { group, subIndex };
+}
+
+// Tile that can morph imperatively
+const MorphingTile = forwardRef(function MorphingTile(
+  {
+    bg,
+    pathFill,
+    initialD,
+    morphDuration = 0.35, // quick
+    morphEase = 'elastic.out(1, 0.5)', // springy
+  },
+  ref
+) {
+  const pathRef = useRef(null);
+
+  useLayoutEffect(() => {
+    if (pathRef.current && initialD) {
+      // ensure starting path matches initial
+      gsap.set(pathRef.current, { attr: { d: initialD } });
+    }
+  }, [initialD]);
+
+  // Expose imperative morph method
+  useImperativeHandle(ref, () => ({
+    morphToD: (d) => {
+      if (!pathRef.current || !d) return;
+      gsap.to(pathRef.current, {
+        morphSVG: d,
+        duration: morphDuration,
+        ease: morphEase,
+      });
+    },
+  }));
+
   return (
-    <div 
+    <div
+      className="relative"
+      style={{
+        width: `${BOX_SIZE}px`,
+        height: `${BOX_SIZE}px`,
+      }}
+    >
+      <svg
+        className="block size-full"
+        fill="none"
+        preserveAspectRatio="none"
+        viewBox="0 0 90 90"
+      >
+        <rect fill={bg} height="90" width="90" />
+        <path
+          ref={pathRef}
+          d={initialD}
+          fill={pathFill}
+          style={{ transformOrigin: '45px 45px' }}
+        />
+      </svg>
+    </div>
+  );
+});
+
+// The main grid with global orchestration
+function GeometricPattern({
+  tiles = defaultTiles,
+  className = '',
+  totalTilesToGenerate = 50,
+
+  // Orchestration controls
+  tickMs = 2000, // equal intervals
+  tilesPerTick = null, // if null, derived from grid size
+  changeGroupProbability = 0.15, // sometimes flip group for variety
+
+  // Animation feel
+  morphDuration = 0.35,
+  morphEase = 'elastic.out(1, 0.5)',
+}) {
+  // Build initial tiles with randomized states
+  const initialTileData = useMemo(() => {
+    const instances = [];
+    // --- THIS IS THE FIX ---
+    for (let i = 0; i < totalTilesToGenerate; i += 1) {
+    // --- END FIX ---
+      const base = tiles[i % tiles.length];
+      const bg = base.bg || '#313C5F';
+      let pathFill = base.pathFill || '#E3F3EE';
+      if (pathFill === bg) {
+        pathFill = bg === '#313C5F' ? '#E3F3EE' : '#313C5F';
+      }
+      const state = randomInitialState();
+      const subKey = GROUP_KEYS[state.group][state.subIndex];
+      const initialD = SHAPES[state.group][subKey];
+
+      instances.push({
+        key: i,
+        bg,
+        pathFill,
+        state, // { group, subIndex }
+        initialD,
+      });
+    }
+    return instances;
+  }, [tiles, totalTilesToGenerate]);
+
+  // Imperative refs to children
+  const tileRefs = useRef([]);
+  const setTileRef = (idx) => (el) => {
+    tileRefs.current[idx] = el;
+  };
+
+  // Keep state objects in a ref so we can mutate without re-render spam
+  const tileStatesRef = useRef(initialTileData.map((t) => ({ ...t.state })));
+
+  // Derived tiles per tick if not provided
+  const tilesPerTickResolved = useMemo(() => {
+    if (typeof tilesPerTick === 'number' && tilesPerTick >= 0) return tilesPerTick;
+    // default to about 12% of tiles, at least 1
+    return Math.max(1, Math.round(initialTileData.length * 0.12));
+  }, [tilesPerTick, initialTileData.length]);
+
+  useEffect(() => {
+    if (initialTileData.length === 0) return undefined;
+
+    const handleTick = () => {
+      const indices = sampleUniqueIndices(tilesPerTickResolved, initialTileData.length);
+
+      indices.forEach((i) => {
+        const ref = tileRefs.current[i];
+        if (!ref || !ref.morphToD) return;
+
+        const s = tileStatesRef.current[i];
+
+        // Possibly change the group randomly for variety
+        if (Math.random() < changeGroupProbability) {
+          const newGroupCandidates = GROUP_NAMES.filter((g) => g !== s.group);
+          s.group = randomOf(newGroupCandidates);
+          s.subIndex = 0; // reset sub-index on group change
+        } else {
+          // advance to next sub-index within same group
+          const subKeys = GROUP_KEYS[s.group];
+          s.subIndex = (s.subIndex + 1) % subKeys.length;
+        }
+
+        const subKey = GROUP_KEYS[s.group][s.subIndex];
+        const targetD = SHAPES[s.group][subKey];
+
+        ref.morphToD(targetD);
+      });
+    };
+
+    const id = window.setInterval(handleTick, tickMs);
+    return () => {
+      window.clearInterval(id);
+    };
+  }, [tickMs, tilesPerTickResolved, initialTileData.length, changeGroupProbability]);
+
+  return (
+    <div
       className={`w-full h-full overflow-hidden ${className}`}
       style={{
         display: 'grid',
         gridTemplateColumns: `repeat(auto-fit, ${BOX_SIZE}px)`,
         gridAutoRows: `${BOX_SIZE}px`,
         gridAutoFlow: 'row',
-        ...(maxRows && { maxHeight: `${maxRows * BOX_SIZE}px` })
       }}
     >
-      {repeatedTiles.map((tile) => {
-        if (tile.type === 'solid') {
-          return (
-            <div
-              key={tile.key}
-              style={{
-                backgroundColor: tile.bg,
-                width: `${BOX_SIZE}px`,
-                height: `${BOX_SIZE}px`
-              }}
-            />
-          );
-        }
-        
-        // SVG tile
-        const transform = `rotate(${tile.rotate}deg) scaleY(${tile.scaleY})`;
-        
-        return (
-          <div
-            key={tile.key}
-            className="relative"
-            style={{
-              width: `${BOX_SIZE}px`,
-              height: `${BOX_SIZE}px`,
-              transform: tile.rotate !== 0 || tile.scaleY !== 1 ? transform : undefined
-            }}
-          >
-            <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 90 90">
-              <rect fill={tile.bg} height="90" width="90" />
-              <path d={svgPaths[tile.path]} fill={tile.pathFill} />
-            </svg>
-          </div>
-        );
-      })}
+      {initialTileData.map((tile, idx) => (
+        <MorphingTile
+          key={tile.key}
+          ref={setTileRef(idx)}
+          bg={tile.bg}
+          pathFill={tile.pathFill}
+          initialD={tile.initialD}
+          morphDuration={morphDuration}
+          morphEase={morphEase}
+        />
+      ))}
     </div>
   );
 }
