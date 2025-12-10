@@ -77,7 +77,7 @@ function ProjectGrid() {
       case 0:
         return (
           <>
-            Redesign that reduced heuristic violations by 90% and overall site <StrongWithUnderline>performance by 37%</StrongWithUnderline>, creating a platform built for growth.
+            Redesign that <StrongWithUnderline>reduced heuristic violations by 90%</StrongWithUnderline> and overall <StrongWithUnderline>site performance by 37%</StrongWithUnderline>, creating a platform built for growth.
           </>
         );
       case 1:

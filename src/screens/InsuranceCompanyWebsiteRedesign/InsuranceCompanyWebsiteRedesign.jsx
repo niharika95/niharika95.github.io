@@ -74,7 +74,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
               Building Trust in Fintech: A 0→1 Redesign for a $1B Growth Company
             </h1>
             <p className='font-mulish text-lg md:text-xl mt-4 opacity-95'>
-              Redesign that reduced heuristic violations by 90% and overall <StrokeAnimation strokeColor="000000">site performance by 37%</StrokeAnimation>, creating a platform built for growth.
+              Redesign that <StrongWithUnderline>reduced heuristic violations by 90%</StrongWithUnderline> and overall <StrokeAnimation strokeColor="000000">site performance by 37%</StrokeAnimation>, creating a platform built for growth.
             </p>
             <div className='flex flex-wrap gap-2 mt-6'>
               {tags.map((tag) => (
