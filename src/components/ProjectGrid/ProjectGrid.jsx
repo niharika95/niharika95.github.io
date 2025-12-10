@@ -6,7 +6,7 @@ import { trackProjectCardClick } from '../../utils/analytics';
 
 const projects = [
   {
-    title: 'Insurance Company Website Redesign',
+    title: 'Building Trust in Fintech: A 0→1 Redesign for a $1B Growth Company',
     image: '/home-v2/insurance-website-color.png',
     link: '#/insurance-company-website-redesign',
     color: 'A10026',
@@ -77,7 +77,7 @@ function ProjectGrid() {
       case 0:
         return (
           <>
-            Drove a <StrongWithUnderline>44% SEO boost</StrongWithUnderline> and <StrongWithUnderline>37% performance increase</StrongWithUnderline> with a 0 → 1 redesign built for growth.
+            Redesign that reduced heuristic violations by 90% and overall site <StrongWithUnderline>performance by 37%</StrongWithUnderline>, creating a platform built for growth.
           </>
         );
       case 1:

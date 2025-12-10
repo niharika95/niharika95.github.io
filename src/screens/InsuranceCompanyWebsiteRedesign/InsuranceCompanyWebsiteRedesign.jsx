@@ -54,7 +54,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
 
   const tags = [
     'Figma', 'FigJam', 'Product Design', 'UX Research', 'Wireframing',
-    'Interaction Design', 'Visual Design', 'Responsive Design', 'Design QA'
+    'Interaction Design', 'Visual Design', 'Responsive Design', 'Design QA', 'Drupal CMS'
   ];
 
   const metrics = [
@@ -71,10 +71,10 @@ const InsuranceCompanyWebsiteRedesign = () => {
         <ContentContainer className='relative flex flex-col md:flex-row'>
           <div className='text-white max-w-2xl py-5 md:py-[50px] lg:py-[100px]'>
             <h1 className='font-playfair text-4xl md:text-5xl font-extrabold leading-tight tracking-tight'>
-              Insurance Company Website Redesign
+              Building Trust in Fintech: A 0→1 Redesign for a $1B Growth Company
             </h1>
             <p className='font-mulish text-lg md:text-xl mt-4 opacity-95'>
-              0 → 1 redesign that boosted <StrokeAnimation strokeColor="000000">SEO performance by 44%</StrokeAnimation> and overall site <StrokeAnimation strokeColor="000000">performance by 37%</StrokeAnimation>, creating a platform built for growth.
+              Redesign that reduced heuristic violations by 90% and overall <StrokeAnimation strokeColor="000000">site performance by 37%</StrokeAnimation>, creating a platform built for growth.
             </p>
             <div className='flex flex-wrap gap-2 mt-6'>
               {tags.map((tag) => (
