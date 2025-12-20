@@ -25,21 +25,21 @@ const Result = ({ icon, title, children }) => (
 );
 
 const ContentContainer = ({ children, className }) => (
-    <div className={`max-w-[1440px] mx-auto px-5 lg:px-[100px] ${className || ''}`}>
-        {children}
-    </div>
+  <div className={`max-w-[1440px] mx-auto px-5 lg:px-[100px] ${className || ''}`}>
+    {children}
+  </div>
 );
 
 const Metric = ({ name, before, after, improvement, icon }) => (
-    <div className="grid grid-cols-4 items-center gap-4 text-center border-b border-gray-700 py-3">
-        <div className="flex items-center gap-3 text-left">
-            <Icon icon={icon} className="text-xl text-gray-400" />
-            <span>{name}</span>
-        </div>
-        <span>{before}</span>
-        <span>{after}</span>
-        <span className="font-bold text-green-400">{improvement}</span>
+  <div className="grid grid-cols-4 items-center gap-4 text-center border-b border-gray-700 py-3">
+    <div className="flex items-center gap-3 text-left">
+      <Icon icon={icon} className="text-xl text-gray-400" />
+      <span>{name}</span>
     </div>
+    <span>{before}</span>
+    <span>{after}</span>
+    <span className="font-bold text-green-400">{improvement}</span>
+  </div>
 );
 
 
@@ -58,10 +58,10 @@ const InsuranceCompanyWebsiteRedesign = () => {
   ];
 
   const metrics = [
-      { name: 'Desktop Performance', before: '64', after: '88', improvement: '+37.5%', icon: 'mdi:desktop-mac' },
-      { name: 'Accessibility Score', before: '88', after: '90', improvement: '+2.3%', icon: 'mdi:accessibility' },
-      { name: 'Best Practices', before: '76', after: '96', improvement: '+28%', icon: 'mdi:star-check' },
-      { name: 'SEO Score', before: '64', after: '92', improvement: '+43.7%', icon: 'mdi:magnify' },
+    { name: 'Desktop Performance', before: '64', after: '88', improvement: '+37.5%', icon: 'mdi:desktop-mac' },
+    { name: 'Accessibility Score', before: '88', after: '90', improvement: '+2.3%', icon: 'mdi:accessibility' },
+    { name: 'Best Practices', before: '76', after: '96', improvement: '+28%', icon: 'mdi:star-check' },
+    { name: 'SEO Score', before: '64', after: '92', improvement: '+43.7%', icon: 'mdi:magnify' },
   ];
 
   return (
@@ -74,7 +74,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
               Building Trust in Fintech: A 0→1 Redesign for a $1B Growth Company
             </h1>
             <p className='font-mulish text-lg md:text-xl mt-4 opacity-95'>
-              Redesign that <StrongWithUnderline>reduced heuristic violations by 90%</StrongWithUnderline> and overall <StrokeAnimation strokeColor="000000">site performance by 37%</StrokeAnimation>, creating a platform built for growth.
+              Redesign that <StrokeAnimation strokeColor="000000">reduced heuristic violations by 90%</StrokeAnimation> and overall <StrokeAnimation strokeColor="000000">site performance by 37%</StrokeAnimation>, creating a platform built for growth.
             </p>
             <div className='flex flex-wrap gap-2 mt-6'>
               {tags.map((tag) => (
@@ -136,9 +136,9 @@ const InsuranceCompanyWebsiteRedesign = () => {
         </section>
 
         <div>
-            <ContentContainer>
-                <hr className='border-[#fddde4] mb-12' />
-            </ContentContainer>
+          <ContentContainer>
+            <hr className='border-[#fddde4] mb-12' />
+          </ContentContainer>
         </div>
 
         {/* Context & Digital Experience */}
@@ -289,15 +289,15 @@ const InsuranceCompanyWebsiteRedesign = () => {
               The new website launched successfully, delivering immediate and measurable improvements. We had tracked KPIs at the beginning of the project and measured them again shortly after launch.
             </p>
             <div className="border border-gray-700 rounded-lg p-6">
-                <div className="grid grid-cols-4 items-center gap-4 text-center font-bold border-b border-gray-600 pb-3 mb-3">
-                    <span className="text-left">Metric</span>
-                    <span>Before Launch</span>
-                    <span>After Launch</span>
-                    <span>Improvement</span>
-                </div>
-                {metrics.map((metric) => (
-                    <Metric key={metric.name} {...metric} />
-                ))}
+              <div className="grid grid-cols-4 items-center gap-4 text-center font-bold border-b border-gray-600 pb-3 mb-3">
+                <span className="text-left">Metric</span>
+                <span>Before Launch</span>
+                <span>After Launch</span>
+                <span>Improvement</span>
+              </div>
+              {metrics.map((metric) => (
+                <Metric key={metric.name} {...metric} />
+              ))}
             </div>
             <p className='font-mulish text-lg leading-relaxed mt-8 opacity-95 max-w-[800px]'>
               By combining a rigorous UX process with the flexibility to adapt to senior stakeholder feedback, we transformed an underperforming website into a visually striking, highly functional, and scalable platform. The new site now accurately reflects the client's position as an industry leader and is equipped to support their continued growth towards becoming a billion-dollar company.
