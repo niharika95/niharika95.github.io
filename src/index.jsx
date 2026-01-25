@@ -7,6 +7,7 @@ import AdmissionsProcessAcceleration from './screens/AdmissionsProcessAccelerati
 import FemHealth from './screens/FemHealth/FemHealth';
 import Home from './screens/Home/Home';
 import InsuranceCompanyWebsiteRedesign from './screens/InsuranceCompanyWebsiteRedesign/InsuranceCompanyWebsiteRedesign';
+import InsuranceRedesignV2 from './screens/InsuranceCompanyWebsiteRedesign/InsuranceRedesignV2';
 import IntelligentCampaignBuilder from './screens/IntelligentCampaignBuilder/IntelligentCampaignBuilder';
 import LoanAppExperienceOptimization from './screens/LoanAppExperienceOptimization/LoanAppExperienceOptimization';
 import MainLayout from './components/MainLayout/MainLayout';
@@ -45,6 +46,7 @@ root.render(
               <Route path="/loan-app-experience-optimization" element={<LoanAppExperienceOptimization />} />
               <Route path="/admissions-process-acceleration" element={<AdmissionsProcessAcceleration />} />
               <Route path="/insurance-company-website-redesign" element={<InsuranceCompanyWebsiteRedesign />} />
+              <Route path="/insurance-redesign-v2" element={<InsuranceRedesignV2 />} />
             </>
           )}
         </Route>
