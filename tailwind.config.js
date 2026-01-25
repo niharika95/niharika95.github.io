@@ -7,6 +7,7 @@ export default {
         'playfair': ['"Playfair Display"', 'serif'],
         'mulish': ['Mulish', 'sans-serif'],
         'sans': ['Mulish', 'sans-serif'],
+        'outfit': ['Outfit', 'sans-serif'],
       },
     },
   },

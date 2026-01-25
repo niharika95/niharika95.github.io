@@ -11,6 +11,7 @@ import IntelligentCampaignBuilder from './screens/IntelligentCampaignBuilder/Int
 import LoanAppExperienceOptimization from './screens/LoanAppExperienceOptimization/LoanAppExperienceOptimization';
 import MainLayout from './components/MainLayout/MainLayout';
 import Project from './screens/Project/Project';
+import RamenNagiCaseStudy from './screens/RamenNagiCaseStudy/RamenNagiCaseStudy';
 import React from 'react';
 import Resume from './screens/Resume/Resume';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
@@ -45,6 +46,7 @@ root.render(
               <Route path="/loan-app-experience-optimization" element={<LoanAppExperienceOptimization />} />
               <Route path="/admissions-process-acceleration" element={<AdmissionsProcessAcceleration />} />
               <Route path="/insurance-company-website-redesign" element={<InsuranceCompanyWebsiteRedesign />} />
+              <Route path="/ramen-nagi" element={<RamenNagiCaseStudy />} />
             </>
           )}
         </Route>

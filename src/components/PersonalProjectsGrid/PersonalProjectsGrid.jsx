@@ -4,6 +4,7 @@ import { motion, useInView } from 'framer-motion';
 import { ContentContainer } from '../../common';
 import femhealthImg from '../../assets/images/femhealth.png';
 import svaasthyaImg from '../../assets/images/svaasthya.png';
+// import ramenNagiImg from '../../assets/RamenNagiCaseStudy/Ramen nagi app in hand.png';
 import swiftbikesImg from '../../assets/images/swiftbikes.png';
 import { trackProjectCardClick } from '../../utils/analytics';
 
@@ -35,6 +36,15 @@ const personalProjects = [
     color: '1D5D82',
     accentColor: '10B981',
   },
+  // {
+  //   title: 'Ramen Nagi',
+  //   description:
+  //     'Eliminating the 2-Hour Wait: A hybrid queuing system preserving operational speed while giving customers their time back.',
+  //   image: ramenNagiImg,
+  //   link: '#/ramen-nagi',
+  //   color: 'DC0411',
+  //   accentColor: 'DC0411',
+  // },
 ];
 
 function PersonalProjectsGrid() {
