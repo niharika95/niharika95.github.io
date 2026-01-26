@@ -27,10 +27,10 @@ const Hero = () => {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
                     >
-                        <h1 className="text-[32px] md:text-[clamp(3rem,8vw,6rem)] leading-[1.2] font-bold mb-6 text-black tracking-tight">
-                            Ramen Nagi: Eliminating the 2-Hour Wait
+                        <h1 className="text-[2rem] md:text-[3.5rem] leading-[1.1] font-bold mb-6 text-black tracking-tight">
+                            Ramen Nagi: Eliminating the <span className="whitespace-nowrap">2-Hour Wait</span>
                         </h1>
-                        <p className="text-lg leading-relaxed text-[#333] max-w-[500px]">
+                        <p className="text-base leading-relaxed text-[#333] max-w-[500px]">
                             A hybrid queuing system for a restaurant that preserves operational speed while giving customers their time back.
                         </p>
                     </motion.div>

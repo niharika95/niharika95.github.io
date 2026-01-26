@@ -52,7 +52,7 @@ const AIAcceleration = () => {
                     className="max-w-3xl mx-auto mb-20"
                 >
                     <h2 className="text-[2rem] md:text-[2.5rem] font-bold text-[#111] mb-6">AI-Accelerated Execution</h2>
-                    <p className="text-lg text-[#555] leading-relaxed">
+                    <p className="text-base text-[#555] leading-relaxed">
                         I orchestrated a full AI design-to-dev pipeline, strategically accelerating most phases using AI while keeping strategic decisions (business logic, edge cases, interaction design) human. Result: functional prototype in 2 weeks instead of 2 months.
                     </p>
                 </motion.div>

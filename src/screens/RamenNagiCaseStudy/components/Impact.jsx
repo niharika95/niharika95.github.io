@@ -20,7 +20,7 @@ const Impact = () => {
 
                         <div className="mb-8">
                             <h3 className="text-xl font-bold mb-4">Customer Value</h3>
-                            <ul className="list-none space-y-2 text-[#ccc] text-lg">
+                            <ul className="list-none space-y-2 text-[#ccc] text-base">
                                 <li className="flex items-start">
                                     <span className="mr-3 mt-1.5 w-1.5 h-1.5 bg-white rounded-full"></span>
                                     2 hours reclaimed during peak times
@@ -38,7 +38,7 @@ const Impact = () => {
 
                         <div>
                             <h3 className="text-xl font-bold mb-4">Business Value</h3>
-                            <ul className="list-none space-y-2 text-[#ccc] text-lg">
+                            <ul className="list-none space-y-2 text-[#ccc] text-base">
                                 <li className="flex items-start">
                                     <span className="mr-3 mt-1.5 w-1.5 h-1.5 bg-white rounded-full"></span>
                                     Reduced no-shows through commitment mechanism

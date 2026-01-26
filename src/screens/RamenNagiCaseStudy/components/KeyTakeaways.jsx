@@ -29,7 +29,7 @@ const KeyTakeaways = () => {
                             transition={{ duration: 0.6, delay: index * 0.2 }}
                             viewport={{ once: true }}
                         >
-                            <p className="text-xl md:text-2xl font-medium leading-relaxed">
+                            <p className="text-base md:text-xl font-medium leading-relaxed">
                                 {takeaway}
                             </p>
                         </motion.div>

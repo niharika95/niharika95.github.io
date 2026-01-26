@@ -21,7 +21,7 @@ const WhyThisWorks = () => {
     ];
 
     return (
-        <section className="w-full max-w-[1160px] mx-auto px-5 pb-24 bg-white text-[#111] font-sans">
+        <section className="w-full max-w-[1160px] mx-auto px-5 mb-[240px] bg-white text-[#111] font-sans">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -46,7 +46,7 @@ const WhyThisWorks = () => {
                             <card.icon size={40} className="text-black" strokeWidth={1.5} />
                         </div>
                         <h3 className="text-xl font-bold mb-4 text-black leading-tight">{card.title}</h3>
-                        <p className="text-[#333] leading-relaxed">
+                        <p className="text-[#333] leading-relaxed text-base">
                             {card.text}
                         </p>
                     </motion.div>

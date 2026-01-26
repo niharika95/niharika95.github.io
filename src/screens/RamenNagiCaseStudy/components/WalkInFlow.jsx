@@ -18,7 +18,7 @@ const WalkInFlow = () => {
                 <h2 className="text-[2rem] md:text-[2.5rem] font-bold text-[#111] mb-4">
                     Walk-in flow
                 </h2>
-                <p className="text-xl text-[#555] max-w-3xl mx-auto">
+                <p className="text-base text-[#555] max-w-3xl mx-auto">
                     Clear visual distinction between the "safe zone" (free modifications) and "danger zone" (fees apply). Prevents surprise charges.
                 </p>
             </motion.div>

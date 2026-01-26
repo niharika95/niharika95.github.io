@@ -5,12 +5,12 @@ import problemImage from '../../../assets/RamenNagiCaseStudy/A long line at Rame
 const Problem = () => {
     return (
         <section
-            className="w-full max-w-[1160px] mx-auto px-5 relative z-[2] pb-[50px] -mt-10"
+            className="w-full max-w-[1160px] mx-auto px-5 relative z-[2] -mt-10"
         >
-            <div className="grid grid-cols-12 gap-5 bg-[#121212] text-white rounded-t-[40px] px-[60px] py-[100px] items-center w-full">
+            <div className="grid grid-cols-12 gap-5 bg-[#121212] text-white rounded-t-[40px] px-6 py-[60px] md:px-0 md:py-[100px] items-center w-full">
 
-                {/* Left Column (Copy) - Span 6 */}
-                <div className="col-span-12 md:col-span-6">
+                {/* Left Column (Copy) - Spans cols 3-5 (3 columns) */}
+                <div className="col-span-12 md:col-start-3 md:col-span-3">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -18,17 +18,17 @@ const Problem = () => {
                         viewport={{ once: true }}
                     >
                         <h2 className="text-[2.5rem] font-bold mb-6 text-white leading-tight">The Problem</h2>
-                        <p className="text-xl leading-relaxed text-[#e0e0e0] mb-8">
+                        <p className="text-base leading-relaxed text-[#e0e0e0] mb-8">
                             High-demand restaurants face a paradox: quality creates lines, but lines destroy the experience. At Ramen Nagi, 1-2 hour waits with no seating meant customers arrived exhausted and anxious; undermining an otherwise excellent product.
                         </p>
-                        <p className="text-xl leading-relaxed text-white">
+                        <p className="text-base leading-relaxed text-white">
                             <strong className="font-bold">The constraint:</strong> Can't sacrifice the walk-in culture or kitchen efficiency that made them successful.
                         </p>
                     </motion.div>
                 </div>
 
-                {/* Right Column (Visual) - Span 6 */}
-                <div className="col-span-12 md:col-span-6 flex justify-center">
+                {/* Right Column (Visual) - Spans cols 7-11 (5 columns) */}
+                <div className="col-span-12 md:col-start-7 md:col-span-5">
                     <motion.img
                         src={problemImage}
                         alt="Crowded line at Ramen Nagi"
