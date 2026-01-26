@@ -5,22 +5,38 @@ import AIAcceleration from './components/AIAcceleration';
 import KeyTakeaways from './components/KeyTakeaways';
 import WalkInFlow from './components/WalkInFlow';
 import Problem from './components/Problem';
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import ReservationFlow from './components/ReservationFlow';
 import Solution from './components/Solution';
 import WhyThisWorks from './components/WhyThisWorks';
 
 const RamenNagiCaseStudy = () => {
     const [showGrid, setShowGrid] = useState(true);
+    const progressBarRef = useRef(null);
 
     const scrollToTop = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
+    useEffect(() => {
+        const handleScroll = () => {
+            const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = (window.scrollY / totalHeight) * 100;
+            if (progressBarRef.current) {
+                progressBarRef.current.style.width = `${progress}%`;
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
     return (
         <div className="w-full overflow-x-hidden font-sans text-neutral-900 bg-white antialiased">
             <div
-                className="fixed top-0 left-0 right-0 h-[6px] bg-[#DC0411] z-[1000] origin-left cursor-pointer"
+                ref={progressBarRef}
+                className="fixed top-0 left-0 h-[6px] bg-[#DC0411] z-[1000] origin-left cursor-pointer"
+                style={{ width: '0%' }}
                 onClick={scrollToTop}
                 title="Back to Top"
             />
@@ -54,7 +70,7 @@ const RamenNagiCaseStudy = () => {
                 <Problem />
                 <Solution />
                 <WhyThisWorks />
-                <div className="bg-white py-[5vh]">
+                <div className="bg-white">
                     <Impact />
                     <AIAcceleration />
                     <ReservationFlow />

@@ -4,9 +4,9 @@ import impactPhone from '../../../assets/RamenNagiCaseStudy/impact-phone.png';
 
 const Impact = () => {
     return (
-        <section className="w-full max-w-[1160px] mx-auto px-5 py-24">
-            <div className="bg-[#111] rounded-[48px] p-8 md:p-16 overflow-hidden relative">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <section className="w-full max-w-[1160px] mx-auto px-5">
+            <div className="bg-[#111] rounded-t-[48px] rounded-b-none py-[100px] overflow-hidden relative">
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-[20px] items-center">
 
                     {/* Left Column: Text Content */}
                     <motion.div
@@ -14,7 +14,7 @@ const Impact = () => {
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8 }}
                         viewport={{ once: true }}
-                        className="text-white z-10"
+                        className="text-white z-10 md:col-start-3 md:col-end-7"
                     >
                         <h2 className="text-[2.5rem] md:text-[3.5rem] font-bold mb-12">The Impact</h2>
 
@@ -65,7 +65,7 @@ const Impact = () => {
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
                         viewport={{ once: true }}
-                        className="flex justify-center md:justify-end z-10"
+                        className="flex justify-center z-10 md:col-start-8 md:col-end-11"
                     >
                         <img
                             src={impactPhone}

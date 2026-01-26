@@ -40,15 +40,11 @@ root.render(
           <Route path="/swiftbikes" element={<SwiftBikes />} />
           <Route path="/svaasthya" element={<Svaasthya />} />
           {/* Professional Projects */}
-          {featureFlags.showNewLinks && (
-            <>
-              <Route path="/intelligent-campaign-builder" element={<IntelligentCampaignBuilder />} />
-              <Route path="/loan-app-experience-optimization" element={<LoanAppExperienceOptimization />} />
-              <Route path="/admissions-process-acceleration" element={<AdmissionsProcessAcceleration />} />
-              <Route path="/insurance-company-website-redesign" element={<InsuranceCompanyWebsiteRedesign />} />
-              <Route path="/ramen-nagi" element={<RamenNagiCaseStudy />} />
-            </>
-          )}
+          <Route path="/intelligent-campaign-builder" element={<IntelligentCampaignBuilder />} />
+          <Route path="/loan-app-experience-optimization" element={<LoanAppExperienceOptimization />} />
+          <Route path="/admissions-process-acceleration" element={<AdmissionsProcessAcceleration />} />
+          <Route path="/insurance-company-website-redesign" element={<InsuranceCompanyWebsiteRedesign />} />
+          {featureFlags.showRamenNagi && <Route path="/ramen-nagi" element={<RamenNagiCaseStudy />} />}
         </Route>
       </Routes>
     </HashRouter>

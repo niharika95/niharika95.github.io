@@ -1,6 +1,6 @@
 const featureFlags = {
   // Set to true to show the new links section and pages
-  showNewLinks: true,
+  showRamenNagi: false,
 };
 
 export function getFeatureFlag(flagName) {
@@ -35,7 +35,7 @@ export function getAllFeatureFlags() {
 }
 
 const resolvedFeatureFlags = {
-  showNewLinks: getFeatureFlag('showNewLinks'),
+  showRamenNagi: getFeatureFlag('showRamenNagi'),
 };
 
 export default resolvedFeatureFlags;

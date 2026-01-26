@@ -3,8 +3,18 @@ import { motion, useInView } from 'framer-motion';
 
 import { ContentContainer } from '../../common';
 import { trackProjectCardClick } from '../../utils/analytics';
+import featureFlags from '../../config/featureFlags';
+import ramenNagiImg from '../../assets/RamenNagiCaseStudy/Ramen nagi app in hand.png';
 
 const projects = [
+  {
+    title: 'Ramen Nagi: Eliminating the 2-Hour Wait',
+    image: ramenNagiImg,
+    link: '#/ramen-nagi',
+    isMobile: true,
+    color: '000000',
+    strokeColor: 'DC0411',
+  },
   {
     title: 'Building Trust in Fintech: A 0→1 Redesign for a $1B Growth Company',
     image: '/home-v2/insurance-website-color.png',
@@ -44,14 +54,18 @@ function ProjectGrid() {
     const checkMobileView = () => {
       setIsMobileView(window.innerWidth < 768);
     };
-    
+
     checkMobileView();
     window.addEventListener('resize', checkMobileView);
-    
+
     return () => window.removeEventListener('resize', checkMobileView);
   }, []);
 
-  const getDescription = (index, strokeColor, isHovered) => {
+  const visibleProjects = featureFlags.showRamenNagi
+    ? projects
+    : projects.filter((p) => p.title !== 'Ramen Nagi: Eliminating the 2-Hour Wait');
+
+  const getDescription = (title, strokeColor, isHovered) => {
     const strongStyle = {
       position: 'relative',
       display: 'inline',
@@ -73,26 +87,32 @@ function ProjectGrid() {
       </motion.strong>
     );
 
-    switch (index) {
-      case 0:
+    switch (title) {
+      case 'Ramen Nagi: Eliminating the 2-Hour Wait':
+        return (
+          <>
+            A hybrid queuing system that eliminates wait times, preserving operational speed while <StrongWithUnderline>giving customers their time back</StrongWithUnderline>.
+          </>
+        );
+      case 'Building Trust in Fintech: A 0→1 Redesign for a $1B Growth Company':
         return (
           <>
             Redesign that <StrongWithUnderline>reduced heuristic violations by 90%</StrongWithUnderline> and overall <StrongWithUnderline>site performance by 37%</StrongWithUnderline>, creating a platform built for growth.
           </>
         );
-      case 1:
+      case 'Loan App Experience Optimization':
         return (
           <>
             Slashing projected <StrongWithUnderline>loan application time by 40%</StrongWithUnderline> by redesigning for trust and efficiency.
           </>
         );
-      case 2:
+      case 'Admissions Process Acceleration':
         return (
           <>
             How user-centric design unlocked a <StrongWithUnderline>60% productivity gain</StrongWithUnderline> and empowered counselors to focus on high-value decisions.
           </>
         );
-      case 3:
+      case 'Intelligent Campaign Builder Overhaul':
         return (
           <>
             <StrongWithUnderline>Empowering Marketers</StrongWithUnderline> with a Data-Driven, Intuitive Lead Generation Engine.
@@ -107,7 +127,7 @@ function ProjectGrid() {
     <section className='' id='projects'>
       <ContentContainer>
         <div className='grid grid-cols-1 md:grid-cols-2 gap-0'>
-          {projects.map(
+          {visibleProjects.map(
             ({ image, link, title, isMobile, color, strokeColor }, index) => {
               const ProjectCard = () => {
                 const ref = useRef(null);
@@ -116,7 +136,7 @@ function ProjectGrid() {
                   amount: 0.3,
                   margin: "0px"
                 });
-                
+
                 const isHovered = hoveredIndex === index;
                 const shouldAnimate = isMobileView ? isInView : isHovered;
 
@@ -142,11 +162,10 @@ function ProjectGrid() {
                     onClick={handleClick}
                     onMouseEnter={() => !isMobileView && setHoveredIndex(index)}
                     onMouseLeave={() => !isMobileView && setHoveredIndex(null)}
-                    className={`px-[12px] sm:px-[20px] gap-[20px] sm:gap-[40px] overflow-hidden min-h-[400px] sm:h-[500px] pt-[30px] sm:pt-[50px] pb-[30px] sm:pb-0 flex ${
-                      isMobile
-                        ? 'flex-col sm:flex-row justify-between sm:justify-start'
-                        : 'flex-col justify-between'
-                    }`}
+                    className={`px-[12px] sm:px-[20px] gap-[20px] sm:gap-[40px] overflow-hidden min-h-[400px] sm:h-[500px] pt-[30px] sm:pt-[50px] pb-[30px] sm:pb-0 flex ${isMobile
+                      ? 'flex-col sm:flex-row justify-between sm:justify-start'
+                      : 'flex-col justify-between'
+                      }`}
                     style={{
                       textDecoration: 'none',
                       WebkitTapHighlightColor: 'transparent',
@@ -160,9 +179,8 @@ function ProjectGrid() {
                   >
                     {/* Text Content */}
                     <div
-                      className={`flex flex-col gap-[12px] sm:gap-[20px] z-10 ${
-                        isMobile ? 'max-w-full sm:max-w-[250px]' : 'max-w-full sm:max-w-[400px]'
-                      }`}
+                      className={`flex flex-col gap-[12px] sm:gap-[20px] z-10 ${isMobile ? 'max-w-full sm:max-w-[250px]' : 'max-w-full sm:max-w-[400px]'
+                        }`}
                     >
                       <motion.h3
                         className='font-playfair font-semibold text-[24px] sm:text-[32px] leading-normal m-0'
@@ -180,7 +198,7 @@ function ProjectGrid() {
                         }}
                         transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
                       >
-                        {getDescription(index, strokeColor, shouldAnimate)}
+                        {getDescription(title, strokeColor, shouldAnimate)}
                       </motion.p>
                     </div>
 

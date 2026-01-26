@@ -1,47 +1,61 @@
 import { motion } from 'framer-motion';
-import { Network, MessageSquare, LayoutTemplate, Palette, Smartphone, ArrowRight, QrCode } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
+
+import flowMappingIcon from '../../../assets/images/ai_execution_icons/flow_mapping.svg';
+import screenPromptsIcon from '../../../assets/images/ai_execution_icons/screen_prompts.svg';
+import wireframesIcon from '../../../assets/images/ai_execution_icons/wireframes.svg';
+import hiFidelityIcon from '../../../assets/images/ai_execution_icons/hi_fidelity.svg';
+import reactNativeAppIcon from '../../../assets/images/ai_execution_icons/react_native_app.svg';
+import antigravityIcon from '../../../assets/images/ai_execution_icons/antigravity.svg';
+
+import figjamIcon from '../../../assets/images/tool_icons/figjam.svg';
+import geminiIcon from '../../../assets/images/tool_icons/gemini.svg';
+import figmaIcon from '../../../assets/images/tool_icons/figma.svg';
+import googleIcon from '../../../assets/images/tool_icons/google.svg';
+import ramenNagiQrCode from '../../../assets/images/ramen_nagi_qr_code.svg';
 
 const steps = [
     {
-        icon: Network,
+        icon: flowMappingIcon,
         title: "Flow mapping",
         badge: "FigJam AI",
         badgeColor: "bg-purple-100 text-purple-700",
-        badgeIcon: "❖"
+        badgeIcon: figjamIcon
     },
     {
-        icon: MessageSquare,
+        icon: screenPromptsIcon,
         title: "Screen prompts",
         badge: "Gemini",
-        badgeColor: "bg-blue-100 text-blue-700",
-        badgeIcon: "✦"
+        badgeColor: "bg-blue-100 text-blue-700 font-medium",
+        badgeIcon: geminiIcon
     },
     {
-        icon: LayoutTemplate,
+        icon: wireframesIcon,
         title: "Wireframes",
-        badge: "Figma First Draft AI",
+        badge: "Figma First Draft",
         badgeColor: "bg-green-100 text-green-700",
-        badgeIcon: "F"
+        badgeIcon: figmaIcon
     },
     {
-        icon: Palette,
+        icon: hiFidelityIcon,
         title: "Hi-fidelity",
         subtext: "(manual refinement)",
-        type: "manual"
+        type: "manual",
+        isFigma: true
     },
     {
-        icon: Smartphone,
+        icon: reactNativeAppIcon,
         title: "React Native App",
         badge: "Google Antigravity",
-        badgeColor: "bg-gray-200 text-gray-800",
-        badgeIcon: "G"
+        badgeColor: "bg-gray-100 text-gray-800",
+        badgeIcon: antigravityIcon
     }
 ];
 
 const AIAcceleration = () => {
     return (
-        <section className="w-full max-w-[1160px] mx-auto px-5 py-24 font-sans">
-            <div className="bg-[#F9FAFB] rounded-[48px] p-8 md:p-16 text-center">
+        <section className="w-full max-w-[1160px] mx-auto px-5 pt-0 pb-24 font-sans">
+            <div className="bg-[#F9FAFB] rounded-t-none rounded-b-[48px] px-8 md:px-16 py-[100px] text-center">
 
                 {/* Header */}
                 <motion.div
@@ -69,20 +83,18 @@ const AIAcceleration = () => {
                                 viewport={{ once: true }}
                                 className="flex flex-col items-center z-10 w-40"
                             >
-                                <div className="mb-4 p-3 bg-white rounded-2xl shadow-sm border border-gray-100">
-                                    <step.icon size={32} className="text-[#333]" strokeWidth={1.5} />
-                                </div>
+                                <img src={step.icon} alt={step.title} className="w-14 h-14 mb-4" />
                                 <h3 className="font-bold text-[#111] mb-2 text-sm md:text-base">{step.title}</h3>
 
                                 {step.badge && (
-                                    <div className={`inline-flex items-center px-2 py-1 rounded-md text-[10px] font-semibold ${step.badgeColor}`}>
-                                        <span className="mr-1 opacity-70">{step.badgeIcon}</span>
+                                    <div className={`inline-flex items-center px-3 py-1.5 rounded-full text-xs font-semibold ${step.badgeColor} border border-transparent`}>
+                                        <img src={step.badgeIcon} alt="" className="w-4 h-4 mr-2" />
                                         {step.badge}
                                     </div>
                                 )}
 
                                 {step.subtext && (
-                                    <span className="text-xs text-[#888]">{step.subtext}</span>
+                                    <span className="text-xs text-[#888] mt-1">{step.subtext}</span>
                                 )}
                             </motion.div>
 
@@ -124,11 +136,11 @@ const AIAcceleration = () => {
 
                     {/* QR Code Placeholder */}
                     <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 mb-6">
-                        <QrCode size={160} className="text-[#111]" />
+                        <img src={ramenNagiQrCode} alt="Scan to try prototype" className="w-40 h-40" />
                     </div>
 
                     <p className="text-[#555]">
-                        Scan the QR code or <a href="#" className="text-[#DC0411] font-bold underline decoration-2 underline-offset-4 hover:opacity-80">click here</a>.
+                        Scan the QR code or <a href="https://expo.dev/preview/update?message=Initial+preview+release&updateRuntimeVersion=1.0.0&createdAt=2026-01-26T05%3A39%3A56.579Z&slug=exp&projectId=73b9bb21-05c2-4ec2-99af-c43ebaa8bc87&group=b03c7e9a-cfd8-4851-b700-968fc081da85" target="_blank" rel="noopener noreferrer" className="text-[#DC0411] underline decoration-2 underline-offset-4 hover:opacity-80">click here</a>.
                     </p>
                 </motion.div>
 
