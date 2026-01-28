@@ -4,7 +4,7 @@ import heroImage from '../../../assets/RamenNagiCaseStudy/Ramen nagi app in hand
 
 const Hero = () => {
     return (
-        <section className="relative bg-white pt-[120px] pb-10 w-full px-[5vw] max-w-[1440px] mx-auto">
+        <section className="relative bg-white pt-[40px] pb-10 w-full px-[5vw] max-w-[1440px] mx-auto">
             {/* 12-Column Grid Container */}
             <div className="grid grid-cols-12 gap-5 items-center max-w-[1160px] mx-auto px-5 w-full">
 
@@ -27,8 +27,8 @@ const Hero = () => {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
                     >
-                        <h1 className="text-[2rem] md:text-[3.5rem] leading-[1.1] font-bold mb-6 text-black tracking-tight">
-                            Ramen Nagi: Eliminating the <span className="whitespace-nowrap">2-Hour Wait</span>
+                        <h1 className="text-[2rem] md:text-[3.0rem] leading-[1.1] font-bold mb-6 text-black tracking-tight">
+                            Ramen Nagi: <span className="whitespace-nowrap">Eliminating the</span><br></br><span className="whitespace-nowrap">2-Hour Wait</span>
                         </h1>
                         <p className="text-base leading-relaxed text-[#333] max-w-[500px]">
                             A hybrid queuing system for a restaurant that preserves operational speed while giving customers their time back.

@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Ticket, Users } from 'lucide-react';
 // @ts-ignore
-import phonesImage from '../../../assets/RamenNagiCaseStudy/solution-phones.png';
+import phonesImage from '../../../assets/images/Ramen Nagi/Ramen Nagi - 3 phones.png';
 // @ts-ignore
 import reservationIcon from '../../../assets/images/Reservation icon.png';
 // @ts-ignore
@@ -9,7 +9,7 @@ import walkInIcon from '../../../assets/images/Walk-in icon.png';
 
 const Solution = () => {
     return (
-        <section className="w-full max-w-[1160px] mx-auto px-5 mb-[240px]">
+        <section className="w-full max-w-[1160px] mx-auto px-5 mb-[200px]">
             <div className="w-full pt-[100px] pb-0 bg-[#F5F5F5] text-[#111] text-center font-sans rounded-b-[40px]">
 
                 {/* Header Area */}
@@ -20,7 +20,7 @@ const Solution = () => {
                     viewport={{ once: true }}
                     className="mb-12"
                 >
-                    <h2 className="text-[2.5rem] font-bold mb-4 text-black">The Solution</h2>
+                    <h2 className="text-[36px] font-semibold mb-4 text-black">The Hybrid Framework</h2>
                     <p className="text-xl text-[#333]">
                         A hybrid model that serves two customer mindsets:
                     </p>
@@ -43,7 +43,7 @@ const Solution = () => {
                             <img src={reservationIcon} alt="Reservation" className="w-20 h-20 object-contain" />
                         </div>
                         <div className="text-3xl font-bold text-black mb-0.5">30% Reservations</div>
-                        <p className="text-lg text-[#555]">For planners who value certainty.</p>
+                        <p className="text-lg text-[#333]">For planners who value certainty.</p>
                     </motion.div>
 
                     {/* Stat 2 */}
@@ -58,7 +58,7 @@ const Solution = () => {
                             <img src={walkInIcon} alt="Walk-in" className="w-20 h-20 object-contain" />
                         </div>
                         <div className="text-3xl font-bold text-black mb-0.5">70% Walk-ins</div>
-                        <p className="text-lg text-[#555]">For flexible guests who value spontaneity.</p>
+                        <p className="text-lg text-[#333]">For flexible guests who value spontaneity.</p>
                     </motion.div>
                 </div>
 

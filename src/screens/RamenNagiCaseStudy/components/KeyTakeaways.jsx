@@ -18,7 +18,7 @@ const KeyTakeaways = () => {
                         viewport={{ once: true }}
                         className="mb-16"
                     >
-                        <h2 className="text-[2rem] md:text-[2.5rem] font-bold">Key Takeaways</h2>
+                        <h2 className="text-[36px] font-semibold">Key Takeaways</h2>
                     </motion.div>
 
                     <div className="space-y-12">

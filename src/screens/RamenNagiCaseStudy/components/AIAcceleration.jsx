@@ -65,8 +65,8 @@ const AIAcceleration = () => {
                     viewport={{ once: true }}
                     className="max-w-3xl mx-auto mb-20"
                 >
-                    <h2 className="text-[2rem] md:text-[2.5rem] font-bold text-[#111] mb-6">AI-Accelerated Execution</h2>
-                    <p className="text-base text-[#555] leading-relaxed">
+                    <h2 className="text-[36px] font-semibold text-[#111] mb-6">AI-Accelerated Execution</h2>
+                    <p className="text-base text-[#333] leading-relaxed">
                         I orchestrated a full AI design-to-dev pipeline, strategically accelerating most phases using AI while keeping strategic decisions (business logic, edge cases, interaction design) human. Result: functional prototype in 2 weeks instead of 2 months.
                     </p>
                 </motion.div>
@@ -107,13 +107,13 @@ const AIAcceleration = () => {
                                     viewport={{ once: true }}
                                     className="hidden md:flex justify-center flex-1 mx-2"
                                 >
-                                    <ArrowRight size={20} className="text-gray-400" />
+                                    <ArrowRight size={20} className="text-gray-600" />
                                 </motion.div>
                             )}
 
                             {/* Connector Arrow (Mobile only, between items) */}
                             {index < steps.length - 1 && (
-                                <div className="md:hidden my-4 text-gray-300 transform rotate-90">
+                                <div className="md:hidden my-4 text-gray-600 transform rotate-90">
                                     <ArrowRight size={20} />
                                 </div>
                             )}
@@ -132,14 +132,14 @@ const AIAcceleration = () => {
                     viewport={{ once: true }}
                     className="flex flex-col items-center"
                 >
-                    <h3 className="text-2xl font-bold text-[#111] mb-8">Try the prototype yourself!</h3>
+                    <h3 className="text-[24px] leading-[1.5] font-normal text-[#111] mb-8">Try the prototype yourself!</h3>
 
                     {/* QR Code Placeholder */}
                     <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 mb-6">
                         <img src={ramenNagiQrCode} alt="Scan to try prototype" className="w-40 h-40" />
                     </div>
 
-                    <p className="text-[#555]">
+                    <p className="text-[#333]">
                         Scan the QR code or <a href="https://expo.dev/preview/update?message=Initial+preview+release&updateRuntimeVersion=1.0.0&createdAt=2026-01-26T05%3A39%3A56.579Z&slug=exp&projectId=73b9bb21-05c2-4ec2-99af-c43ebaa8bc87&group=b03c7e9a-cfd8-4851-b700-968fc081da85" target="_blank" rel="noopener noreferrer" className="text-[#DC0411] underline decoration-2 underline-offset-4 hover:opacity-80">click here</a>.
                     </p>
                 </motion.div>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Expand } from 'lucide-react';
-import flowDiagram from '../../../assets/RamenNagiCaseStudy/reservation_flow_diagram.png';
+import flowDiagram from '../../../assets/images/Ramen Nagi/Ramen Nagi - Reservation flow.png';
 import InteractiveImageModal from './InteractiveImageModal';
 
 const ReservationFlow = () => {
@@ -12,10 +12,10 @@ const ReservationFlow = () => {
             <div className="grid grid-cols-1 md:grid-cols-12 gap-[20px]">
                 {/* Text Content */}
                 <div className="col-span-1 md:col-span-5 mb-8 md:mb-12">
-                    <h2 className="text-[2rem] md:text-[2.5rem] font-bold text-[#111] mb-4">
+                    <h2 className="text-[36px] font-semibold text-[#111] mb-4">
                         Reservation flow
                     </h2>
-                    <p className="text-base text-[#555] max-w-3xl">
+                    <p className="text-base text-[#333] max-w-3xl">
                         Check-in triggers the order lock, not a manual 'confirm' button. Removes the anxiety of premature commitment.
                     </p>
                 </div>
@@ -23,7 +23,7 @@ const ReservationFlow = () => {
                 {/* Image Preview */}
                 <div className="col-span-1 md:col-span-12">
                     <motion.div
-                        className="relative w-full h-[500px] md:h-[600px] bg-gray-50 border border-gray-100 rounded-[32px] overflow-hidden cursor-zoom-in group"
+                        className="relative w-full h-[500px] md:h-[600px] bg-gray-50 border border-gray-200 rounded-[32px] overflow-hidden shadow-sm cursor-zoom-in group"
                         onClick={() => setIsModalOpen(true)}
                         whileHover={{ scale: 1.01 }}
                         transition={{ duration: 0.3 }}

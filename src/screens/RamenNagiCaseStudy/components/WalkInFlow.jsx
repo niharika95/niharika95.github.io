@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Expand } from 'lucide-react';
-import walkInFlowImage from "../../../assets/RamenNagiCaseStudy/walk_in_flow_diagram.png";
+import walkInFlowImage from "../../../assets/images/Ramen Nagi/Ramen Nagi - Walk-in flow.png";
 import InteractiveImageModal from './InteractiveImageModal';
 
 const WalkInFlow = () => {
@@ -18,10 +18,10 @@ const WalkInFlow = () => {
                     viewport={{ once: true }}
                     className="col-span-1 md:col-span-5 mb-12 text-left"
                 >
-                    <h2 className="text-[2rem] md:text-[2.5rem] font-bold text-[#111] mb-4">
+                    <h2 className="text-[36px] font-semibold text-[#111] mb-4">
                         Walk-in flow
                     </h2>
-                    <p className="text-base text-[#555] max-w-3xl">
+                    <p className="text-base text-[#333] max-w-3xl">
                         Clear visual distinction between the "safe zone" (free modifications) and "danger zone" (fees apply). Prevents surprise charges.
                     </p>
                 </motion.div>
@@ -33,7 +33,7 @@ const WalkInFlow = () => {
                         whileInView={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.8 }}
                         viewport={{ once: true }}
-                        className="relative w-full h-[500px] md:h-[600px] bg-white border border-gray-200 rounded-[32px] overflow-hidden shadow-sm cursor-zoom-in group"
+                        className="relative w-full h-[500px] md:h-[600px] bg-gray-50 border border-gray-200 rounded-[32px] overflow-hidden shadow-sm cursor-zoom-in group"
                         onClick={() => setIsModalOpen(true)}
                         whileHover={{ scale: 1.01 }}
                     >

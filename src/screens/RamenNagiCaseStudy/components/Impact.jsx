@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 // @ts-ignore
-import impactPhone from '../../../assets/RamenNagiCaseStudy/impact-phone.png';
+import impactPhone from '../../../assets/images/Ramen Nagi/Ramen Nagi - Impact screen.png';
 
 const Impact = () => {
     return (
@@ -16,21 +16,21 @@ const Impact = () => {
                         viewport={{ once: true }}
                         className="text-white z-10 md:col-start-3 md:col-end-7"
                     >
-                        <h2 className="text-[2.5rem] md:text-[3.5rem] font-bold mb-12">The Impact</h2>
+                        <h2 className="text-[36px] font-semibold mb-12">The Impact</h2>
 
                         <div className="mb-8">
                             <h3 className="text-xl font-bold mb-4">Customer Value</h3>
                             <ul className="list-none space-y-2 text-[#ccc] text-base">
                                 <li className="flex items-start">
-                                    <span className="mr-3 mt-1.5 w-1.5 h-1.5 bg-white rounded-full"></span>
+                                    <span className="mr-3 mt-3 w-1.5 h-1.5 bg-white rounded-full"></span>
                                     2 hours reclaimed during peak times
                                 </li>
                                 <li className="flex items-start">
-                                    <span className="mr-3 mt-1.5 w-1.5 h-1.5 bg-white rounded-full"></span>
+                                    <span className="mr-3 mt-3 w-1.5 h-1.5 bg-white rounded-full"></span>
                                     Zero physical waiting
                                 </li>
                                 <li className="flex items-start">
-                                    <span className="mr-3 mt-1.5 w-1.5 h-1.5 bg-white rounded-full"></span>
+                                    <span className="mr-3 mt-3 w-1.5 h-1.5 bg-white rounded-full"></span>
                                     Full autonomy over wait experience
                                 </li>
                             </ul>
@@ -40,19 +40,19 @@ const Impact = () => {
                             <h3 className="text-xl font-bold mb-4">Business Value</h3>
                             <ul className="list-none space-y-2 text-[#ccc] text-base">
                                 <li className="flex items-start">
-                                    <span className="mr-3 mt-1.5 w-1.5 h-1.5 bg-white rounded-full"></span>
+                                    <span className="mr-3 mt-3 w-1.5 h-1.5 bg-white rounded-full"></span>
                                     Reduced no-shows through commitment mechanism
                                 </li>
                                 <li className="flex items-start">
-                                    <span className="mr-3 mt-1.5 w-1.5 h-1.5 bg-white rounded-full"></span>
+                                    <span className="mr-3 mt-3 w-1.5 h-1.5 bg-white rounded-full"></span>
                                     Predictable demand forecasting via reservation data
                                 </li>
                                 <li className="flex items-start">
-                                    <span className="mr-3 mt-1.5 w-1.5 h-1.5 bg-white rounded-full"></span>
+                                    <span className="mr-3 mt-3 w-1.5 h-1.5 bg-white rounded-full"></span>
                                     Kitchen efficiency maintained—orders fire only when customers are verified on-site
                                 </li>
                                 <li className="flex items-start">
-                                    <span className="mr-3 mt-1.5 w-1.5 h-1.5 bg-white rounded-full"></span>
+                                    <span className="mr-3 mt-3 w-1.5 h-1.5 bg-white rounded-full"></span>
                                     Lower staff friction with pre-submitted orders
                                 </li>
                             </ul>

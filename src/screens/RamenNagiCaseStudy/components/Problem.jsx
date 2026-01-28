@@ -17,7 +17,7 @@ const Problem = () => {
                         transition={{ duration: 0.8 }}
                         viewport={{ once: true }}
                     >
-                        <h2 className="text-[2.5rem] font-bold mb-6 text-white leading-tight">The Problem</h2>
+                        <h2 className="text-[36px] font-semibold mb-6 text-white">The Demand Paradox</h2>
                         <p className="text-base leading-relaxed text-[#e0e0e0] mb-8">
                             High-demand restaurants face a paradox: quality creates lines, but lines destroy the experience. At Ramen Nagi, 1-2 hour waits with no seating meant customers arrived exhausted and anxious; undermining an otherwise excellent product.
                         </p>

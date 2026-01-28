@@ -11,7 +11,7 @@ import Solution from './components/Solution';
 import WhyThisWorks from './components/WhyThisWorks';
 
 const RamenNagiCaseStudy = () => {
-    const [showGrid, setShowGrid] = useState(true);
+    const [showGrid, setShowGrid] = useState(false);
     const progressBarRef = useRef(null);
 
     const scrollToTop = () => {
