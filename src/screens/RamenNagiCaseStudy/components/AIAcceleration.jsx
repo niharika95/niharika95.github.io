@@ -54,8 +54,8 @@ const steps = [
 
 const AIAcceleration = () => {
     return (
-        <section className="w-full max-w-[1160px] mx-auto px-5 pt-0 pb-24 font-sans">
-            <div className="bg-[#F9FAFB] rounded-t-none rounded-b-[48px] px-8 md:px-16 py-[100px] text-center">
+        <section className="w-full max-w-[1160px] mx-auto px-5 pt-0 pb-[60px] md:pb-24 font-sans">
+            <div className="bg-[#F9FAFB] rounded-t-none rounded-b-[48px] px-8 md:px-16 py-[60px] md:py-[100px] text-center">
 
                 {/* Header */}
                 <motion.div

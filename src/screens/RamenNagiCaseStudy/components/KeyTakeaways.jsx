@@ -8,7 +8,7 @@ const KeyTakeaways = () => {
     ];
 
     return (
-        <section className="w-full max-w-[1160px] mx-auto px-5 py-32 bg-white font-sans text-[#111]">
+        <section className="w-full max-w-[1160px] mx-auto px-5 py-[60px] md:py-32 bg-white font-sans text-[#111]">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-[20px]">
                 <div className="col-span-1 md:col-span-5">
                     <motion.div

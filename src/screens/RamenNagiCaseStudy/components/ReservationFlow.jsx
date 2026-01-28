@@ -8,7 +8,7 @@ const ReservationFlow = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     return (
-        <section className="w-full max-w-[1160px] mx-auto px-5 py-20">
+        <section className="w-full max-w-[1160px] mx-auto px-5 py-[60px] md:py-20">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-[20px]">
                 {/* Text Content */}
                 <div className="col-span-1 md:col-span-5 mb-8 md:mb-12">
@@ -45,6 +45,7 @@ const ReservationFlow = () => {
                             </div>
                         </div>
                     </motion.div>
+                    <p className="text-sm text-gray-500 mt-3">Click to view enlarged image.</p>
                 </div>
             </div>
 

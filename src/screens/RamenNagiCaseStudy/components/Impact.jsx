@@ -5,7 +5,7 @@ import impactPhone from '../../../assets/images/Ramen Nagi/Ramen Nagi - Impact s
 const Impact = () => {
     return (
         <section className="w-full max-w-[1160px] mx-auto px-5">
-            <div className="bg-[#111] rounded-t-[48px] rounded-b-none py-[100px] overflow-hidden relative">
+            <div className="bg-[#111] rounded-t-[48px] rounded-b-none py-[60px] md:py-[100px] overflow-hidden relative px-3 md:px-0">
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-[20px] items-center">
 
                     {/* Left Column: Text Content */}

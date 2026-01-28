@@ -38,6 +38,7 @@ const Problem = () => {
                         viewport={{ once: true }}
                         className="w-full rounded-2xl shadow-[0_20px_40px_rgba(0,0,0,0.5)] object-cover"
                     />
+                    <p className="text-sm text-gray-400 mt-3 md:text-left">The line at Ramen Nagi extends further behind.</p>
                 </div>
 
             </div>

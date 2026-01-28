@@ -8,7 +8,7 @@ const WalkInFlow = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     return (
-        <section className="w-full max-w-[1160px] mx-auto px-5 py-24 font-sans">
+        <section className="w-full max-w-[1160px] mx-auto px-5 py-[60px] md:py-24 font-sans">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-[20px]">
                 {/* Text Content */}
                 <motion.div
@@ -54,6 +54,7 @@ const WalkInFlow = () => {
                             </div>
                         </div>
                     </motion.div>
+                    <p className="text-sm text-gray-500 mt-3">Click to view enlarged image.</p>
                 </div>
             </div>
 

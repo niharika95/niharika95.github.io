@@ -21,7 +21,7 @@ const WhyThisWorks = () => {
     ];
 
     return (
-        <section className="w-full max-w-[1160px] mx-auto px-5 mb-[200px] bg-white text-[#111] font-sans">
+        <section className="w-full max-w-[1160px] mx-auto px-5 mb-[120px] md:mb-[200px] bg-white text-[#111] font-sans">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
