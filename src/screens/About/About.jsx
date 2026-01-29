@@ -10,19 +10,19 @@ function About() {
   useTimeTracking();
 
   return (
-    <div className="bg-white w-full h-[80vh]">
+    <div className="bg-white w-full min-h-[80vh]">
       {/* Hero Section with Geometric Pattern Background and Circular Image */}
       <section className="relative w-full h-[400px] overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 w-full h-[90px] top-[150px] left-0 right-0">
           <GeometricPattern />
         </div>
-        
+
         {/* Circular Image Overlay */}
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="w-[280px] h-[280px] rounded-full overflow-hidden border-8 border-white shadow-2xl">
-            <img 
-              src="/about/niharika.png" 
+            <img
+              src="/about/niharika.png"
               alt="Niharika Dalal"
               className="w-full h-full object-cover"
             />
