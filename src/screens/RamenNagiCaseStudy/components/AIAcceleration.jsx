@@ -156,7 +156,7 @@ const AIAcceleration = () => {
                                 Open in Expo Go
                             </a>
                             <p className="text-sm text-gray-500 mt-6">
-                                Tap to open directly in the Expo app
+                                Tap to open directly in the Expo app.
                             </p>
                         </div>
                     ) : (
