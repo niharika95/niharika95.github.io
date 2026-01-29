@@ -49,7 +49,7 @@ const Impact = () => {
                                 </li>
                                 <li className="flex items-start">
                                     <span className="mr-3 mt-3 w-1.5 h-1.5 bg-white rounded-full"></span>
-                                    Kitchen efficiency maintained—orders fire only when customers are verified on-site
+                                    Kitchen efficiency maintained with the orders firing only when customers are verified on-site
                                 </li>
                                 <li className="flex items-start">
                                     <span className="mr-3 mt-3 w-1.5 h-1.5 bg-white rounded-full"></span>

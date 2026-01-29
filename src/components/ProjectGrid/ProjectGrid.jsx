@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
+import { Icon } from '@iconify/react';
 
+import GeometricPattern from '../GeometricPattern';
 import { ContentContainer } from '../../common';
 import { trackProjectCardClick } from '../../utils/analytics';
 import featureFlags from '../../config/featureFlags';
@@ -43,6 +45,13 @@ const projects = [
     link: '#/intelligent-campaign-builder',
     color: 'FB4E0B',
     strokeColor: '48A3FF',
+  },
+  {
+    title: "Let's put your next project on this grid.",
+    isCta: true,
+    link: 'mailto:niharika13dalal@gmail.com',
+    color: '313C5F',
+    strokeColor: 'F7B000',
   },
 ];
 
@@ -118,6 +127,12 @@ function ProjectGrid() {
             <StrongWithUnderline>Empowering Marketers</StrongWithUnderline> with a Data-Driven, Intuitive Lead Generation Engine.
           </>
         );
+      case "Let's put your next project on this grid.":
+        return (
+          <>
+            Reach out to work with me to create impactful digital experiences.
+          </>
+        );
       default:
         return '';
     }
@@ -128,7 +143,7 @@ function ProjectGrid() {
       <ContentContainer>
         <div className='grid grid-cols-1 md:grid-cols-2 gap-0'>
           {visibleProjects.map(
-            ({ image, link, title, isMobile, color, strokeColor }, index) => {
+            ({ image, link, title, isMobile, color, strokeColor, isCta }, index) => {
               const ProjectCard = () => {
                 const ref = useRef(null);
                 const isInView = useInView(ref, {
@@ -155,6 +170,58 @@ function ProjectGrid() {
                   );
                 };
 
+                const cardBackgroundColor = isCta ? '#000000' : (shouldAnimate ? `#${color}` : '#f5f5f5');
+                const cardTextColor = isCta ? '#ffffff' : (shouldAnimate ? '#ffffff' : '#000000');
+
+
+                if (isCta) {
+                  return (
+                    <motion.div
+                      ref={ref}
+                      className={`px-[12px] sm:px-[20px] gap-[20px] sm:gap-[20px] overflow-hidden min-h-[400px] sm:h-[500px] pt-[30px] sm:pt-[50px] pb-[30px] sm:pb-[50px] flex ${isMobile
+                        ? 'flex-col sm:flex-row justify-between sm:justify-start'
+                        : 'flex-col justify-center'
+                        } !max-w-full items-start text-left bg-black`}
+                      initial={{ backgroundColor: '#000000' }}
+                      animate={{ backgroundColor: '#000000' }}
+                      transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+                    >
+                      <div className={`flex flex-col gap-[12px] sm:gap-[20px] z-10 !max-w-[50%]`}>
+                        <motion.h3
+                          className='font-playfair font-semibold text-[24px] sm:text-[32px] leading-normal m-0 text-white'
+                        >
+                          {title}
+                        </motion.h3>
+                        <motion.p
+                          className='font-mulish font-light text-[16px] sm:text-[20px] leading-[1.5] m-0 text-gray-400'
+                        >
+                          {getDescription(title, strokeColor, false)}
+                        </motion.p>
+
+                        {/* Icons */}
+                        <div className="flex gap-4 mt-2">
+                          <a
+                            href="mailto:niharika13dalal@gmail.com"
+                            className="text-white hover:text-gray-300 transition-colors"
+                            aria-label="Email"
+                          >
+                            <Icon icon="mdi:email" width="24" height="24" />
+                          </a>
+                          <a
+                            href="https://www.linkedin.com/in/niharikadalal/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-white hover:text-gray-300 transition-colors"
+                            aria-label="LinkedIn"
+                          >
+                            <Icon icon="carbon:logo-linkedin" width="24" height="24" />
+                          </a>
+                        </div>
+                      </div>
+                    </motion.div>
+                  );
+                }
+
                 return (
                   <motion.a
                     ref={ref}
@@ -173,7 +240,7 @@ function ProjectGrid() {
                     }}
                     initial={{ backgroundColor: '#f5f5f5' }}
                     animate={{
-                      backgroundColor: shouldAnimate ? `#${color}` : '#f5f5f5',
+                      backgroundColor: cardBackgroundColor,
                     }}
                     transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
                   >
@@ -185,7 +252,7 @@ function ProjectGrid() {
                       <motion.h3
                         className='font-playfair font-semibold text-[24px] sm:text-[32px] leading-normal m-0'
                         animate={{
-                          color: shouldAnimate ? '#ffffff' : '#000000',
+                          color: cardTextColor,
                         }}
                         transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
                       >
@@ -194,7 +261,7 @@ function ProjectGrid() {
                       <motion.p
                         className='font-mulish font-light text-[16px] sm:text-[20px] leading-[1.5] m-0'
                         animate={{
-                          color: shouldAnimate ? '#ffffff' : '#000000',
+                          color: cardTextColor,
                         }}
                         transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
                       >
@@ -202,7 +269,7 @@ function ProjectGrid() {
                       </motion.p>
                     </div>
 
-                    {/* Project Image */}
+                    {/* Project Image or Pattern */}
                     <div className={`relative ${isMobile ? 'w-full sm:w-[60%] self-end' : 'w-full'}`}>
                       <motion.img
                         alt={title}

@@ -362,7 +362,7 @@ const AdmissionsProcessAcceleration = () => {
               impact on the counselors' work. By collaborating closely with
               their managers, we gained a deep understanding of their daily
               frustrations, which led to a 60% jump in productivity. This was
-              meaningful because it represented more than a metric — it meant
+              meaningful because it represented more than a metric. It meant
               less stress for the counselors and a real advantage for the
               university, proving that when you focus on making people's work
               lives better, everyone wins.
