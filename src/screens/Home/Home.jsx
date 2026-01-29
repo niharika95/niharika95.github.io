@@ -9,7 +9,7 @@ import { useScrollTracking } from '../../hooks/useScrollTracking';
 import { useTimeTracking } from '../../hooks/useTimeTracking';
 
 const stats = [
-  { value: '4.5+', label: 'years of expertise designing digital interfaces' },
+  { value: '5+', label: 'years of expertise designing digital interfaces' },
   { value: '17', label: 'projects shipped (8 large scale + 9 small scale)' },
   { value: '13', label: 'successful partnerships with valued clients' },
   { value: '60%', label: "boost in university counselors' productivity" },
