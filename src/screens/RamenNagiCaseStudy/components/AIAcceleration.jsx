@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
@@ -53,6 +54,18 @@ const steps = [
 ];
 
 const AIAcceleration = () => {
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkMobile = () => {
+            const userAgent = navigator.userAgent || navigator.vendor || (window).opera;
+            if (/android|ipad|iphone|ipod/i.test(userAgent)) {
+                setIsMobile(true);
+            }
+        };
+        checkMobile();
+    }, []);
+
     return (
         <section className="w-full max-w-[1160px] mx-auto px-5 pt-0 pb-[60px] md:pb-24 font-sans">
             <div className="bg-[#F9FAFB] rounded-t-none rounded-b-[48px] px-8 md:px-16 py-[60px] md:py-[100px] text-center">
@@ -134,14 +147,30 @@ const AIAcceleration = () => {
                 >
                     <h3 className="text-[24px] leading-[1.5] font-normal text-[#111] mb-8">Try the prototype yourself!</h3>
 
-                    {/* QR Code Placeholder */}
-                    <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 mb-6">
-                        <img src={ramenNagiQrCode} alt="Scan to try prototype" className="w-40 h-40" />
-                    </div>
+                    {isMobile ? (
+                        <div className="flex flex-col items-center">
+                            <a
+                                href="exp+://expo-development-client/?url=https://u.expo.dev/73b9bb21-05c2-4ec2-99af-c43ebaa8bc87/group/b5a86739-7dd1-44e3-9b5f-85899280b6d8"
+                                className="px-8 py-4 bg-[#DC0411] text-white rounded-full font-semibold text-lg shadow-lg hover:bg-[#b0030e] transition-all transform hover:scale-105"
+                            >
+                                Open in Expo Go
+                            </a>
+                            <p className="text-sm text-gray-500 mt-6">
+                                Tap to open directly in the Expo app
+                            </p>
+                        </div>
+                    ) : (
+                        <>
+                            {/* QR Code Placeholder */}
+                            <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 mb-6">
+                                <img src={ramenNagiQrCode} alt="Scan to try prototype" className="w-40 h-40" />
+                            </div>
 
-                    <p className="text-[#333]">
-                        Scan the QR code or <a href="https://expo.dev/preview/update?message=Initial+preview+release&updateRuntimeVersion=1.0.0&createdAt=2026-01-26T05%3A39%3A56.579Z&slug=exp&projectId=73b9bb21-05c2-4ec2-99af-c43ebaa8bc87&group=b03c7e9a-cfd8-4851-b700-968fc081da85" target="_blank" rel="noopener noreferrer" className="text-[#DC0411] underline decoration-2 underline-offset-4 hover:opacity-80">click here</a>.
-                    </p>
+                            <p className="text-[#333]">
+                                Scan the QR code or <a href="https://expo.dev/preview/update?message=Ramen+Nagi+case+study&updateRuntimeVersion=1.0.0&createdAt=2026-01-29T01%3A15%3A26.843Z&slug=exp&projectId=73b9bb21-05c2-4ec2-99af-c43ebaa8bc87&group=b5a86739-7dd1-44e3-9b5f-85899280b6d8" target="_blank" rel="noopener noreferrer" className="text-[#DC0411] underline decoration-2 underline-offset-4 hover:opacity-80">click here</a>.
+                            </p>
+                        </>
+                    )}
                 </motion.div>
 
             </div>
