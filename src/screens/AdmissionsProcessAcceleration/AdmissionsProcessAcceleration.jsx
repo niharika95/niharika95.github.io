@@ -124,7 +124,7 @@ const AdmissionsProcessAcceleration = () => {
                 <h3 className='font-mulish font-bold text-lg'>Role:</h3>
               </div>
               <p className='font-mulish col-start-2 text-gray-600 text-lg'>
-                UX/UI Designer
+                Product Designer
               </p>
 
               {/* Team */}
@@ -137,7 +137,7 @@ const AdmissionsProcessAcceleration = () => {
                 <h3 className='font-mulish font-bold text-lg'>Team:</h3>
               </div>
               <p className='font-mulish col-start-2 text-gray-600 text-lg'>
-                Product Owner, UX/UI Designer, 2 Front-end Developer, 2 Back-end
+                Product Owner, Product Designer, 2 Front-end Developer, 2 Back-end
                 Developers, QA Tester
               </p>
 

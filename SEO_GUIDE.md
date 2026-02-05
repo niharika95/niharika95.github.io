@@ -5,8 +5,8 @@
 ### 1. Enhanced Meta Tags
 **Location:** `index.html`
 
-- **Title:** "Niharika Dalal - UX/UI Designer | Product Designer Portfolio"
-- **Description:** Highlights 4+ years of experience and specializations
+- **Title:** "Niharika Dalal - Product Designer"
+- **Description:** Highlights 5+ years of experience and specializations
 - **Keywords:** Optimized for recruiter searches including:
   - UX Designer, UI Designer, Product Designer
   - Figma Designer, User Research, Interaction Design
@@ -220,8 +220,11 @@ Niharika Dalal loan application UX
 **10. Generic Competitive Searches**
 ```
 UX designer portfolio
+Product designer portfolio
+UX designer portfolio Bay Area
 Product designer portfolio Bay Area
-UI UX designer California
+UX designer portfolio California
+Product designer portfolio California
 ```
 
 ---
@@ -306,7 +309,7 @@ UI UX designer California
 
 1. **Your site appears in top 3 results for "Niharika Dalal"**
 2. **Rich snippet shows:**
-   - Your job title (UX/UI Designer)
+   - Your job title (Product Designer)
    - Your skills
    - Your profile information
 3. **Professional projects appear in search results**

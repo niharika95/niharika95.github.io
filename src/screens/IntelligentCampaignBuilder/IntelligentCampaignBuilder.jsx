@@ -136,7 +136,7 @@ const IntelligentCampaignBuilder = () => {
                 <h3 className='font-mulish font-bold text-lg'>Role:</h3>
               </div>
               <p className='font-mulish col-start-2 text-gray-600 text-lg'>
-                UX/UI Designer
+                Product Designer
               </p>
 
               {/* Team */}
@@ -149,7 +149,7 @@ const IntelligentCampaignBuilder = () => {
                 <h3 className='font-mulish font-bold text-lg'>Team:</h3>
               </div>
               <p className='font-mulish col-start-2 text-gray-600 text-lg'>
-                Product Owner, UX/UI Designer, Tech Lead, Front-end Developer, 2
+                Product Owner, Product Designer, Tech Lead, Front-end Developer, 2
                 Back-end Developers
               </p>
 

@@ -106,7 +106,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
                 <h3 className='font-mulish font-bold text-lg'>Role:</h3>
               </div>
               <p className='font-mulish col-start-2 text-gray-600 text-lg'>
-                UX/UI Designer
+                Product Designer
               </p>
 
               {/* Team */}
@@ -119,7 +119,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
                 <h3 className='font-mulish font-bold text-lg'>Team:</h3>
               </div>
               <p className='font-mulish col-start-2 text-gray-600 text-lg'>
-                Product Manager, Product Owner, 2 UX/UI Designers, Content Writer, Webflow Developer, Drupal Developer
+                Product Manager, Product Owner, 2 Product Designers, Content Writer, Webflow Developer, Drupal Developer
               </p>
 
               {/* Duration */}
@@ -149,7 +149,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
               <div>
                 <h2 className='font-playfair text-3xl font-bold mb-4'>Context</h2>
                 <p className='font-mulish text-lg leading-relaxed max-w-[800px]'>
-                  A mid-sized, third-fastest-growing U.S. home insurance provider, on a trajectory to reach $1 billion in revenue, sought to overhaul its public-facing website. The existing site suffered from an outdated design, poor usability, and low conversion rates, failing to reflect the company's market position as a tech-forward industry leader. I joined the project as one of two UX/UI designers tasked with redesigning the user experience from the ground up. We began with a proof of concept (POC) for the home page, successfully winning the contract, and then proceeded to a full-scale redesign of their marketing website.
+                  A mid-sized, third-fastest-growing U.S. home insurance provider, on a trajectory to reach $1 billion in revenue, sought to overhaul its public-facing website. The existing site suffered from an outdated design, poor usability, and low conversion rates, failing to reflect the company's market position as a tech-forward industry leader. I joined the project as one of two product designers tasked with redesigning the user experience from the ground up. We began with a proof of concept (POC) for the home page, successfully winning the contract, and then proceeded to a full-scale redesign of their marketing website.
                 </p>
               </div>
               <div>
