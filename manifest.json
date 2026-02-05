@@ -1,7 +1,7 @@
 {
   "short_name": "Niharika Dalal",
-  "name": "Niharika Dalal - UX/UI Designer Portfolio",
-  "description": "Portfolio of Niharika Dalal, a UX/UI Designer with 4+ years of experience designing intuitive digital interfaces for finance, insurance, and education sectors.",
+  "name": "Niharika Dalal - Product Designer",
+  "description": "Portfolio of Niharika Dalal, a Product Designer with 5+ years of experience designing intuitive digital interfaces for finance, insurance, and education sectors.",
   "icons": [
     {
       "src": "niharikaLogo.png",
@@ -20,6 +20,10 @@
   "display": "standalone",
   "theme_color": "#106066",
   "background_color": "#ffffff",
-  "categories": ["design", "portfolio", "business"],
+  "categories": [
+    "design",
+    "portfolio",
+    "business"
+  ],
   "orientation": "portrait-primary"
 }
