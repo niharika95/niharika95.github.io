@@ -66,6 +66,22 @@ const AIAcceleration = () => {
         checkMobile();
     }, []);
 
+    const handlePrototypeClick = (e) => {
+        e.preventDefault();
+        const deepLink = "exp://u.expo.dev/73b9bb21-05c2-4ec2-99af-c43ebaa8bc87/group/b5a86739-7dd1-44e3-9b5f-85899280b6d8";
+        const appStoreUrl = /android/i.test(navigator.userAgent)
+            ? "https://play.google.com/store/apps/details?id=host.exp.exponent"
+            : "https://apps.apple.com/us/app/expo-go/id982107779";
+
+        // Try to open the app
+        window.location.href = deepLink;
+
+        // Fallback to App Store if app doesn't open (simplified check)
+        setTimeout(() => {
+            window.location.href = appStoreUrl;
+        }, 2000);
+    };
+
     return (
         <section className="w-full max-w-[1160px] mx-auto px-5 pt-0 pb-[60px] md:pb-24 font-sans">
             <div className="bg-[#F9FAFB] rounded-t-none rounded-b-[48px] px-8 md:px-16 py-[60px] md:py-[100px] text-center">
@@ -167,7 +183,7 @@ const AIAcceleration = () => {
                             </div>
 
                             <p className="text-[#333]">
-                                Scan the QR code or <a href="https://expo.dev/preview/update?message=Ramen+Nagi+case+study&updateRuntimeVersion=1.0.0&createdAt=2026-01-29T01%3A15%3A26.843Z&slug=exp&projectId=73b9bb21-05c2-4ec2-99af-c43ebaa8bc87&group=b5a86739-7dd1-44e3-9b5f-85899280b6d8" target="_blank" rel="noopener noreferrer" className="text-[#DC0411] underline decoration-2 underline-offset-4 hover:opacity-80">click here</a>.
+                                Scan the QR code or <a href="#" onClick={handlePrototypeClick} className="text-[#DC0411] underline decoration-2 underline-offset-4 hover:opacity-80">click here</a>.
                             </p>
                         </>
                     )}
