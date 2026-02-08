@@ -186,7 +186,7 @@ const AIAcceleration = () => {
                                 Open in Expo Go
                             </a>
                             <p className="text-sm text-gray-500 mt-6">
-                                (Expo Go app is required to run the prototype. <a href={appStoreUrl} target="_blank" rel="noopener noreferrer" className="underline hover:text-[#333]">Download the app.</a>)
+                                Expo Go app is required to run the prototype. <a href={appStoreUrl} target="_blank" rel="noopener noreferrer" className="underline hover:text-[#333]">Download the app.</a>
                             </p>
                         </div>
                     ) : (
@@ -197,10 +197,10 @@ const AIAcceleration = () => {
                             </div>
 
                             <p className="text-[#333]">
-                                Scan the QR code or <a href="#" onClick={handlePrototypeClick} className="text-[#DC0411] underline decoration-2 underline-offset-4 hover:opacity-80">click here</a>.
+                                Scan the QR code or <a href="https://expo.dev/preview/update?message=Ramen+Nagi+case+study&updateRuntimeVersion=1.0.0&createdAt=2026-01-29T01%3A15%3A26.843Z&slug=exp&projectId=73b9bb21-05c2-4ec2-99af-c43ebaa8bc87&group=b5a86739-7dd1-44e3-9b5f-85899280b6d8" target="_blank" rel="noopener noreferrer" className="text-[#DC0411] underline decoration-2 underline-offset-4 hover:opacity-80">click here</a>.
                             </p>
                             <p className="text-[#575757] text-[14px] leading-[1.5] mt-2">
-                                (Expo Go app is required to run the prototype. <a href={appStoreUrl} target="_blank" rel="noopener noreferrer" className="underline hover:text-[#333]">Download the app.</a>)
+                                Expo Go app is required to run the prototype.
                             </p>
                         </>
                     )}
