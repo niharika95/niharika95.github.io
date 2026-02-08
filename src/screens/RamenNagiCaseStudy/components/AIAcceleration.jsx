@@ -73,13 +73,21 @@ const AIAcceleration = () => {
             ? "https://play.google.com/store/apps/details?id=host.exp.exponent"
             : "https://apps.apple.com/us/app/expo-go/id982107779";
 
+        // Record start time
+        const start = Date.now();
+
         // Try to open the app
         window.location.href = deepLink;
 
-        // Fallback to App Store if app doesn't open (simplified check)
+        // Fallback to App Store if app doesn't open
         setTimeout(() => {
-            window.location.href = appStoreUrl;
-        }, 2000);
+            const end = Date.now();
+            // If the user is still on the page and not much time has passed (meaning no system dialog paused execution),
+            // or if the page is visible, likely the app didn't open.
+            if (!document.hidden && (end - start < 3000)) {
+                window.location.href = appStoreUrl;
+            }
+        }, 2500);
     };
 
     return (
