@@ -193,6 +193,9 @@ const AIAcceleration = () => {
                             <p className="text-[#333]">
                                 Scan the QR code or <a href="#" onClick={handlePrototypeClick} className="text-[#DC0411] underline decoration-2 underline-offset-4 hover:opacity-80">click here</a>.
                             </p>
+                            <p className="text-[#575757] text-[14px] leading-[1.5] mt-2">
+                                (Expo Go app is required to run the prototype.)
+                            </p>
                         </>
                     )}
                 </motion.div>
