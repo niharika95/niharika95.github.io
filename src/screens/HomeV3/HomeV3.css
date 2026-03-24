@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;700&display=swap');
+
+.home-v3 {
+  font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+  background: linear-gradient(to bottom right, #FFFFFF, #EBEBEB);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: #333333;
+  box-sizing: border-box;
+}
+
+.home-v3 * {
+  box-sizing: border-box;
+}
+
+.home-v3-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 60px;
+}
+
+.home-v3-logo {
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 1.8;
+  font-weight: 300;
+  color: #808080; /* Gray 500 */
+  transition: color 0.2s ease;
+}
+
+.home-v3-link {
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 1.8;
+  font-weight: 300;
+  color: #808080; /* Gray 500 */
+  transition: color 0.2s ease;
+}
+
+.home-v3-logo:hover, .home-v3-link:hover {
+  color: #000000; /* Black */
+}
+
+.home-v3-nav {
+  display: flex;
+  gap: 32px;
+}
+
+.home-v3-main {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 20px;
+  padding: 0 40px 60px 40px; /* Padding for when window is smaller than 1240px */
+  max-width: 1240px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.home-v3-left {
+  grid-column: span 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* push index up, personal block down */
+  height: 100%;
+}
+
+.home-v3-right {
+  grid-column: span 9;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  min-height: 600px; /* So it's very large */
+}

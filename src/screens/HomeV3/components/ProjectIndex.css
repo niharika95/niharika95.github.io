@@ -1,0 +1,122 @@
+.project-index {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+/* TOP ZONE */
+.index-label {
+  font-size: 12px;
+  line-height: 1.5;
+  color: #808080; /* Gray 500 */
+  font-weight: 400;
+  margin: 0 0 16px 0;
+}
+
+.index-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.index-item {
+  font-size: 15px; /* Small size */
+  line-height: 1.5; /* 150% line height */
+  color: #808080; /* Gray 500 */
+  font-weight: 300;
+  cursor: pointer;
+  transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+.index-item:hover {
+  color: #000000; /* Black */
+  opacity: 1;
+}
+
+.index-item.active {
+  color: #000000; /* Black */
+  opacity: 1;
+}
+
+/* BOTTOM ZONE */
+.index-bottom {
+  margin-top: 60px; /* safety margin if screen gets small */
+  display: flex;
+  flex-direction: column;
+}
+
+.personal-stats {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 20px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0px; 
+}
+
+.stat-num {
+  font-size: 24px;
+  line-height: 1.8;
+  font-weight: 400; /* H6 regular */
+  color: #666666; /* Gray 600 */
+}
+
+.stat-lbl {
+  font-size: 15px;
+  line-height: 1.5;
+  font-weight: 400; /* Small regular */
+  color: #666666; /* Gray 600 */
+}
+
+.personal-text {
+  font-size: 15px;
+  line-height: 1.5;
+  font-weight: 300; /* Light regular */
+  color: #666666; /* Gray 600 */
+  margin: 0 0 8px 0;
+}
+
+.personal-subtext {
+  font-size: 12px;
+  line-height: 1.5;
+  font-weight: 400; /* Extra small regular */
+  color: #808080; /* Gray 500 */
+  margin: 0 0 20px 0; 
+}
+
+.social-links-text {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 0;
+}
+
+.social-links-text a {
+  text-decoration: underline;
+  text-decoration-color: #808080; /* Gray 500 */
+  text-underline-offset: 4px; /* Gives the underline some breathing room */
+  font-size: 18px;
+  line-height: 1.8;
+  font-weight: 300; /* Light */
+  color: #808080; /* Gray 500 */
+  transition: opacity 0.2s ease, color 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+.social-links-text a:hover {
+  color: #000000; /* Black text */
+  text-decoration-color: #000000; /* Black underline */
+  opacity: 1;
+}
+
+.social-links-text .separator {
+  color: #CCCCCC; /* subtle gray, Gray 200 */
+  font-size: 16px;
+  font-weight: 300;
+}

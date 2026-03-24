@@ -1,6 +1,10 @@
 const featureFlags = {
   // Set to true to show the new links section and pages
   showRamenNagi: true,
+  // Toggles the experimental V2 landing page
+  showNewLandingPage: true,
+  // Toggles the completely new separate V3/two-column design
+  showHomeV3: true,
 };
 
 export function getFeatureFlag(flagName) {
@@ -36,6 +40,8 @@ export function getAllFeatureFlags() {
 
 const resolvedFeatureFlags = {
   showRamenNagi: getFeatureFlag('showRamenNagi'),
+  showNewLandingPage: getFeatureFlag('showNewLandingPage'),
+  showHomeV3: getFeatureFlag('showHomeV3'),
 };
 
 export default resolvedFeatureFlags;

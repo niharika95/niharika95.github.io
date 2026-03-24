@@ -1,0 +1,228 @@
+.hero-gallery {
+  display: flex;
+  gap: 20px;
+  height: 60vh;
+  min-height: 450px;
+  max-height: 650px;
+  width: 100%;
+  max-width: 1100px;
+}
+
+.panel {
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  opacity: 1;
+  transform: translateX(0);
+  /* Use explicit flex basis so transitions are 100% smooth */
+  flex: 0 0 70px;
+}
+
+.panel.entering {
+  opacity: 0;
+  animation: slideInRight 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes slideInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Collapsed Panels */
+.panel.collapsed {
+  flex: 0 0 70px;
+}
+
+.panel.collapsed:hover {
+  transform: scaleY(1.02);
+  filter: brightness(1.05);
+  /* very slight lift */
+}
+
+/* Expanded Panels */
+.panel.expanded {
+  flex: 1 0 70px;
+  /* naturally expands to take remaining space smoothly */
+  cursor: default;
+}
+
+.panel-inner {
+  padding: 40px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease;
+  transition-delay: 0s;
+}
+
+.panel-inner.visible {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0.4s;
+  /* wait for slower panel expansion to mostly finish before fading text in */
+}
+
+/* Intro Panel Content */
+.panel-content-intro {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.intro-text {
+  font-size: clamp(20px, 2.5vw, 28px);
+  line-height: 1.4;
+  font-weight: 300;
+  max-width: 85%;
+  color: #333333;
+}
+
+.intro-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.intro-tag {
+  font-size: 14px;
+  color: #888888;
+}
+
+.intro-stats {
+  display: flex;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.stat-number {
+  font-size: 28px;
+  font-weight: 400;
+  margin: 0;
+  color: #111111;
+}
+
+.stat-label {
+  font-size: 16px;
+  color: #444444;
+  font-weight: 300;
+}
+
+.intro-link {
+  font-size: 16px;
+  font-weight: 500;
+  color: #111111;
+  cursor: pointer;
+}
+
+/* Project Panel Content */
+.panel-content-project {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.project-title-desc {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.project-title {
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 400;
+  margin: 0;
+}
+
+.project-desc {
+  font-size: clamp(16px, 1.5vw, 18px);
+  font-weight: 300;
+  opacity: 0.9;
+  line-height: 1.4;
+  margin: 0;
+  max-width: 85%;
+}
+
+.project-footer {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.project-tag {
+  font-size: 14px;
+  opacity: 0.7;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Expand Hint */
+.expand-hint {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.panel.collapsed:hover .expand-hint {
+  opacity: 1;
+}
+
+/* Ensure the hint is dark on the white intro panel */
+.panel:nth-child(1) .expand-hint {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+/* Progress Bar */
+.progress-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 6px;
+  background-color: rgba(0, 0, 0, 0.1);
+  width: 0%;
+  animation: fillProgress 5s linear forwards;
+}
+
+/* White progress bar for darker panels */
+.panel:not(:nth-child(1)) .progress-bar {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.progress-bar.paused {
+  /* This relies on mouse hover mapped directly to the animation state */
+  animation-play-state: paused;
+}
+
+@keyframes fillProgress {
+  0% {
+    width: 0%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
