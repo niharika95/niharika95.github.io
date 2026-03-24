@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;700&display=swap');
 
 .home-v2 {
-  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  background-color: #EFEFED; /* Light warm gray */
+  font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+  background: linear-gradient(to bottom right, #FFFFFF, #EBEBEB);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -17,84 +17,59 @@
 .home-v2-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 32px 48px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 10;
+  padding: 40px 60px;
 }
 
-.home-v2-name,
-.home-v2-link {
+.home-v2-logo {
   text-decoration: none;
-  color: #666666; /* Muted gray */
-  font-size: 16px;
-  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.8;
+  font-weight: 300;
+  color: #808080; /* Gray 500 */
   transition: color 0.2s ease;
 }
 
-.home-v2-name:hover,
-.home-v2-link:hover {
-  color: #111111;
+.home-v2-link {
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 1.8;
+  font-weight: 300;
+  color: #808080; /* Gray 500 */
+  transition: color 0.2s ease;
 }
 
-.home-v2-header-right {
+.home-v2-logo:hover, .home-v2-link:hover {
+  color: #000000; /* Black */
+}
+
+.home-v2-nav {
   display: flex;
   gap: 32px;
 }
 
 .home-v2-main {
   flex: 1;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 20px;
+  padding: 0 40px 60px 40px; /* Padding for when window is smaller than 1240px */
+  max-width: 1240px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.home-v2-left {
+  grid-column: span 3;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 80px 48px; 
+  flex-direction: column;
+  justify-content: space-between; /* push index up, personal block down */
+  height: 100%;
 }
 
-.home-v2-footer {
+.home-v2-right {
+  grid-column: span 9;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 16px;
-  padding: 32px 48px;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
-
-.home-v2-social-link {
-  text-decoration: none;
-  color: #666666; /* Quiet, minimal */
-  font-size: 14px;
-  font-weight: 400;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  transition: color 0.2s ease;
-}
-
-.home-v2-social-link:hover {
-  color: #111111;
-}
-
-.home-v2-footer-pipe {
-  color: #BBBBBB;
-  font-size: 14px;
-}
-
-/* Temp fix for icons if we don't have SVGs handy right now */
-.icon-linkedin::before {
-  content: 'in';
-  font-weight: bold;
-  font-size: 12px;
-  border: 1px solid currentColor;
-  border-radius: 2px;
-  padding: 0 2px;
-}
-.icon-email::before {
-  content: '✉';
-  font-size: 14px;
+  width: 100%;
+  height: 100%;
+  min-height: 600px; /* So it's very large */
 }

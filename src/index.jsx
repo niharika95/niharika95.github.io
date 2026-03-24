@@ -6,8 +6,8 @@ import About from './screens/About/About';
 import AdmissionsProcessAcceleration from './screens/AdmissionsProcessAcceleration/AdmissionsProcessAcceleration';
 import FemHealth from './screens/FemHealth/FemHealth';
 import Home from './screens/Home/Home';
+import HomeV1 from './screens/HomeV1/HomeV1';
 import HomeV2 from './screens/HomeV2/HomeV2';
-import HomeV3 from './screens/HomeV3/HomeV3';
 import InsuranceCompanyWebsiteRedesign from './screens/InsuranceCompanyWebsiteRedesign/InsuranceCompanyWebsiteRedesign';
 import IntelligentCampaignBuilder from './screens/IntelligentCampaignBuilder/IntelligentCampaignBuilder';
 import LoanAppExperienceOptimization from './screens/LoanAppExperienceOptimization/LoanAppExperienceOptimization';
@@ -30,10 +30,10 @@ root.render(
     <HashRouter>
       <ScrollToTop />
       <Routes>
-        {featureFlags.showHomeV3 && <Route path="/" element={<HomeV3 />} />}
-        {featureFlags.showNewLandingPage && !featureFlags.showHomeV3 && <Route path="/" element={<HomeV2 />} />}
+        <Route path="/v2" element={<HomeV2 />} />
+        <Route path="/v1" element={<HomeV1 />} />
         <Route element={<MainLayout />}>
-          {!featureFlags.showNewLandingPage && !featureFlags.showHomeV3 && <Route path="/" element={<Home />} />}
+          <Route path="/" element={<Home />} />
           <Route path="/#projects" element={<Home />} />
           <Route path="/#about" element={<Home />} />
           <Route path="/about" element={<About />} />

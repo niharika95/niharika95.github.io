@@ -1,46 +1,89 @@
-import './HomeV2.css';
-
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import React from 'react';
-import HeroPanelGallery from './components/HeroPanelGallery';
-// Wait, I should import SVG or an arbitrary icon if I don't know the exact path. Let's use simple text or unicode, or check if we have icons. The user's prompt says "small icons: a LinkedIn icon + "LinkedIn" and an email icon + "Say hello!". I'll use standard <img> if they have it, but wait, let's check what icons exist in the project soon. I'll just use dummy icons for now.
+import ProjectIndex from './components/ProjectIndex';
+import HeroCard from './components/HeroCard';
+import './HomeV2.css';
+import ramenNagiImg from '../../assets/RamenNagiCaseStudy/Ramen nagi app in hand.png';
 
-const HomeV2 = () => {
+const PROJECTS = [
+  {
+    id: 1,
+    sidebarTitle: 'Eliminating the wait',
+    cardTitle: 'Eliminating the 2 hour wait at Ramen Nagi',
+    description: 'Redesigned the queue and reservation experience for a high-traffic restaurant, cutting average wait time by 40%.',
+    image: ramenNagiImg,
+    link: '/ramen-nagi'
+  },
+  {
+    id: 2,
+    sidebarTitle: 'Public facing website redesign',
+    cardTitle: 'Public facing website redesign',
+    description: 'End-to-end redesign of a B2B SaaS marketing site, improving lead conversion by 28%.',
+    image: '/insurance-company-website-design/hero.png',
+    link: '/insurance-company-website-redesign'
+  },
+  {
+    id: 3,
+    sidebarTitle: 'Optimizing Loan Application Process',
+    cardTitle: 'Optimizing the loan application process',
+    description: 'Simplified a complex multi-step flow for a fintech client, reducing drop-off by 34%.',
+    image: '/loan-app-experience-optimization/hero.png',
+    link: '/loan-app-experience-optimization'
+  },
+  {
+    id: 4,
+    sidebarTitle: 'Accelerating Application Processing',
+    cardTitle: 'Accelerating university application processing',
+    description: 'Redesigned the counselor dashboard, resulting in a 60% boost in productivity.',
+    image: '/admissions-process-acceleration/image 28.png',
+    link: '/admissions-process-acceleration'
+  }
+];
+
+const AUTO_CYCLE_TIME = 5000;
+
+export default function HomeV2() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+
+  useEffect(() => {
+    if (isHovered) return;
+
+    const timer = setTimeout(() => {
+      setActiveIndex(prev => (prev + 1) % PROJECTS.length);
+    }, AUTO_CYCLE_TIME);
+
+    return () => clearTimeout(timer);
+  }, [activeIndex, isHovered]);
+
+  const activeProject = PROJECTS[activeIndex];
+
   return (
     <div className="home-v2">
       <header className="home-v2-header">
-        <div className="home-v2-header-left">
-          <Link to="/" className="home-v2-name">Niharika Dalal</Link>
-        </div>
-        <div className="home-v2-header-right">
+        <Link to="/" className="home-v2-logo">Niharika Dalal</Link>
+        <div className="home-v2-nav">
           <Link to="/about" className="home-v2-link">About</Link>
           <Link to="/resume" className="home-v2-link">Resume</Link>
         </div>
       </header>
-
+      
       <main className="home-v2-main">
-        <HeroPanelGallery />
+        <div className="home-v2-left">
+          <ProjectIndex 
+            projects={PROJECTS}
+            activeIndex={activeIndex}
+            onSelect={setActiveIndex}
+          />
+        </div>
+        <div 
+          className="home-v2-right"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
+          <HeroCard project={activeProject} isHovered={isHovered} />
+        </div>
       </main>
-
-      <footer className="home-v2-footer">
-        <a 
-          href="https://www.linkedin.com/in/niharika-dalal-b47253b2/" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="home-v2-social-link"
-        >
-          <i className="icon-linkedin"></i> LinkedIn
-        </a>
-        <span className="home-v2-footer-pipe">|</span>
-        <a 
-          href="mailto:niharika95@gmail.com" 
-          className="home-v2-social-link"
-        >
-          <i className="icon-email"></i> Say hello!
-        </a>
-      </footer>
     </div>
   );
-};
-
-export default HomeV2;
+}

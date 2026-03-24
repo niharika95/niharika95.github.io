@@ -1,4 +1,5 @@
 import React from 'react';
+import MorphingShape from '../../HomeV1/components/MorphingShape';
 import './ProjectIndex.css';
 
 export default function ProjectIndex({ projects, activeIndex, onSelect }) {
