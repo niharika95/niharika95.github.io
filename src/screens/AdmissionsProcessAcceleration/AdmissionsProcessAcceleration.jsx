@@ -271,7 +271,7 @@ const AdmissionsProcessAcceleration = () => {
             <div className='flex flex-col gap-12'>
               <div className='flex flex-row items-center gap-8'>
                 <img
-                  src='/images/projects/admissions-process-acceleration/image 25.png'
+                  src='/images/projects/admissions-process-acceleration/image-25.png'
                   alt='Step 1 and 2'
                   className='w-full lg:w-4/5 object-contain'
                 />
@@ -288,7 +288,7 @@ const AdmissionsProcessAcceleration = () => {
               </div>
               <div className='flex flex-row items-center gap-8'>
                 <img
-                  src='/images/projects/admissions-process-acceleration/image 28.png'
+                  src='/images/projects/admissions-process-acceleration/image-28.png'
                   alt='Step 3 and 4'
                   className='w-full lg:w-4/5 object-contain'
                 />
@@ -305,7 +305,7 @@ const AdmissionsProcessAcceleration = () => {
               </div>
               <div className='flex flex-row items-center gap-8'>
                 <img
-                  src='/images/projects/admissions-process-acceleration/image 26.png'
+                  src='/images/projects/admissions-process-acceleration/image-26.png'
                   alt='Step 5 and 6'
                   className='w-full lg:w-4/5 object-contain'
                 />

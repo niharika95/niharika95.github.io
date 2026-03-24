@@ -5,12 +5,11 @@ import { Icon } from '@iconify/react';
 import GeometricPattern from '../GeometricPattern';
 import { ContentContainer } from '../../common';
 import { trackProjectCardClick } from '../../utils/analytics';
-import featureFlags from '../../config/featureFlags';
 
 const projects = [
   {
     title: 'Ramen Nagi: Eliminating the 2-Hour Wait',
-    image: "/images/projects/ramen-nagi/Ramen nagi app in hand.png",
+    image: "/images/projects/ramen-nagi/Ramen-nagi-app-in-hand.png",
     link: '#/ramen-nagi',
     isMobile: true,
     color: '000000',
@@ -68,10 +67,6 @@ function ProjectGrid() {
 
     return () => window.removeEventListener('resize', checkMobileView);
   }, []);
-
-  const visibleProjects = featureFlags.showRamenNagi
-    ? projects
-    : projects.filter((p) => p.title !== 'Ramen Nagi: Eliminating the 2-Hour Wait');
 
   const getDescription = (title, strokeColor, isHovered) => {
     const strongStyle = {
@@ -141,7 +136,7 @@ function ProjectGrid() {
     <section className='' id='projects'>
       <ContentContainer>
         <div className='grid grid-cols-1 md:grid-cols-2 gap-0'>
-          {visibleProjects.map(
+          {projects.map(
             ({ image, link, title, isMobile, color, strokeColor, isCta }, index) => {
               const ProjectCard = () => {
                 const ref = useRef(null);

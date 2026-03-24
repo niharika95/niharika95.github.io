@@ -30,7 +30,7 @@ const ReservationFlow = () => {
                         {/* Image */}
                         <div className="w-full h-full p-8 flex items-center justify-center">
                             <img
-                                src="/images/projects/ramen-nagi/Ramen Nagi - Reservation flow.png"
+                                src="/images/projects/ramen-nagi/Ramen-Nagi---Reservation-flow.png"
                                 alt="Reservation Flow Diagram"
                                 className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
                             />
@@ -51,7 +51,7 @@ const ReservationFlow = () => {
             <InteractiveImageModal
                 isOpen={isModalOpen}
                 onClose={() => setIsModalOpen(false)}
-                imageSrc={"/images/projects/ramen-nagi/Ramen Nagi - Reservation flow.png"}
+                imageSrc={"/images/projects/ramen-nagi/Ramen-Nagi---Reservation-flow.png"}
                 altText="Reservation Flow Diagram"
             />
         </section>

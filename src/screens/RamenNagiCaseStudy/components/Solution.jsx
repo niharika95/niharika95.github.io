@@ -98,7 +98,7 @@ const Solution = () => {
                     className="w-full flex justify-center"
                 >
                     <img
-                        src="/images/projects/ramen-nagi/Ramen Nagi - 3 phones.png"
+                        src="/images/projects/ramen-nagi/Ramen-Nagi---3-phones.png"
                         alt="Ramen Nagi Mobile App Screens"
                         className="max-w-full md:max-w-4xl object-contain drop-shadow-2xl"
                     />

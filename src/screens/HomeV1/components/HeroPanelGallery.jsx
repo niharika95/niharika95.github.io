@@ -34,7 +34,7 @@ const PANELS = [
     ),
     content: '',
     tag: '',
-    backgroundImage: "/images/projects/ramen-nagi/Ramen nagi app in hand.png",
+    backgroundImage: "/images/projects/ramen-nagi/Ramen-nagi-app-in-hand.png",
     background: '#1A1A1A', // Fallback color
     color: '#FFFFFF'
   },

@@ -20,7 +20,6 @@ import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 import Svaasthya from './screens/Svaasthya/Svaasthya';
 import SwiftBikes from './screens/SwiftBikes/SwiftBikes';
 import { createRoot } from 'react-dom/client';
-import featureFlags from './config/featureFlags';
 
 const container = document.getElementById('root');
 const root = createRoot(container);
@@ -48,7 +47,7 @@ root.render(
           <Route path="/loan-app-experience-optimization" element={<LoanAppExperienceOptimization />} />
           <Route path="/admissions-process-acceleration" element={<AdmissionsProcessAcceleration />} />
           <Route path="/insurance-company-website-redesign" element={<InsuranceCompanyWebsiteRedesign />} />
-          {featureFlags.showRamenNagi && <Route path="/ramen-nagi" element={<RamenNagiCaseStudy />} />}
+          <Route path="/ramen-nagi" element={<RamenNagiCaseStudy />} />
         </Route>
       </Routes>
     </HashRouter>

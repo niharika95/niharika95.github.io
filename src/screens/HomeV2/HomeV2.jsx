@@ -10,7 +10,7 @@ const PROJECTS = [
     sidebarTitle: 'Eliminating the wait',
     cardTitle: 'Eliminating the 2 hour wait at Ramen Nagi',
     description: 'Redesigned the queue and reservation experience for a high-traffic restaurant, cutting average wait time by 40%.',
-    image: "/images/projects/ramen-nagi/Ramen nagi app in hand.png",
+    image: "/images/projects/ramen-nagi/Ramen-nagi-app-in-hand.png",
     link: '/ramen-nagi'
   },
   {
@@ -34,7 +34,7 @@ const PROJECTS = [
     sidebarTitle: 'Accelerating Application Processing',
     cardTitle: 'Accelerating university application processing',
     description: 'Redesigned the counselor dashboard, resulting in a 60% boost in productivity.',
-    image: '/images/projects/admissions-process-acceleration/image 28.png',
+    image: '/images/projects/admissions-process-acceleration/image-28.png',
     link: '/admissions-process-acceleration'
   }
 ];

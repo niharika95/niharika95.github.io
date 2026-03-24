@@ -36,7 +36,7 @@ const personalProjects = [
   //   title: 'Ramen Nagi',
   //   description:
   //     'Eliminating the 2-Hour Wait: A hybrid queuing system preserving operational speed while giving customers their time back.',
-  //   image: "/images/projects/ramen-nagi/Ramen nagi app in hand.png",
+  //   image: "/images/projects/ramen-nagi/Ramen-nagi-app-in-hand.png",
   //   link: '#/ramen-nagi',
   //   color: 'DC0411',
   //   accentColor: 'DC0411',

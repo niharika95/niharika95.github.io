@@ -67,7 +67,7 @@ const Impact = () => {
                         className="flex justify-center z-10 md:col-start-8 md:col-end-11"
                     >
                         <img
-                            src="/images/projects/ramen-nagi/Ramen Nagi - Impact screen.png"
+                            src="/images/projects/ramen-nagi/Ramen-Nagi---Impact-screen.png"
                             alt="Consumer App Reservation Screen"
                             className="w-full max-w-[320px] md:max-w-md object-contain"
                         />
