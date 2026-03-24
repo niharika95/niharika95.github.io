@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Expand } from 'lucide-react';
-import flowDiagram from '../../../assets/images/Ramen Nagi/Ramen Nagi - Reservation flow.png';
 import InteractiveImageModal from './InteractiveImageModal';
 
 const ReservationFlow = () => {
@@ -31,7 +30,7 @@ const ReservationFlow = () => {
                         {/* Image */}
                         <div className="w-full h-full p-8 flex items-center justify-center">
                             <img
-                                src={flowDiagram}
+                                src="/images/projects/ramen-nagi/Ramen Nagi - Reservation flow.png"
                                 alt="Reservation Flow Diagram"
                                 className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
                             />
@@ -52,7 +51,7 @@ const ReservationFlow = () => {
             <InteractiveImageModal
                 isOpen={isModalOpen}
                 onClose={() => setIsModalOpen(false)}
-                imageSrc={flowDiagram}
+                imageSrc={"/images/projects/ramen-nagi/Ramen Nagi - Reservation flow.png"}
                 altText="Reservation Flow Diagram"
             />
         </section>

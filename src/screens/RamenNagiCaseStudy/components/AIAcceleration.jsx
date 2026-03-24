@@ -2,54 +2,44 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
-import flowMappingIcon from '../../../assets/images/ai_execution_icons/flow_mapping.svg';
-import screenPromptsIcon from '../../../assets/images/ai_execution_icons/screen_prompts.svg';
-import wireframesIcon from '../../../assets/images/ai_execution_icons/wireframes.svg';
-import hiFidelityIcon from '../../../assets/images/ai_execution_icons/hi_fidelity.svg';
-import reactNativeAppIcon from '../../../assets/images/ai_execution_icons/react_native_app.svg';
-import antigravityIcon from '../../../assets/images/ai_execution_icons/antigravity.svg';
 
-import figjamIcon from '../../../assets/images/tool_icons/figjam.svg';
-import geminiIcon from '../../../assets/images/tool_icons/gemini.svg';
-import figmaIcon from '../../../assets/images/tool_icons/figma.svg';
-import googleIcon from '../../../assets/images/tool_icons/google.svg';
-import ramenNagiQrCode from '../../../assets/images/ramen_nagi_qr_code.svg';
+
 
 const steps = [
     {
-        icon: flowMappingIcon,
+        icon: "/images/common/ai_execution_icons/flow_mapping.svg",
         title: "Flow mapping",
         badge: "FigJam AI",
         badgeColor: "bg-purple-100 text-purple-700",
-        badgeIcon: figjamIcon
+        badgeIcon: "/images/common/tool_icons/figjam.svg"
     },
     {
-        icon: screenPromptsIcon,
+        icon: "/images/common/ai_execution_icons/screen_prompts.svg",
         title: "Screen prompts",
         badge: "Gemini",
         badgeColor: "bg-blue-100 text-blue-700 font-medium",
-        badgeIcon: geminiIcon
+        badgeIcon: "/images/common/tool_icons/gemini.svg"
     },
     {
-        icon: wireframesIcon,
+        icon: "/images/common/ai_execution_icons/wireframes.svg",
         title: "Wireframes",
         badge: "Figma First Draft",
         badgeColor: "bg-green-100 text-green-700",
-        badgeIcon: figmaIcon
+        badgeIcon: "/images/common/tool_icons/figma.svg"
     },
     {
-        icon: hiFidelityIcon,
+        icon: "/images/common/ai_execution_icons/hi_fidelity.svg",
         title: "Hi-fidelity",
         subtext: "(manual refinement)",
         type: "manual",
         isFigma: true
     },
     {
-        icon: reactNativeAppIcon,
+        icon: "/images/common/ai_execution_icons/react_native_app.svg",
         title: "React Native App",
         badge: "Google Antigravity",
         badgeColor: "bg-gray-100 text-gray-800",
-        badgeIcon: antigravityIcon
+        badgeIcon: "/images/common/ai_execution_icons/antigravity.svg"
     }
 ];
 
@@ -193,7 +183,7 @@ const AIAcceleration = () => {
                         <>
                             {/* QR Code Placeholder */}
                             <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 mb-6">
-                                <img src={ramenNagiQrCode} alt="Scan to try prototype" className="w-40 h-40" />
+                                <img src="/images/projects/ramen-nagi/ramen_nagi_qr_code.svg" alt="Scan to try prototype" className="w-40 h-40" />
                             </div>
 
                             <p className="text-[#333]">

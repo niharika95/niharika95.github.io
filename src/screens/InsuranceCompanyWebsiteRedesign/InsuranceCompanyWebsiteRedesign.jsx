@@ -83,7 +83,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
             </div>
           </div>
           <img
-            src='/insurance-company-website-design/hero.png'
+            src='/images/projects/insurance-company-website-design/hero.png'
             alt='Insurance Company Website Redesign Hero'
             className='w-full max-w-[600px] self-end h-auto object-cover max-h-[500px] md:mt-50'
             style={{ boxShadow: '0 -10px 15px -3px rgba(0, 0, 0, 0.1), 0 -4px 6px -2px rgba(0, 0, 0, 0.05)' }}
@@ -217,8 +217,8 @@ const InsuranceCompanyWebsiteRedesign = () => {
                   The client serves two distinct primary audiences: Customers (homeowners) and Agents (B2B partners). We created personas, informed by demographic data provided by the client. Creating these personas was critical as it built empathy, focused our decision-making on user needs, and created alignment between our team and the client who we were building for.
                 </p>
                 <div className='flex flex-col md:flex-row gap-4 mt-8'>
-                  <img src='/insurance-company-website-design/persona1.png' alt='Persona 1' className='w-full md:w-1/2 h-auto' />
-                  <img src='/insurance-company-website-design/persona2.png' alt='Persona 2' className='w-full md:w-1/2 h-auto object-cover' />
+                  <img src='/images/projects/insurance-company-website-design/persona1.png' alt='Persona 1' className='w-full md:w-1/2 h-auto' />
+                  <img src='/images/projects/insurance-company-website-design/persona2.png' alt='Persona 2' className='w-full md:w-1/2 h-auto object-cover' />
                 </div>
               </div>
               <div>
@@ -235,7 +235,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
         </section>
 
         <section className='w-full'>
-          <img src='/insurance-company-website-design/foundation.png' alt='Foundation' className='w-full h-auto' />
+          <img src='/images/projects/insurance-company-website-design/foundation.png' alt='Foundation' className='w-full h-auto' />
         </section>
 
         <section className='py-5 md:py-[50px] lg:py-[100px]'>
@@ -276,7 +276,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
         </section>
 
         <section className='w-full'>
-          <img src='/insurance-company-website-design/impact.png' alt='Impact' className='w-full h-auto' />
+          <img src='/images/projects/insurance-company-website-design/impact.png' alt='Impact' className='w-full h-auto' />
         </section>
 
         {/* The Impact: dark band with table */}

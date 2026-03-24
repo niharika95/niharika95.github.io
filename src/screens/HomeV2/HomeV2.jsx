@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import ProjectIndex from './components/ProjectIndex';
 import HeroCard from './components/HeroCard';
 import './HomeV2.css';
-import ramenNagiImg from '../../assets/RamenNagiCaseStudy/Ramen nagi app in hand.png';
 
 const PROJECTS = [
   {
@@ -11,7 +10,7 @@ const PROJECTS = [
     sidebarTitle: 'Eliminating the wait',
     cardTitle: 'Eliminating the 2 hour wait at Ramen Nagi',
     description: 'Redesigned the queue and reservation experience for a high-traffic restaurant, cutting average wait time by 40%.',
-    image: ramenNagiImg,
+    image: "/images/projects/ramen-nagi/Ramen nagi app in hand.png",
     link: '/ramen-nagi'
   },
   {
@@ -19,7 +18,7 @@ const PROJECTS = [
     sidebarTitle: 'Public facing website redesign',
     cardTitle: 'Public facing website redesign',
     description: 'End-to-end redesign of a B2B SaaS marketing site, improving lead conversion by 28%.',
-    image: '/insurance-company-website-design/hero.png',
+    image: '/images/projects/insurance-company-website-design/hero.png',
     link: '/insurance-company-website-redesign'
   },
   {
@@ -27,7 +26,7 @@ const PROJECTS = [
     sidebarTitle: 'Optimizing Loan Application Process',
     cardTitle: 'Optimizing the loan application process',
     description: 'Simplified a complex multi-step flow for a fintech client, reducing drop-off by 34%.',
-    image: '/loan-app-experience-optimization/hero.png',
+    image: '/images/projects/loan-app-experience-optimization/hero.png',
     link: '/loan-app-experience-optimization'
   },
   {
@@ -35,7 +34,7 @@ const PROJECTS = [
     sidebarTitle: 'Accelerating Application Processing',
     cardTitle: 'Accelerating university application processing',
     description: 'Redesigned the counselor dashboard, resulting in a 60% boost in productivity.',
-    image: '/admissions-process-acceleration/image 28.png',
+    image: '/images/projects/admissions-process-acceleration/image 28.png',
     link: '/admissions-process-acceleration'
   }
 ];

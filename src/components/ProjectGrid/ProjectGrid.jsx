@@ -6,12 +6,11 @@ import GeometricPattern from '../GeometricPattern';
 import { ContentContainer } from '../../common';
 import { trackProjectCardClick } from '../../utils/analytics';
 import featureFlags from '../../config/featureFlags';
-import ramenNagiImg from '../../assets/RamenNagiCaseStudy/Ramen nagi app in hand.png';
 
 const projects = [
   {
     title: 'Ramen Nagi: Eliminating the 2-Hour Wait',
-    image: ramenNagiImg,
+    image: "/images/projects/ramen-nagi/Ramen nagi app in hand.png",
     link: '#/ramen-nagi',
     isMobile: true,
     color: '000000',
@@ -19,14 +18,14 @@ const projects = [
   },
   {
     title: 'Building Trust in Fintech: A 0→1 Redesign for a $1B Growth Company',
-    image: '/home-v2/insurance-website-color.png',
+    image: '/images/home/insurance-website-color.png',
     link: '#/insurance-company-website-redesign',
     color: 'A10026',
     strokeColor: '000000',
   },
   {
     title: 'Loan App Experience Optimization',
-    image: '/home-v2/loan-app-color.png',
+    image: '/images/home/loan-app-color.png',
     link: '#/loan-app-experience-optimization',
     isMobile: true,
     color: '1C4882',
@@ -34,14 +33,14 @@ const projects = [
   },
   {
     title: 'Admissions Process Acceleration',
-    image: '/home-v2/admissions-process-color.png',
+    image: '/images/home/admissions-process-color.png',
     link: '#/admissions-process-acceleration',
     color: '522398',
     strokeColor: 'FB4E0B',
   },
   {
     title: 'Intelligent Campaign Builder Overhaul',
-    image: '/home-v2/campaign-builder-color.png',
+    image: '/images/home/campaign-builder-color.png',
     link: '#/intelligent-campaign-builder',
     color: 'FB4E0B',
     strokeColor: '48A3FF',

@@ -2,19 +2,6 @@ import { DecorativeDots, StrokeAnimation } from '../../common';
 
 import { Icon } from '@iconify/react';
 import React from 'react';
-import femhealthHifiWireframesDesktop1 from '../../assets/images/femhealthHifiWireframesDesktop1.png';
-import femhealthHifiWireframesDesktop2 from '../../assets/images/femhealthHifiWireframesDesktop2.png';
-import femhealthHifiWireframesDesktop3 from '../../assets/images/femhealthHifiWireframesDesktop3.png';
-import femhealthHifiWireframesDesktop4 from '../../assets/images/femhealthHifiWireframesDesktop4.png';
-import femhealthHifiWireframesMobile from '../../assets/images/femhealthHifiWireframesMobile.png';
-import femhealthHifiWireframesTablet from '../../assets/images/femhealthHifiWireframesTablet.png';
-import femhealthImg from '../../assets/images/femhealth.png';
-import femhealthLofiWireframesDesktop from '../../assets/images/femhealthLofiWireframesDesktop.png';
-import femhealthLofiWireframesMobile from '../../assets/images/femhealthLofiWireframesMobile.png';
-import femhealthPaperWireframes from '../../assets/images/femhealthPaperWireframes.png';
-import femhealthPersona1Julia from '../../assets/images/femhealthPersona1Julia.png';
-import femhealthPersona2Eve from '../../assets/images/femhealthPersona2Eve.png';
-import femhealthUserflow from '../../assets/images/femhealthUserflow.png';
 import { useAnalytics } from '../../hooks/useAnalytics';
 import { useScrollTracking } from '../../hooks/useScrollTracking';
 import { useTimeTracking } from '../../hooks/useTimeTracking';
@@ -85,7 +72,7 @@ const FemHealth = () => {
             </div>
           </div>
           <img
-            src={femhealthImg}
+            src="/images/projects/femhealth/femhealth.png"
             alt='FemHealth Hero'
             className='w-full max-w-[600px] self-end h-auto object-contain max-h-[500px]'
           />
@@ -197,8 +184,8 @@ const FemHealth = () => {
               <div>
                 <h3 className='font-playfair text-2xl font-bold mb-6'>User Personas</h3>
                 <div className='flex flex-col md:flex-row gap-4'>
-                  <img src={femhealthPersona1Julia} alt='Persona 1 - Julia' className='w-full md:w-1/2 h-auto' />
-                  <img src={femhealthPersona2Eve} alt='Persona 2 - Eve' className='w-full md:w-1/2 h-auto' />
+                  <img src="/images/projects/femhealth/femhealthPersona1Julia.png" alt='Persona 1 - Julia' className='w-full md:w-1/2 h-auto' />
+                  <img src="/images/projects/femhealth/femhealthPersona2Eve.png" alt='Persona 2 - Eve' className='w-full md:w-1/2 h-auto' />
                 </div>
               </div>
             </div>
@@ -212,7 +199,7 @@ const FemHealth = () => {
             <p className='font-mulish text-lg leading-relaxed mb-8 max-w-[800px]'>
               Designing the user flow helped organize the features and their hierarchy in the app. The high-level details of each screen made it easier to draw a mental picture of the components.
             </p>
-            <img src={femhealthUserflow} alt='FemHealth User Flow' className='w-full h-auto' />
+            <img src="/images/projects/femhealth/femhealthUserflow.png" alt='FemHealth User Flow' className='w-full h-auto' />
           </ContentContainer>
         </section>
 
@@ -224,13 +211,13 @@ const FemHealth = () => {
             <p className='font-mulish text-lg leading-relaxed mb-8 max-w-[800px]'>
               Started off with some paper wireframes to create quick drafts of what some of the screens might look like; including different ideas for layouts of elements on the screens.
             </p>
-            <img src={femhealthPaperWireframes} alt='Paper Wireframes' className='w-full h-auto mb-12' />
+            <img src="/images/projects/femhealth/femhealthPaperWireframes.png" alt='Paper Wireframes' className='w-full h-auto mb-12' />
             
             <p className='font-mulish text-lg leading-relaxed mb-8 max-w-[800px]'>
               The next step was to create digital wireframes for all screens. A combination of layouts from the paper wireframes helped with deciding the design for the digital wireframes.
             </p>
-            <img src={femhealthLofiWireframesMobile} alt='Mobile Wireframes' className='w-full h-auto mb-8' />
-            <img src={femhealthLofiWireframesDesktop} alt='Desktop Wireframes' className='w-full h-auto' />
+            <img src="/images/projects/femhealth/femhealthLofiWireframesMobile.png" alt='Mobile Wireframes' className='w-full h-auto mb-8' />
+            <img src="/images/projects/femhealth/femhealthLofiWireframesDesktop.png" alt='Desktop Wireframes' className='w-full h-auto' />
           </ContentContainer>
         </section>
 
@@ -242,16 +229,16 @@ const FemHealth = () => {
               Once the wireframes were ready, adding some color and functionality to them was the next step. As an app being designed to make lives of women easier, I also thought that it needed to make women feel strong and provide a positive boost. Using a combination of dark purple and orange would bring out feelings of sophistication and boldness.
             </p>
             <div className='flex flex-col gap-8'>
-              <img src={femhealthHifiWireframesDesktop1} alt='Hi-Fi Desktop 1' className='w-full h-auto' />
-              <img src={femhealthHifiWireframesDesktop2} alt='Hi-Fi Desktop 2' className='w-full h-auto' />
-              <img src={femhealthHifiWireframesDesktop3} alt='Hi-Fi Desktop 3' className='w-full h-auto' />
-              <img src={femhealthHifiWireframesDesktop4} alt='Hi-Fi Desktop 4' className='w-full h-auto' />
+              <img src="/images/projects/femhealth/femhealthHifiWireframesDesktop1.png" alt='Hi-Fi Desktop 1' className='w-full h-auto' />
+              <img src="/images/projects/femhealth/femhealthHifiWireframesDesktop2.png" alt='Hi-Fi Desktop 2' className='w-full h-auto' />
+              <img src="/images/projects/femhealth/femhealthHifiWireframesDesktop3.png" alt='Hi-Fi Desktop 3' className='w-full h-auto' />
+              <img src="/images/projects/femhealth/femhealthHifiWireframesDesktop4.png" alt='Hi-Fi Desktop 4' className='w-full h-auto' />
             </div>
             
             <h3 className='font-playfair text-2xl font-bold mt-12 mb-6'>Mobile and Tablet Screens</h3>
             <div className='flex flex-col md:flex-row gap-8'>
-              <img src={femhealthHifiWireframesMobile} alt='Mobile Screens' className='w-full md:w-1/2 h-auto' />
-              <img src={femhealthHifiWireframesTablet} alt='Tablet Screens' className='w-full md:w-1/2 h-auto' />
+              <img src="/images/projects/femhealth/femhealthHifiWireframesMobile.png" alt='Mobile Screens' className='w-full md:w-1/2 h-auto' />
+              <img src="/images/projects/femhealth/femhealthHifiWireframesTablet.png" alt='Tablet Screens' className='w-full md:w-1/2 h-auto' />
             </div>
           </ContentContainer>
         </section>

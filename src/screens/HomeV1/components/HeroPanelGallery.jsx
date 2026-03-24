@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import MorphingShape from './MorphingShape';
-import panel2Bg from '../../../assets/RamenNagiCaseStudy/Ramen nagi app in hand.png';
 import './HeroPanelGallery.css';
 
 const PANELS = [
@@ -35,7 +34,7 @@ const PANELS = [
     ),
     content: '',
     tag: '',
-    backgroundImage: panel2Bg,
+    backgroundImage: "/images/projects/ramen-nagi/Ramen nagi app in hand.png",
     background: '#1A1A1A', // Fallback color
     color: '#FFFFFF'
   },

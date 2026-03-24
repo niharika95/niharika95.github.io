@@ -1,33 +1,8 @@
 /* eslint-disable max-len */
 import React from 'react';
 // FemHealth
-import femhealthPersona1Julia from '../../assets/images/femhealthPersona1Julia.png';
-import femhealthPersona2Eve from '../../assets/images/femhealthPersona2Eve.png';
-import femhealthUserflow from '../../assets/images/femhealthUserflow.png';
-import femhealthPaperWireframes from '../../assets/images/femhealthPaperWireframes.png';
-import femhealthLofiWireframesMobile from '../../assets/images/femhealthLofiWireframesMobile.png';
-import femhealthLofiWireframesDesktop from '../../assets/images/femhealthLofiWireframesDesktop.png';
-import femhealthHifiWireframesDesktop1 from '../../assets/images/femhealthHifiWireframesDesktop1.png';
-import femhealthHifiWireframesDesktop2 from '../../assets/images/femhealthHifiWireframesDesktop2.png';
-import femhealthHifiWireframesDesktop3 from '../../assets/images/femhealthHifiWireframesDesktop3.png';
-import femhealthHifiWireframesDesktop4 from '../../assets/images/femhealthHifiWireframesDesktop4.png';
-import femhealthHifiWireframesMobile from '../../assets/images/femhealthHifiWireframesMobile.png';
-import femhealthHifiWireframesTablet from '../../assets/images/femhealthHifiWireframesTablet.png';
 // Swift Bikes
-import swiftbikesPersona1Matthew from '../../assets/images/swiftbikesPersona1Matthew.png';
-import swiftbikesPersona2Kate from '../../assets/images/swiftbikesPersona2Kate.png';
-import swiftbikesPaperWireframes from '../../assets/images/swiftbikesPaperWireframes.png';
-import swiftbikesLofiWireframesMobile from '../../assets/images/swiftbikesLofiWireframesMobile.png';
-import swiftbikesLofiWireframesDesktop from '../../assets/images/swiftbikesLofiWireframesDesktop.png';
-import swiftbikesHifiWireframesMobile from '../../assets/images/swiftbikesHifiWireframesMobile.png';
-import swiftbikesHifiWireframesDesktop from '../../assets/images/swiftbikesHifiWireframesDesktop.png';
 // Svaasthya
-import svaasthyaPersona1Priya from '../../assets/images/svaasthyaPersona1Priya.png';
-import svaasthyaPersona2Rakesh from '../../assets/images/svaasthyaPersona2Rakesh.png';
-import svaasthyaPaperWireframes from '../../assets/images/svaasthyaPaperWireframes.png';
-import svaasthyaLofiWireframesMobile from '../../assets/images/svaasthyaLofiWireframesMobile.png';
-import svaasthyaHifiWireframesMobile from '../../assets/images/svaasthyaHifiWireframesMobile.png';
-import svaasthyaStyleGuide from '../../assets/images/svaasthyaStyleGuide.png';
 
 const caseStudyData = {
   femhealth: {
@@ -79,11 +54,11 @@ const caseStudyData = {
         description: 'The user research for this project was done by sending out surveys to women between the ages of 20 and 60. The questions in the survey were based around how how their experience (if any) had been getting help regarding women\'s health problems.',
         personas: [
           {
-            img: femhealthPersona1Julia,
+            img: "/images/projects/femhealth/femhealthPersona1Julia.png",
             description: 'Julia is a working woman who needs to find affordable health clinics near her area that accept her medical insurance because many other clinics do not and the services there are expensive.',
           },
           {
-            img: femhealthPersona2Eve,
+            img: "/images/projects/femhealth/femhealthPersona2Eve.png",
             description: 'Eve is a middle-aged woman who needs to find answers to questions related to women\'s health anonymously because she feels hesitant to talk about the topic openly.',
           },
         ],
@@ -91,52 +66,52 @@ const caseStudyData = {
       {
         title: 'USER FLOW',
         description: 'Designing the user flow helped organize the features and their heirarchy in the app. The high-level details of each screen made it easier to draw a mental picture of the components.',
-        img: femhealthUserflow,
+        img: "/images/projects/femhealth/femhealthUserflow.png",
       },
       {
         title: 'LO-FI WIREFRAMES',
         description: 'Started off with some paper wireframes to create quick drafts of what some of the screens might look like; including different ideas for layouts of elements on the screens.',
-        img: femhealthPaperWireframes,
+        img: "/images/projects/femhealth/femhealthPaperWireframes.png",
       },
       {
         title: '',
         description: 'The next step was to create digital wireframes for all screens. A combination of layouts from the paper wireframes helped with deciding the design for the digital wireframes.',
-        img: femhealthLofiWireframesMobile,
+        img: "/images/projects/femhealth/femhealthLofiWireframesMobile.png",
       },
       {
         title: '',
         description: '',
-        img: femhealthLofiWireframesDesktop,
+        img: "/images/projects/femhealth/femhealthLofiWireframesDesktop.png",
       },
       {
         title: 'HI-FI WIREFRAMES',
         description: 'Once the wireframes were ready, adding some color and functionality to them was the next step. As an app being designed to make lives of women easier, I also thought that it needed to make women feel strong and provide a positive boost. Using a combination of dark purple and orange would bring out feelings of sophistication and boldness. Let us walk through the features of the app with the help of Quincy!',
-        img: femhealthHifiWireframesDesktop1,
+        img: "/images/projects/femhealth/femhealthHifiWireframesDesktop1.png",
       },
       {
         title: '',
         description: '',
-        img: femhealthHifiWireframesDesktop2,
+        img: "/images/projects/femhealth/femhealthHifiWireframesDesktop2.png",
       },
       {
         title: '',
         description: '',
-        img: femhealthHifiWireframesDesktop3,
+        img: "/images/projects/femhealth/femhealthHifiWireframesDesktop3.png",
       },
       {
         title: '',
         description: '',
-        img: femhealthHifiWireframesDesktop4,
+        img: "/images/projects/femhealth/femhealthHifiWireframesDesktop4.png",
       },
       {
         title: '',
         description: 'The mobile and tablet screens',
-        img: femhealthHifiWireframesMobile,
+        img: "/images/projects/femhealth/femhealthHifiWireframesMobile.png",
       },
       {
         title: '',
         description: '',
-        img: femhealthHifiWireframesTablet,
+        img: "/images/projects/femhealth/femhealthHifiWireframesTablet.png",
       },
       {
         title: 'PROTOTYPE',
@@ -202,11 +177,11 @@ const caseStudyData = {
         description: 'People who owned bikes felt that while some parts of the bike seemed comfortable, there were other features that did not necessarily fulfil their’ needs. The users wanted a bike that looked and felt as if it was made just for them. While some wanted to use it just as a means for a short commute and did not focus much on their bike’s features, others who spent more time riding it felt they needed a bike which was more suited to their needs.',
         personas: [
           {
-            img: swiftbikesPersona1Matthew,
+            img: "/images/projects/swiftbikes/swiftbikesPersona1Matthew.png",
             description: '',
           },
           {
-            img: swiftbikesPersona2Kate,
+            img: "/images/projects/swiftbikes/swiftbikesPersona2Kate.png",
             description: '',
           },
         ],
@@ -214,27 +189,27 @@ const caseStudyData = {
       {
         title: 'LO-FI WIREFRAMES',
         description: 'Paper wireframes',
-        img: swiftbikesPaperWireframes,
+        img: "/images/projects/swiftbikes/swiftbikesPaperWireframes.png",
       },
       {
         title: '',
         description: 'Digital wireframes (mobile)',
-        img: swiftbikesLofiWireframesMobile,
+        img: "/images/projects/swiftbikes/swiftbikesLofiWireframesMobile.png",
       },
       {
         title: '',
         description: 'Digital wireframes (desktop)',
-        img: swiftbikesLofiWireframesDesktop,
+        img: "/images/projects/swiftbikes/swiftbikesLofiWireframesDesktop.png",
       },
       {
         title: 'HI-FI WIREFRAMES',
         description: 'Mobile screens',
-        img: swiftbikesHifiWireframesMobile,
+        img: "/images/projects/swiftbikes/swiftbikesHifiWireframesMobile.png",
       },
       {
         title: '',
         description: 'Desktop screens',
-        img: swiftbikesHifiWireframesDesktop,
+        img: "/images/projects/swiftbikes/swiftbikesHifiWireframesDesktop.png",
       },
       {
         title: 'TAKEAWAY',
@@ -288,11 +263,11 @@ const caseStudyData = {
         description: '',
         personas: [
           {
-            img: svaasthyaPersona1Priya,
+            img: "/images/projects/svaasthya/svaasthyaPersona1Priya.png",
             description: '',
           },
           {
-            img: svaasthyaPersona2Rakesh,
+            img: "/images/projects/svaasthya/svaasthyaPersona2Rakesh.png",
             description: '',
           },
         ],
@@ -300,22 +275,22 @@ const caseStudyData = {
       {
         title: 'LO-FI WIREFRAMES',
         description: 'Paper wireframes',
-        img: svaasthyaPaperWireframes,
+        img: "/images/projects/svaasthya/svaasthyaPaperWireframes.png",
       },
       {
         title: '',
         description: 'Digital wireframes',
-        img: svaasthyaLofiWireframesMobile,
+        img: "/images/projects/svaasthya/svaasthyaLofiWireframesMobile.png",
       },
       {
         title: 'HI-FI WIREFRAMES',
         description: '',
-        img: svaasthyaHifiWireframesMobile,
+        img: "/images/projects/svaasthya/svaasthyaHifiWireframesMobile.png",
       },
       {
         title: 'STYLE GUIDE',
         description: '',
-        img: svaasthyaStyleGuide,
+        img: "/images/projects/svaasthya/svaasthyaStyleGuide.png",
       },
       {
         title: 'PROTOTYPE',

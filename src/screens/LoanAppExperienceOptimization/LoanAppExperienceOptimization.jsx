@@ -69,15 +69,15 @@ const LoanAppExperienceOptimization = () => {
 
   const workflowItems = [
     {
-      image: '/loan-app-experience-optimization/workflow1.png',
+      image: '/images/projects/loan-app-experience-optimization/workflow1.png',
       text: 'I reorganized the form sections into logical chunks (e.g., Personal Information, Financials, Review). A prominent progress bar was introduced to manage user expectations and clearly show them how close they were to the end.'
     },
     {
-      image: '/loan-app-experience-optimization/workflow2.png',
+      image: '/images/projects/loan-app-experience-optimization/workflow2.png',
       text: 'Leveraging the bank\'s existing design system, I scrutinized every form field. Inefficient components were replaced with more effective alternatives. For example, I introduced an interactive slider for the loan amount. As a user adjusted the slider, their estimated monthly payment updated in real-time, allowing them to make informed decisions more quickly.'
     },
     {
-      image: '/loan-app-experience-optimization/workflow3.png',
+      image: '/images/projects/loan-app-experience-optimization/workflow3.png',
       text: 'To reduce application anxiety and frustration, I introduced subtle, encouraging illustrations at key milestones. For instance, after a user successfully completed the personal information section, an illustration would appear, reinforcing their progress and motivating them to continue to the next step.'
     }
   ];
@@ -101,7 +101,7 @@ const LoanAppExperienceOptimization = () => {
             </div>
           </div>
           <img
-            src='/loan-app-experience-optimization/hero.png'
+            src='/images/projects/loan-app-experience-optimization/hero.png'
             alt='Loan App Experience Optimization Hero'
             className='w-full max-w-[600px] self-end h-auto object-contain max-h-[500px] md:mt-50'
           />
@@ -216,7 +216,7 @@ const LoanAppExperienceOptimization = () => {
                 </div>
               </div>
               <img
-                src='/loan-app-experience-optimization/discovery_under_pressure.png'
+                src='/images/projects/loan-app-experience-optimization/discovery_under_pressure.png'
                 alt='Discovery Under Pressure'
                 className='w-full h-full object-cover'
               />

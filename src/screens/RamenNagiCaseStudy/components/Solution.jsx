@@ -1,11 +1,8 @@
 import { motion } from 'framer-motion';
 import { Ticket, Users } from 'lucide-react';
 // @ts-ignore
-import phonesImage from '../../../assets/images/Ramen Nagi/Ramen Nagi - 3 phones.png';
 // @ts-ignore
-import reservationIcon from '../../../assets/images/Reservation icon.png';
 // @ts-ignore
-import walkInIcon from '../../../assets/images/Walk-in icon.png';
 
 const Solution = () => {
     return (
@@ -46,7 +43,7 @@ const Solution = () => {
                         className="flex flex-col items-center md:items-end justify-center p-6 bg-transparent text-center md:text-right"
                     >
                         <div className="mb-2">
-                            <img src={reservationIcon} alt="Reservation" className="w-20 h-20 object-contain" />
+                            <img src="/images/projects/ramen-nagi/Reservation icon.png" alt="Reservation" className="w-20 h-20 object-contain" />
                         </div>
                         <div className="text-3xl font-bold text-black mb-0.5">30% Reservations</div>
                         <p className="text-lg text-[#333]">For planners who value certainty.</p>
@@ -69,7 +66,7 @@ const Solution = () => {
                         className="flex flex-col items-center md:items-start justify-center p-6 bg-transparent text-center md:text-left"
                     >
                         <div className="mb-2">
-                            <img src={walkInIcon} alt="Walk-in" className="w-20 h-20 object-contain" />
+                            <img src="/images/projects/ramen-nagi/Walk-in icon.png" alt="Walk-in" className="w-20 h-20 object-contain" />
                         </div>
                         <div className="text-3xl font-bold text-black mb-0.5">70% Walk-ins</div>
                         <p className="text-lg text-[#333]">For flexible guests who value spontaneity.</p>
@@ -101,7 +98,7 @@ const Solution = () => {
                     className="w-full flex justify-center"
                 >
                     <img
-                        src={phonesImage}
+                        src="/images/projects/ramen-nagi/Ramen Nagi - 3 phones.png"
                         alt="Ramen Nagi Mobile App Screens"
                         className="max-w-full md:max-w-4xl object-contain drop-shadow-2xl"
                     />

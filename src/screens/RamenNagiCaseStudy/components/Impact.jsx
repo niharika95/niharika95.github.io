@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 // @ts-ignore
-import impactPhone from '../../../assets/images/Ramen Nagi/Ramen Nagi - Impact screen.png';
 
 const Impact = () => {
     return (
@@ -68,7 +67,7 @@ const Impact = () => {
                         className="flex justify-center z-10 md:col-start-8 md:col-end-11"
                     >
                         <img
-                            src={impactPhone}
+                            src="/images/projects/ramen-nagi/Ramen Nagi - Impact screen.png"
                             alt="Consumer App Reservation Screen"
                             className="w-full max-w-[320px] md:max-w-md object-contain"
                         />
