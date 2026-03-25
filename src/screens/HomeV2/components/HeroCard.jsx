@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Icon } from '@iconify/react';
 import './HeroCard.css';
 
 export default function HeroCard({ project, isHovered }) {
@@ -16,7 +17,7 @@ export default function HeroCard({ project, isHovered }) {
         <h1 className="hero-title">{project.cardTitle}</h1>
         <p className="hero-desc">{project.description}</p>
         <Link to={project.link} className="hero-btn">
-          View case study &rarr;
+          View case study <Icon icon="material-symbols:arrow-forward" width="20" height="20" />
         </Link>
       </div>
 

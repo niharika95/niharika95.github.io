@@ -8,9 +8,9 @@ const PROJECTS = [
   {
     id: 1,
     sidebarTitle: 'Eliminating the wait',
-    cardTitle: 'Eliminating the 2 hour wait at Ramen Nagi',
-    description: 'Redesigned the queue and reservation experience for a high-traffic restaurant, cutting average wait time by 40%.',
-    image: "/images/projects/ramen-nagi/Ramen-nagi-app-in-hand.png",
+    cardTitle: <>Eliminating the 2 <br />hour wait at<br />Ramen Nagi</>,
+    description: 'A hybrid system that eliminates physical waiting without sacrificing the walk-in culture of a successful restaurant.',
+    image: "/images/projects/ramen-nagi/panel-1-ramen-nagi.png",
     link: '/ramen-nagi'
   },
   {
