@@ -2,8 +2,13 @@ import React, { useEffect, useRef, useState } from 'react';
 import MorphingShape from '../../HomeV1/components/MorphingShape';
 import './ProjectIndex.css';
 
-export default function ProjectIndex({ projects, activeIndex, onSelect }) {
+export default function ProjectIndex({ projects, activeIndex, onSelect, isHovered }) {
   const [clickTrigger, setClickTrigger] = useState(0);
+  const isHoveredRef = useRef(isHovered);
+
+  useEffect(() => {
+    isHoveredRef.current = isHovered;
+  }, [isHovered]);
   const [activeVisualIndex, setActiveVisualIndex] = useState(activeIndex);
   const prevActiveRef = useRef(activeIndex);
 
@@ -24,7 +29,8 @@ export default function ProjectIndex({ projects, activeIndex, onSelect }) {
     }
   }, [activeIndex]);
   const requestRef = useRef();
-  const startTimeRef = useRef(null);
+  const elapsedRef = useRef(0);
+  const lastTimeRef = useRef(null);
   const activeIndexRef = useRef(activeIndex);
   
   const progressRefs = useRef([]);
@@ -39,7 +45,8 @@ export default function ProjectIndex({ projects, activeIndex, onSelect }) {
 
   useEffect(() => {
     activeIndexRef.current = activeIndex;
-    startTimeRef.current = null;
+    elapsedRef.current = 0;
+    lastTimeRef.current = null;
     
     // Instantly reset all bars to 0% (Outgoing clears instantly)
     progressRefs.current.forEach(ref => {
@@ -49,11 +56,17 @@ export default function ProjectIndex({ projects, activeIndex, onSelect }) {
     });
 
     const animate = (time) => {
-      if (!startTimeRef.current) startTimeRef.current = time;
+      if (lastTimeRef.current === null) lastTimeRef.current = time;
       
-      const elapsed = time - startTimeRef.current;
+      const deltaTime = time - lastTimeRef.current;
+      lastTimeRef.current = time;
+      
+      if (!isHoveredRef.current) {
+        elapsedRef.current += deltaTime;
+      }
+
       const duration = 5000;
-      let progress = Math.min(elapsed / duration, 1);
+      let progress = Math.min(elapsedRef.current / duration, 1);
       
       const currentRef = progressRefs.current[activeIndexRef.current]?.current;
       if (currentRef) {

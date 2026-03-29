@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import ProjectIndex from './components/ProjectIndex';
 import HeroCard from './components/HeroCard';
@@ -49,6 +49,9 @@ const PROJECTS = [
 
 export default function HomeV2() {
   const [[activeIndex, direction], setPage] = useState([0, 1]);
+  const handleSelect = useCallback((index) => {
+    setPage(prev => [index, index > prev[0] ? 1 : -1]);
+  }, []);
   const [isHovered, setIsHovered] = useState(false);
   const scrollTimeoutRef = useRef(null);
 
@@ -104,7 +107,8 @@ export default function HomeV2() {
           <ProjectIndex
             projects={PROJECTS}
             activeIndex={activeIndex}
-            onSelect={(index) => setPage(prev => [index, index > prev[0] ? 1 : -1])}
+            onSelect={handleSelect}
+            isHovered={isHovered}
           />
         </div>
         <div

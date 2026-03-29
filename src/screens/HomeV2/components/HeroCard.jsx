@@ -4,49 +4,46 @@ import { Icon } from '@iconify/react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './HeroCard.css';
 
-export default function HeroCard({ project, isHovered, direction = 1 }) {
+export default function HeroCard({ project, isHovered }) {
   if (!project) return null;
-
-  const variants = {
-    enter: (dir) => ({
-      y: dir > 0 ? "-100%" : "100%",
-      opacity: 0
-    }),
-    center: {
-      zIndex: 1,
-      y: 0,
-      opacity: 1
-    },
-    exit: (dir) => ({
-      zIndex: 0,
-      y: dir > 0 ? "100%" : "-100%",
-      opacity: 0
-    })
-  };
 
   return (
     <div className="hero-card-layout">
       <div className={`hero-card-viewport ${project.hasBorder ? 'panel-border' : ''}`}>
-        <AnimatePresence initial={false} custom={direction}>
-          <motion.div 
-            key={project.id}
-            custom={direction}
-            variants={variants}
-            initial="enter"
-            animate="center"
-            exit="exit"
-            transition={{ duration: 0.6, ease: [0.32, 0.72, 0, 1] }}
+        <AnimatePresence initial={false}>
+          <motion.div
+            key={`img-${project.id}`}
+            initial={{ opacity: 0, scale: 1.03 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.6, ease: "easeInOut" }}
             className="hero-card"
             style={{ 
               backgroundImage: `url("${project.image}")`,
               position: 'absolute',
               top: 0,
               left: 0,
-              width: '100%',
-              height: '100%'
+              zIndex: 0
+            }}
+          />
+          <motion.div
+            key={`txt-${project.id}`}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0, transition: { delay: 0.15, duration: 0.3, ease: "easeOut" } }}
+            exit={{ opacity: 0, transition: { duration: 0.1, ease: "easeOut" } }}
+            className="hero-card"
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              zIndex: 1,
+              pointerEvents: 'none'
             }}
           >
-            <div className={`hero-content ${project.buttonStyle === 'dark' ? 'text-dark' : ''} ${project.contentCols ? 'col-' + project.contentCols : ''}`}>
+            <div 
+              className={`hero-content ${project.buttonStyle === 'dark' ? 'text-dark' : ''} ${project.contentCols ? 'col-' + project.contentCols : ''}`}
+              style={{ pointerEvents: 'auto' }}
+            >
               <h1 className="hero-title">{project.cardTitle}</h1>
               <p className="hero-desc">{project.description}</p>
               <Link 
