@@ -4,6 +4,25 @@ import './ProjectIndex.css';
 
 export default function ProjectIndex({ projects, activeIndex, onSelect }) {
   const [clickTrigger, setClickTrigger] = useState(0);
+  const [activeVisualIndex, setActiveVisualIndex] = useState(activeIndex);
+  const prevActiveRef = useRef(activeIndex);
+
+  useEffect(() => {
+    if (activeIndex !== prevActiveRef.current) {
+      setActiveVisualIndex(null);
+      let f1, f2;
+      f1 = requestAnimationFrame(() => {
+        f2 = requestAnimationFrame(() => {
+          setActiveVisualIndex(activeIndex);
+        });
+      });
+      prevActiveRef.current = activeIndex;
+      return () => {
+        cancelAnimationFrame(f1);
+        cancelAnimationFrame(f2);
+      };
+    }
+  }, [activeIndex]);
   const requestRef = useRef();
   const startTimeRef = useRef(null);
   const activeIndexRef = useRef(activeIndex);
@@ -62,16 +81,17 @@ export default function ProjectIndex({ projects, activeIndex, onSelect }) {
         <h5 className="index-label">Case studies</h5>
         <ul className="index-list">
           {projects.map((project, index) => {
-            const isActive = index === activeIndex;
+            const isLogicalActive = index === activeIndex;
+            const isVisualActive = index === activeVisualIndex;
             return (
               <li 
                 key={project.id} 
-                className={`index-item ${isActive ? 'active' : ''}`}
+                className={`index-item ${isVisualActive ? 'active' : ''}`}
                 onClick={() => handleSelect(index)}
               >
                 <span className="index-item-text">
                   {project.sidebarTitle}
-                  {isActive && (
+                  {isLogicalActive && (
                     <span className="indicator-track">
                       <span className="indicator-fill" ref={progressRefs.current[index]} />
                     </span>
