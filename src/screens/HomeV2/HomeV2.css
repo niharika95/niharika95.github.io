@@ -17,7 +17,7 @@
 .home-v2-header {
   display: flex;
   justify-content: space-between;
-  padding: 40px 60px;
+  padding: 40px 40px;
 }
 
 .home-v2-logo {
@@ -25,7 +25,8 @@
   font-size: 18px;
   line-height: 1.8;
   font-weight: 300;
-  color: #808080; /* Gray 500 */
+  color: #808080;
+  /* Gray 500 */
   transition: color 0.2s ease;
 }
 
@@ -34,12 +35,15 @@
   font-size: 18px;
   line-height: 1.8;
   font-weight: 300;
-  color: #808080; /* Gray 500 */
+  color: #808080;
+  /* Gray 500 */
   transition: color 0.2s ease;
 }
 
-.home-v2-logo:hover, .home-v2-link:hover {
-  color: #000000; /* Black */
+.home-v2-logo:hover,
+.home-v2-link:hover {
+  color: #000000;
+  /* Black */
 }
 
 .home-v2-nav {
@@ -52,7 +56,8 @@
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   gap: 20px;
-  padding: 0 40px 60px 40px; /* Padding for when window is smaller than 1240px */
+  padding: 0 40px 60px 40px;
+  /* Padding for when window is smaller than 1240px */
   max-width: 1240px;
   margin: 0 auto;
   width: 100%;
@@ -62,7 +67,8 @@
   grid-column: span 3;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* push index up, personal block down */
+  justify-content: space-between;
+  /* push index up, personal block down */
   height: 100%;
 }
 
@@ -71,5 +77,6 @@
   display: flex;
   width: 100%;
   height: 100%;
-  min-height: 600px; /* So it's very large */
+  min-height: 600px;
+  /* So it's very large */
 }

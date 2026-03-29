@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import ProjectIndex from './components/ProjectIndex';
 import HeroCard from './components/HeroCard';
@@ -11,14 +11,14 @@ const PROJECTS = [
     cardTitle: <>Eliminating the 2 <br />hour wait at<br />Ramen Nagi</>,
     description: 'A hybrid system that eliminates physical waiting without sacrificing the walk-in culture of a successful restaurant.',
     image: "/images/projects/ramen-nagi/panel-1-ramen-nagi.png",
-    link: '/ramen-nagi'
+    link: '/v2/ramen-nagi'
   },
   {
     id: 2,
     sidebarTitle: 'Public facing website redesign',
     cardTitle: 'Public facing website redesign',
     description: 'End-to-end redesign of a B2B SaaS marketing site, improving lead conversion by 28%.',
-    image: '/images/projects/insurance-company-website-design/hero.png',
+    image: '/images/projects/ramen-nagi/panel-2-insurance-website.png',
     link: '/insurance-company-website-redesign'
   },
   {
@@ -26,7 +26,7 @@ const PROJECTS = [
     sidebarTitle: 'Optimizing Loan Application Process',
     cardTitle: 'Optimizing the loan application process',
     description: 'Simplified a complex multi-step flow for a fintech client, reducing drop-off by 34%.',
-    image: '/images/projects/loan-app-experience-optimization/hero.png',
+    image: '/images/projects/ramen-nagi/panel-3-loan-application.png',
     link: '/loan-app-experience-optimization'
   },
   {
@@ -34,7 +34,7 @@ const PROJECTS = [
     sidebarTitle: 'Accelerating Application Processing',
     cardTitle: 'Accelerating university application processing',
     description: 'Redesigned the counselor dashboard, resulting in a 60% boost in productivity.',
-    image: '/images/projects/admissions-process-acceleration/image-28.png',
+    image: '/images/projects/ramen-nagi/panel-4-university-acceleration.png',
     link: '/admissions-process-acceleration'
   }
 ];
@@ -42,18 +42,52 @@ const PROJECTS = [
 const AUTO_CYCLE_TIME = 5000;
 
 export default function HomeV2() {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [[activeIndex, direction], setPage] = useState([0, 1]);
   const [isHovered, setIsHovered] = useState(false);
+  const scrollTimeoutRef = useRef(null);
 
   useEffect(() => {
     if (isHovered) return;
 
     const timer = setTimeout(() => {
-      setActiveIndex(prev => (prev + 1) % PROJECTS.length);
+      setPage(prev => [(prev[0] + 1) % PROJECTS.length, 1]);
     }, AUTO_CYCLE_TIME);
 
     return () => clearTimeout(timer);
   }, [activeIndex, isHovered]);
+
+  useEffect(() => {
+    const handleWheel = (e) => {
+      // Prevent whole page from scrolling on HomeV2
+      if (Math.abs(e.deltaY) >= 10) {
+        e.preventDefault();
+      }
+
+      // Use a timeout to debounce continuous trackpad scrolling
+      if (scrollTimeoutRef.current) return;
+      if (Math.abs(e.deltaY) < 10) return;
+
+      if (e.deltaY < 0) {
+        // User scrolls 'up' -> next panel (coming from top)
+        setPage(prev => [(prev[0] + 1) % PROJECTS.length, 1]);
+      } else if (e.deltaY > 0) {
+        // User scrolls 'down' -> previous panel (coming from bottom)
+        setPage(prev => [(prev[0] - 1 + PROJECTS.length) % PROJECTS.length, -1]);
+      }
+
+      // Add a debounce delay before the next scroll event can trigger
+      scrollTimeoutRef.current = setTimeout(() => {
+        scrollTimeoutRef.current = null;
+      }, 800);
+    };
+
+    // Use passive: false so we can preventDefault
+    window.addEventListener('wheel', handleWheel, { passive: false });
+    return () => {
+      window.removeEventListener('wheel', handleWheel);
+      if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current);
+    };
+  }, []);
 
   const activeProject = PROJECTS[activeIndex];
 
@@ -72,7 +106,7 @@ export default function HomeV2() {
           <ProjectIndex 
             projects={PROJECTS}
             activeIndex={activeIndex}
-            onSelect={setActiveIndex}
+            onSelect={(index) => setPage(prev => [index, index > prev[0] ? 1 : -1])}
           />
         </div>
         <div 
@@ -80,7 +114,7 @@ export default function HomeV2() {
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
-          <HeroCard project={activeProject} isHovered={isHovered} />
+          <HeroCard project={activeProject} isHovered={isHovered} direction={direction} />
         </div>
       </main>
     </div>
