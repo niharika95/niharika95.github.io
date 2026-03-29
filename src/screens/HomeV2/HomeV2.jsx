@@ -47,22 +47,12 @@ const PROJECTS = [
   }
 ];
 
-const AUTO_CYCLE_TIME = 5000;
-
 export default function HomeV2() {
   const [[activeIndex, direction], setPage] = useState([0, 1]);
   const [isHovered, setIsHovered] = useState(false);
   const scrollTimeoutRef = useRef(null);
 
-  useEffect(() => {
-    if (isHovered) return;
-
-    const timer = setTimeout(() => {
-      setPage(prev => [(prev[0] + 1) % PROJECTS.length, 1]);
-    }, AUTO_CYCLE_TIME);
-
-    return () => clearTimeout(timer);
-  }, [activeIndex, isHovered]);
+  // Auto-cycle is now driven visually by the RAF timer in ProjectIndex.jsx
 
   useEffect(() => {
     const handleWheel = (e) => {

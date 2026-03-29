@@ -61,12 +61,6 @@ export default function HeroCard({ project, isHovered, direction = 1 }) {
         </AnimatePresence>
       </div>
 
-      <div className="external-progress-track">
-        <div 
-          className={`external-progress-fill ${isHovered ? 'paused' : ''}`}
-          key={`progress-${project.id}`} 
-        />
-      </div>
     </div>
   );
 }

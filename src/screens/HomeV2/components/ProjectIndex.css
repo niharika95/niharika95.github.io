@@ -9,7 +9,8 @@
 .index-label {
   font-size: 12px;
   line-height: 1.5;
-  color: #808080; /* Gray 500 */
+  color: #808080;
+  /* Gray 500 */
   font-weight: 400;
   margin: 0 0 16px 0;
 }
@@ -24,27 +25,59 @@
 }
 
 .index-item {
-  font-size: 15px; /* Small size */
-  line-height: 1.5; /* 150% line height */
-  color: #808080; /* Gray 500 */
+  font-size: 15px;
+  /* Small size */
+  line-height: 1.5;
+  /* 150% line height */
+  color: #808080;
+  /* Gray 500 */
   font-weight: 300;
   cursor: pointer;
   transition: color 0.3s ease, opacity 0.3s ease;
 }
 
 .index-item:hover {
-  color: #000000; /* Black */
+  color: #000000;
+  /* Black */
   opacity: 1;
 }
 
 .index-item.active {
-  color: #000000; /* Black */
+  color: #000000;
+  /* Black */
   opacity: 1;
+}
+
+.index-item-text {
+  position: relative;
+  display: inline-block;
+}
+
+.indicator-track {
+  position: absolute;
+  left: 0;
+  bottom: 0px;
+  /* Sits completely flush with the local font descender baseline! */
+  width: 100%;
+  height: 1px;
+  background-color: #E6E6E6;
+  pointer-events: none;
+}
+
+.indicator-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 0%;
+  background-color: #1A1A1A;
+  /* Not adding transition to width, because JS RAF loop pushes raw DOM pixel boundaries at 60fps! */
 }
 
 /* BOTTOM ZONE */
 .index-bottom {
-  margin-top: 60px; /* safety margin if screen gets small */
+  margin-top: 60px;
+  /* safety margin if screen gets small */
   display: flex;
   flex-direction: column;
 }
@@ -58,37 +91,45 @@
 .stat {
   display: flex;
   flex-direction: column;
-  gap: 0px; 
+  gap: 0px;
 }
 
 .stat-num {
   font-size: 24px;
   line-height: 1.8;
-  font-weight: 400; /* H6 regular */
-  color: #666666; /* Gray 600 */
+  font-weight: 400;
+  /* H6 regular */
+  color: #666666;
+  /* Gray 600 */
 }
 
 .stat-lbl {
   font-size: 15px;
   line-height: 1.5;
-  font-weight: 400; /* Small regular */
-  color: #666666; /* Gray 600 */
+  font-weight: 400;
+  /* Small regular */
+  color: #666666;
+  /* Gray 600 */
 }
 
 .personal-text {
   font-size: 15px;
   line-height: 1.5;
-  font-weight: 300; /* Light regular */
-  color: #666666; /* Gray 600 */
+  font-weight: 300;
+  /* Light regular */
+  color: #666666;
+  /* Gray 600 */
   margin: 0 0 8px 0;
 }
 
 .personal-subtext {
   font-size: 12px;
   line-height: 1.5;
-  font-weight: 400; /* Extra small regular */
-  color: #808080; /* Gray 500 */
-  margin: 0 0 20px 0; 
+  font-weight: 400;
+  /* Extra small regular */
+  color: #808080;
+  /* Gray 500 */
+  margin: 0 0 20px 0;
 }
 
 .social-links-text {
@@ -100,23 +141,30 @@
 
 .social-links-text a {
   text-decoration: underline;
-  text-decoration-color: #808080; /* Gray 500 */
-  text-underline-offset: 4px; /* Gives the underline some breathing room */
+  text-decoration-color: #808080;
+  /* Gray 500 */
+  text-underline-offset: 4px;
+  /* Gives the underline some breathing room */
   font-size: 18px;
   line-height: 1.8;
-  font-weight: 300; /* Light */
-  color: #808080; /* Gray 500 */
+  font-weight: 300;
+  /* Light */
+  color: #808080;
+  /* Gray 500 */
   transition: opacity 0.2s ease, color 0.2s ease, text-decoration-color 0.2s ease;
 }
 
 .social-links-text a:hover {
-  color: #000000; /* Black text */
-  text-decoration-color: #000000; /* Black underline */
+  color: #000000;
+  /* Black text */
+  text-decoration-color: #000000;
+  /* Black underline */
   opacity: 1;
 }
 
 .social-links-text .separator {
-  color: #CCCCCC; /* subtle gray, Gray 200 */
+  color: #CCCCCC;
+  /* subtle gray, Gray 200 */
   font-size: 16px;
   font-weight: 300;
 }

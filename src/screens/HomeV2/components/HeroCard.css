@@ -118,28 +118,4 @@
   pointer-events: none;
 }
 
-.external-progress-track {
-  width: calc(100% - 40px); /* Account for 20px border radius on both sides */
-  margin: 0 auto;
-  height: 6px;
-  background-color: #D9D9D9;
-  border-radius: 6px;
-  overflow: hidden;
-  flex-shrink: 0;
-}
 
-.external-progress-fill {
-  height: 100%;
-  background-color: #BFBFBF;
-  width: 0%;
-  animation: fillHeroProgress 5s linear forwards;
-}
-
-.external-progress-fill.paused {
-  animation-play-state: paused;
-}
-
-@keyframes fillHeroProgress {
-  0% { width: 0%; }
-  100% { width: 100%; }
-}
