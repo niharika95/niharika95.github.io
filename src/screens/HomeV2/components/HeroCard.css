@@ -12,17 +12,6 @@
   justify-content: flex-start; /* anchor content to top */
 }
 
-.hero-gradient-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  /* subtle dark gradient overlay on the left/top */
-  background: linear-gradient(to bottom right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 60%, transparent 100%);
-  z-index: 1;
-}
-
 .hero-content {
   position: relative;
   z-index: 2;
@@ -33,9 +22,25 @@
   align-items: flex-start;
 }
 
+.hero-content.col-4 {
+  max-width: 45%; 
+}
+
+.hero-content.col-5 {
+  max-width: 52%; 
+}
+
+.hero-content.col-6 {
+  max-width: 75%; 
+}
+
+.hero-content.col-6 .hero-desc {
+  max-width: 75%; /* Keeps description tighter so it clears the monitor */
+}
+
 .hero-title {
   /* H2 medium in Gray 50 */
-  font-size: 32px;
+  font-size: 44px;
   font-weight: 500;
   color: #F9FAFB;
   margin: 0;
@@ -45,12 +50,20 @@
 
 .hero-desc {
   /* body regular in Gray 200 */
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 400;
   color: #E5E7EB;
   margin: 0;
   margin-bottom: 28px; /* precise spacing between description and button */
-  line-height: 1.5;
+  line-height: 1.8;
+}
+
+.hero-content.text-dark .hero-title {
+  color: #111827; /* Near black */
+}
+
+.hero-content.text-dark .hero-desc {
+  color: #374151; /* Dark gray */
 }
 
 .hero-btn {
@@ -88,6 +101,21 @@
   flex-grow: 1; 
   overflow: hidden;
   border-radius: 20px;
+}
+
+.hero-card-viewport.panel-border::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border-radius: 20px;
+  border: 1px solid transparent;
+  background: linear-gradient(to bottom right, #F2F2F2, #FFFFFF) border-box;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  z-index: 10;
+  pointer-events: none;
 }
 
 .external-progress-track {

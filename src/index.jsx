@@ -30,6 +30,7 @@ root.render(
       <ScrollToTop />
       <Routes>
         <Route path="/v2" element={<HomeV2 />} />
+        <Route path="/v2/ramen-nagi" element={<RamenNagiCaseStudy />} />
         <Route path="/v1" element={<HomeV1 />} />
         <Route element={<MainLayout />}>
           <Route path="/" element={<Home />} />

@@ -24,7 +24,7 @@ export default function ProjectIndex({ projects, activeIndex, onSelect }) {
       </div>
 
       <div className="index-bottom">
-        <div className="personal-stats">
+        {/* <div className="personal-stats">
           <div className="stat">
             <span className="stat-num">17</span>
             <span className="stat-lbl">Projects</span>
@@ -33,7 +33,7 @@ export default function ProjectIndex({ projects, activeIndex, onSelect }) {
             <span className="stat-num">13</span>
             <span className="stat-lbl">Clients</span>
           </div>
-        </div>
+        </div> */}
 
         <p className="personal-text">
           I started as a front-end developer<br/>before moving into design. That<br/>changes how I work.

@@ -26,7 +26,7 @@ export default function HeroCard({ project, isHovered, direction = 1 }) {
 
   return (
     <div className="hero-card-layout">
-      <div className="hero-card-viewport">
+      <div className={`hero-card-viewport ${project.hasBorder ? 'panel-border' : ''}`}>
         <AnimatePresence initial={false} custom={direction}>
           <motion.div 
             key={project.id}
@@ -46,12 +46,14 @@ export default function HeroCard({ project, isHovered, direction = 1 }) {
               height: '100%'
             }}
           >
-            <div className="hero-gradient-overlay" />
-            
-            <div className="hero-content">
+            <div className={`hero-content ${project.buttonStyle === 'dark' ? 'text-dark' : ''} ${project.contentCols ? 'col-' + project.contentCols : ''}`}>
               <h1 className="hero-title">{project.cardTitle}</h1>
               <p className="hero-desc">{project.description}</p>
-              <Link to={project.link} className="hero-btn">
+              <Link 
+                to={project.link} 
+                className="hero-btn"
+                style={project.buttonStyle === 'dark' ? { backgroundColor: '#111827', color: '#FFFFFF' } : { backgroundColor: '#FFFFFF', color: '#111827' }}
+              >
                 View case study <Icon icon="material-symbols:arrow-forward" width="20" height="20" />
               </Link>
             </div>
