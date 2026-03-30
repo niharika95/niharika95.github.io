@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import AnimatedPillButton from '../../../components/AnimatedPillButton/AnimatedPillButton';
 
 
 
@@ -169,12 +170,15 @@ const AIAcceleration = () => {
 
                     {isMobile ? (
                         <div className="flex flex-col items-center">
-                            <a
+                            <AnimatedPillButton
+                                as="a"
                                 href="exp://u.expo.dev/73b9bb21-05c2-4ec2-99af-c43ebaa8bc87/group/b5a86739-7dd1-44e3-9b5f-85899280b6d8"
-                                className="px-8 py-4 bg-[#DC0411] text-white rounded-full font-semibold text-lg shadow-lg hover:bg-[#b0030e] transition-all transform hover:scale-105"
+                                strokeColor="#FFFFFF"
+                                offset={3}
+                                className="px-8 py-4 bg-[#DC0411] text-white rounded-full font-semibold text-lg shadow-lg transition-colors duration-200 ease-out"
                             >
                                 Open in Expo Go
-                            </a>
+                            </AnimatedPillButton>
                             <p className="text-sm text-gray-500 mt-6">
                                 Expo Go app is required to run the prototype. <a href={appStoreUrl} target="_blank" rel="noopener noreferrer" className="underline hover:text-[#333]">Download the app.</a>
                             </p>

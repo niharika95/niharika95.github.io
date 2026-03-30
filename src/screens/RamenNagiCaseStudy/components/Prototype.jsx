@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import AnimatedPillButton from '../../../components/AnimatedPillButton/AnimatedPillButton';
 
 const Prototype = () => {
     return (
@@ -9,11 +10,14 @@ const Prototype = () => {
                 transition={{ duration: 0.8 }}
             >
                 <h2 className="text-white mb-12 text-[2rem] font-bold">The Final Product</h2>
-                <button
-                    className="bg-[#DC0411] hover:bg-[#b0030e] transition-colors duration-200 ease-out text-white border-none py-5 px-10 text-[1.5rem] font-bold rounded-[50px] cursor-pointer shadow-[0_10px_30px_rgba(220,4,17,0.4)]"
+                <AnimatedPillButton
+                    as="button"
+                    strokeColor="#FFFFFF"
+                    offset={3}
+                    className="bg-[#DC0411] transition-colors duration-200 ease-out text-white border-none py-5 px-10 text-[1.5rem] font-bold rounded-[50px] cursor-pointer shadow-[0_10px_30px_rgba(220,4,17,0.4)]"
                 >
                     Experience the Live Prototype
-                </button>
+                </AnimatedPillButton>
             </motion.div>
         </section>
     );

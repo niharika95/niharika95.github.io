@@ -92,17 +92,9 @@
   color: #1A1A1A;
 }
 
-.hero-btn.light:hover {
-  background-color: #E6E6E6;
-}
-
 .hero-btn.dark {
   background-color: #1A1A1A;
   color: #FFFFFF;
-}
-
-.hero-btn.dark:hover {
-  background-color: #333333;
 }
 
 .hero-btn-arrow {
