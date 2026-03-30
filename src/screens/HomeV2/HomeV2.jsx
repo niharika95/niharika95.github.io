@@ -48,13 +48,31 @@ const PROJECTS = [
 ];
 
 export default function HomeV2() {
+  const [isInitialLoad] = useState(() => !sessionStorage.getItem('homeV2Loaded'));
+  const [timerActive, setTimerActive] = useState(!isInitialLoad);
+  
   const [[activeIndex, direction], setPage] = useState([0, 1]);
   const handleSelect = useCallback((index) => {
+    if (!timerActive) {
+      setTimerActive(true);
+      sessionStorage.setItem('homeV2Loaded', 'true');
+    }
     setPage(prev => [index, index > prev[0] ? 1 : -1]);
-  }, []);
+  }, [timerActive]);
+  
   const [isHovered, setIsHovered] = useState(false);
   const scrollTimeoutRef = useRef(null);
   const rightPanelRef = useRef(null);
+
+  useEffect(() => {
+    if (isInitialLoad && !timerActive) {
+      const timer = setTimeout(() => {
+        setTimerActive(true);
+        sessionStorage.setItem('homeV2Loaded', 'true');
+      }, 1700);
+      return () => clearTimeout(timer);
+    }
+  }, [isInitialLoad, timerActive]);
 
   // Auto-cycle is now driven visually by the RAF timer in ProjectIndex.jsx
 
@@ -72,6 +90,12 @@ export default function HomeV2() {
 
       // Ignore further scroll events if in cooldown
       if (scrollTimeoutRef.current) return;
+      
+      // Break initial load sequence locks identically to a sidebar click natively
+      setTimerActive(active => {
+        if (!active) sessionStorage.setItem('homeV2Loaded', 'true');
+        return true;
+      });
 
       setPage(prev => {
         const currentIndex = prev[0];
@@ -104,10 +128,10 @@ export default function HomeV2() {
   return (
     <div className="home-v2">
       <header className="home-v2-header">
-        <Link to="/" className="home-v2-logo">Niharika Dalal</Link>
+        <Link to="/" className={`home-v2-logo ${isInitialLoad ? 'anim-fade-in' : ''}`} style={isInitialLoad ? { animationDelay: '0ms', animationDuration: '600ms', animationTimingFunction: 'ease-out' } : {}}>Niharika Dalal</Link>
         <div className="home-v2-nav">
-          <Link to="/about" className="home-v2-link">About</Link>
-          <Link to="/resume" className="home-v2-link">Resume</Link>
+          <Link to="/about" className={`home-v2-link ${isInitialLoad ? 'anim-fade-in' : ''}`} style={isInitialLoad ? { animationDelay: '200ms', animationDuration: '600ms', animationTimingFunction: 'ease-out' } : {}}>About</Link>
+          <Link to="/resume" className={`home-v2-link ${isInitialLoad ? 'anim-fade-in' : ''}`} style={isInitialLoad ? { animationDelay: '200ms', animationDuration: '600ms', animationTimingFunction: 'ease-out' } : {}}>Resume</Link>
         </div>
       </header>
 
@@ -118,11 +142,14 @@ export default function HomeV2() {
             activeIndex={activeIndex}
             onSelect={handleSelect}
             isHovered={isHovered}
+            isInitialLoad={isInitialLoad}
+            timerActive={timerActive}
           />
         </div>
         <div
           ref={rightPanelRef}
-          className="home-v2-right"
+          className={`home-v2-right ${isInitialLoad ? 'anim-panel-up' : ''}`}
+          style={isInitialLoad ? { animationDelay: '900ms', animationDuration: '800ms', animationTimingFunction: 'ease-out' } : {}}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >

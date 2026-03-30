@@ -1,5 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;700&display=swap');
 
+@keyframes fadeInOpacity {
+  0% { opacity: 0; visibility: hidden; }
+  1% { visibility: visible; }
+  100% { opacity: 1; visibility: visible; }
+}
+
+@keyframes panelFadeInUp {
+  0% { opacity: 0; transform: translateY(10px); visibility: hidden; }
+  1% { visibility: visible; }
+  100% { opacity: 1; transform: translateY(0); visibility: visible; }
+}
+
+.anim-fade-in {
+  opacity: 0;
+  visibility: hidden;
+  animation: fadeInOpacity forwards;
+}
+
+.anim-panel-up {
+  opacity: 0;
+  transform: translateY(10px);
+  visibility: hidden;
+  animation: panelFadeInUp forwards;
+}
+
 .home-v2 {
   font-family: 'IBM Plex Sans', -apple-system, sans-serif;
   background: linear-gradient(to bottom right, #FFFFFF, #EBEBEB);

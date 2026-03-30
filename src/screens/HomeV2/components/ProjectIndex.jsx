@@ -2,13 +2,19 @@ import React, { useEffect, useRef, useState } from 'react';
 import MorphingShape from '../../HomeV1/components/MorphingShape';
 import './ProjectIndex.css';
 
-export default function ProjectIndex({ projects, activeIndex, onSelect, isHovered }) {
+export default function ProjectIndex({ projects, activeIndex, onSelect, isHovered, isInitialLoad, timerActive }) {
   const [clickTrigger, setClickTrigger] = useState(0);
   const isHoveredRef = useRef(isHovered);
+  const timerActiveRef = useRef(timerActive);
 
   useEffect(() => {
     isHoveredRef.current = isHovered;
   }, [isHovered]);
+
+  useEffect(() => {
+    timerActiveRef.current = timerActive;
+  }, [timerActive]);
+
   const [activeVisualIndex, setActiveVisualIndex] = useState(activeIndex);
   const prevActiveRef = useRef(activeIndex);
 
@@ -61,7 +67,7 @@ export default function ProjectIndex({ projects, activeIndex, onSelect, isHovere
       const deltaTime = time - lastTimeRef.current;
       lastTimeRef.current = time;
       
-      if (!isHoveredRef.current) {
+      if (!isHoveredRef.current && timerActiveRef.current) {
         elapsedRef.current += deltaTime;
       }
 
@@ -91,7 +97,12 @@ export default function ProjectIndex({ projects, activeIndex, onSelect, isHovere
   return (
     <div className="project-index">
       <div className="index-top">
-        <h5 className="index-label">Case studies</h5>
+        <h5 
+          className={`index-label ${isInitialLoad ? 'anim-fade-in' : ''}`}
+          style={isInitialLoad ? { animationDelay: '350ms', animationDuration: '500ms', animationTimingFunction: 'ease-out' } : {}}
+        >
+          Case studies
+        </h5>
         <ul className="index-list">
           {projects.map((project, index) => {
             const isLogicalActive = index === activeIndex;
@@ -99,7 +110,8 @@ export default function ProjectIndex({ projects, activeIndex, onSelect, isHovere
             return (
               <li 
                 key={project.id} 
-                className={`index-item ${isVisualActive ? 'active' : ''}`}
+                className={`index-item ${isVisualActive ? 'active' : ''} ${isInitialLoad ? 'anim-fade-in' : ''}`}
+                style={isInitialLoad ? { animationDelay: `${700 + 200 * index}ms`, animationDuration: '500ms', animationTimingFunction: 'ease-out' } : {}}
                 onClick={() => handleSelect(index)}
               >
                 <span className="index-item-text">
@@ -116,7 +128,10 @@ export default function ProjectIndex({ projects, activeIndex, onSelect, isHovere
         </ul>
       </div>
 
-      <div className="index-bottom">
+      <div 
+        className={`index-bottom ${isInitialLoad ? 'anim-fade-in' : ''}`}
+        style={isInitialLoad ? { animationDelay: '1300ms', animationDuration: '500ms', animationTimingFunction: 'ease-out' } : {}}
+      >
         {/* <div className="personal-stats">
           <div className="stat">
             <span className="stat-num">17</span>
