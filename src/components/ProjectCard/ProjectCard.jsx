@@ -96,9 +96,7 @@ function ProjectCard({
         </div>
 
         {/* Case Study Link */}
-        <motion.a
-          whileHover={{ x: isLeft ? 4 : -4 }}
-          transition={{ duration: 0.2 }}
+        <a
           onClick={() => {
             handleClick();
             window.scrollTo({ top: 0 });
@@ -108,11 +106,10 @@ function ProjectCard({
           className="group flex items-center gap-[8px] no-underline text-[18px] font-semibold relative mt-[8px]"
         >
           Case study
-          <motion.div className="transition-transform duration-300 group-hover:translate-x-1">
+          <div className="transition-transform duration-200 ease-out group-hover:translate-x-1">
             <Icon color={color} icon="ep:right" />
-          </motion.div>
-          <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-current transition-all duration-300 group-hover:w-[calc(100%-28px)]" />
-        </motion.a>
+          </div>
+        </a>
       </motion.div>
     </motion.div>
   );

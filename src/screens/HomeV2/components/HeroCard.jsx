@@ -48,10 +48,10 @@ export default function HeroCard({ project, isHovered }) {
               <p className="hero-desc">{project.description}</p>
               <Link 
                 to={project.link} 
-                className="hero-btn"
-                style={project.buttonStyle === 'dark' ? { backgroundColor: '#111827', color: '#FFFFFF' } : { backgroundColor: '#FFFFFF', color: '#111827' }}
+                className={`hero-btn ${project.buttonStyle === 'dark' ? 'dark' : 'light'}`}
               >
-                View case study <Icon icon="material-symbols:arrow-forward" width="20" height="20" />
+                <span>View case study</span>
+                <Icon icon="material-symbols:arrow-forward" width="20" height="20" className="hero-btn-arrow" />
               </Link>
             </div>
           </motion.div>
