@@ -54,41 +54,50 @@ export default function HomeV2() {
   }, []);
   const [isHovered, setIsHovered] = useState(false);
   const scrollTimeoutRef = useRef(null);
+  const rightPanelRef = useRef(null);
 
   // Auto-cycle is now driven visually by the RAF timer in ProjectIndex.jsx
 
   useEffect(() => {
+    const el = rightPanelRef.current;
+    if (!el) return;
+
     const handleWheel = (e) => {
-      // Prevent whole page from scrolling on HomeV2
-      if (Math.abs(e.deltaY) >= 10) {
-        e.preventDefault();
+      // Only intercept wheel events if they hit the deltaY threshold
+      if (Math.abs(e.deltaY) >= 30) {
+        e.preventDefault(); // Do not hijack page scroll globally, just over the panel
+      } else {
+        return; // Ignore micro-scrolls
       }
 
-      // Use a timeout to debounce continuous trackpad scrolling
+      // Ignore further scroll events if in cooldown
       if (scrollTimeoutRef.current) return;
-      if (Math.abs(e.deltaY) < 10) return;
 
-      if (e.deltaY < 0) {
-        // User scrolls 'up' -> next panel (coming from top)
-        setPage(prev => [(prev[0] + 1) % PROJECTS.length, 1]);
-      } else if (e.deltaY > 0) {
-        // User scrolls 'down' -> previous panel (coming from bottom)
-        setPage(prev => [(prev[0] - 1 + PROJECTS.length) % PROJECTS.length, -1]);
-      }
+      setPage(prev => {
+        const currentIndex = prev[0];
+        if (e.deltaY > 0) {
+          // User scrolls down -> advance to next panel
+          return [(currentIndex + 1) % PROJECTS.length, 1];
+        } else if (e.deltaY < 0) {
+          // User scrolls up -> go to previous panel
+          return [(currentIndex - 1 + PROJECTS.length) % PROJECTS.length, -1];
+        }
+        return prev;
+      });
 
-      // Add a debounce delay before the next scroll event can trigger
+      // 700ms cooldown
       scrollTimeoutRef.current = setTimeout(() => {
         scrollTimeoutRef.current = null;
-      }, 800);
+      }, 700);
     };
 
-    // Use passive: false so we can preventDefault
-    window.addEventListener('wheel', handleWheel, { passive: false });
+    // Localized interception on the panel area only
+    el.addEventListener('wheel', handleWheel, { passive: false });
     return () => {
-      window.removeEventListener('wheel', handleWheel);
+      el.removeEventListener('wheel', handleWheel);
       if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current);
     };
-  }, []);
+  }, [setPage]);
 
   const activeProject = PROJECTS[activeIndex];
 
@@ -112,6 +121,7 @@ export default function HomeV2() {
           />
         </div>
         <div
+          ref={rightPanelRef}
           className="home-v2-right"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
