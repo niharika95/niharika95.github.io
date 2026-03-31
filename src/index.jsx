@@ -20,6 +20,7 @@ import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 import Svaasthya from './screens/Svaasthya/Svaasthya';
 import SwiftBikes from './screens/SwiftBikes/SwiftBikes';
 import { createRoot } from 'react-dom/client';
+import Cursor from './components/Cursor/Cursor';
 
 const container = document.getElementById('root');
 const root = createRoot(container);
@@ -27,6 +28,7 @@ const root = createRoot(container);
 root.render(
   <React.StrictMode>
     <HashRouter>
+      <Cursor />
       <ScrollToTop />
       <Routes>
         <Route path="/v2" element={<HomeV2 />} />

@@ -1,0 +1,27 @@
+.cursor-ripples-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 200px;
+  pointer-events: none;
+  z-index: 999998;
+  mix-blend-mode: difference;
+}
+
+/* Universally hide default cursor constraints safely */
+body,
+a,
+button,
+input,
+select,
+textarea,
+[role="button"],
+[role="link"],
+.cursor-pointer,
+.interactive,
+.panel,
+.intro-link,
+.index-item {
+  cursor: none !important;
+}
