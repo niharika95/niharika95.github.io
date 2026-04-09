@@ -9,9 +9,11 @@ const Hero = () => {
 
                 {/* Left Column (Visual) - Spans 6 columns (Desktop), Order 2 (Mobile impliciitly if Text is -1) */}
                 <div className="col-span-12 md:col-span-6 flex justify-center items-center">
-                    <motion.img
-                        src="/images/projects/ramen-nagi/Ramen-nagi-app-in-hand.png"
-                        alt="Hand holding phone with Ramen Nagi app"
+                    <motion.video
+                        src="/images/projects/ramen-nagi/Final video - Ramen Nagi hero clip.mp4"
+                        autoPlay
+                        muted
+                        playsInline
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
