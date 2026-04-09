@@ -128,10 +128,10 @@ export default function HomeV2() {
   return (
     <div className="home-v2">
       <header className="home-v2-header">
-        <Link to="/" className={`home-v2-logo ${isInitialLoad ? 'anim-fade-in' : ''}`} style={isInitialLoad ? { animationDelay: '0ms', animationDuration: '600ms', animationTimingFunction: 'ease-out' } : {}}>Niharika Dalal</Link>
+        <Link to="/" className={`home-v2-logo ${isInitialLoad ? 'anim-fade-in' : ''}`} style={isInitialLoad ? { animationDelay: '0ms', animationDuration: '600ms', animationTimingFunction: 'ease-out' } : {}}><span className="nav-text">Niharika Dalal</span></Link>
         <div className="home-v2-nav">
-          <Link to="/about" className={`home-v2-link ${isInitialLoad ? 'anim-fade-in' : ''}`} style={isInitialLoad ? { animationDelay: '200ms', animationDuration: '600ms', animationTimingFunction: 'ease-out' } : {}}>About</Link>
-          <Link to="/resume" className={`home-v2-link ${isInitialLoad ? 'anim-fade-in' : ''}`} style={isInitialLoad ? { animationDelay: '200ms', animationDuration: '600ms', animationTimingFunction: 'ease-out' } : {}}>Resume</Link>
+          <Link to="/about" className={`home-v2-link ${isInitialLoad ? 'anim-fade-in' : ''}`} style={isInitialLoad ? { animationDelay: '200ms', animationDuration: '600ms', animationTimingFunction: 'ease-out' } : {}}><span className="nav-text">About</span></Link>
+          <Link to="/resume" className={`home-v2-link ${isInitialLoad ? 'anim-fade-in' : ''}`} style={isInitialLoad ? { animationDelay: '200ms', animationDuration: '600ms', animationTimingFunction: 'ease-out' } : {}}><span className="nav-text">Resume</span></Link>
         </div>
       </header>
 

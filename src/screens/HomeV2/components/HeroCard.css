@@ -84,7 +84,46 @@
   text-decoration: none;
   font-size: 16px;
   font-weight: 400;
-  transition: background-color 200ms ease-out;
+  transition: all 400ms ease-out;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.hero-btn::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(
+    90deg,
+    #00AFD2 0%,
+    #0012D2 12.5%,
+    #7000D2 25%,
+    #B200D2 50%,
+    #7000D2 75%,
+    #0012D2 87.5%,
+    #00AFD2 100%
+  );
+  background-size: 200% 100%;
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 400ms ease-out;
+  border-radius: inherit;
+}
+
+.hero-btn:hover {
+  color: #FFFFFF !important;
+  border-color: transparent;
+}
+
+.hero-btn:hover::before {
+  opacity: 1;
+  animation: hero-gradient-shimmer 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes hero-gradient-shimmer {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
 }
 
 .hero-btn.light {

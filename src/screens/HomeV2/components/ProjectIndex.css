@@ -36,9 +36,23 @@
   transition: color 400ms ease-in-out;
 }
 
-.index-item:hover {
-  color: #000000;
-  /* Black */
+.index-item:hover .index-item-text {
+  background-image: linear-gradient(
+    90deg,
+    #00AFD2 0%,
+    #0012D2 12.5%,
+    #7000D2 25%,
+    #B200D2 50%,
+    #7000D2 75%,
+    #0012D2 87.5%,
+    #00AFD2 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent !important;
+  animation: text-gradient-shimmer 2.5s ease-in-out infinite alternate;
 }
 
 .index-item.active {
@@ -154,11 +168,29 @@
 }
 
 .social-links-text a:hover {
-  color: #000000;
-  /* Black text */
-  text-decoration-color: #000000;
-  /* Black underline */
+  background-image: linear-gradient(
+    90deg,
+    #00AFD2 0%,
+    #0012D2 12.5%,
+    #7000D2 25%,
+    #B200D2 50%,
+    #7000D2 75%,
+    #0012D2 87.5%,
+    #00AFD2 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent !important;
+  text-decoration-color: transparent;
+  animation: text-gradient-shimmer 2.5s ease-in-out infinite alternate;
   opacity: 1;
+}
+
+@keyframes text-gradient-shimmer {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
 }
 
 .social-links-text .separator {
