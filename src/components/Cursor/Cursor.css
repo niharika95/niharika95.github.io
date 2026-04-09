@@ -2,13 +2,66 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 20px;
-  height: 20px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
-  background-color: white;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(8px) saturate(180%);
+  -webkit-backdrop-filter: blur(8px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1), inset 0 0 10px rgba(255, 255, 255, 0.3);
   pointer-events: none;
   z-index: 999998;
-  mix-blend-mode: difference;
+}
+
+.cursor-tooltip {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: calc(100% + 4px);
+  background-image: linear-gradient(
+    90deg,
+    #00AFD2 0%,
+    #0012D2 12.5%,
+    #7000D2 25%,
+    #B200D2 50%,
+    #7000D2 75%,
+    #0012D2 87.5%,
+    #00AFD2 100%
+  );
+  background-size: 200% 100%;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+  pointer-events: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.custom-cursor.show-tooltip .cursor-tooltip {
+  opacity: 1;
+  visibility: visible;
+  animation: tooltip-gradient-shimmer 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes tooltip-gradient-shimmer {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* JS-driven bounds adjustments */
+.custom-cursor.tooltip-up .cursor-tooltip {
+  top: auto;
+  bottom: calc(100% + 8px);
+}
+
+.custom-cursor.tooltip-left .cursor-tooltip {
+  left: auto;
+  right: calc(100% + 8px);
 }
 
 /* Universally hide default cursor constraints safely */

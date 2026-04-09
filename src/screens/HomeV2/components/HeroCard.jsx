@@ -3,14 +3,13 @@ import { Link } from 'react-router-dom';
 import { Icon } from '@iconify/react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './HeroCard.css';
-import AnimatedPillButton from '../../../components/AnimatedPillButton/AnimatedPillButton';
 
 export default function HeroCard({ project, isHovered }) {
   if (!project) return null;
 
   return (
     <div className="hero-card-layout">
-      <div className={`hero-card-viewport ${project.hasBorder ? 'panel-border' : ''}`}>
+      <Link to={project.link} style={{ display: 'block', textDecoration: 'none', color: 'inherit' }} className={`hero-card-viewport ${project.hasBorder ? 'panel-border' : ''}`}>
         <AnimatePresence initial={false}>
           <motion.div
             key={`img-${project.id}`}
@@ -47,19 +46,10 @@ export default function HeroCard({ project, isHovered }) {
             >
               <h1 className="hero-title">{project.cardTitle}</h1>
               <p className="hero-desc">{project.description}</p>
-              <AnimatedPillButton 
-                as="link"
-                to={project.link} 
-                className={`hero-btn ${project.buttonStyle === 'dark' ? 'dark' : 'light'}`}
-                strokeColor={project.buttonStyle === 'dark' ? '#1A1A1A' : '#FFFFFF'}
-              >
-                <span>View case study</span>
-                <Icon icon="material-symbols:arrow-forward" width="20" height="20" className="hero-btn-arrow" />
-              </AnimatedPillButton>
             </div>
           </motion.div>
         </AnimatePresence>
-      </div>
+      </Link>
 
     </div>
   );
