@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import ProjectIndex from './components/ProjectIndex';
 import HeroCard from './components/HeroCard';
+import HeaderV2 from '../../components/HeaderV2/HeaderV2';
 import './HomeV2.css';
 
 const PROJECTS = [
@@ -127,13 +128,7 @@ export default function HomeV2() {
 
   return (
     <div className="home-v2">
-      <header className="home-v2-header">
-        <Link to="/" className={`home-v2-logo ${isInitialLoad ? 'anim-fade-in' : ''}`} style={isInitialLoad ? { animationDelay: '0ms', animationDuration: '600ms', animationTimingFunction: 'ease-out' } : {}}><span className="nav-text">Niharika Dalal</span></Link>
-        <div className="home-v2-nav">
-          <Link to="/about" className={`home-v2-link ${isInitialLoad ? 'anim-fade-in' : ''}`} style={isInitialLoad ? { animationDelay: '200ms', animationDuration: '600ms', animationTimingFunction: 'ease-out' } : {}}><span className="nav-text">About</span></Link>
-          <Link to="/resume" className={`home-v2-link ${isInitialLoad ? 'anim-fade-in' : ''}`} style={isInitialLoad ? { animationDelay: '200ms', animationDuration: '600ms', animationTimingFunction: 'ease-out' } : {}}><span className="nav-text">Resume</span></Link>
-        </div>
-      </header>
+      <HeaderV2 isInitialLoad={isInitialLoad} />
 
       <main className="home-v2-main">
         <div className="home-v2-left">
