@@ -12,6 +12,7 @@ import LoanAppExperienceOptimization from './screens/LoanAppExperienceOptimizati
 import MainLayout from './components/MainLayout/MainLayout';
 import Project from './screens/Project/Project';
 import RamenNagiCaseStudy from './screens/RamenNagiCaseStudy/RamenNagiCaseStudy';
+import Presentation from './screens/Presentation/Presentation';
 import React from 'react';
 import Resume from './screens/Resume/Resume';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
@@ -28,6 +29,7 @@ root.render(
     <HashRouter>
       <ScrollToTop />
       <Routes>
+        <Route path="/presentation" element={<Presentation />} />
         <Route element={<MainLayout />}>
           <Route path="/" element={<Home />} />
           <Route path="/#projects" element={<Home />} />
