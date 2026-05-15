@@ -3,54 +3,47 @@ import './Cursor.css';
 
 export default function Cursor() {
   const cursorRef = useRef(null);
-  const isHoveringPanelRef = useRef(false);
-  const [tooltipVisible, setTooltipVisible] = useState(false);
+  const [activeState, setActiveState] = useState(''); // '' or 'project'
 
   useEffect(() => {
-    let animationFrameId;
+    let rafId;
 
     const handleMouseMove = (e) => {
-      // 1. Fast path transform for position
-      if (animationFrameId) cancelAnimationFrame(animationFrameId);
-      animationFrameId = requestAnimationFrame(() => {
+      if (rafId) cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(() => {
         if (cursorRef.current) {
           cursorRef.current.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0) translate(-50%, -50%)`;
-          
-          // Edge detection for bottom overflow
-          if (e.clientY > window.innerHeight - 50) {
-            cursorRef.current.classList.add('tooltip-up');
-          } else {
-            cursorRef.current.classList.remove('tooltip-up');
-          }
-
-          // Edge detection for sides
-          if (e.clientX > window.innerWidth - 160) {
-            cursorRef.current.classList.add('tooltip-left');
-          } else {
-            cursorRef.current.classList.remove('tooltip-left');
-          }
         }
       });
 
-      // 2. Discover hover targets
+      // Discover hover targets
       const target = e.target;
       if (!target) return;
-      const isPanel = !!target.closest('.hero-card-viewport');
-      if (isHoveringPanelRef.current !== isPanel) {
-        isHoveringPanelRef.current = isPanel;
-        setTooltipVisible(isPanel);
+
+      const isProjectPanel = !!target.closest('.hero-card-viewport');
+      const isInteractive = !!target.closest('a, button, [role="button"], .interactive-element');
+      
+      if (isProjectPanel) {
+        if (activeState !== 'project') setActiveState('project');
+      } else if (isInteractive) {
+        if (activeState !== 'hover') setActiveState('hover');
+      } else {
+        if (activeState !== '') setActiveState('');
       }
     };
 
     window.addEventListener('mousemove', handleMouseMove, { passive: true });
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
-      if (animationFrameId) cancelAnimationFrame(animationFrameId);
+      if (rafId) cancelAnimationFrame(rafId);
     };
-  }, []);
+  }, [activeState]);
 
   return (
-    <div ref={cursorRef} className={`custom-cursor ${tooltipVisible ? 'show-tooltip' : ''}`}>
+    <div 
+      ref={cursorRef} 
+      className={`custom-cursor ${activeState}`}
+    >
       <div className="cursor-tooltip">View case study</div>
     </div>
   );

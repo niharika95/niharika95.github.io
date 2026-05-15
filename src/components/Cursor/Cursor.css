@@ -2,50 +2,66 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(8px) saturate(180%);
-  -webkit-backdrop-filter: blur(8px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1), inset 0 0 10px rgba(255, 255, 255, 0.3);
+  background: rgba(30, 30, 30, 0.15); /* Darker tint */
+  backdrop-filter: url(#liquidGlass) blur(6px) brightness(0.85); /* Reduced brightness for dark glass effect */
+  -webkit-backdrop-filter: blur(6px) brightness(0.85);
+  border: 1px solid rgba(0, 0, 0, 0.15); /* Darker border silhouette */
+  box-shadow: 
+    inset 1px 1px 1px 0 rgba(255, 255, 255, 0.2), /* Subtle top-left highlight */
+    0 10px 25px rgba(0, 0, 0, 0.12);
   pointer-events: none;
-  z-index: 999998;
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 
+    width 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+    height 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+    border-radius 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+    background 0.3s ease,
+    border-color 0.3s ease;
+  overflow: hidden;
+}
+
+.custom-cursor.hover {
+  width: 44px;
+  height: 44px;
+  background: rgba(30, 30, 30, 0.25);
+  border-color: rgba(0, 0, 0, 0.25);
+}
+
+.custom-cursor.project {
+  width: 140px;
+  height: 48px;
+  border-radius: 24px;
+  background: rgba(10, 10, 15, 0.85); /* Very dark glass for the button */
+  border-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .cursor-tooltip {
-  position: absolute;
-  top: calc(100% + 4px);
-  left: calc(100% + 4px);
-  background-image: linear-gradient(
-    90deg,
-    #00AFD2 0%,
-    #0012D2 12.5%,
-    #7000D2 25%,
-    #B200D2 50%,
-    #7000D2 75%,
-    #0012D2 87.5%,
-    #00AFD2 100%
-  );
-  background-size: 200% 100%;
-  color: white;
-  padding: 6px 14px;
-  border-radius: 20px;
+  color: #fff;
+  padding: 0;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 700;
+  letter-spacing: 0.02em;
   white-space: nowrap;
   opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.25s ease, visibility 0.25s ease;
+  transform: scale(0.85);
+  transition: 
+    opacity 0.3s cubic-bezier(0.23, 1, 0.32, 1),
+    transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
   pointer-events: none;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
 }
 
-.custom-cursor.show-tooltip .cursor-tooltip {
+.custom-cursor.project .cursor-tooltip {
   opacity: 1;
-  visibility: visible;
-  animation: tooltip-gradient-shimmer 2.5s ease-in-out infinite alternate;
+  transform: scale(1);
 }
 
 @keyframes tooltip-gradient-shimmer {
@@ -53,16 +69,7 @@
   100% { background-position: 100% 50%; }
 }
 
-/* JS-driven bounds adjustments */
-.custom-cursor.tooltip-up .cursor-tooltip {
-  top: auto;
-  bottom: calc(100% + 8px);
-}
-
-.custom-cursor.tooltip-left .cursor-tooltip {
-  left: auto;
-  right: calc(100% + 8px);
-}
+/* Removed edge detection positioning since tooltip is now centered inside cursor */
 
 /* Universally hide default cursor constraints safely */
 body,
