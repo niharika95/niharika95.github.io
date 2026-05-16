@@ -8,15 +8,6 @@ import './HomeV2.css';
 const PROJECTS = [
   {
     id: 1,
-    sidebarTitle: 'Waitlist system for Ramen Nagi',
-    cardTitle: <>Eliminating the 2 hour wait at Ramen Nagi</>,
-    description: 'A hybrid system that eliminates physical waiting without sacrificing the walk-in culture of a successful restaurant.',
-    image: "/images/projects/ramen-nagi/panel-1-ramen-nagi.png",
-    link: '/v2/ramen-nagi',
-    contentCols: 4
-  },
-  {
-    id: 2,
     sidebarTitle: 'Insurance company website redesign',
     cardTitle: 'Redesigning the digital face of a $1 billion-bound insurer',
     description: 'A full redesign serving two distinct audiences, built to scale with the business.',
@@ -27,24 +18,34 @@ const PROJECTS = [
     hasBorder: true
   },
   {
+    id: 2,
+    sidebarTitle: 'Exposure tool',
+    cardTitle: 'Exposure tool',
+    description: 'A new decision-support tool for making complex risk and portfolio exposure easier to understand.',
+    image: '/images/home/campaign-builder-color.png',
+    link: '/v2/exposure-tool',
+    buttonStyle: 'dark',
+    contentCols: 5,
+    hasBorder: true
+  },
+  {
     id: 3,
+    sidebarTitle: 'Waitlist system for Ramen Nagi',
+    cardTitle: <>Eliminating the 2 hour wait at Ramen Nagi</>,
+    description: 'A hybrid system that eliminates physical waiting without sacrificing the walk-in culture of a successful restaurant.',
+    image: "/images/projects/ramen-nagi/panel-1-ramen-nagi.png",
+    link: '/v2/ramen-nagi',
+    contentCols: 4
+  },
+  {
+    id: 4,
     sidebarTitle: 'Loan application optimization',
     cardTitle: '36% faster digital loan application experience',
     description: 'Streamlined a flow that was losing users it had already pre-approved, using progressive disclosure and smart defaults.',
     image: '/images/projects/loan-app-experience-optimization/panel-3-loan-application.png',
-    link: '/loan-app-experience-optimization',
+    link: '/v2/loan-app-experience-optimization',
     buttonStyle: 'light',
     contentCols: 5
-  },
-  {
-    id: 4,
-    sidebarTitle: 'Credit evaluation tool for counselors',
-    cardTitle: 'A 60% productivity gain for university counselors',
-    description: 'Replaced a manual, error-prone transfer credit evaluation process with an intelligent tool that automated the heavy lifting.',
-    image: '/images/projects/admissions-process-acceleration/panel-4-university-acceleration.png',
-    link: '/admissions-process-acceleration',
-    buttonStyle: 'dark',
-    contentCols: 6
   }
 ];
 
