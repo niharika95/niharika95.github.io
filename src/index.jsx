@@ -32,7 +32,12 @@ root.render(
       <ScrollToTop />
       <Routes>
         <Route path="/v2" element={<HomeV2 />} />
+        <Route path="/v2/exposure-tool" />
+        <Route path="/v2/insurance-company-website-redesign" element={<InsuranceCompanyWebsiteRedesign />} />
         <Route path="/v2/ramen-nagi" element={<RamenNagiCaseStudy />} />
+        <Route path="/v2/loan-app-experience-optimization" element={<LoanAppExperienceOptimization />} />
+        <Route path="/v2/about" />
+        <Route path="/v2/resume" />
         <Route path="/v1" element={<HomeV1 />} />
         <Route element={<MainLayout />}>
           <Route path="/" element={<Home />} />

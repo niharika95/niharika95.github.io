@@ -152,7 +152,7 @@ export default function ProjectIndex({ projects, activeIndex, onSelect, isHovere
         </p>
 
         <div className="social-links-text">
-          <a href="https://www.linkedin.com/in/niharika-dalal-b47253b2/" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.linkedin.com/in/niharikadalal" target="_blank" rel="noopener noreferrer">
             LinkedIn
           </a>
           <span className="separator">|</span>

@@ -21,7 +21,7 @@ const PROJECTS = [
     cardTitle: 'Redesigning the digital face of a $1 billion-bound insurer',
     description: 'A full redesign serving two distinct audiences, built to scale with the business.',
     image: '/images/projects/insurance-company-website-design/panel-2-insurance-website.png',
-    link: '/insurance-company-website-redesign',
+    link: '/v2/insurance-company-website-redesign',
     buttonStyle: 'dark',
     contentCols: 4,
     hasBorder: true
