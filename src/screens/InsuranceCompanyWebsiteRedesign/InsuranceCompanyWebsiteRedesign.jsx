@@ -4,7 +4,7 @@ import { useAnalytics } from '../../hooks/useAnalytics';
 import { useScrollTracking } from '../../hooks/useScrollTracking';
 import { useTimeTracking } from '../../hooks/useTimeTracking';
 import { Link } from 'react-router-dom';
-import { Workflow, Frown, ArrowDown, Terminal } from 'lucide-react';
+import { Workflow, Frown, ArrowDown, Terminal, ChevronLeft } from 'lucide-react';
 
 const TOC = [
   { id: 'intro', label: 'Intro' },
@@ -66,7 +66,10 @@ const InsuranceCompanyWebsiteRedesign = () => {
         {/* Left Sidebar TOC */}
         <aside className="hidden lg:block w-[180px] flex-shrink-0 sticky top-[130px] self-start max-h-[calc(100vh-140px)] overflow-y-auto">
           <nav className="flex flex-col gap-[40px] text-[14px] leading-[1.5] font-light">
-            <Link to="/v2" className="text-[#A0A0A0] nav-item-shimmer transition-colors">Home</Link>
+            <Link to="/v2" className="back-link-group inline-flex items-center text-[#999] transition-colors duration-200 gap-1 font-sans text-base font-medium -ml-1">
+                <ChevronLeft size={20} className="icon-solid-hover transition-colors duration-200" />
+                <span className="shimmer-text">Home</span>
+            </Link>
             <div className="flex flex-col gap-[12px]">
               {TOC.map((item) => (
                 <a
