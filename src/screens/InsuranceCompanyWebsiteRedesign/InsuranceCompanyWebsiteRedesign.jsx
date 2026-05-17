@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import HeaderV2 from '../../components/HeaderV2/HeaderV2';
+import Typography from '../../components/Typography';
 import { useAnalytics } from '../../hooks/useAnalytics';
 import { useScrollTracking } from '../../hooks/useScrollTracking';
 import { useTimeTracking } from '../../hooks/useTimeTracking';
@@ -63,8 +64,8 @@ const heuristicIssues = [
 ];
 
 const Placeholder = ({ children, className = '' }) => (
-  <div className={`rounded-[18px] bg-[#F3F3F3] min-h-[320px] flex items-center justify-center text-center text-[14px] text-[#1A1A1A] px-8 ${className}`}>
-    {children}
+  <div className={`rounded-[18px] bg-[#F3F3F3] min-h-[320px] flex items-center justify-center text-center text-[#1A1A1A] px-8 ${className}`}>
+    <Typography as="span" variant="smallRegular">{children}</Typography>
   </div>
 );
 
@@ -76,17 +77,31 @@ const ImageFrame = ({ src, alt, className = '', imgClassName = 'w-full h-auto' }
 
 const Section = ({ id, title, children, className = '' }) => (
   <section id={id} className={`scroll-mt-28 mb-[92px] ${className}`}>
-    {title && <h2 className="text-[28px] leading-[1.25] font-normal tracking-[-0.01em] mb-8 text-[#1A1A1A]">{title}</h2>}
+    {title && (
+      <Typography as="h2" variant="h5Regular" className="mb-8 text-[#1A1A1A]">
+        {title}
+      </Typography>
+    )}
     {children}
   </section>
 );
 
 const Subhead = ({ children }) => (
-  <h3 className="text-[16px] leading-[1.4] font-semibold text-[#1A1A1A] mb-3">{children}</h3>
+  <Typography as="h3" variant="smallRegular" className="mb-3 text-[#1A1A1A]" style={{ fontWeight: 600 }}>
+    {children}
+  </Typography>
 );
 
 const Paragraph = ({ children, className = '' }) => (
-  <p className={`text-[16px] leading-[32px] text-[#1A1A1A] ${className}`}>{children}</p>
+  <Typography as="p" variant="bodyRegular" className={`text-[#1A1A1A] ${className}`}>
+    {children}
+  </Typography>
+);
+
+const Caption = ({ children, className = '' }) => (
+  <Typography as="p" variant="extraSmallRegular" className={`text-[#1A1A1A] ${className}`}>
+    {children}
+  </Typography>
 );
 
 const InsuranceCompanyWebsiteRedesign = () => {
@@ -130,16 +145,16 @@ const InsuranceCompanyWebsiteRedesign = () => {
   };
 
   return (
-    <div className="bg-white text-[#1A1A1A] min-h-screen" style={{ fontFamily: "'Mulish', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
+    <div className="bg-white text-[#1A1A1A] min-h-screen">
       <HeaderV2 />
 
       <div className="max-w-[1440px] mx-auto px-5 lg:px-10 flex pt-10 pb-32">
         {/* Left Sidebar TOC */}
         <aside className="hidden lg:block w-[180px] flex-shrink-0 sticky top-[130px] self-start max-h-[calc(100vh-140px)] overflow-y-auto">
-          <nav className="flex flex-col gap-[40px] text-[14px] leading-[1.5] font-light">
+          <nav className="flex flex-col gap-[40px]">
             <Link to="/v2" className="back-link-group inline-flex items-center text-[#999] transition-colors duration-200 gap-1 font-sans text-base font-medium -ml-1">
                 <ChevronLeft size={20} className="icon-solid-hover transition-colors duration-200" />
-                <span className="shimmer-text">Home</span>
+                <Typography as="span" variant="smallLight" className="shimmer-text">Home</Typography>
             </Link>
             <div className="flex flex-col gap-[12px]">
               {TOC.map((item) => (
@@ -150,7 +165,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
                   className={`transition-colors ${activeSection === item.id ? 'text-[#000]' : 'text-[#A0A0A0] nav-item-shimmer'
                     }`}
                 >
-                  {item.label}
+                  <Typography as="span" variant="extraSmallRegular">{item.label}</Typography>
                 </a>
               ))}
             </div>
@@ -161,18 +176,18 @@ const InsuranceCompanyWebsiteRedesign = () => {
         <main className="w-full max-w-[720px] mx-auto lg:ml-20 xl:ml-32">
 
           <section id="intro" className="scroll-mt-28 mb-[80px]">
-            <h1 className="text-[36px] md:text-[44px] leading-[1.22] font-normal tracking-[-0.02em] mb-[70px] text-[#1A1A1A] max-w-[680px]">
+            <Typography as="h1" variant="h2Regular" className="mb-[70px] text-[#1A1A1A] max-w-[680px]">
               Redesign that improved site performance by 37% and resolved 53 heuristic issues.
-            </h1>
+            </Typography>
 
-            <div className="flex flex-col mb-[86px] text-[15px] text-[#6F6F6F] gap-4 leading-[28px]">
+            <div className="flex flex-col mb-[86px] text-[#6F6F6F] gap-4">
               <div className="flex gap-4">
-                <span className="w-[50px] flex-shrink-0">Role</span>
-                <span>UX/UI Designer, 10 months</span>
+                <Typography as="span" variant="smallRegular" className="w-[50px] flex-shrink-0">Role</Typography>
+                <Typography as="span" variant="smallRegular">UX/UI Designer, 10 months</Typography>
               </div>
               <div className="flex flex-col md:flex-row gap-4 md:items-start">
-                <span className="w-[50px] flex-shrink-0">Team</span>
-                <span className="max-w-[500px]">Product Manager, Product Owner, 2 UX/UI Designers, Content Writer, Webflow Developer, Drupal Developer</span>
+                <Typography as="span" variant="smallRegular" className="w-[50px] flex-shrink-0">Team</Typography>
+                <Typography as="span" variant="smallRegular" className="max-w-[500px]">Product Manager, Product Owner, 2 UX/UI Designers, Content Writer, Webflow Developer, Drupal Developer</Typography>
               </div>
             </div>
 
@@ -191,9 +206,9 @@ const InsuranceCompanyWebsiteRedesign = () => {
               {metrics.map((metric) => (
                 <div key={metric.label} className="flex justify-center">
                   <div className="w-[130px] text-center">
-                    <div className="text-[28px] leading-none font-semibold tracking-[-0.02em] text-[#000] mb-3">{metric.value}</div>
-                    <p className="text-[12px] leading-[18px] text-[#1A1A1A]">{metric.label}</p>
-                    <p className="text-[12px] leading-[18px] text-[#1A1A1A]">{metric.detail}</p>
+                    <Typography as="div" variant="h5Regular" className="text-[#000] mb-3" style={{ fontWeight: 600, lineHeight: 1 }}>{metric.value}</Typography>
+                    <Typography variant="extraSmallRegular" className="text-[#1A1A1A]">{metric.label}</Typography>
+                    <Typography variant="extraSmallRegular" className="text-[#1A1A1A]">{metric.detail}</Typography>
                   </div>
                 </div>
               ))}
@@ -205,12 +220,12 @@ const InsuranceCompanyWebsiteRedesign = () => {
           </section>
 
           <section id="problems" className="scroll-mt-28 mb-[84px]">
-            <h2 className="text-[24px] leading-[1.35] font-normal mb-8 text-[#1A1A1A]">The gap between ambition and reality</h2>
+            <Typography as="h2" variant="h6Regular" className="mb-8 text-[#1A1A1A]">The gap between ambition and reality</Typography>
             <div className="flex flex-col gap-6 mb-[56px]">
               {problemAreas.map(({ icon, label }) => (
                 <div key={label} className="flex items-center gap-5">
                   <Icon icon={icon} className="text-[#D43A4B] flex-shrink-0 text-[20px]" />
-                  <span className="text-[15px] leading-[24px] font-semibold text-[#1A1A1A]">{label}</span>
+                  <Typography as="span" variant="smallRegular" className="text-[#1A1A1A]" style={{ fontWeight: 600 }}>{label}</Typography>
                 </div>
               ))}
             </div>
@@ -219,31 +234,31 @@ const InsuranceCompanyWebsiteRedesign = () => {
               Brand audit board export needed: button styles, image styles, card styles, and icon system.
             </Placeholder>
 
-            <Paragraph className="mb-8 text-[13px] leading-[24px]">
+            <Caption className="mb-8">
               The absence of a unified design system resulted in inconsistent button, card, and icon styles that diluted the brand identity.
-            </Paragraph>
+            </Caption>
 
             <div className="grid md:grid-cols-2 gap-6 mb-[72px]">
               <div>
                 <Placeholder className="min-h-[210px] text-[13px] mb-4">Content audit/state page export needed.</Placeholder>
-                <Paragraph className="text-[13px] leading-[24px]">
+                <Caption>
                   Inconsistent data architecture across state pages created a fragmented and unpredictable user experience.
-                </Paragraph>
+                </Caption>
               </div>
               <div>
                 <Placeholder className="min-h-[210px] text-[13px] mb-4">Long text content page export needed.</Placeholder>
-                <Paragraph className="text-[13px] leading-[24px]">
+                <Caption>
                   Jarring background colors and poor contrast ratios created significant eye strain and accessibility barriers.
-                </Paragraph>
+                </Caption>
               </div>
             </div>
 
             <blockquote className="relative pl-12 mb-[64px]">
               <Icon icon="material-symbols:format-quote-rounded" className="absolute left-0 top-1 text-[30px] text-[#1A1A1A] scale-x-[-1]" />
-              <p className="text-[22px] leading-[36px] italic text-[#1A1A1A] mb-5">
+              <Typography as="p" variant="h6Regular" className="italic text-[#1A1A1A] mb-5" style={{ lineHeight: '36px' }}>
                 The new site must be visually striking, bold, and impactful, with seamless functionality and exceptional B2B and B2C content. We aim to create an enjoyable experience where customers, independent agents, prospective customers, employees and potential investors can easily find what they need and accomplish their tasks with minimal efforts and few clicks.
-              </p>
-              <cite className="block text-[14px] not-italic text-[#4F4F4F]">— Client</cite>
+              </Typography>
+              <Typography as="cite" variant="extraSmallRegular" className="block not-italic text-[#4F4F4F]">— Client</Typography>
             </blockquote>
           </section>
 
@@ -251,9 +266,9 @@ const InsuranceCompanyWebsiteRedesign = () => {
             <div className="grid sm:grid-cols-3 gap-5 mb-8">
               {auditStats.map((stat) => (
                 <div key={stat.label} className="rounded-[16px] bg-[#F3F3F3] p-5 min-h-[116px]">
-                  <div className="text-[28px] leading-none font-semibold tracking-[-0.02em] mb-3">{stat.value}</div>
-                  <p className="font-['IBM_Plex_Sans'] text-[18px] leading-[36px] font-normal">{stat.label}</p>
-                  {stat.detail && <p className="font-['IBM_Plex_Sans'] text-[12px] leading-[18px] font-normal text-[#777]">{stat.detail}</p>}
+                  <Typography as="div" variant="h5Regular" className="mb-3" style={{ fontWeight: 600, lineHeight: 1 }}>{stat.value}</Typography>
+                  <Typography variant="bodyRegular" style={{ lineHeight: 2 }}>{stat.label}</Typography>
+                  {stat.detail && <Typography variant="extraSmallRegular" className="text-[#777]">{stat.detail}</Typography>}
                 </div>
               ))}
             </div>
@@ -271,13 +286,13 @@ const InsuranceCompanyWebsiteRedesign = () => {
 
             <div className="rounded-[18px] bg-[#F7F7F7] p-8 md:p-10">
               <div className="flex items-center justify-between mb-8">
-                <h3 className="text-[16px] font-normal">Heuristic issues</h3>
-                <span className="text-[14px]">56 total.</span>
+                <Typography as="h3" variant="smallRegular">Heuristic issues</Typography>
+                <Typography as="span" variant="extraSmallRegular">56 total.</Typography>
               </div>
               <div className="space-y-6">
                 {heuristicIssues.map((issue) => (
-                  <div key={issue.label} className="grid grid-cols-[120px,1fr,28px] sm:grid-cols-[180px,1fr,32px] items-center gap-4 sm:gap-5 text-[12px] sm:text-[13px] leading-[18px]">
-                    <span>{issue.label}</span>
+                  <div key={issue.label} className="grid grid-cols-[120px,1fr,28px] sm:grid-cols-[180px,1fr,32px] items-center gap-4 sm:gap-5">
+                    <Typography as="span" variant="extraSmallRegular">{issue.label}</Typography>
                     <div className="h-px bg-[#D6D6D6] relative">
                       <span
                         className={`absolute left-0 top-1/2 h-[2px] -translate-y-1/2 ${issue.value ? 'bg-[#E0003D]' : 'bg-[#BDBDBD]'}`}
@@ -290,7 +305,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
                         />
                       )}
                     </div>
-                    <span className="text-right">{issue.value || '-'}</span>
+                    <Typography as="span" variant="extraSmallRegular" className="text-right">{issue.value || '-'}</Typography>
                   </div>
                 ))}
               </div>
@@ -301,9 +316,9 @@ const InsuranceCompanyWebsiteRedesign = () => {
             <Paragraph className="mb-6">
               The company serves two audiences: <strong className="font-semibold">homeowners</strong> and <strong className="font-semibold">agents</strong>. Research revealed that the affluent and established homeowner persona responded to credibility over price. That profile directly shaped the visual direction.
             </Paragraph>
-            <p className="text-[17px] sm:text-[19px] leading-[32px] sm:leading-[34px] font-semibold mb-10">
+            <Typography variant="bodySemibold" className="mb-10">
               35-64 primary age range &nbsp;•&nbsp; 28% earning $150K+ &nbsp;•&nbsp; 54% owning homes valued $300K-$749K &nbsp;•&nbsp; concentrated in states SC, MS, AL
-            </p>
+            </Typography>
             <ImageFrame
               src={`${ASSET_PATH}/persona1.png`}
               alt="Homeowner persona"
@@ -317,10 +332,10 @@ const InsuranceCompanyWebsiteRedesign = () => {
             <Paragraph className="mb-4">
               Analyzing 8 competitors surfaced gaps in the information architecture that were common across the landscape but absent from the client site:
             </Paragraph>
-            <ul className="list-disc pl-6 text-[16px] leading-[32px] mb-4">
-              <li>a Spanish language toggle</li>
-              <li>direct contact number</li>
-              <li>sustainability and diversity sections</li>
+            <ul className="list-disc pl-6 mb-4">
+              <Typography as="li" variant="bodyRegular">a Spanish language toggle</Typography>
+              <Typography as="li" variant="bodyRegular">direct contact number</Typography>
+              <Typography as="li" variant="bodyRegular">sustainability and diversity sections</Typography>
             </ul>
             <Paragraph className="mb-8">
               Each was recommended and declined for operational and strategic reasons, sharpening our understanding of the company's constraints.
@@ -343,7 +358,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
               <img
                 src={`${ASSET_PATH}/microsoft-copilot-logo.svg`}
                 alt="Microsoft Copilot"
-                className="mt-2 h-auto w-[64px] flex-shrink-0"
+                className="mt-1 size-6 flex-shrink-0"
               />
               <Paragraph>
                 Cross-referencing the existing site structure against insurance industry norms with Microsoft Copilot helped sharpen what content each screen needed to carry.
@@ -429,7 +444,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
             </Paragraph>
             <Placeholder className="mb-16">[Claims form - before vs after]</Placeholder>
 
-            <h2 className="text-[28px] leading-[1.25] font-normal tracking-[-0.01em] mb-8 text-[#1A1A1A]">Building for Scale</h2>
+            <Typography as="h2" variant="h5Regular" className="mb-8 text-[#1A1A1A]">Building for Scale</Typography>
             <Paragraph className="mb-8">
               With the company actively expanding coverage and exploring new product lines, the redesign introduced 30+ reusable section components across 40+ screens, with state pages templated from the ground up. Entering a new state or extending the system to a new product no longer requires a design or development decision. The structure absorbs expansion.
             </Paragraph>
@@ -445,10 +460,10 @@ const InsuranceCompanyWebsiteRedesign = () => {
           </Section>
 
           <Section id="learnings" title="Challenges & Learnings" className="mb-0">
-            <ul className="text-[16px] leading-[32px] text-[#1A1A1A] space-y-2">
-              <li>Engage final decision-makers early, not just the marketing team.</li>
-              <li>Advocate for brand strategy before a site redesign begins.</li>
-              <li>Set clear feedback turnaround expectations upfront; delays cost weeks.</li>
+            <ul className="text-[#1A1A1A] space-y-2">
+              <Typography as="li" variant="bodyRegular">Engage final decision-makers early, not just the marketing team.</Typography>
+              <Typography as="li" variant="bodyRegular">Advocate for brand strategy before a site redesign begins.</Typography>
+              <Typography as="li" variant="bodyRegular">Set clear feedback turnaround expectations upfront; delays cost weeks.</Typography>
             </ul>
           </Section>
 
