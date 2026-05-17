@@ -22,6 +22,28 @@ const TOC = [
 
 const ASSET_PATH = '/v2/images/projects/insurance-company-website-design';
 
+const images = {
+  insuranceHero: 'insurance-hero-placeholder.png',
+  brandAuditBoard: 'brand-audit-board.png',
+  contentAuditStatePage: 'content-audit-state-page.png',
+  longTextContentPage: 'long-text-content-page.png',
+  auditReportTable: 'audit-report-table.png',
+  homeownerPersona: 'homeowner-persona-placeholder.png',
+  competitiveAnalysis: 'competitive-analysis.png',
+  cardSortingSurvey: 'card-sorting-survey.png',
+  microsoftCopilotLogo: 'microsoft-copilot-logo.svg',
+  foundation: 'foundation-placeholder.png',
+  styleDirections: 'style-directions.png',
+  uxPilotLogo: 'ux-pilot-logo.png',
+  uxPilotLayout: 'ux-pilot-layout.png',
+  photoshopLogo: 'photoshop-40.svg',
+  approvedHero: 'approved-hero-placeholder.png',
+  navigationBeforeAfter: 'navigation-before-after.png',
+  heroBeforeAfter: 'hero-before-after.png',
+  claimsFormBeforeAfter: 'claims-form-before-after.png',
+  impact: 'impact-placeholder.png',
+};
+
 const metrics = [
   { value: '+37%', label: 'Desktop Performance', detail: '(64 -> 88)' },
   { value: '+28%', label: 'Best Practices', detail: '(73 -> 96)' },
@@ -62,12 +84,6 @@ const heuristicIssues = [
   { label: 'Recognition rather than recall', value: 1 },
   { label: 'Other heuristics', value: 0 },
 ];
-
-const Placeholder = ({ children, className = '' }) => (
-  <div className={`rounded-[18px] bg-[#F3F3F3] min-h-[320px] flex items-center justify-center text-center text-[#1A1A1A] px-8 ${className}`}>
-    <Typography as="span" variant="smallRegular">{children}</Typography>
-  </div>
-);
 
 const ImageFrame = ({ src, alt, className = '', imgClassName = 'w-full h-auto' }) => (
   <div className={`rounded-[18px] bg-[#F3F3F3] overflow-hidden flex items-center justify-center ${className}`}>
@@ -193,7 +209,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
 
             <div className="bg-[#F2F2F2] rounded-[18px] p-8 md:p-12 mb-[84px] flex items-center justify-center">
               <img
-                src={`${ASSET_PATH}/Insurance-hero-image.png`}
+                src={`${ASSET_PATH}/${images.insuranceHero}`}
                 alt="Insurance Hero"
                 className="w-full h-auto rounded-md"
               />
@@ -230,9 +246,12 @@ const InsuranceCompanyWebsiteRedesign = () => {
               ))}
             </div>
 
-            <Placeholder className="mb-4">
-              Brand audit board export needed: button styles, image styles, card styles, and icon system.
-            </Placeholder>
+            <ImageFrame
+              src={`${ASSET_PATH}/${images.brandAuditBoard}`}
+              alt="Brand audit board placeholder"
+              className="p-6 mb-4"
+              imgClassName="w-full h-auto rounded-[10px]"
+            />
 
             <Caption className="mb-8">
               The absence of a unified design system resulted in inconsistent button, card, and icon styles that diluted the brand identity.
@@ -240,13 +259,23 @@ const InsuranceCompanyWebsiteRedesign = () => {
 
             <div className="grid md:grid-cols-2 gap-6 mb-[72px]">
               <div>
-                <Placeholder className="min-h-[210px] text-[13px] mb-4">Content audit/state page export needed.</Placeholder>
+                <ImageFrame
+                  src={`${ASSET_PATH}/${images.contentAuditStatePage}`}
+                  alt="Content audit state page placeholder"
+                  className="p-5 mb-4"
+                  imgClassName="w-full h-auto rounded-[10px]"
+                />
                 <Caption>
                   Inconsistent data architecture across state pages created a fragmented and unpredictable user experience.
                 </Caption>
               </div>
               <div>
-                <Placeholder className="min-h-[210px] text-[13px] mb-4">Long text content page export needed.</Placeholder>
+                <ImageFrame
+                  src={`${ASSET_PATH}/${images.longTextContentPage}`}
+                  alt="Long text content page placeholder"
+                  className="p-5 mb-4"
+                  imgClassName="w-full h-auto rounded-[10px]"
+                />
                 <Caption>
                   Jarring background colors and poor contrast ratios created significant eye strain and accessibility barriers.
                 </Caption>
@@ -273,9 +302,12 @@ const InsuranceCompanyWebsiteRedesign = () => {
               ))}
             </div>
 
-            <Placeholder className="bg-[#111] text-white min-h-[360px] mb-12">
-              Audit report table export needed: User Experience Evaluation Summary.
-            </Placeholder>
+            <ImageFrame
+              src={`${ASSET_PATH}/${images.auditReportTable}`}
+              alt="Audit report table placeholder"
+              className="p-6 mb-12 bg-[#111]"
+              imgClassName="w-full h-auto rounded-[10px]"
+            />
 
             <Paragraph className="mb-6">
               The top three heuristic violations pointed to the same root problems: visual inconsistency, clutter, and unnecessary friction.
@@ -284,30 +316,45 @@ const InsuranceCompanyWebsiteRedesign = () => {
               The automated accessibility score was 88, but manual screen reader testing uncovered <strong className="font-semibold">broken heading hierarchy, missing alt text, keyboard navigation failures, and color contrast violations.</strong> <a href="#" className="text-[#2F63CF] underline underline-offset-4">View the full UX audit report.</a>
             </Paragraph>
 
-            <div className="rounded-[18px] bg-[#F7F7F7] p-8 md:p-10">
-              <div className="flex items-center justify-between mb-8">
-                <Typography as="h3" variant="smallRegular">Heuristic issues</Typography>
-                <Typography as="span" variant="extraSmallRegular">56 total.</Typography>
+            <div className="rounded-[18px] bg-[#F5F5F5] px-7 py-8 md:px-9 md:py-9">
+              <div className="flex items-center justify-between border-b border-[#DDDDDD] pb-6">
+                <Typography as="h3" variant="bodyRegular" className="text-[#1A1A1A]">Heuristic issues</Typography>
+                <Typography as="span" variant="bodyRegular" className="text-[#1A1A1A]">56 total</Typography>
               </div>
-              <div className="space-y-6">
-                {heuristicIssues.map((issue) => (
-                  <div key={issue.label} className="grid grid-cols-[120px,1fr,28px] sm:grid-cols-[180px,1fr,32px] items-center gap-4 sm:gap-5">
-                    <Typography as="span" variant="extraSmallRegular">{issue.label}</Typography>
+              <div className="pt-6 space-y-6">
+                {heuristicIssues.map((issue) => {
+                  const isPrimary = issue.value > 1;
+                  const width = issue.value ? `${Math.max((issue.value / 30) * 100, 3)}%` : '0%';
+                  const colorClass = isPrimary ? 'bg-[#D6003B]' : 'bg-[#9C9C9C]';
+
+                  return (
+                  <div key={issue.label} className="grid grid-cols-[minmax(150px,230px)_1fr_32px] items-center gap-5 md:gap-7">
+                    <Typography
+                      as="span"
+                      variant="smallRegular"
+                      className={isPrimary || !issue.value ? 'text-[#1A1A1A]' : 'text-[#777]'}
+                      style={{ lineHeight: '20px' }}
+                    >
+                      {issue.label}
+                    </Typography>
                     <div className="h-px bg-[#D6D6D6] relative">
-                      <span
-                        className={`absolute left-0 top-1/2 h-[2px] -translate-y-1/2 ${issue.value ? 'bg-[#E0003D]' : 'bg-[#BDBDBD]'}`}
-                        style={{ width: `${Math.max((issue.value / 30) * 100, issue.value ? 8 : 0)}%` }}
-                      />
                       {issue.value > 0 && (
-                        <span
-                          className="absolute top-1/2 size-2 -translate-y-1/2 rounded-full bg-[#E0003D]"
-                          style={{ left: `calc(${Math.max((issue.value / 30) * 100, 8)}% - 4px)` }}
-                        />
+                        <>
+                          <span
+                            className={`absolute left-0 top-1/2 h-[2px] -translate-y-1/2 ${colorClass}`}
+                            style={{ width }}
+                          />
+                          <span
+                            className={`absolute top-1/2 size-[8px] -translate-y-1/2 rounded-full ${colorClass}`}
+                            style={{ left: `calc(${width} - 4px)` }}
+                          />
+                        </>
                       )}
                     </div>
-                    <Typography as="span" variant="extraSmallRegular" className="text-right">{issue.value || '-'}</Typography>
+                    <Typography as="span" variant="smallRegular" className="text-right text-[#1A1A1A]">{issue.value || '-'}</Typography>
                   </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           </Section>
@@ -320,7 +367,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
               35-64 primary age range &nbsp;•&nbsp; 28% earning $150K+ &nbsp;•&nbsp; 54% owning homes valued $300K-$749K &nbsp;•&nbsp; concentrated in states SC, MS, AL
             </Typography>
             <ImageFrame
-              src={`${ASSET_PATH}/persona1.png`}
+              src={`${ASSET_PATH}/${images.homeownerPersona}`}
               alt="Homeowner persona"
               className="p-8"
               imgClassName="w-full h-auto rounded-[10px]"
@@ -340,23 +387,29 @@ const InsuranceCompanyWebsiteRedesign = () => {
             <Paragraph className="mb-8">
               Each was recommended and declined for operational and strategic reasons, sharpening our understanding of the company's constraints.
             </Paragraph>
-            <Placeholder className="mb-10">
-              Competitive analysis export needed.
-            </Placeholder>
+            <ImageFrame
+              src={`${ASSET_PATH}/${images.competitiveAnalysis}`}
+              alt="Competitive analysis placeholder"
+              className="p-6 mb-10"
+              imgClassName="w-full h-auto rounded-[10px]"
+            />
 
             <Subhead>Card sorting &amp; Survey</Subhead>
             <Paragraph className="mb-6">
               Card sorting with three participants revealed where the existing IA was intuitive and where it was not. <strong className="font-semibold">Agent content grouped consistently, but Claims, Payments, and Find an Agent produced a different grouping every time.</strong>
             </Paragraph>
-            <Placeholder className="mb-8">
-              Card sorting and survey export needed.
-            </Placeholder>
+            <ImageFrame
+              src={`${ASSET_PATH}/${images.cardSortingSurvey}`}
+              alt="Card sorting and survey placeholder"
+              className="p-6 mb-8"
+              imgClassName="w-full h-auto rounded-[10px]"
+            />
             <Paragraph className="mb-6">
               Inconclusive data led to a survey of four domain experts. On <strong className="font-semibold">Claims and Payments, multiple experts flagged them as too buried on mobile and recommended surfacing them directly.</strong> That shaped the final navigation.
             </Paragraph>
             <div className="mb-10 flex items-start gap-3">
               <img
-                src={`${ASSET_PATH}/microsoft-copilot-logo.svg`}
+                src={`${ASSET_PATH}/${images.microsoftCopilotLogo}`}
                 alt="Microsoft Copilot"
                 className="mt-1 size-6 flex-shrink-0"
               />
@@ -370,7 +423,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
               Three structural approaches were explored to handle the dual-audience structure: combined view, split view, and hybrid. The combined view with nav parity was the strongest fit: it served both audiences equally, kept SEO on a single domain, and avoided the maintenance overhead of two separate experiences. <a href="#" className="text-[#2F63CF] underline underline-offset-4">View the full tradeoff analysis.</a>
             </Paragraph>
             <ImageFrame
-              src={`${ASSET_PATH}/foundation.png`}
+              src={`${ASSET_PATH}/${images.foundation}`}
               alt="Information architecture direction variants"
               className="p-10"
               imgClassName="w-full h-auto rounded-[10px]"
@@ -381,14 +434,17 @@ const InsuranceCompanyWebsiteRedesign = () => {
             <Paragraph className="mb-8">
               We developed four distinct stylistic directions to give the client a structured basis for decision-making. Each direction included a guide covering theme, typography, UI elements, and a rationale. The client gravitated toward a hybrid of Friendly and Sleek: enough warmth to feel human, and enough sophistication to reflect their growth.
             </Paragraph>
-            <Placeholder className="bg-[#111] text-white min-h-[360px] mb-10">
-              Style directions export needed: Friendly &amp; Approachable.
-            </Placeholder>
+            <ImageFrame
+              src={`${ASSET_PATH}/${images.styleDirections}`}
+              alt="Style directions placeholder"
+              className="p-6 mb-10 bg-[#111]"
+              imgClassName="w-full h-auto rounded-[10px]"
+            />
 
             <div className="grid md:grid-cols-[1fr,1.15fr] gap-9 items-start mb-[84px]">
               <div>
                 <img
-                  src={`${ASSET_PATH}/ux-pilot-logo.png`}
+                  src={`${ASSET_PATH}/${images.uxPilotLogo}`}
                   alt="UX Pilot"
                   className="mb-4 h-auto w-[96px]"
                 />
@@ -396,7 +452,12 @@ const InsuranceCompanyWebsiteRedesign = () => {
                   Catching structural problems before any visual decisions were made was the priority at this stage. Generating and comparing layout configurations rapidly with UX Pilot allowed us to pressure-test the IA decisions we'd finalized while the cost of change was still low.
                 </Paragraph>
               </div>
-              <Placeholder className="min-h-[260px] text-[13px]">UX Pilot layout export needed.</Placeholder>
+              <ImageFrame
+                src={`${ASSET_PATH}/${images.uxPilotLayout}`}
+                alt="UX Pilot layout placeholder"
+                className="p-5"
+                imgClassName="w-full h-auto rounded-[10px]"
+              />
             </div>
           </Section>
 
@@ -409,7 +470,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
             </Paragraph>
             <div className="flex gap-3 mb-8">
               <img
-                src={`${ASSET_PATH}/photoshop-40.svg`}
+                src={`${ASSET_PATH}/${images.photoshopLogo}`}
                 alt="Adobe Photoshop"
                 className="mt-1 size-6 flex-shrink-0"
               />
@@ -418,7 +479,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
               </Paragraph>
             </div>
             <ImageFrame
-              src={`${ASSET_PATH}/hero.png`}
+              src={`${ASSET_PATH}/${images.approvedHero}`}
               alt="Approved dark and bold direction"
               className="p-6 bg-[#111]"
               imgClassName="w-full h-auto rounded-[10px]"
@@ -430,26 +491,41 @@ const InsuranceCompanyWebsiteRedesign = () => {
             <Paragraph className="mb-8">
               Unifying two navigation bars into one and introducing a customer dropdown to match the existing agent dropdown corrected an implicit hierarchy that had always existed in the structure.
             </Paragraph>
-            <Placeholder className="mb-10">[Before/after of navigation - dual bar vs. unified nav with both dropdowns visible]</Placeholder>
+            <ImageFrame
+              src={`${ASSET_PATH}/${images.navigationBeforeAfter}`}
+              alt="Navigation before and after placeholder"
+              className="p-6 mb-10"
+              imgClassName="w-full h-auto rounded-[10px]"
+            />
 
             <Subhead>Hero entry point</Subhead>
             <Paragraph className="mb-8">
               Despite competitive analysis pointing to a quote initiation path in the hero, the client prioritized brand narrative over immediate conversion, a reasonable call for a company still establishing market position, and one the hero was designed to serve.
             </Paragraph>
-            <Placeholder className="mb-10">[Hero before/after - side by side]</Placeholder>
+            <ImageFrame
+              src={`${ASSET_PATH}/${images.heroBeforeAfter}`}
+              alt="Hero before and after placeholder"
+              className="p-6 mb-10"
+              imgClassName="w-full h-auto rounded-[10px]"
+            />
 
             <Subhead>Claims form</Subhead>
             <Paragraph className="mb-8">
               The UX audit flagged the claims form's field count as a known friction point. Reducing it was not within scope, so the fields were restructured into grouped categories to reduce cognitive load within the existing constraint.
             </Paragraph>
-            <Placeholder className="mb-16">[Claims form - before vs after]</Placeholder>
+            <ImageFrame
+              src={`${ASSET_PATH}/${images.claimsFormBeforeAfter}`}
+              alt="Claims form before and after placeholder"
+              className="p-6 mb-16"
+              imgClassName="w-full h-auto rounded-[10px]"
+            />
 
             <Typography as="h2" variant="h5Regular" className="mb-8 text-[#1A1A1A]">Building for Scale</Typography>
             <Paragraph className="mb-8">
               With the company actively expanding coverage and exploring new product lines, the redesign introduced 30+ reusable section components across 40+ screens, with state pages templated from the ground up. Entering a new state or extending the system to a new product no longer requires a design or development decision. The structure absorbs expansion.
             </Paragraph>
             <ImageFrame
-              src={`${ASSET_PATH}/impact.png`}
+              src={`${ASSET_PATH}/${images.impact}`}
               alt="Reusable components and final screens"
               className="p-6 mb-8"
               imgClassName="w-full h-auto rounded-[10px]"

@@ -27,6 +27,7 @@ import InsuranceCompanyWebsiteRedesignV2 from './v2/screens/InsuranceCompanyWebs
 import LoanAppExperienceOptimizationV2 from './v2/screens/LoanAppExperienceOptimization/LoanAppExperienceOptimization';
 import RamenNagiCaseStudyV2 from './v2/screens/RamenNagiCaseStudy/RamenNagiCaseStudy';
 import ResumeV2 from './v2/screens/Resume/Resume';
+import ExposureToolV2 from './v2/screens/ExposureTool/ExposureTool';
 
 const container = document.getElementById('root');
 const root = createRoot(container);
@@ -45,7 +46,7 @@ root.render(
       <Routes>
         <Route path="/presentation" element={<PresentationV1 />} />
         <Route path="/v2" element={<V2Route><HomeV2 /></V2Route>} />
-        <Route path="/v2/exposure-tool" />
+        <Route path="/v2/exposure-tool" element={<V2Route><ExposureToolV2 /></V2Route>} />
         <Route path="/v2/insurance-company-website-redesign" element={<V2Route><InsuranceCompanyWebsiteRedesignV2 /></V2Route>} />
         <Route path="/v2/ramen-nagi" element={<V2Route><RamenNagiCaseStudyV2 /></V2Route>} />
         <Route path="/v2/loan-app-experience-optimization" element={<V2Route><LoanAppExperienceOptimizationV2 /></V2Route>} />
