@@ -1,0 +1,89 @@
+.v2-route .custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(30, 30, 30, 0.15); /* Darker tint */
+  backdrop-filter: url(#liquidGlass) blur(6px) brightness(0.85); /* Reduced brightness for dark glass effect */
+  -webkit-backdrop-filter: blur(6px) brightness(0.85);
+  border: 1px solid rgba(0, 0, 0, 0.15); /* Darker border silhouette */
+  box-shadow: 
+    inset 1px 1px 1px 0 rgba(255, 255, 255, 0.2), /* Subtle top-left highlight */
+    0 10px 25px rgba(0, 0, 0, 0.12);
+  pointer-events: none;
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 
+    width 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+    height 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+    border-radius 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+    background 0.3s ease,
+    border-color 0.3s ease;
+  overflow: hidden;
+}
+
+.v2-route .custom-cursor.hover {
+  width: 44px;
+  height: 44px;
+  background: rgba(30, 30, 30, 0.25);
+  border-color: rgba(0, 0, 0, 0.25);
+}
+
+.v2-route .custom-cursor.project {
+  width: 140px;
+  height: 48px;
+  border-radius: 24px;
+  background: rgba(10, 10, 15, 0.85); /* Very dark glass for the button */
+  border-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.v2-route .cursor-tooltip {
+  color: #fff;
+  padding: 0;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  opacity: 0;
+  transform: scale(0.85);
+  transition: 
+    opacity 0.3s cubic-bezier(0.23, 1, 0.32, 1),
+    transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  pointer-events: none;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+.v2-route .custom-cursor.project .cursor-tooltip {
+  opacity: 1;
+  transform: scale(1);
+}
+
+@keyframes tooltip-gradient-shimmer {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* Removed edge detection positioning since tooltip is now centered inside cursor */
+
+/* Universally hide default cursor constraints safely */
+.v2-route,
+.v2-route a,
+.v2-route button,
+.v2-route input,
+.v2-route select,
+.v2-route textarea,
+.v2-route [role="button"],
+.v2-route [role="link"],
+.v2-route .cursor-pointer,
+.v2-route .interactive,
+.v2-route .panel,
+.v2-route .intro-link,
+.v2-route .index-item {
+  cursor: none !important;
+}

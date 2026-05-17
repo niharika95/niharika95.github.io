@@ -1,0 +1,29 @@
+{
+  "short_name": "Niharika Dalal",
+  "name": "Niharika Dalal - Product Designer",
+  "description": "Portfolio of Niharika Dalal, a Product Designer with 5+ years of experience designing intuitive digital interfaces for finance, insurance, and education sectors.",
+  "icons": [
+    {
+      "src": "niharikaLogo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "niharikaLogo.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#106066",
+  "background_color": "#ffffff",
+  "categories": [
+    "design",
+    "portfolio",
+    "business"
+  ],
+  "orientation": "portrait-primary"
+}
