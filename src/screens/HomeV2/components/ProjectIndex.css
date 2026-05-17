@@ -7,11 +7,7 @@
 
 /* TOP ZONE */
 .index-label {
-  font-size: 12px;
-  line-height: 1.5;
   color: #808080;
-  /* Gray 500 */
-  font-weight: 400;
   margin: 0 0 16px 0;
 }
 
@@ -126,22 +122,12 @@
 }
 
 .personal-text {
-  font-size: 15px;
-  line-height: 1.5;
-  font-weight: 300;
-  /* Light regular */
   color: #666666;
-  /* Gray 600 */
   margin: 0 0 8px 0;
 }
 
 .personal-subtext {
-  font-size: 12px;
-  line-height: 1.5;
-  font-weight: 400;
-  /* Extra small regular */
   color: #808080;
-  /* Gray 500 */
   margin: 0 0 20px 0;
 }
 

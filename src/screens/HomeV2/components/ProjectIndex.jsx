@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import MorphingShape from '../../HomeV1/components/MorphingShape';
+import Typography from '../../../components/Typography';
 import './ProjectIndex.css';
 
 export default function ProjectIndex({ projects, activeIndex, onSelect, isHovered, isInitialLoad, timerActive }) {
@@ -97,12 +97,14 @@ export default function ProjectIndex({ projects, activeIndex, onSelect, isHovere
   return (
     <div className="project-index">
       <div className="index-top">
-        <h5 
+        <Typography
+          as="h5"
+          variant="extraSmallRegular"
           className={`index-label ${isInitialLoad ? 'anim-fade-in' : ''}`}
           style={isInitialLoad ? { animationDelay: '350ms', animationDuration: '500ms', animationTimingFunction: 'ease-out' } : {}}
         >
           Case studies
-        </h5>
+        </Typography>
         <ul className="index-list">
           {projects.map((project, index) => {
             const isLogicalActive = index === activeIndex;
@@ -114,14 +116,14 @@ export default function ProjectIndex({ projects, activeIndex, onSelect, isHovere
                 style={isInitialLoad ? { animationDelay: `${700 + 200 * index}ms`, animationDuration: '500ms', animationTimingFunction: 'ease-out' } : {}}
                 onClick={() => handleSelect(index)}
               >
-                <span className="index-item-text">
+                <Typography as="span" variant="smallLight" className="index-item-text">
                   {project.sidebarTitle}
                   {isLogicalActive && (
                     <span className="indicator-track">
                       <span className="indicator-fill" ref={progressRefs.current[index]} />
                     </span>
                   )}
-                </span>
+                </Typography>
               </li>
             );
           })}
@@ -143,21 +145,21 @@ export default function ProjectIndex({ projects, activeIndex, onSelect, isHovere
           </div>
         </div> */}
 
-        <p className="personal-text">
+        <Typography variant="smallLight" className="personal-text">
           I started as a front-end developer<br/>before moving into design. That<br/>changes how I work.
-        </p>
+        </Typography>
 
-        <p className="personal-subtext">
+        <Typography variant="extraSmallRegular" className="personal-subtext">
           Product designer &bull; San Jose, CA
-        </p>
+        </Typography>
 
         <div className="social-links-text">
           <a href="https://www.linkedin.com/in/niharikadalal" target="_blank" rel="noopener noreferrer">
-            LinkedIn
+            <Typography as="span" variant="bodyLight">LinkedIn</Typography>
           </a>
           <span className="separator">|</span>
           <a href="mailto:niharika95@gmail.com">
-            Email
+            <Typography as="span" variant="bodyLight">Email</Typography>
           </a>
         </div>
       </div>

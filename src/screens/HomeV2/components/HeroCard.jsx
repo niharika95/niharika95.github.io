@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Icon } from '@iconify/react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Typography from '../../../components/Typography';
 import './HeroCard.css';
 
 export default function HeroCard({ project, isHovered }) {
@@ -44,8 +44,8 @@ export default function HeroCard({ project, isHovered }) {
               className={`hero-content ${project.buttonStyle === 'dark' ? 'text-dark' : ''} ${project.contentCols ? 'col-' + project.contentCols : ''}`}
               style={{ pointerEvents: 'auto' }}
             >
-              <h1 className="hero-title">{project.cardTitle}</h1>
-              <p className="hero-desc">{project.description}</p>
+              <Typography as="h1" variant="h2Medium" className="hero-title">{project.cardTitle}</Typography>
+              <Typography variant="bodyRegular" className="hero-desc">{project.description}</Typography>
             </div>
           </motion.div>
         </AnimatePresence>

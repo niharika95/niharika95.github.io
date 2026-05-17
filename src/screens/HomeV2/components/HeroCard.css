@@ -42,26 +42,15 @@
 }
 
 .hero-title {
-  /* H2 medium in Gray 50 */
-  font-size: 44px;
-  font-weight: 500;
   color: #F9FAFB;
-  letter-spacing: -3%;
   margin: 0;
   margin-bottom: 8px;
-  /* precise spacing between title and description */
-  line-height: 1.2;
 }
 
 .hero-desc {
-  /* body regular in Gray 200 */
-  font-size: 18px;
-  font-weight: 400;
   color: #E5E7EB;
   margin: 0;
   margin-bottom: 28px;
-  /* precise spacing between description and button */
-  line-height: 1.8;
 }
 
 .hero-content.text-dark .hero-title {
