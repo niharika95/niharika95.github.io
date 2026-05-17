@@ -1,318 +1,318 @@
-import { DecorativeDots, StrokeAnimation } from '../../common';
-
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { ChevronLeft } from 'lucide-react';
 import { Icon } from '@iconify/react';
-import React from 'react';
+import HeaderV2 from '../../components/HeaderV2/HeaderV2';
+import Typography from '../../components/Typography';
 import { useAnalytics } from '../../hooks/useAnalytics';
 import { useScrollTracking } from '../../hooks/useScrollTracking';
 import { useTimeTracking } from '../../hooks/useTimeTracking';
 
-// Reusable components for this case study's theme
+const ASSET_PATH = '/v2/images/projects/loan-app-experience-optimization';
 
-const Tag = ({ children }) => (
-  <span className='bg-[#dbeafe] text-[#1e40af] rounded-full px-4 py-1 text-sm font-medium'>
+const TOC = [
+  { id: 'intro', label: 'Intro' },
+  { id: 'problem', label: 'Problem in a nutshell' },
+  { id: 'discovery', label: 'Discovery under pressure' },
+  { id: 'key-decisions', label: 'Key Decisions' },
+  { id: 'outcome', label: 'Measurable Impact' },
+  { id: 'tradeoffs', label: 'Challenges & Learnings' },
+];
+
+const images = {
+  hero: 'hero-mobile-dashboard.png',
+  audit: 'original-application-audit.png',
+  dropdownSlider: 'dropdown-slider-flow.png',
+  progressiveDisclosure: 'progressive-disclosure-flow.png',
+  milestoneIllustrations: 'milestone-illustrations-flow.png',
+};
+
+const Section = ({ id, title, children, className = '' }) => (
+  <section id={id} className={`scroll-mt-28 mb-[88px] ${className}`}>
+    {title && (
+      <Typography as="h2" variant="h6Regular" className="mb-8 text-[#1A1A1A]">
+        {title}
+      </Typography>
+    )}
     {children}
-  </span>
+  </section>
 );
 
-const ContentContainer = ({ children, className }) => (
-    <div className={`max-w-[1440px] mx-auto px-5 lg:px-[100px] ${className || ''}`}>
-        {children}
+const Paragraph = ({ children, className = '' }) => (
+  <Typography
+    as="p"
+    variant="bodyRegular"
+    className={`text-[#1E1E1E] ${className}`}
+    style={{ lineHeight: '30px' }}
+  >
+    {children}
+  </Typography>
+);
+
+const Label = ({ children, className = '' }) => (
+  <Typography as="h3" variant="bodySemibold" className={`text-[#1A1A1A] ${className}`}>
+    {children}
+  </Typography>
+);
+
+const Caption = ({ children, className = '' }) => (
+  <Typography
+    as="p"
+    variant="extraSmallRegular"
+    className={`text-[#555] ${className}`}
+    style={{ lineHeight: '18px' }}
+  >
+    {children}
+  </Typography>
+);
+
+const ImageFrame = ({ src, alt, caption, className = '', imgClassName = 'w-full h-auto' }) => (
+  <figure className={className}>
+    <div className="bg-[#F3F3F3] rounded-[10px] p-5 md:p-7 overflow-hidden">
+      <img src={`${ASSET_PATH}/${src}`} alt={alt} className={`${imgClassName} mx-auto`} />
     </div>
+    {caption && <Caption className="mt-3">{caption}</Caption>}
+  </figure>
 );
 
-const KeyInsight = ({ number, children }) => (
-  <div className="flex items-start gap-6">
-    <div className="flex-shrink-0 w-12 h-12 rounded-full bg-white text-gray-900 font-bold flex items-center justify-center text-xl">
-      {number}
-    </div>
-    <p className="font-mulish text-lg leading-relaxed opacity-95 pt-2">{children}</p>
-  </div>
-);
-
-const Result = ({ icon, title, children }) => (
+const ProblemBlock = ({ title, children }) => (
   <div>
-    <div className='mb-4'>
-      <Icon icon={icon} width="100px" height="100px" style={{ color: '#dbeafe', fontWeight: 200 }} />
-    </div>
-    <h3 className='font-playfair text-xl font-bold mb-2'>{title}</h3>
-    <p className='font-mulish opacity-95'>{children}</p>
+    <Label className="mb-2">{title}</Label>
+    <Paragraph>{children}</Paragraph>
   </div>
 );
 
+const InsightCallout = () => (
+  <div className="my-12 flex items-start gap-5">
+    <div className="mt-1 flex size-8 flex-shrink-0 items-center justify-center rounded-full border border-[#0A3D78] text-[#0A3D78]">
+      <Icon icon="material-symbols:verified-outline-rounded" className="text-[20px]" />
+    </div>
+    <div>
+      <Label className="mb-3">
+        The form was not just long. It was asking pre-approved customers to provide information the bank already had.
+      </Label>
+      <Paragraph>
+        For a customer who had just been told "you qualify," an 11-screen interrogation doesn't feel like a formality. It feels like the bank doesn't trust them at the exact moment they are about to commit. The UX problem was real. But underneath it was a trust problem.
+      </Paragraph>
+    </div>
+  </div>
+);
+
+const OutcomeMetric = ({ icon, title }) => (
+  <div className="min-w-0">
+    <Icon icon={icon} className="mb-5 text-[68px] text-[#1A1A1A]" />
+    <Typography as="h3" variant="bodySemibold" className="max-w-[230px] text-[#1A1A1A]" style={{ lineHeight: '25px' }}>
+      {title}
+    </Typography>
+  </div>
+);
+
+const OutcomePanel = () => (
+  <figure className="mb-10">
+    <div className="grid gap-10 rounded-[10px] bg-[#F3F3F3] px-9 py-12 sm:grid-cols-2 sm:px-12">
+      <OutcomeMetric
+        icon="material-symbols:pie-chart-rounded"
+        title={<>Projected 36% Reduction in Application Completion Time</>}
+      />
+      <OutcomeMetric
+        icon="material-symbols:kid-star-rounded"
+        title={<>Improved User Confidence</>}
+      />
+    </div>
+  </figure>
+);
 
 const LoanAppExperienceOptimization = () => {
-  // Track page view, scroll depth, and time on page
   useAnalytics('project_detail', {
     projectName: 'loan-app-experience-optimization',
-    projectType: 'professional'
+    projectType: 'professional',
   });
   useScrollTracking();
   useTimeTracking();
 
-  const tags = [
-    'Figma', 'Balsamiq', 'UX Research', 'Wireframing', 'UX Design',
-    'Visual Design', 'Prototyping', 'Time Management', 'Mobile App'
-  ];
+  const [activeSection, setActiveSection] = useState('intro');
 
-  const results = [
-    {
-      icon: 'material-symbols:trending-up',
-      title: 'Projected 40% Reduction in Application Completion Time',
-      text: 'Based on the audit of the original flow, the new design eliminated a significant number of screens, clicks, and redundant fields. This analysis allowed us to estimate a 40% reduction in the time needed for a user to complete their application.',
-    },
-    {
-      icon: 'material-symbols:mindfulness',
-      title: 'Improved User Confidence',
-      text: 'The simplified UI and clear progress indicators were designed to feel more modern, trustworthy, and respectful of the user\'s time.',
-    },
-  ];
+  useEffect(() => {
+    const handleScroll = () => {
+      let currentActiveId = 'intro';
+      TOC.forEach((item) => {
+        const element = document.getElementById(item.id);
+        if (element && element.getBoundingClientRect().top <= 140) {
+          currentActiveId = item.id;
+        }
+      });
+      setActiveSection(currentActiveId);
+    };
 
-  const workflowItems = [
-    {
-      image: '/v2/images/projects/loan-app-experience-optimization/workflow1.png',
-      text: 'I reorganized the form sections into logical chunks (e.g., Personal Information, Financials, Review). A prominent progress bar was introduced to manage user expectations and clearly show them how close they were to the end.'
-    },
-    {
-      image: '/v2/images/projects/loan-app-experience-optimization/workflow2.png',
-      text: 'Leveraging the bank\'s existing design system, I scrutinized every form field. Inefficient components were replaced with more effective alternatives. For example, I introduced an interactive slider for the loan amount. As a user adjusted the slider, their estimated monthly payment updated in real-time, allowing them to make informed decisions more quickly.'
-    },
-    {
-      image: '/v2/images/projects/loan-app-experience-optimization/workflow3.png',
-      text: 'To reduce application anxiety and frustration, I introduced subtle, encouraging illustrations at key milestones. For instance, after a user successfully completed the personal information section, an illustration would appear, reinforcing their progress and motivating them to continue to the next step.'
+    handleScroll();
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToSection = (event, id) => {
+    event.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      window.scrollTo({ top: element.offsetTop - 100, behavior: 'smooth' });
     }
-  ];
+  };
 
   return (
-    <div className='relative bg-white text-gray-900 font-sans'>
-      {/* Hero: split composition (left blue, right image) */}
-      <header className='w-full bg-[#1E3A8A]'>
-        <ContentContainer className='relative flex flex-col md:flex-row'>
-          <div className='text-white max-w-2xl py-5 md:py-[50px] lg:py-[100px]'>
-            <h1 className='font-playfair text-4xl md:text-5xl font-extrabold leading-tight tracking-tight'>
-            Loan App Experience Optimization
-            </h1>
-            <p className='font-mulish text-lg md:text-xl mt-4 opacity-95'>
-            Slashing projected loan <StrokeAnimation strokeColor="D97706">application time by 40%</StrokeAnimation> by redesigning for trust and efficiency.
-            </p>
-            <div className='flex flex-wrap gap-3 mt-4 md:mt-6'>
-            {tags.map((tag) => (
-                <Tag key={tag}>{tag}</Tag>
-            ))}
-            </div>
-          </div>
-          <img
-            src='/v2/images/projects/loan-app-experience-optimization/hero.png'
-            alt='Loan App Experience Optimization Hero'
-            className='w-full max-w-[600px] self-end h-auto object-contain max-h-[500px] md:mt-50'
-          />
-          <DecorativeDots color="1C4882" position="top-left" />
-        </ContentContainer>
-      </header>
+    <div className="min-h-screen bg-white text-[#1A1A1A]">
+      <HeaderV2 />
 
-      <main className='w-full'>
-        {/* Meta row */}
-        <section className="py-5 md:py-[50px] lg:py-[100px]">
-          <ContentContainer>
-            <div className='grid grid-cols-[auto,1fr] justify-start gap-x-4 gap-y-4 items-start'>
-              {/* Role */}
-              <div className='col-start-1 flex items-center whitespace-nowrap'>
-                <Icon
-                  icon='material-symbols:person-outline'
-                  className='text-2xl text-black mr-4'
-                />
-                <h3 className='font-mulish font-bold text-lg'>Role:</h3>
-              </div>
-              <p className='font-mulish col-start-2 text-gray-600 text-lg'>
-                UX/UI Designer
-              </p>
-
-              {/* Team */}
-              <div className='col-start-1 flex items-center whitespace-nowrap'>
-                <Icon
-                  icon='material-symbols:groups-outline'
-                  className='text-2xl text-black mr-4'
-                  style={{ fill: 'none', fontWeight: 100 }}
-                />
-                <h3 className='font-mulish font-bold text-lg'>Team:</h3>
-              </div>
-              <p className='font-mulish col-start-2 text-gray-600 text-lg'>
-                Project Manager, UX/UI Designer
-              </p>
-
-              {/* Duration */}
-              <div className='col-start-1 flex items-center whitespace-nowrap'>
-                <Icon
-                  icon='mdi:clock-outline'
-                  className='text-2xl text-black mr-4'
-                />
-                <h3 className='font-mulish font-bold text-lg'>Duration:</h3>
-              </div>
-              <p className='font-mulish col-start-2 text-gray-600 text-lg'>2 months</p>
-            </div>
-          </ContentContainer>
-        </section>
-
-        <div>
-            <ContentContainer>
-                <hr className='border-[#dbeafe] mb-12' />
-            </ContentContainer>
-        </div>
-
-        {/* Context */}
-        <section className='py-5 md:py-[50px] lg:py-[100px]'>
-          <ContentContainer className='relative overflow-hidden'>
-            <DecorativeDots color="1C4882" position="top-right" />
-            <div className='flex flex-col gap-12'>
-              <div>
-                <h2 className='font-playfair text-3xl font-bold mb-4'>Context</h2>
-                <p className='font-mulish text-lg leading-relaxed max-w-[800px]'>
-                  A top-tier global bank's digital loan application was underperforming. Despite having a pool of pre-qualified candidates, the platform was seeing significant user drop-off. I joined the project to lead the UX/UI design effort, tasked with overhauling this critical experience on an accelerated 2-month timeline. The primary goal was to deliver a finalized, streamlined design for a seamless handoff to the client's internal development team for implementation.
-                </p>
-              </div>
-            </div>
-          </ContentContainer>
-        </section>
-
-        {/* Problem in a nutshell */}
-        <section className='w-full bg-[#1E3A8A] text-white py-5 md:py-[50px] lg:py-[100px]'>
-          <ContentContainer>
-            <div className='grid md:grid-cols-3 gap-8 items-center'>
-              <h2 className='font-playfair text-2xl md:text-3xl font-bold self-center'>
-                Problem in a nutshell
-              </h2>
-              <div className='md:col-span-2 grid gap-8'>
-                <div>
-                  <h3 className='font-playfair font-bold text-xl mb-2'>For the business:</h3>
-                  <p className='font-mulish opacity-90 text-lg leading-relaxed'>High user drop-off rate and low number of submitted applications.</p>
-                </div>
-                <div>
-                  <h3 className='font-playfair font-bold text-xl mb-2'>For the customer:</h3>
-                  <p className='font-mulish opacity-90 text-lg leading-relaxed'>Forced through a 11-page long form that asked for excessive information, leading to fatigue and abandonment.</p>
-                </div>
-              </div>
-            </div>
-          </ContentContainer>
-        </section>
-
-        {/* Discovery Under Pressure */}
-        <section className='py-0'>
-          <div className='max-w-[1440px] mx-auto'>
-            <div className='grid md:grid-cols-2 gap-0 items-stretch'>
-              <div className='px-5 lg:px-[100px] py-5 md:py-[50px] lg:py-[100px] relative overflow-hidden'>
-                <DecorativeDots color="1C4882" position="top-right" />
-                <h2 className='font-playfair text-3xl font-bold mb-4'>Discovery Under Pressure</h2>
-                <p className='font-mulish text-lg leading-relaxed mb-6 max-w-[800px]'>
-                  With a tight deadline preventing a full-fledged research phase, I focused on a pragmatic and collaborative approach to gain insights quickly.
-                </p>
-                <div className="space-y-6 max-w-[800px]">
-                  <div>
-                    <h3 className="font-playfair font-bold text-xl mb-2">Leveraging Client Insights & Existing Feedback</h3>
-                    <p className='font-mulish text-lg leading-relaxed'>Through in-depth discussions with the client, we analyzed their business pain points and existing customer feedback. This strategy provided a rapid path to understanding user needs.</p>
-                  </div>
-                  <div>
-                    <h3 className="font-playfair font-bold text-xl mb-2">Auditing the Existing Flow</h3>
-                    <p className='font-mulish text-lg leading-relaxed'>I audited the original application by mapping every screen, field, and click. This process established a clear, quantitative baseline for user friction and pinpointed key areas for optimization.</p>
-                  </div>
-                </div>
-              </div>
-              <img
-                src='/v2/images/projects/loan-app-experience-optimization/discovery_under_pressure.png'
-                alt='Discovery Under Pressure'
-                className='w-full h-full object-cover'
-              />
-            </div>
-          </div>
-        </section>
-
-        {/* Key Insights */}
-        <section className='bg-[#222222] text-white py-5 md:py-[50px] lg:py-[100px]'>
-          <ContentContainer>
-            <h2 className='font-playfair text-3xl font-bold mb-8'>Key Insights</h2>
-            <div className='grid md:grid-cols-2 gap-12'>
-              <KeyInsight number="1">
-                Asking pre-qualified users for information the bank already possessed was a major source of friction.
-              </KeyInsight>
-              <KeyInsight number="2">
-                A common theme in user complaints was the overwhelming nature of the single, long application form, which created high cognitive load.
-              </KeyInsight>
-            </div>
-          </ContentContainer>
-        </section>
-
-        {/* A Streamlined, Human-Centered Workflow */}
-        <section className='py-5 md:py-[50px] lg:py-[100px]'>
-          <ContentContainer className='relative overflow-hidden'>
-            <DecorativeDots color="1C4882" position="top-right" />
-            <div className='flex flex-col gap-12'>
-              <div>
-                <h2 className='font-playfair text-3xl font-bold mb-4'>A Streamlined, Human-Centered Workflow</h2>
-                <p className='font-mulish text-lg leading-relaxed mb-6 max-w-[800px]'>
-                  My solution was centered on three principles: progressive disclosure, smart defaults, and motivational design.
-                </p>
-              </div>
-            </div>
-          </ContentContainer>
-        </section>
-
-        {/* Workflow Details with Images */}
-        <section className='w-full bg-[#1E3A8A]'>
-          <div className='space-y-0 max-sm:space-y-12 max-md:space-y-12'>
-            {workflowItems.map((item, index) => (
-              <div key={index} className='w-full'>
-                <div className='max-w-[1440px] mx-auto'>
-                  <div className='grid md:grid-cols-2 gap-8 md:gap-12 items-center px-5 lg:px-[100px] py-5 md:py-[50px] lg:py-[100px]'>
-                    {/* Image - Always on left */}
-                    <div className='flex justify-center md:justify-end'>
-                      <img
-                        src={item.image}
-                        alt={`Workflow ${index + 1}`}
-                        className='w-full max-w-[300px] h-auto object-contain'
-                      />
-                    </div>
-                    {/* Content - Always on right */}
-                    <div>
-                      <p className='font-mulish text-lg leading-relaxed text-white max-w-[800px]'>
-                        {item.text}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* A Measurable Impact */}
-        <section className='bg-[#222222] text-white py-5 md:py-[50px] lg:py-[100px]'>
-          <ContentContainer>
-            <h2 className='font-playfair text-3xl font-bold mb-4'>A Measurable Impact</h2>
-            <p className='font-mulish text-lg leading-relaxed mb-8 opacity-95 max-w-[800px]'>
-              While the implementation was handled by the client's development team post-handoff, the redesigned flow was projected to deliver significant improvements.
-            </p>
-            <div className='grid md:grid-cols-2 gap-10'>
-              {results.map((result) => (
-                <Result key={result.title} {...result}>
-                  {result.text}
-                </Result>
+      <div className="mx-auto flex max-w-[1440px] px-5 pb-32 pt-10 lg:px-10">
+        <aside className="sticky top-[130px] hidden max-h-[calc(100vh-140px)] w-[180px] flex-shrink-0 self-start overflow-y-auto lg:block">
+          <nav className="flex flex-col gap-[40px]">
+            <Link to="/v2" className="back-link-group -ml-1 inline-flex items-center gap-1 text-base font-medium text-[#999] transition-colors duration-200">
+              <ChevronLeft size={20} className="icon-solid-hover transition-colors duration-200" />
+              <Typography as="span" variant="smallLight" className="shimmer-text">Home</Typography>
+            </Link>
+            <div className="flex flex-col gap-[12px]">
+              {TOC.map((item) => (
+                <a
+                  key={item.id}
+                  href={`#${item.id}`}
+                  onClick={(event) => scrollToSection(event, item.id)}
+                  className={`transition-colors ${activeSection === item.id ? 'text-[#000]' : 'text-[#A0A0A0] nav-item-shimmer'}`}
+                >
+                  <Typography as="span" variant="extraSmallRegular">{item.label}</Typography>
+                </a>
               ))}
             </div>
-          </ContentContainer>
-        </section>
+          </nav>
+        </aside>
 
-        {/* Challenges & Learnings */}
-        <section className='py-5 md:py-[50px] lg:py-[100px]'>
-          <ContentContainer className='relative overflow-hidden'>
-            <DecorativeDots color="1C4882" position="top-right" />
-            <h2 className='font-playfair text-3xl font-bold mb-4'>Challenges & Learnings</h2>
-            <p className='font-mulish text-lg leading-relaxed max-w-[800px] mb-5'>
-              The most challenging trade-off on this project was balancing time with certainty. We made the strategic decision to move forward without a formal round of usability testing to meet the tight deadline, relying on stakeholder insights and UX best practices instead.
-            </p>
-            <p className='font-mulish text-lg leading-relaxed max-w-[800px]'>
-              If this project were to continue, my top recommendation would be to validate our design with a data-driven feedback loop. I would advocate for conducting moderated usability tests with 5-7 real users. This would provide important qualitative feedback to confirm our design assumptions and uncover any remaining friction points.
-            </p>
-          </ContentContainer>
-        </section>
-      </main>
+        <main className="mx-auto w-full max-w-[720px] lg:ml-20 xl:ml-32">
+          <section id="intro" className="scroll-mt-28 mb-[84px]">
+            <Typography as="h1" variant="h5Regular" className="mb-10 max-w-[650px] text-[#1A1A1A]" style={{ lineHeight: '38px' }}>
+              Slashing projected loan application time by 36% by redesigning for trust and efficiency.
+            </Typography>
+
+            <div className="mb-12 flex flex-col gap-1 text-[#686868]">
+              <div className="flex gap-4">
+                <Typography as="span" variant="bodyRegular" className="w-[74px] flex-shrink-0">Role</Typography>
+                <Typography as="span" variant="bodyRegular">UX/UI Designer, 4 weeks</Typography>
+              </div>
+              <div className="flex gap-4">
+                <Typography as="span" variant="bodyRegular" className="w-[74px] flex-shrink-0">Team</Typography>
+                <Typography as="span" variant="bodyRegular">Project Manager, UX/UI Designer</Typography>
+              </div>
+              <div className="flex gap-4">
+                <Typography as="span" variant="bodyRegular" className="w-[74px] flex-shrink-0">Client</Typography>
+                <Typography as="span" variant="bodyRegular">Top-tier global bank, 10K+ customers</Typography>
+              </div>
+            </div>
+
+            <ImageFrame
+              src={images.hero}
+              alt="Placeholder for redesigned loan application mobile dashboard"
+              caption="Redesigned loan application dashboard showing a pre-approved offer and next steps."
+              className="mb-12"
+              imgClassName="w-full max-w-[520px] h-auto"
+            />
+
+            <Paragraph>
+              80% of digital loan applicants were pre-approved. The bank had already assessed their eligibility, already decided to offer them a loan. These should have been the easiest conversions in the funnel. They weren't.
+            </Paragraph>
+          </section>
+
+          <Section id="problem" title="">
+            <blockquote className="border-l-[8px] border-[#1A1A1A] pl-5">
+              <ProblemBlock title="Problem for the business:">
+                High drop-off on a critical revenue channel, despite a pre-approved pool that should have converted easily.
+              </ProblemBlock>
+              <div className="mt-8">
+                <ProblemBlock title="Problem for the customer:">
+                  An 11-screen form that asked for excessive information, created fatigue, and gave no sense of progress or end in sight.
+                </ProblemBlock>
+              </div>
+            </blockquote>
+
+            <InsightCallout />
+          </Section>
+
+          <Section id="discovery" title="Designing under constraint">
+            <ImageFrame
+              src={images.audit}
+              alt="Placeholder for original 11-screen loan application audit"
+              className="mb-10"
+              imgClassName="w-full max-w-[520px] h-auto"
+            />
+
+            <Paragraph className="mb-5">
+              A 1-month timeline ruled out a formal research phase. No user interviews. No analytics showing where exactly people dropped off. No usability testing on the existing flow. What I had: direct access to the client stakeholder, consistent secondhand user feedback, and the ability to do a rigorous heuristic audit of every screen, field, and interaction in the existing flow.
+            </Paragraph>
+            <Paragraph>
+              I mapped every field against two questions: does the bank already have this? Does this affect loan eligibility? Fields that failed both were candidates for removal. Fields that survived were regrouped into a logical sequence: Personal info, Financials, Review, so each section felt coherent rather than arbitrary.
+            </Paragraph>
+          </Section>
+
+          <Section id="key-decisions" title="Key Decisions">
+            <Label className="mb-6">Replacing the dropdown with an interactive slider</Label>
+            <ImageFrame
+              src={images.dropdownSlider}
+              alt="Placeholder for loan amount slider flow"
+              className="mb-10"
+              imgClassName="w-full max-w-[520px] h-auto"
+            />
+            <Paragraph className="mb-14">
+              The original loan term selection required three steps: open a dropdown, select a term, wait for the rate to update. Those interactions do one thing: hide cause and effect. The redesigned flow uses a single continuous gesture. As users adjust the loan duration, the monthly payment updates in real time. This isn't just fewer taps. It changes the nature of the decision. Users can explore the tradeoff between term length and monthly payment fluidly, which builds confidence before they commit.
+            </Paragraph>
+
+            <Label className="mb-6">Progressive disclosure</Label>
+            <ImageFrame
+              src={images.progressiveDisclosure}
+              alt="Placeholder for progressive disclosure screen"
+              className="mb-10"
+              imgClassName="w-full max-w-[520px] h-auto"
+            />
+            <Paragraph className="mb-14">
+              The single long form created a cognitive load problem: no sense of structure, no sense of progress. Breaking the flow into named sections gave users a mental model of where they were and what remained. Each section had a clear scope, so no field felt out of place.
+            </Paragraph>
+
+            <Label className="mb-6">Milestone illustrations</Label>
+            <ImageFrame
+              src={images.milestoneIllustrations}
+              alt="Placeholder for milestone illustration screens"
+              className="mb-10"
+              imgClassName="w-full max-w-[520px] h-auto"
+            />
+            <Paragraph>
+              At three points in the flow, after personal information, after loan terms, and at final confirmation, I introduced milestone moments with illustrations and short encouraging messages. These aren't decoration. Multi-step forms create anxiety, and anxiety causes abandonment. Acknowledging completion at key points does two things: it rewards the effort already made, and it reframes what's left as achievable. The final milestone, "All set. Your loan rate has been emailed to you," provides clear closure, which matters as much as getting users through as getting them to feel good about having done it.
+            </Paragraph>
+          </Section>
+
+          <Section id="outcome" title="Outcome">
+            <OutcomePanel />
+            <Paragraph className="mb-5">
+              The redesigned flow reduced the application from 11 screens to 7, a 36% reduction in steps, based on screen count and interaction audit. Redundant fields were removed, real trust was restored. The slider reduced a 3-step interaction to one.
+            </Paragraph>
+            <Paragraph>
+              Because the redesign was handed off directly to the client's internal dev team and the engagement ended at handoff, I don't have post-launch data on completion rates or abandonment. The 36% is a projection grounded in the structural changes made, not a measured result.
+            </Paragraph>
+          </Section>
+
+          <Section id="tradeoffs" title="Tradeoffs">
+            <Label className="mb-4">Stakeholder feedback vs. user truth</Label>
+            <Paragraph className="mb-12">
+              The field audit was shaped by stakeholder-reported complaints, secondhand accounts of what users found frustrating. That's a filtered signal. Stakeholders interpret user feedback through their own organizational priorities, and what they surface may not reflect the full picture of where users actually struggled.
+            </Paragraph>
+
+            <Label className="mb-4">Screen reduction vs. cognitive load</Label>
+            <Paragraph className="mb-16">
+              Fewer screens reduce steps. They don't automatically reduce cognitive load. They can concentrate it. A 7-screen flow where each screen is dense could be worse than an 11-screen flow with breathing room. The decision rested on removing redundant fields and grouping related inputs coherently.
+            </Paragraph>
+
+            <Typography as="h2" variant="h6Regular" className="mb-8 text-[#1A1A1A]">
+              What I'd do differently
+            </Typography>
+            <Paragraph>
+              Establish baseline metrics before starting. Without data on where users dropped off in the original flow, the redesign was solving for a pattern rather than a specific problem. Even rough analytics, funnel drop-off by screen, would have sharpened the prioritization and made the outcome measurable rather than projected.
+            </Paragraph>
+          </Section>
+        </main>
+      </div>
     </div>
   );
 };
