@@ -102,38 +102,14 @@ const InsightCallout = () => (
   </div>
 );
 
-const WireframePhone = ({ className = '' }) => (
-  <div className={`rounded-[12px] bg-white p-2 shadow-[0_0_0_1px_rgba(255,255,255,0.6)] ${className}`}>
-    <div className="mb-2 flex items-center justify-center gap-3">
-      <div className="size-1 rounded-full border border-[#999]" />
-      <div className="h-1 w-9 rounded-full border border-[#999]" />
-    </div>
-    <div className="border border-[#b3b3b3] px-2 py-2">
-      <div className="mb-2 flex items-center gap-4 border-b border-[#b3b3b3] pb-2">
-        <span className="text-[9px] leading-none text-[#666]">&lt;</span>
-        <div className="mx-auto h-3 w-12 border border-[#b3b3b3]" />
-      </div>
-      <div className="mb-2 h-1 w-full bg-[#d9d9d9]" />
-      <div className="mb-3 h-1 w-3/4 bg-[#d9d9d9]" />
-      {[0, 1, 2, 3].map((item) => (
-        <div key={item} className="mb-3 border-b border-[#d9d9d9] pb-2">
-          <div className="mb-1 h-1 w-16 bg-[#666]" />
-          <div className="h-1 w-24 bg-[#b3b3b3]" />
-        </div>
-      ))}
-      <div className="mt-4 h-4 bg-[#666]" />
-    </div>
-    <div className="mx-auto mt-2 h-1 w-8 rounded-full border border-[#999]" />
-  </div>
-);
-
 const WireframeExamples = () => (
   <figure>
-    <div className="flex h-[300px] items-center justify-center overflow-hidden rounded-[18px] bg-[#1a1a1a] px-9 py-8">
-      <div className="flex items-center justify-center gap-7">
-        <WireframePhone className="w-[150px]" />
-        <WireframePhone className="w-[128px]" />
-      </div>
+    <div className="flex items-center justify-center overflow-hidden rounded-[18px] bg-[#1a1a1a] p-8">
+      <img
+        src={`${ASSET_PATH}/${images.audit}`}
+        alt="Original application audit"
+        className="h-auto w-full object-contain"
+      />
     </div>
     <Caption className="mt-2 text-[#1a1a1a]">
       Wireframe examples.
@@ -326,21 +302,11 @@ const LoanAppExperienceOptimization = () => {
                 </Paragraph>
               </div>
 
-              <figure>
-                <div className="relative flex h-[430px] items-center justify-center overflow-hidden rounded-[24px] bg-[#1a1a1a] px-8 py-9">
-                  <img
-                    src={`${ASSET_PATH}/${images.dropdownSlider}`}
-                    alt="Loan details screen with interactive term and payment sliders"
-                    className="h-[380px] w-auto object-contain"
-                  />
-                  <div className="absolute right-[24%] top-1/2 flex size-14 -translate-y-1/2 items-center justify-center rounded-full border-4 border-white bg-[#1db954] text-[28px] font-medium leading-none text-white shadow-[0_10px_24px_rgba(0,0,0,0.22)]">
-                    N
-                  </div>
-                </div>
-                <Caption className="mt-2 max-w-[390px] text-[#1A1A1A]">
-                  Loan details screen: slider lets users explore term length and monthly payment in real time before committing.
-                </Caption>
-              </figure>
+              <ImageFrame
+                src={images.dropdownSlider}
+                alt="Loan details screen with interactive term and payment sliders"
+                caption="Loan details screen: slider lets users explore term length and monthly payment in real time before committing."
+              />
             </div>
 
             <Label className="mb-6">Progressive disclosure</Label>
