@@ -26,6 +26,7 @@ const images = {
   dropdownSlider: 'dropdown-slider-flow.png',
   progressiveDisclosure: 'progressive-disclosure-flow.png',
   milestoneIllustrations: 'milestone-illustrations-flow.png',
+  finalFlow: 'outcome.png',
 };
 
 const Section = ({ id, title, children, className = '' }) => (
@@ -117,29 +118,7 @@ const WireframeExamples = () => (
   </figure>
 );
 
-const OutcomeMetric = ({ icon, title }) => (
-  <div className="min-w-0">
-    <Icon icon={icon} className="mb-5 text-[68px] text-[#1A1A1A]" />
-    <Typography as="h3" variant="bodySemibold" className="max-w-[230px] text-[#1A1A1A]">
-      {title}
-    </Typography>
-  </div>
-);
 
-const OutcomePanel = () => (
-  <figure className="mb-10">
-    <div className="grid gap-10 rounded-[10px] bg-[#F3F3F3] px-9 py-12 sm:grid-cols-2 sm:px-12">
-      <OutcomeMetric
-        icon="material-symbols:pie-chart-rounded"
-        title={<>Projected 36% Reduction in Application Completion Time</>}
-      />
-      <OutcomeMetric
-        icon="material-symbols:kid-star-rounded"
-        title={<>Improved User Confidence</>}
-      />
-    </div>
-  </figure>
-);
 
 const LoanAppExperienceOptimization = () => {
   useAnalytics('project_detail', {
@@ -344,25 +323,41 @@ const LoanAppExperienceOptimization = () => {
             </div>
           </Section>
 
-          <Section id="outcome" title="Outcome">
-            <OutcomePanel />
-            <Paragraph className="mb-5">
-              The redesigned flow reduced the application from 11 screens to 7, a 36% reduction in steps, based on screen count and interaction audit. Redundant fields were removed, real trust was restored. The slider reduced a 3-step interaction to one.
-            </Paragraph>
+          <Section id="outcome" title="What changed">
+            <blockquote className="mb-14 border-l-[8px] border-[#1a1a1a] pl-7">
+              <Typography as="p" variant="h6Regular" className="text-[#1a1a1a]">
+                The redesigned flow reduced the application from 11 screens to 7, a 36% reduction based on screen count and interaction audit.
+              </Typography>
+              <Typography as="p" variant="h6Regular" className="mt-10 text-[#1a1a1a]">
+                Redundant fields were removed; some others were converted from input fields to review fields, pre-populated with data the bank already had. The slider reduced a 3-step interaction to one.
+              </Typography>
+            </blockquote>
+
+            <figure className="mb-14">
+              <img
+                src={`${ASSET_PATH}/${images.finalFlow}`}
+                alt="The redesigned 7-screen flow"
+                className="h-auto w-full rounded-[18px]"
+              />
+              <Caption className="mt-2 text-[#1a1a1a]">
+                The redesigned 7-screen flow.
+              </Caption>
+            </figure>
+
             <Paragraph>
-              Because the redesign was handed off directly to the client's internal dev team and the engagement ended at handoff, I don't have post-launch data on completion rates or abandonment. The 36% is a projection grounded in the structural changes made, not a measured result.
+              The redesign was handed off to the client's internal dev team and the engagement ended at handoff. The 36% is a projection grounded in structural changes made, not a measured result.
             </Paragraph>
           </Section>
 
-          <Section id="tradeoffs" title="Tradeoffs">
+          <Section id="tradeoffs" title="The gaps I designed around">
             <Label className="mb-4">Stakeholder feedback vs. user truth</Label>
             <Paragraph className="mb-12">
-              The field audit was shaped by stakeholder-reported complaints, secondhand accounts of what users found frustrating. That's a filtered signal. Stakeholders interpret user feedback through their own organizational priorities, and what they surface may not reflect the full picture of where users actually struggled.
+              The field audit relied on stakeholder-reported complaints rather than direct user input. With no access to users or analytics, heuristic analysis became the primary lens for identifying issues; a deliberate call given the constraints. Stakeholders interpret user feedback through their own priorities, and what they surface may not reflect where users actually struggled. The problem definition was never validated directly with users.
             </Paragraph>
 
             <Label className="mb-4">Screen reduction vs. cognitive load</Label>
             <Paragraph className="mb-16">
-              Fewer screens reduce steps. They don't automatically reduce cognitive load. They can concentrate it. A 7-screen flow where each screen is dense could be worse than an 11-screen flow with breathing room. The decision rested on removing redundant fields and grouping related inputs coherently.
+              Fewer screens reduce steps but don't automatically reduce cognitive load. The decision rested on the removals being genuine: fields eliminated, not reshuffled, and some converted to pre-populated review fields. But without usability testing, it remains unconfirmed that the consolidation hit the right balance.
             </Paragraph>
           </Section>
 
@@ -371,7 +366,7 @@ const LoanAppExperienceOptimization = () => {
               What I'd do differently
             </Typography>
             <Paragraph>
-              Establish baseline metrics before starting. Without data on where users dropped off in the original flow, the redesign was solving for a pattern rather than a specific problem. Even rough analytics, funnel drop-off by screen, would have sharpened the prioritization and made the outcome measurable rather than projected.
+              I'd push the client to share funnel analytics before starting. Without data on where users dropped off, the redesign was solving for a pattern rather than a specific problem. Even rough drop-off rates by screen would have sharpened prioritization and made the outcome measurable rather than projected.
             </Paragraph>
           </Section>
         </main>
