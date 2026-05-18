@@ -26,7 +26,7 @@ const PANELS = [
     id: 2,
     type: 'project',
     title: (
-      <span style={{ display: 'inline-block', maxWidth: '80%', lineHeight: '1.2' }}>
+      <span style={{ display: 'inline-block', maxWidth: '80%', lineHeight: '1.5' }}>
         Eliminating the<br />
         2 hour wait at<br />
         Ramen Nagi <MorphingShape />

@@ -54,7 +54,7 @@ const Svaasthya = () => {
   ];
 
   return (
-    <div className='relative bg-white text-gray-900 font-sans'>
+    <div className='relative bg-white text-gray-900 font-ibm-plex'>
       {/* Hero: Teal background */}
       <header className='w-full bg-[#1D5D82]'>
         <ContentContainer className='relative flex flex-col md:flex-row'>
@@ -62,7 +62,7 @@ const Svaasthya = () => {
             <h1 className='font-playfair text-4xl md:text-5xl font-extrabold leading-tight tracking-tight'>
               Svaasthya
             </h1>
-            <p className='font-mulish text-lg md:text-xl mt-4 opacity-95'>
+            <p className='font-ibm-plex text-lg md:text-xl mt-4 opacity-95'>
               A chatbot application for a hospital in India <StrokeAnimation strokeColor="10B981">streamlining patient services</StrokeAnimation> through appointment booking and online payments.
             </p>
             <div className='flex flex-wrap gap-2 mt-6'>
@@ -91,9 +91,9 @@ const Svaasthya = () => {
                   icon='material-symbols:person-outline'
                   className='text-2xl text-black mr-4'
                 />
-                <h3 className='font-mulish font-bold text-lg'>Role:</h3>
+                <h3 className='font-ibm-plex font-bold text-lg'>Role:</h3>
               </div>
-              <p className='font-mulish col-start-2 text-gray-600 text-lg'>
+              <p className='font-ibm-plex col-start-2 text-gray-600 text-lg'>
                 UX Researcher, UX Designer, Interaction Designer, Visual Designer
               </p>
 
@@ -103,9 +103,9 @@ const Svaasthya = () => {
                   icon='material-symbols:build-outline'
                   className='text-2xl text-black mr-4'
                 />
-                <h3 className='font-mulish font-bold text-lg'>Tools:</h3>
+                <h3 className='font-ibm-plex font-bold text-lg'>Tools:</h3>
               </div>
-              <p className='font-mulish col-start-2 text-gray-600 text-lg'>
+              <p className='font-ibm-plex col-start-2 text-gray-600 text-lg'>
                 Figma, Paper (wireframing)
               </p>
 
@@ -115,9 +115,9 @@ const Svaasthya = () => {
                   icon='mdi:tag-outline'
                   className='text-2xl text-black mr-4'
                 />
-                <h3 className='font-mulish font-bold text-lg'>Type:</h3>
+                <h3 className='font-ibm-plex font-bold text-lg'>Type:</h3>
               </div>
-              <p className='font-mulish col-start-2 text-gray-600 text-lg'>Personal Project</p>
+              <p className='font-ibm-plex col-start-2 text-gray-600 text-lg'>Personal Project</p>
             </div>
           </ContentContainer>
         </section>
@@ -135,13 +135,13 @@ const Svaasthya = () => {
             <div className='flex flex-col gap-12'>
               <div>
                 <h2 className='font-playfair text-3xl font-bold mb-4'>Context</h2>
-                <p className='font-mulish text-lg leading-relaxed max-w-[800px]'>
+                <p className='font-ibm-plex text-lg leading-relaxed max-w-[800px]'>
                   Svaasthya is a support chatbot application for a hospital in India. Hospitals in India often have long wait times on the phones or even long lines at the hospital itself which makes it difficult and tedious for individuals to get help with their questions or services they need.
                 </p>
               </div>
               <div>
                 <h2 className='font-playfair text-3xl font-bold mb-4'>Goal</h2>
-                <p className='font-mulish text-lg leading-relaxed max-w-[800px]'>
+                <p className='font-ibm-plex text-lg leading-relaxed max-w-[800px]'>
                   The goal of this product is to design an application that will help individuals in India carry out tasks such as booking appointments or getting hospital related information quickly and conveniently.
                 </p>
               </div>
@@ -157,7 +157,7 @@ const Svaasthya = () => {
                 Pain Points
               </h2>
               <div className='md:col-span-2'>
-                <ul className='font-mulish list-disc list-inside text-lg leading-relaxed space-y-3 opacity-90'>
+                <ul className='font-ibm-plex list-disc list-inside text-lg leading-relaxed space-y-3 opacity-90'>
                   {painPoints.map((point, index) => (
                     <li key={index}>{point}</li>
                   ))}
@@ -174,7 +174,7 @@ const Svaasthya = () => {
             <div className='flex flex-col gap-12'>
               <div>
                 <h2 className='font-playfair text-3xl font-bold mb-4'>Target Audience</h2>
-                <p className='font-mulish text-lg leading-relaxed max-w-[800px]'>
+                <p className='font-ibm-plex text-lg leading-relaxed max-w-[800px]'>
                   People in India who want to get information about the hospital, have queries or questions, or need to book appointments.
                 </p>
               </div>
@@ -193,13 +193,13 @@ const Svaasthya = () => {
         <section className='w-full bg-[#f5f5f5] py-5 md:py-[50px] lg:py-[100px]'>
           <ContentContainer>
             <h2 className='font-playfair text-3xl font-bold mb-4'>Lo-Fi Wireframes</h2>
-            <p className='font-mulish text-lg leading-relaxed mb-8 max-w-[800px]'>
+            <p className='font-ibm-plex text-lg leading-relaxed mb-8 max-w-[800px]'>
               Starting with paper wireframes to quickly explore different conversation flows and interface layouts for the chatbot experience.
             </p>
             <img src="/v2/images/projects/svaasthya/svaasthyaPaperWireframes.png" alt='Paper Wireframes' className='w-full h-auto mb-12' />
             
             <h3 className='font-playfair text-2xl font-bold mb-6'>Digital Wireframes</h3>
-            <p className='font-mulish text-lg leading-relaxed mb-8 max-w-[800px]'>
+            <p className='font-ibm-plex text-lg leading-relaxed mb-8 max-w-[800px]'>
               Translating the paper sketches into digital wireframes helped refine the chatbot interaction patterns and user flow.
             </p>
             <img src="/v2/images/projects/svaasthya/svaasthyaLofiWireframesMobile.png" alt='Digital Wireframes' className='w-full h-auto' />
@@ -211,7 +211,7 @@ const Svaasthya = () => {
           <ContentContainer className='relative overflow-hidden'>
             <DecorativeDots color="1D5D82" position="top-right" />
             <h2 className='font-playfair text-3xl font-bold mb-4'>Hi-Fi Wireframes</h2>
-            <p className='font-mulish text-lg leading-relaxed mb-8 max-w-[800px]'>
+            <p className='font-ibm-plex text-lg leading-relaxed mb-8 max-w-[800px]'>
               The high-fidelity wireframes bring the chatbot to life with a clean, medical-appropriate color scheme and intuitive conversation interface.
             </p>
             <img src="/v2/images/projects/svaasthya/svaasthyaHifiWireframesMobile.png" alt='Hi-Fi Mobile Screens' className='w-full h-auto' />
@@ -222,7 +222,7 @@ const Svaasthya = () => {
         <section className='w-full bg-[#f5f5f5] py-5 md:py-[50px] lg:py-[100px]'>
           <ContentContainer>
             <h2 className='font-playfair text-3xl font-bold mb-4'>Style Guide</h2>
-            <p className='font-mulish text-lg leading-relaxed mb-8 max-w-[800px]'>
+            <p className='font-ibm-plex text-lg leading-relaxed mb-8 max-w-[800px]'>
               A comprehensive style guide was created to ensure consistency across all screens and interactions, establishing a trustworthy and professional healthcare brand identity.
             </p>
             <img src="/v2/images/projects/svaasthya/svaasthyaStyleGuide.png" alt='Style Guide' className='w-full h-auto' />
@@ -234,7 +234,7 @@ const Svaasthya = () => {
           <ContentContainer className='relative overflow-hidden'>
             <DecorativeDots color="1D5D82" position="top-right" />
             <h2 className='font-playfair text-3xl font-bold mb-4'>Prototype</h2>
-            <p className='font-mulish text-lg leading-relaxed mb-8 max-w-[800px]'>
+            <p className='font-ibm-plex text-lg leading-relaxed mb-8 max-w-[800px]'>
               Explore the interactive prototype to experience the complete chatbot conversation flow and appointment booking process.
             </p>
             <iframe
@@ -252,7 +252,7 @@ const Svaasthya = () => {
         <section className='bg-[#222222] text-white py-5 md:py-[50px] lg:py-[100px]'>
           <ContentContainer>
             <h2 className='font-playfair text-3xl font-bold mb-4'>Key Takeaway</h2>
-            <p className='font-mulish text-lg leading-relaxed opacity-95 max-w-[800px]'>
+            <p className='font-ibm-plex text-lg leading-relaxed opacity-95 max-w-[800px]'>
               This project helped me understand and explore the entire process of user experience. My most significant takeaway is to always remember who you are building the app for and how can your designs best help them to achieve what they want to achieve.
             </p>
           </ContentContainer>

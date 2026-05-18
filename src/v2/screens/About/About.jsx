@@ -32,7 +32,7 @@ function About() {
 
       {/* Content Section */}
       <section className="max-w-[900px] mx-auto px-[40px] py-[80px] max-md:px-[20px] max-md:py-[60px]">
-        <p className="font-mulish text-[20px] text-center text-black leading-[1.8] m-0 max-md:text-[18px]">
+        <p className="font-ibm-plex text-[20px] text-center text-black leading-[1.8] m-0 max-md:text-[18px]">
           I started my career in front-end development, but a curiosity about the person on the other side of the screen led me to UX. The Google UX Design course was my 'aha' moment, teaching me that my true passion wasn't just for building things right, but for building the right things. As a UX Designer, I'm now driven by the reward of making a positive impact and knowing my work can make someone's life a little easier. Outside of design, I love to unwind with a thriller novel or get creative with paints and crafts.
         </p>
       </section>

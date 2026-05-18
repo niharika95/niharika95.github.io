@@ -558,7 +558,7 @@ function Header() {
                     >
                       <AdaptiveText
                         text={label}
-                        className="drop-shadow-lg font-['Mulish',sans-serif] text-[16px]"
+                        className="drop-shadow-lg font-['IBM Plex Sans',sans-serif] text-[16px]"
                         containerRef={linkRefs[index]}
                       />
                     </div>

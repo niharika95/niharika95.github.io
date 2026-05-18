@@ -54,7 +54,7 @@ const FemHealth = () => {
   ];
 
   return (
-    <div className='relative bg-white text-gray-900 font-sans'>
+    <div className='relative bg-white text-gray-900 font-ibm-plex'>
       {/* Hero: Purple background */}
       <header className='w-full bg-[#3E122D]'>
         <ContentContainer className='relative flex flex-col md:flex-row'>
@@ -62,7 +62,7 @@ const FemHealth = () => {
             <h1 className='font-playfair text-4xl md:text-5xl font-extrabold leading-tight tracking-tight'>
               FemHealth
             </h1>
-            <p className='font-mulish text-lg md:text-xl mt-4 opacity-95'>
+            <p className='font-ibm-plex text-lg md:text-xl mt-4 opacity-95'>
               A platform helping women access <StrokeAnimation strokeColor="D97706">reliable health information anonymously</StrokeAnimation> and find clinics accepting their insurance.
             </p>
             <div className='flex flex-wrap gap-2 mt-6'>
@@ -91,9 +91,9 @@ const FemHealth = () => {
                   icon='material-symbols:person-outline'
                   className='text-2xl text-black mr-4'
                 />
-                <h3 className='font-mulish font-bold text-lg'>Role:</h3>
+                <h3 className='font-ibm-plex font-bold text-lg'>Role:</h3>
               </div>
-              <p className='font-mulish col-start-2 text-gray-600 text-lg'>
+              <p className='font-ibm-plex col-start-2 text-gray-600 text-lg'>
                 UX Researcher, UX Designer, Interaction Designer, Visual Designer
               </p>
 
@@ -103,9 +103,9 @@ const FemHealth = () => {
                   icon='material-symbols:build-outline'
                   className='text-2xl text-black mr-4'
                 />
-                <h3 className='font-mulish font-bold text-lg'>Tools:</h3>
+                <h3 className='font-ibm-plex font-bold text-lg'>Tools:</h3>
               </div>
-              <p className='font-mulish col-start-2 text-gray-600 text-lg'>
+              <p className='font-ibm-plex col-start-2 text-gray-600 text-lg'>
                 Figma, Paper (wireframing), Google Jamboard
               </p>
 
@@ -115,9 +115,9 @@ const FemHealth = () => {
                   icon='mdi:tag-outline'
                   className='text-2xl text-black mr-4'
                 />
-                <h3 className='font-mulish font-bold text-lg'>Type:</h3>
+                <h3 className='font-ibm-plex font-bold text-lg'>Type:</h3>
               </div>
-              <p className='font-mulish col-start-2 text-gray-600 text-lg'>Personal Project</p>
+              <p className='font-ibm-plex col-start-2 text-gray-600 text-lg'>Personal Project</p>
             </div>
           </ContentContainer>
         </section>
@@ -135,13 +135,13 @@ const FemHealth = () => {
             <div className='flex flex-col gap-12'>
               <div>
                 <h2 className='font-playfair text-3xl font-bold mb-4'>Context</h2>
-                <p className='font-mulish text-lg leading-relaxed max-w-[800px]'>
+                <p className='font-ibm-plex text-lg leading-relaxed max-w-[800px]'>
                   It can often be awkward for women to talk about their health problems. Health consultations can be expensive and sometimes it is difficult to find clinics that accept certain insurances. And while looking for answers online can help, it is not always reliable. FemHealth is a platform for women of all ages which provides them with access to information related to their health and answers to health related questions from verified sources.
                 </p>
               </div>
               <div>
                 <h2 className='font-playfair text-3xl font-bold mb-4'>Goal</h2>
-                <p className='font-mulish text-lg leading-relaxed max-w-[800px]'>
+                <p className='font-ibm-plex text-lg leading-relaxed max-w-[800px]'>
                   The goal of this product is to help women feel comfortable when asking health related questions, provide resources to help them maintain a healthy lifestyle, and locate clinics near their area that accept the medical insurance they have.
                 </p>
               </div>
@@ -157,7 +157,7 @@ const FemHealth = () => {
                 Pain Points
               </h2>
               <div className='md:col-span-2'>
-                <ul className='font-mulish list-disc list-inside text-lg leading-relaxed space-y-3 opacity-90'>
+                <ul className='font-ibm-plex list-disc list-inside text-lg leading-relaxed space-y-3 opacity-90'>
                   {painPoints.map((point, index) => (
                     <li key={index}>{point}</li>
                   ))}
@@ -174,10 +174,10 @@ const FemHealth = () => {
             <div className='flex flex-col gap-12'>
               <div>
                 <h2 className='font-playfair text-3xl font-bold mb-4'>User Research</h2>
-                <p className='font-mulish text-lg leading-relaxed max-w-[800px]'>
+                <p className='font-ibm-plex text-lg leading-relaxed max-w-[800px]'>
                   The user research for this project was done by sending out surveys to women between the ages of 20 and 60. The questions in the survey were based around how their experience (if any) had been getting help regarding women's health problems.
                 </p>
-                <p className='font-mulish text-lg leading-relaxed mt-4 max-w-[800px]'>
+                <p className='font-ibm-plex text-lg leading-relaxed mt-4 max-w-[800px]'>
                   Women of all ages who have health questions they want answered anonymously or get access to information to lead a healthy lifestyle.
                 </p>
               </div>
@@ -196,7 +196,7 @@ const FemHealth = () => {
         <section className='w-full bg-[#f5f5f5] py-5 md:py-[50px] lg:py-[100px]'>
           <ContentContainer>
             <h2 className='font-playfair text-3xl font-bold mb-4'>User Flow</h2>
-            <p className='font-mulish text-lg leading-relaxed mb-8 max-w-[800px]'>
+            <p className='font-ibm-plex text-lg leading-relaxed mb-8 max-w-[800px]'>
               Designing the user flow helped organize the features and their hierarchy in the app. The high-level details of each screen made it easier to draw a mental picture of the components.
             </p>
             <img src="/v2/images/projects/femhealth/femhealthUserflow.png" alt='FemHealth User Flow' className='w-full h-auto' />
@@ -208,12 +208,12 @@ const FemHealth = () => {
           <ContentContainer className='relative overflow-hidden'>
             <DecorativeDots color="3E122D" position="top-right" />
             <h2 className='font-playfair text-3xl font-bold mb-4'>Lo-Fi Wireframes</h2>
-            <p className='font-mulish text-lg leading-relaxed mb-8 max-w-[800px]'>
+            <p className='font-ibm-plex text-lg leading-relaxed mb-8 max-w-[800px]'>
               Started off with some paper wireframes to create quick drafts of what some of the screens might look like; including different ideas for layouts of elements on the screens.
             </p>
             <img src="/v2/images/projects/femhealth/femhealthPaperWireframes.png" alt='Paper Wireframes' className='w-full h-auto mb-12' />
             
-            <p className='font-mulish text-lg leading-relaxed mb-8 max-w-[800px]'>
+            <p className='font-ibm-plex text-lg leading-relaxed mb-8 max-w-[800px]'>
               The next step was to create digital wireframes for all screens. A combination of layouts from the paper wireframes helped with deciding the design for the digital wireframes.
             </p>
             <img src="/v2/images/projects/femhealth/femhealthLofiWireframesMobile.png" alt='Mobile Wireframes' className='w-full h-auto mb-8' />
@@ -225,7 +225,7 @@ const FemHealth = () => {
         <section className='w-full bg-[#f5f5f5] py-5 md:py-[50px] lg:py-[100px]'>
           <ContentContainer>
             <h2 className='font-playfair text-3xl font-bold mb-4'>Hi-Fi Wireframes</h2>
-            <p className='font-mulish text-lg leading-relaxed mb-8 max-w-[800px]'>
+            <p className='font-ibm-plex text-lg leading-relaxed mb-8 max-w-[800px]'>
               Once the wireframes were ready, adding some color and functionality to them was the next step. As an app being designed to make lives of women easier, I also thought that it needed to make women feel strong and provide a positive boost. Using a combination of dark purple and orange would bring out feelings of sophistication and boldness.
             </p>
             <div className='flex flex-col gap-8'>
@@ -248,7 +248,7 @@ const FemHealth = () => {
           <ContentContainer className='relative overflow-hidden'>
             <DecorativeDots color="3E122D" position="top-right" />
             <h2 className='font-playfair text-3xl font-bold mb-4'>Prototype</h2>
-            <p className='font-mulish text-lg leading-relaxed mb-8 max-w-[800px]'>
+            <p className='font-ibm-plex text-lg leading-relaxed mb-8 max-w-[800px]'>
               Explore the interactive prototype to experience the complete user journey.
             </p>
             <iframe
@@ -266,7 +266,7 @@ const FemHealth = () => {
         <section className='bg-[#222222] text-white py-5 md:py-[50px] lg:py-[100px]'>
           <ContentContainer>
             <h2 className='font-playfair text-3xl font-bold mb-4'>Key Takeaway</h2>
-            <p className='font-mulish text-lg leading-relaxed opacity-95 max-w-[800px]'>
+            <p className='font-ibm-plex text-lg leading-relaxed opacity-95 max-w-[800px]'>
               My most significant takeaway from this project is to always remember the target audience/users who the app is being designed for and how your designs can best help them achieve what they want to achieve. Really and clearly understanding the users' problems will help to find the best solution.
             </p>
           </ContentContainer>

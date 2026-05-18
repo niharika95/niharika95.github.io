@@ -43,7 +43,7 @@ function Home() {
                   Product Designer
                 </h2>
               </div>
-              <p className='font-mulish font-thin text-[20px] text-black tracking-[-0.05em] leading-[1.5] m-0 max-md:text-[18px]'>
+              <p className='font-ibm-plex font-thin text-[20px] text-black tracking-[-0.05em] leading-[1.5] m-0 max-md:text-[18px]'>
                 Designing <span className='font-light'>0 → 1</span> solutions that drive growth, in collaboration
                 with cross-functional and cross-cultural Agile teams.
               </p>
@@ -56,10 +56,10 @@ function Home() {
                   key={index}
                   className='flex flex-col gap-[4px] min-w-[200px] flex-1 max-lg:w-auto max-lg:flex-none'
                 >
-                  <p className='font-mulish font-bold text-[40px] text-black leading-[1.5] m-0 max-md:text-[36px]'>
+                  <p className='font-ibm-plex font-bold text-[40px] text-black leading-[1.5] m-0 max-md:text-[36px]'>
                     <AnimatedCounter value={stat.value} />
                   </p>
-                  <p className='font-mulish text-[16px] text-black leading-[24px] m-0 max-md:text-[15px]'>
+                  <p className='font-ibm-plex text-[16px] text-black leading-[24px] m-0 max-md:text-[15px]'>
                     {stat.label}
                   </p>
                 </div>

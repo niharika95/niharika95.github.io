@@ -44,7 +44,7 @@ const ReservationFlow = () => {
                             </div>
                         </div>
                     </motion.div>
-                    <p className="text-sm text-gray-500 mt-3">Click to view enlarged image.</p>
+                    <p className="text-sm text-gray-500 mt-2">Click to view enlarged image.</p>
                 </div>
             </div>
 
@@ -59,4 +59,3 @@ const ReservationFlow = () => {
 };
 
 export default ReservationFlow;
-

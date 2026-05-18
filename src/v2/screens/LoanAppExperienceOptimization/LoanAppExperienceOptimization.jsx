@@ -12,11 +12,12 @@ const ASSET_PATH = '/v2/images/projects/loan-app-experience-optimization';
 
 const TOC = [
   { id: 'intro', label: 'Intro' },
-  { id: 'problem', label: 'Problem in a nutshell' },
-  { id: 'discovery', label: 'Discovery under pressure' },
-  { id: 'key-decisions', label: 'Key Decisions' },
-  { id: 'outcome', label: 'Measurable Impact' },
-  { id: 'tradeoffs', label: 'Challenges & Learnings' },
+  { id: 'problem', label: 'Problem' },
+  { id: 'discovery', label: 'Constraints' },
+  { id: 'key-decisions', label: 'Solution' },
+  { id: 'outcome', label: 'Outcomes' },
+  { id: 'tradeoffs', label: 'Tradeoffs' },
+  { id: 'reflection', label: 'Reflection' },
 ];
 
 const images = {
@@ -28,7 +29,7 @@ const images = {
 };
 
 const Section = ({ id, title, children, className = '' }) => (
-  <section id={id} className={`scroll-mt-28 mb-[88px] ${className}`}>
+  <section id={id} className={`scroll-mt-28 ${className || 'mb-[88px]'}`}>
     {title && (
       <Typography as="h2" variant="h6Regular" className="mb-8 text-[#1A1A1A]">
         {title}
@@ -42,15 +43,14 @@ const Paragraph = ({ children, className = '' }) => (
   <Typography
     as="p"
     variant="bodyRegular"
-    className={`text-[#1E1E1E] ${className}`}
-    style={{ lineHeight: '30px' }}
+    className={`text-[#1a1a1a] ${className}`}
   >
     {children}
   </Typography>
 );
 
 const Label = ({ children, className = '' }) => (
-  <Typography as="h3" variant="bodySemibold" className={`text-[#1A1A1A] ${className}`}>
+  <Typography as="h3" variant="bodySemibold" className={`text-[#1a1a1a] ${className}`}>
     {children}
   </Typography>
 );
@@ -58,9 +58,8 @@ const Label = ({ children, className = '' }) => (
 const Caption = ({ children, className = '' }) => (
   <Typography
     as="p"
-    variant="extraSmallRegular"
-    className={`text-[#555] ${className}`}
-    style={{ lineHeight: '18px' }}
+    variant="smallRegular"
+    className={`text-[#1a1a1a] ${className}`}
   >
     {children}
   </Typography>
@@ -71,37 +70,81 @@ const ImageFrame = ({ src, alt, caption, className = '', imgClassName = 'w-full 
     <div className="bg-[#F3F3F3] rounded-[10px] p-5 md:p-7 overflow-hidden">
       <img src={`${ASSET_PATH}/${src}`} alt={alt} className={`${imgClassName} mx-auto`} />
     </div>
-    {caption && <Caption className="mt-3">{caption}</Caption>}
+    {caption && <Caption className="mt-2">{caption}</Caption>}
   </figure>
 );
 
 const ProblemBlock = ({ title, children }) => (
   <div>
-    <Label className="mb-2">{title}</Label>
-    <Paragraph>{children}</Paragraph>
+    <Typography as="h3" variant="h6Medium" className="mb-4 text-[#1a1a1a]">
+      {title}
+    </Typography>
+    <Typography as="p" variant="h6Regular" className="text-[#1a1a1a]">
+      {children}
+    </Typography>
   </div>
 );
 
 const InsightCallout = () => (
-  <div className="my-12 flex items-start gap-5">
-    <div className="mt-1 flex size-8 flex-shrink-0 items-center justify-center rounded-full border border-[#0A3D78] text-[#0A3D78]">
-      <Icon icon="material-symbols:verified-outline-rounded" className="text-[20px]" />
-    </div>
-    <div>
-      <Label className="mb-3">
-        The form was not just long. It was asking pre-approved customers to provide information the bank already had.
+  <div className="mb-12 mt-20">
+    <div className="flex items-center gap-5">
+      <Icon
+        icon="material-symbols-light:gpp-bad-outline"
+        className="size-[60px] flex-shrink-0 text-[#0795EE]"
+      />
+      <Label className="mb-0">
+        The form wasn't just long. It was asking pre-approved customers to provide information the bank already had.
       </Label>
-      <Paragraph>
-        For a customer who had just been told "you qualify," an 11-screen interrogation doesn't feel like a formality. It feels like the bank doesn't trust them at the exact moment they are about to commit. The UX problem was real. But underneath it was a trust problem.
-      </Paragraph>
     </div>
+    <Paragraph className="ml-20 mt-5">
+      For a customer who's just been told "you qualify," an 11-screen interrogation doesn't feel like a formality. It feels like the bank doesn't trust them at the exact moment they're about to commit. The UX problem was real. But underneath it was a trust problem.
+    </Paragraph>
   </div>
+);
+
+const WireframePhone = ({ className = '' }) => (
+  <div className={`rounded-[12px] bg-white p-2 shadow-[0_0_0_1px_rgba(255,255,255,0.6)] ${className}`}>
+    <div className="mb-2 flex items-center justify-center gap-3">
+      <div className="size-1 rounded-full border border-[#999]" />
+      <div className="h-1 w-9 rounded-full border border-[#999]" />
+    </div>
+    <div className="border border-[#b3b3b3] px-2 py-2">
+      <div className="mb-2 flex items-center gap-4 border-b border-[#b3b3b3] pb-2">
+        <span className="text-[9px] leading-none text-[#666]">&lt;</span>
+        <div className="mx-auto h-3 w-12 border border-[#b3b3b3]" />
+      </div>
+      <div className="mb-2 h-1 w-full bg-[#d9d9d9]" />
+      <div className="mb-3 h-1 w-3/4 bg-[#d9d9d9]" />
+      {[0, 1, 2, 3].map((item) => (
+        <div key={item} className="mb-3 border-b border-[#d9d9d9] pb-2">
+          <div className="mb-1 h-1 w-16 bg-[#666]" />
+          <div className="h-1 w-24 bg-[#b3b3b3]" />
+        </div>
+      ))}
+      <div className="mt-4 h-4 bg-[#666]" />
+    </div>
+    <div className="mx-auto mt-2 h-1 w-8 rounded-full border border-[#999]" />
+  </div>
+);
+
+const WireframeExamples = () => (
+  <figure>
+    <div className="flex h-[300px] items-center justify-center overflow-hidden rounded-[18px] bg-[#1a1a1a] px-9 py-8">
+      <div className="flex items-center justify-center gap-7">
+        <WireframePhone className="w-[150px]" />
+        <WireframePhone className="w-[128px]" />
+      </div>
+    </div>
+    <Caption className="mt-2 text-[#1a1a1a]">
+      Wireframe examples.
+    </Caption>
+  </figure>
 );
 
 const OutcomeMetric = ({ icon, title }) => (
   <div className="min-w-0">
     <Icon icon={icon} className="mb-5 text-[68px] text-[#1A1A1A]" />
-    <Typography as="h3" variant="bodySemibold" className="max-w-[230px] text-[#1A1A1A]" style={{ lineHeight: '25px' }}>
+    <Typography as="h3" variant="bodySemibold" className="max-w-[230px] text-[#1A1A1A]">
       {title}
     </Typography>
   </div>
@@ -164,9 +207,9 @@ const LoanAppExperienceOptimization = () => {
       <div className="mx-auto flex max-w-[1440px] px-5 pb-32 pt-10 lg:px-10">
         <aside className="sticky top-[130px] hidden max-h-[calc(100vh-140px)] w-[180px] flex-shrink-0 self-start overflow-y-auto lg:block">
           <nav className="flex flex-col gap-[40px]">
-            <Link to="/v2" className="back-link-group -ml-1 inline-flex items-center gap-1 text-base font-medium text-[#999] transition-colors duration-200">
+            <Link to="/v2" className="back-link-group -ml-1 inline-flex items-center gap-1 text-base font-medium text-[#808080] transition-colors duration-200">
               <ChevronLeft size={20} className="icon-solid-hover transition-colors duration-200" />
-              <Typography as="span" variant="smallLight" className="shimmer-text">Home</Typography>
+              <Typography as="span" variant="smallRegular" className="shimmer-text">Home</Typography>
             </Link>
             <div className="flex flex-col gap-[12px]">
               {TOC.map((item) => (
@@ -174,22 +217,22 @@ const LoanAppExperienceOptimization = () => {
                   key={item.id}
                   href={`#${item.id}`}
                   onClick={(event) => scrollToSection(event, item.id)}
-                  className={`transition-colors ${activeSection === item.id ? 'text-[#000]' : 'text-[#A0A0A0] nav-item-shimmer'}`}
+                  className={`transition-colors ${activeSection === item.id ? 'text-[#1a1a1a]' : 'text-[#808080] nav-item-shimmer'}`}
                 >
-                  <Typography as="span" variant="extraSmallRegular">{item.label}</Typography>
+                  <Typography as="span" variant="smallRegular">{item.label}</Typography>
                 </a>
               ))}
             </div>
           </nav>
         </aside>
 
-        <main className="mx-auto w-full max-w-[720px] lg:ml-20 xl:ml-32">
+        <main className="mx-auto w-full max-w-[860px] lg:ml-20 xl:ml-32">
           <section id="intro" className="scroll-mt-28 mb-[84px]">
-            <Typography as="h1" variant="h5Regular" className="mb-10 max-w-[650px] text-[#1A1A1A]" style={{ lineHeight: '38px' }}>
+            <Typography as="h1" variant="h2Regular" className="mb-20 max-w-[720px] text-[#1A1A1A]">
               Slashing projected loan application time by 36% by redesigning for trust and efficiency.
             </Typography>
 
-            <div className="mb-12 flex flex-col gap-1 text-[#686868]">
+            <div className="mb-20 flex flex-col gap-1 text-[#808080]">
               <div className="flex gap-4">
                 <Typography as="span" variant="bodyRegular" className="w-[74px] flex-shrink-0">Role</Typography>
                 <Typography as="span" variant="bodyRegular">UX/UI Designer, 4 weeks</Typography>
@@ -198,27 +241,34 @@ const LoanAppExperienceOptimization = () => {
                 <Typography as="span" variant="bodyRegular" className="w-[74px] flex-shrink-0">Team</Typography>
                 <Typography as="span" variant="bodyRegular">Project Manager, UX/UI Designer</Typography>
               </div>
-              <div className="flex gap-4">
-                <Typography as="span" variant="bodyRegular" className="w-[74px] flex-shrink-0">Client</Typography>
-                <Typography as="span" variant="bodyRegular">Top-tier global bank, 10K+ customers</Typography>
-              </div>
             </div>
 
-            <ImageFrame
-              src={images.hero}
-              alt="Placeholder for redesigned loan application mobile dashboard"
-              caption="Redesigned loan application dashboard showing a pre-approved offer and next steps."
-              className="mb-12"
-              imgClassName="w-full max-w-[520px] h-auto"
-            />
+            <div className="grid items-center gap-10 lg:grid-cols-[minmax(270px,0.85fr)_minmax(420px,1.15fr)]">
+              <Typography
+                as="p"
+                variant="bodyRegular"
+                className="max-w-[380px] text-[#1A1A1A]"
+              >
+                80% of digital loan applicants were pre-approved. The bank had already assessed their eligibility, already decided to offer them a loan. These should have been the easiest conversions in the funnel. They weren't.
+              </Typography>
 
-            <Paragraph>
-              80% of digital loan applicants were pre-approved. The bank had already assessed their eligibility, already decided to offer them a loan. These should have been the easiest conversions in the funnel. They weren't.
-            </Paragraph>
+              <figure>
+                <div className="flex h-[520px] items-center justify-center overflow-hidden rounded-[24px] bg-[#f2f2f2] px-8 py-10">
+                  <img
+                    src={`${ASSET_PATH}/${images.hero}`}
+                    alt="Redesigned loan application mobile dashboard"
+                    className="h-[560px] max-w-none -translate-y-4 object-contain"
+                  />
+                </div>
+                <Caption className="mt-2 text-[#1A1A1A]">
+                  Redesigned landing page of the bank app.
+                </Caption>
+              </figure>
+            </div>
           </section>
 
-          <Section id="problem" title="">
-            <blockquote className="border-l-[8px] border-[#1A1A1A] pl-5">
+          <Section id="problem" title="" className="mb-20">
+            <blockquote className="border-l-[8px] border-[#1a1a1a] pl-5">
               <ProblemBlock title="Problem for the business:">
                 High drop-off on a critical revenue channel, despite a pre-approved pool that should have converted easily.
               </ProblemBlock>
@@ -233,32 +283,65 @@ const LoanAppExperienceOptimization = () => {
           </Section>
 
           <Section id="discovery" title="Designing under constraint">
-            <ImageFrame
-              src={images.audit}
-              alt="Placeholder for original 11-screen loan application audit"
-              className="mb-10"
-              imgClassName="w-full max-w-[520px] h-auto"
-            />
+            <div className="mt-10 flex gap-7">
+              <Icon
+                icon="material-symbols-light:calendar-clock-outline"
+                className="-mt-3 size-[60px] flex-shrink-0 text-[#0795EE]"
+              />
+              <div>
+                <Label className="mb-0">
+                  A 1-month timeline ruled out a formal research phase.
+                </Label>
+                <Paragraph>
+                  The more significant constraint was access. The client couldn't facilitate direct contact with end users, typical of large banking engagements. No user interviews, no analytics, no usability testing.
+                </Paragraph>
+              </div>
+            </div>
 
-            <Paragraph className="mb-5">
-              A 1-month timeline ruled out a formal research phase. No user interviews. No analytics showing where exactly people dropped off. No usability testing on the existing flow. What I had: direct access to the client stakeholder, consistent secondhand user feedback, and the ability to do a rigorous heuristic audit of every screen, field, and interaction in the existing flow.
-            </Paragraph>
-            <Paragraph>
-              I mapped every field against two questions: does the bank already have this? Does this affect loan eligibility? Fields that failed both were candidates for removal. Fields that survived were regrouped into a logical sequence: Personal info, Financials, Review, so each section felt coherent rather than arbitrary.
-            </Paragraph>
+            <div className="mt-14 grid items-center gap-12 lg:grid-cols-[minmax(260px,0.8fr)_minmax(420px,1.2fr)]">
+              <Paragraph className="max-w-[360px]">
+                What I had: the client stakeholder and consistent thematic feedback from their customer-facing teams; complaints centered on form length, and a repetitive experience that gave no sense of progress.
+              </Paragraph>
+              <WireframeExamples />
+            </div>
+
+            <blockquote className="mt-16 border-l-[8px] border-[#1a1a1a] pl-7">
+              <Typography as="p" variant="h6Regular" className="text-[#1a1a1a]">
+                Each field was mapped against two questions: does the bank already have this? Does it affect eligibility? This heuristic audit covered every screen and field in the existing 11-screen flow.
+              </Typography>
+              <Typography as="p" variant="h6Regular" className="mt-10 text-[#1a1a1a]">
+                Fields that failed both questions were removed. What remained was regrouped into a logical sequence - Personal Info, Financials, Review.
+              </Typography>
+            </blockquote>
           </Section>
 
-          <Section id="key-decisions" title="Key Decisions">
-            <Label className="mb-6">Replacing the dropdown with an interactive slider</Label>
-            <ImageFrame
-              src={images.dropdownSlider}
-              alt="Placeholder for loan amount slider flow"
-              className="mb-10"
-              imgClassName="w-full max-w-[520px] h-auto"
-            />
-            <Paragraph className="mb-14">
-              The original loan term selection required three steps: open a dropdown, select a term, wait for the rate to update. Those interactions do one thing: hide cause and effect. The redesigned flow uses a single continuous gesture. As users adjust the loan duration, the monthly payment updates in real time. This isn't just fewer taps. It changes the nature of the decision. Users can explore the tradeoff between term length and monthly payment fluidly, which builds confidence before they commit.
-            </Paragraph>
+          <Section id="key-decisions" title="Decisions that shaped the design">
+            <div className="mb-20 mt-10 grid items-center gap-12 lg:grid-cols-[minmax(270px,0.85fr)_minmax(420px,1.15fr)]">
+              <div>
+                <Label className="mb-6 max-w-[360px]">
+                  Replacing the dropdown with an interactive slider
+                </Label>
+                <Paragraph className="max-w-[390px]">
+                  The original required three steps to do one thing: open a dropdown, select a term, wait for the rate to update. The slider collapsed those into a single gesture and changed the nature of the decision. Users can now explore the tradeoff between term length and monthly payment in real time, building confidence before they commit.
+                </Paragraph>
+              </div>
+
+              <figure>
+                <div className="relative flex h-[430px] items-center justify-center overflow-hidden rounded-[24px] bg-[#1a1a1a] px-8 py-9">
+                  <img
+                    src={`${ASSET_PATH}/${images.dropdownSlider}`}
+                    alt="Loan details screen with interactive term and payment sliders"
+                    className="h-[380px] w-auto object-contain"
+                  />
+                  <div className="absolute right-[24%] top-1/2 flex size-14 -translate-y-1/2 items-center justify-center rounded-full border-4 border-white bg-[#1db954] text-[28px] font-medium leading-none text-white shadow-[0_10px_24px_rgba(0,0,0,0.22)]">
+                    N
+                  </div>
+                </div>
+                <Caption className="mt-2 max-w-[390px] text-[#1A1A1A]">
+                  Loan details screen: slider lets users explore term length and monthly payment in real time before committing.
+                </Caption>
+              </figure>
+            </div>
 
             <Label className="mb-6">Progressive disclosure</Label>
             <ImageFrame
@@ -303,7 +386,9 @@ const LoanAppExperienceOptimization = () => {
             <Paragraph className="mb-16">
               Fewer screens reduce steps. They don't automatically reduce cognitive load. They can concentrate it. A 7-screen flow where each screen is dense could be worse than an 11-screen flow with breathing room. The decision rested on removing redundant fields and grouping related inputs coherently.
             </Paragraph>
+          </Section>
 
+          <Section id="reflection" title="" className="mb-0">
             <Typography as="h2" variant="h6Regular" className="mb-8 text-[#1A1A1A]">
               What I'd do differently
             </Typography>

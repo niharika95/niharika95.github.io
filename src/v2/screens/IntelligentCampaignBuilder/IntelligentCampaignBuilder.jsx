@@ -17,7 +17,7 @@ const Insight = ({ number, text }) => (
     <span className='w-12 h-12 rounded-full bg-[#ffded2] text-gray-900 font-bold flex items-center justify-center mb-4 text-xl'>
       {number}
     </span>
-    <p className='font-mulish text-lg leading-relaxed opacity-95'>{text}</p>
+    <p className='font-ibm-plex text-lg leading-relaxed opacity-95'>{text}</p>
   </div>
 );
 
@@ -32,7 +32,7 @@ const Result = ({ icon, title, children }) => (
       />
     </div>
     <h3 className='font-playfair text-xl font-bold mb-2'>{title}</h3>
-    <p className='font-mulish opacity-95'>{children}</p>
+    <p className='font-ibm-plex opacity-95'>{children}</p>
   </div>
 );
 
@@ -95,7 +95,7 @@ const IntelligentCampaignBuilder = () => {
   ];
 
   return (
-    <div className='relative bg-white text-gray-900 font-sans'>
+    <div className='relative bg-white text-gray-900 font-ibm-plex'>
       {/* Hero: split composition (left orange, right hero image) */}
       <header className='w-full bg-[#fb4e0b]'>
         <ContentContainer className='relative flex flex-col md:flex-row'>
@@ -103,7 +103,7 @@ const IntelligentCampaignBuilder = () => {
             <h1 className='font-playfair text-4xl md:text-5xl font-extrabold leading-tight tracking-tight'>
               Intelligent Campaign Builder Overhaul
             </h1>
-            <p className='font-mulish text-lg md:text-xl mt-4 opacity-95'>
+            <p className='font-ibm-plex text-lg md:text-xl mt-4 opacity-95'>
               <StrokeAnimation strokeColor="48A3FF">Empowering Marketers</StrokeAnimation> with a Data-Driven, Intuitive Lead Generation
               Engine.
             </p>
@@ -133,9 +133,9 @@ const IntelligentCampaignBuilder = () => {
                   icon='material-symbols:person-outline'
                   className='text-2xl text-black mr-4'
                 />
-                <h3 className='font-mulish font-bold text-lg'>Role:</h3>
+                <h3 className='font-ibm-plex font-bold text-lg'>Role:</h3>
               </div>
-              <p className='font-mulish col-start-2 text-gray-600 text-lg'>
+              <p className='font-ibm-plex col-start-2 text-gray-600 text-lg'>
                 Product Designer
               </p>
 
@@ -146,9 +146,9 @@ const IntelligentCampaignBuilder = () => {
                   className='text-2xl text-black mr-4'
                   style={{ fill: 'none', fontWeight: 100 }}
                 />
-                <h3 className='font-mulish font-bold text-lg'>Team:</h3>
+                <h3 className='font-ibm-plex font-bold text-lg'>Team:</h3>
               </div>
-              <p className='font-mulish col-start-2 text-gray-600 text-lg'>
+              <p className='font-ibm-plex col-start-2 text-gray-600 text-lg'>
                 Product Owner, Product Designer, Tech Lead, Front-end Developer, 2
                 Back-end Developers
               </p>
@@ -159,9 +159,9 @@ const IntelligentCampaignBuilder = () => {
                   icon='mdi:clock-outline'
                   className='text-2xl text-black mr-4'
                 />
-                <h3 className='font-mulish font-bold text-lg'>Duration:</h3>
+                <h3 className='font-ibm-plex font-bold text-lg'>Duration:</h3>
               </div>
-              <p className='font-mulish col-start-2 text-gray-600 text-lg'>6 months</p>
+              <p className='font-ibm-plex col-start-2 text-gray-600 text-lg'>6 months</p>
             </div>
           </ContentContainer>
         </section>
@@ -177,7 +177,7 @@ const IntelligentCampaignBuilder = () => {
           <ContentContainer className='relative overflow-hidden'>
             <DecorativeDots color="FB4E0B" position="top-right" />
             <h2 className='font-playfair text-3xl font-bold mb-4'>Context</h2>
-            <p className='font-mulish text-lg leading-relaxed max-w-[800px]'>
+            <p className='font-ibm-plex text-lg leading-relaxed max-w-[800px]'>
               For marketers, speed and precision are everything. EXL's platform
               offered the data for precision, but its complex interface was a
               significant barrier to speed. This project tackled that challenge
@@ -199,18 +199,18 @@ const IntelligentCampaignBuilder = () => {
                 <h2 className='font-playfair text-3xl font-bold mb-4'>
                   Unlocking Power Through Usability
                 </h2>
-                <p className='font-mulish text-lg leading-relaxed mb-4 max-w-[800px]'>
+                <p className='font-ibm-plex text-lg leading-relaxed mb-4 max-w-[800px]'>
                   The existing platform was a robust lead-generation engine,
                   rich with data and powerful capabilities. However, its
                   potential was bottlenecked by a challenging user experience.
                   Marketers, our primary users, were struggling to execute core
                   tasks efficiently.
                 </p>
-                <p className='font-mulish text-lg leading-relaxed max-w-[800px]'>
+                <p className='font-ibm-plex text-lg leading-relaxed max-w-[800px]'>
                   From initial discovery and user feedback, we identified three
                   core problems:
                 </p>
-                <ul className='font-mulish list-disc list-inside text-lg leading-relaxed space-y-2 mt-4 max-w-[800px]'>
+                <ul className='font-ibm-plex list-disc list-inside text-lg leading-relaxed space-y-2 mt-4 max-w-[800px]'>
                   <li>
                     <span className='font-bold'>Cognitive Overload:</span> The
                     interface presented too many options simultaneously, making
@@ -242,7 +242,7 @@ const IntelligentCampaignBuilder = () => {
                 The Challenge
               </h2>
               <div className='md:col-span-2 grid gap-8'>
-                <p className='font-mulish text-lg md:text-xl leading-relaxed opacity-90'>
+                <p className='font-ibm-plex text-lg md:text-xl leading-relaxed opacity-90'>
                   How could we redesign the experience to guide users toward
                   their goals, organize functionality with intention, and
                   establish a strong, trustworthy brand identity?
@@ -258,7 +258,7 @@ const IntelligentCampaignBuilder = () => {
             <h2 className='font-playfair text-3xl font-bold mb-4'>
               Discovery & Key Insights
             </h2>
-            <p className='font-mulish text-lg leading-relaxed mb-8 opacity-95'>
+            <p className='font-ibm-plex text-lg leading-relaxed mb-8 opacity-95'>
               I analyzed existing user workflows and gathered qualitative
               feedback from users who used the platform daily. This research
               phase yielded critical insights which became the foundation of our
@@ -280,14 +280,14 @@ const IntelligentCampaignBuilder = () => {
             <h2 className='font-playfair text-3xl font-bold mb-4'>
               Laying the Foundation for a Simpler Experience
             </h2>
-            <p className='font-mulish text-lg leading-relaxed max-w-[800px]'>
+            <p className='font-ibm-plex text-lg leading-relaxed max-w-[800px]'>
               My process was grounded in close collaboration with the product
               owner and engineers to ensure every decision was rooted in user
               needs and business goals. We worked iteratively, focusing on
               validating our approach at each stage to de-risk our design
               direction.
             </p>
-            <p className='font-mulish text-lg leading-relaxed mt-4 max-w-[800px]'>
+            <p className='font-ibm-plex text-lg leading-relaxed mt-4 max-w-[800px]'>
               To address inconsistency, I designed and implemented a set of
               reusable components, patterns, and styles. This modular design
               system not only unified the visual language across the platform
@@ -329,20 +329,20 @@ const IntelligentCampaignBuilder = () => {
                 <h2 className='font-playfair text-3xl font-bold mb-4'>
                   A Design for Clarity and Consistency
                 </h2>
-                <p className='font-mulish text-lg leading-relaxed max-w-[800px]'>
+                <p className='font-ibm-plex text-lg leading-relaxed max-w-[800px]'>
                   I streamlined the primary interface, moving from a cluttered
                   dashboard to a guided, step-by-step process. This simplified
                   the UI, reduced distractions, and allowed marketers to focus
                   on one key task at a time, from audience segmentation to final
                   deployment.
                 </p>
-                <p className='font-mulish text-lg leading-relaxed mt-4 max-w-[800px]'>
+                <p className='font-ibm-plex text-lg leading-relaxed mt-4 max-w-[800px]'>
                   The segmentation workflow was completely reimagined. I
                   introduced clear visual cues and real-time feedback, making
                   the process of targeting specific audiences more intuitive and
                   actionable.
                 </p>
-                <p className='font-mulish text-lg leading-relaxed mt-4 max-w-[800px]'>
+                <p className='font-ibm-plex text-lg leading-relaxed mt-4 max-w-[800px]'>
                   To address inconsistency, I designed and implemented a set of
                   reusable components, patterns, and styles. This modular design
                   system not only unified the visual language across the
@@ -364,7 +364,7 @@ const IntelligentCampaignBuilder = () => {
                 alt='Clarity Design Image'
                 className='w-full md:col-span-8'
               />
-              <p className='font-mulish text-md leading-relaxed md:col-span-4'>
+              <p className='font-ibm-plex text-md leading-relaxed md:col-span-4'>
                 We streamlined the primary interface, moving from a cluttered
                 dashboard to a guided, step-by-step process. The segmentation
                 workflow was completely reimagined. We introduced clear visual
@@ -384,7 +384,7 @@ const IntelligentCampaignBuilder = () => {
                 alt='Clarity Design Image'
                 className='w-full md:col-span-8'
               />
-              <p className='font-mulish text-md leading-relaxed md:col-span-4'>
+              <p className='font-ibm-plex text-md leading-relaxed md:col-span-4'>
                 Previously, marketers applied filters without seeing the immediate impact. Now, as they select a specific attribute like 'Education' or fine-tune a range for 'Income,' they can see how the target population changes on the same screen. This immediate feedback loop turns blind choices into confident exploration, empowering them to precisely sculpt the perfect audience for their campaign.
               </p>
             </div>
@@ -400,7 +400,7 @@ const IntelligentCampaignBuilder = () => {
                 alt='Clarity Design Image'
                 className='w-full md:col-span-8'
               />
-              <p className='font-mulish text-md leading-relaxed md:col-span-4'>
+              <p className='font-ibm-plex text-md leading-relaxed md:col-span-4'>
                 With their ideal audience defined, the marketer can see the crucial output which provides a clear list of targetable geographic regions along with key demographic profiles of the people within them.  This bridges the gap between data and action providing the marketer with the exact intelligence needed to deploy their marketing materials effectively and with total confidence.
               </p>
             </div>
@@ -416,7 +416,7 @@ const IntelligentCampaignBuilder = () => {
                 alt='Clarity Design Image'
                 className='w-full md:col-span-8'
               />
-              <p className='font-mulish text-md leading-relaxed md:col-span-4'>
+              <p className='font-ibm-plex text-md leading-relaxed md:col-span-4'>
                 The platform allows marketers to set the schedule, select communication channels, attach necessary creative assets, and select pre-defined target audiences. This helps them publish a highly targeted campaign and bring their complete strategic vision to life.
               </p>
             </div>
@@ -427,7 +427,7 @@ const IntelligentCampaignBuilder = () => {
         <section className='bg-[#222222] text-white py-5 md:py-[50px] lg:py-[100px]'>
           <ContentContainer>
             <h2 className='font-playfair text-3xl font-bold mb-4'>Outcomes & Impact</h2>
-            <p className='font-mulish text-lg leading-relaxed mb-8 opacity-95 max-w-[800px]'>
+            <p className='font-ibm-plex text-lg leading-relaxed mb-8 opacity-95 max-w-[800px]'>
               The redesign had a significant and positive impact on both the
               user experience and the product's development lifecycle.
             </p>
@@ -446,7 +446,7 @@ const IntelligentCampaignBuilder = () => {
           <ContentContainer className='relative overflow-hidden'>
             <DecorativeDots color="FB4E0B" position="top-right" />
             <h2 className='font-playfair text-3xl font-bold mb-4'>Key Takeaways</h2>
-            <p className='font-mulish text-lg leading-relaxed max-w-[800px]'>
+            <p className='font-ibm-plex text-lg leading-relaxed max-w-[800px]'>
               This project reinforced a core design principle: the more powerful
               the platform, the more crucial a simple, guided user experience
               becomes. Achieving this was a result of early alignment with

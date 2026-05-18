@@ -53,7 +53,7 @@ const SwiftBikes = () => {
   ];
 
   return (
-    <div className='relative bg-white text-gray-900 font-sans'>
+    <div className='relative bg-white text-gray-900 font-ibm-plex'>
       {/* Hero: Orange background */}
       <header className='w-full bg-[#FF980A]'>
         <ContentContainer className='relative flex flex-col md:flex-row'>
@@ -61,7 +61,7 @@ const SwiftBikes = () => {
             <h1 className='font-playfair text-4xl md:text-5xl font-extrabold leading-tight tracking-tight'>
               Swift Bikes
             </h1>
-            <p className='font-mulish text-lg md:text-xl mt-4 opacity-90'>
+            <p className='font-ibm-plex text-lg md:text-xl mt-4 opacity-90'>
               An e-commerce platform enabling users to <StrokeAnimation strokeColor="FFFFFF">customize bikes</StrokeAnimation> for work, athletics, or leisure.
             </p>
             <div className='flex flex-wrap gap-2 mt-6'>
@@ -90,9 +90,9 @@ const SwiftBikes = () => {
                   icon='material-symbols:person-outline'
                   className='text-2xl text-black mr-4'
                 />
-                <h3 className='font-mulish font-bold text-lg'>Role:</h3>
+                <h3 className='font-ibm-plex font-bold text-lg'>Role:</h3>
               </div>
-              <p className='font-mulish col-start-2 text-gray-600 text-lg'>
+              <p className='font-ibm-plex col-start-2 text-gray-600 text-lg'>
                 UX Researcher, UX Designer, Interaction Designer, Visual Designer
               </p>
 
@@ -102,9 +102,9 @@ const SwiftBikes = () => {
                   icon='material-symbols:build-outline'
                   className='text-2xl text-black mr-4'
                 />
-                <h3 className='font-mulish font-bold text-lg'>Tools:</h3>
+                <h3 className='font-ibm-plex font-bold text-lg'>Tools:</h3>
               </div>
-              <p className='font-mulish col-start-2 text-gray-600 text-lg'>
+              <p className='font-ibm-plex col-start-2 text-gray-600 text-lg'>
                 Adobe XD, Paper (wireframing)
               </p>
 
@@ -114,9 +114,9 @@ const SwiftBikes = () => {
                   icon='mdi:tag-outline'
                   className='text-2xl text-black mr-4'
                 />
-                <h3 className='font-mulish font-bold text-lg'>Type:</h3>
+                <h3 className='font-ibm-plex font-bold text-lg'>Type:</h3>
               </div>
-              <p className='font-mulish col-start-2 text-gray-600 text-lg'>Personal Project</p>
+              <p className='font-ibm-plex col-start-2 text-gray-600 text-lg'>Personal Project</p>
             </div>
           </ContentContainer>
         </section>
@@ -134,13 +134,13 @@ const SwiftBikes = () => {
             <div className='flex flex-col gap-12'>
               <div>
                 <h2 className='font-playfair text-3xl font-bold mb-4'>Context</h2>
-                <p className='font-mulish text-lg leading-relaxed max-w-[800px]'>
+                <p className='font-ibm-plex text-lg leading-relaxed max-w-[800px]'>
                   Swift is an online platform where people who need or want a bike for work, athletic or leisure purposes can buy pre-made ones or customize their own. Often times after using their bikes, people find certain parts of it uncomfortable or not necessarily useful. This platform offers them a solution to select parts of a bike to build it to their liking.
                 </p>
               </div>
               <div>
                 <h2 className='font-playfair text-3xl font-bold mb-4'>Goal</h2>
-                <p className='font-mulish text-lg leading-relaxed max-w-[800px]'>
+                <p className='font-ibm-plex text-lg leading-relaxed max-w-[800px]'>
                   The goal of this product is to design a responsive application that will let users customize their bikes as per their own needs on both the desktop and mobile devices.
                 </p>
               </div>
@@ -156,7 +156,7 @@ const SwiftBikes = () => {
                 Pain Points
               </h2>
               <div className='md:col-span-2'>
-                <ul className='font-mulish list-disc list-inside text-lg leading-relaxed space-y-3 opacity-80'>
+                <ul className='font-ibm-plex list-disc list-inside text-lg leading-relaxed space-y-3 opacity-80'>
                   {painPoints.map((point, index) => (
                     <li key={index}>{point}</li>
                   ))}
@@ -173,10 +173,10 @@ const SwiftBikes = () => {
             <div className='flex flex-col gap-12'>
               <div>
                 <h2 className='font-playfair text-3xl font-bold mb-4'>User Research</h2>
-                <p className='font-mulish text-lg leading-relaxed max-w-[800px]'>
+                <p className='font-ibm-plex text-lg leading-relaxed max-w-[800px]'>
                   People who owned bikes felt that while some parts of the bike seemed comfortable, there were other features that did not necessarily fulfil their needs. The users wanted a bike that looked and felt as if it was made just for them. While some wanted to use it just as a means for a short commute and did not focus much on their bike's features, others who spent more time riding it felt they needed a bike which was more suited to their needs.
                 </p>
-                <p className='font-mulish text-lg leading-relaxed mt-4 max-w-[800px]'>
+                <p className='font-ibm-plex text-lg leading-relaxed mt-4 max-w-[800px]'>
                   <span className='font-bold'>Target Audience:</span> Individuals who need a new bike and would like to explore the different ways to customize it based on their needs.
                 </p>
               </div>
@@ -195,7 +195,7 @@ const SwiftBikes = () => {
         <section className='w-full bg-[#f5f5f5] py-5 md:py-[50px] lg:py-[100px]'>
           <ContentContainer>
             <h2 className='font-playfair text-3xl font-bold mb-4'>Lo-Fi Wireframes</h2>
-            <p className='font-mulish text-lg leading-relaxed mb-8 max-w-[800px]'>
+            <p className='font-ibm-plex text-lg leading-relaxed mb-8 max-w-[800px]'>
               Starting with paper wireframes allowed for rapid exploration of different layout ideas and user flow concepts.
             </p>
             <img src="/v2/images/projects/swiftbikes/swiftbikesPaperWireframes.png" alt='Paper Wireframes' className='w-full h-auto mb-12' />
@@ -213,7 +213,7 @@ const SwiftBikes = () => {
           <ContentContainer className='relative overflow-hidden'>
             <DecorativeDots color="FF980A" position="top-right" />
             <h2 className='font-playfair text-3xl font-bold mb-4'>Hi-Fi Wireframes</h2>
-            <p className='font-mulish text-lg leading-relaxed mb-8 max-w-[800px]'>
+            <p className='font-ibm-plex text-lg leading-relaxed mb-8 max-w-[800px]'>
               The high-fidelity wireframes bring the design to life with color, typography, and detailed interactions. The vibrant orange color scheme reflects energy and movement, perfect for a bike customization platform.
             </p>
             
@@ -229,7 +229,7 @@ const SwiftBikes = () => {
         <section className='bg-[#222222] text-white py-5 md:py-[50px] lg:py-[100px]'>
           <ContentContainer>
             <h2 className='font-playfair text-3xl font-bold mb-4'>Key Takeaway</h2>
-            <p className='font-mulish text-lg leading-relaxed opacity-95 max-w-[800px]'>
+            <p className='font-ibm-plex text-lg leading-relaxed opacity-95 max-w-[800px]'>
               My primary takeaway from this project was that properly getting to know the target audience and their pain points goes a long way into designing something that will actually help the users - initial interviews to know the correct requirements are a very important part of the UX process.
             </p>
           </ContentContainer>

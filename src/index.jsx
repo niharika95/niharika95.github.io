@@ -33,7 +33,7 @@ const container = document.getElementById('root');
 const root = createRoot(container);
 
 const V2Route = ({ children }) => (
-  <div className="v2-route">
+  <div className="v2-route font-ibm-plex">
     <CursorV2 />
     {children}
   </div>

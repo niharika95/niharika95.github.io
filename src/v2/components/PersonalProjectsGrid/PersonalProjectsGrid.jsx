@@ -65,7 +65,7 @@ function PersonalProjectsGrid() {
           <h2 className='font-playfair font-semibold text-[36px] text-black leading-[1.3] m-0 max-md:text-[28px]'>
             Personal Projects
           </h2>
-          <p className='font-mulish text-[18px] text-[#666] leading-[1.5] mt-[12px] m-0 max-md:text-[16px]'>
+          <p className='font-ibm-plex text-[18px] text-[#666] leading-[1.5] mt-[12px] m-0 max-md:text-[16px]'>
             Exploring UX design through passion projects
           </p>
         </div>
@@ -148,14 +148,14 @@ function PersonalProjectsGrid() {
                       >
                         {title}
                       </h3>
-                      <p className='font-mulish text-[15px] text-[#666] leading-[1.5] m-0'>
+                      <p className='font-ibm-plex text-[15px] text-[#666] leading-[1.5] m-0'>
                         {description}
                       </p>
 
                       {/* View Case Study Link */}
                       <div className='mt-auto pt-[12px]'>
                         <span
-                          className='font-mulish font-medium text-[14px] inline-flex items-center gap-[6px] transition-colors duration-300'
+                          className='font-ibm-plex font-medium text-[14px] inline-flex items-center gap-[6px] transition-colors duration-300'
                           style={{
                             color: shouldAnimate ? `#${color}` : '#666666',
                           }}

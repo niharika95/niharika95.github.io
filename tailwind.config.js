@@ -6,6 +6,7 @@ export default {
       fontFamily: {
         'playfair': ['"Playfair Display"', 'serif'],
         'mulish': ['Mulish', 'sans-serif'],
+        'ibm-plex': ['"IBM Plex Sans"', 'sans-serif'],
         'sans': ['Mulish', 'sans-serif'],
         'outfit': ['Outfit', 'sans-serif'],
       },

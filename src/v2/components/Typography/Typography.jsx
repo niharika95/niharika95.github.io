@@ -245,10 +245,12 @@ const DEFAULT_TAGS = {
 };
 
 const lineHeightForVariant = (variant) => {
-  if (variant.startsWith('h')) return 1.2;
-  if (variant === 'microcopyRegular') return 1.4;
+  if (['h1Bold', 'h1Regular', 'h3Medium', 'h3Regular', 'h4Regular'].includes(variant)) return 1.5;
+  if (['h5Regular', 'h6Regular', 'h6Medium'].includes(variant)) return 1.8;
+  if (variant === 'microcopyRegular') return 1.5;
   if (variant === 'extraSmallRegular' || variant.startsWith('small')) return 1.5;
-  return 1.8;
+  if (variant.startsWith('body')) return 2;
+  return 1.2;
 };
 
 const toLetterSpacing = ({ unit, value }) => {

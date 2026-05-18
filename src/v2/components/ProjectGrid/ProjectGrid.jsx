@@ -187,7 +187,7 @@ function ProjectGrid() {
                           {title}
                         </motion.h3>
                         <motion.p
-                          className='font-mulish font-light text-[16px] sm:text-[20px] leading-[1.5] m-0 text-gray-400'
+                          className='font-ibm-plex font-light text-[16px] sm:text-[20px] leading-[1.5] m-0 text-gray-400'
                         >
                           {getDescription(title, strokeColor, false)}
                         </motion.p>
@@ -253,7 +253,7 @@ function ProjectGrid() {
                         {title}
                       </motion.h3>
                       <motion.p
-                        className='font-mulish font-light text-[16px] sm:text-[20px] leading-[1.5] m-0'
+                        className='font-ibm-plex font-light text-[16px] sm:text-[20px] leading-[1.5] m-0'
                         animate={{
                           color: cardTextColor,
                         }}

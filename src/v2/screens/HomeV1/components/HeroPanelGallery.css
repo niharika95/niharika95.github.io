@@ -86,7 +86,7 @@
 
 .intro-text {
   font-size: clamp(20px, 2.5vw, 28px);
-  line-height: 1.4;
+  line-height: 1.8;
   font-weight: 300;
   max-width: 85%;
   color: #333333;
@@ -159,7 +159,7 @@
   font-size: clamp(16px, 1.5vw, 18px);
   font-weight: 300;
   opacity: 0.9;
-  line-height: 1.4;
+  line-height: 2;
   margin: 0;
   max-width: 85%;
 }

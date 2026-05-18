@@ -9,28 +9,28 @@ function Footer() {
       <footer className='py-[100px] px-[40px] flex justify-center items-center gap-[20px] flex-wrap max-md:px-[20px] max-md:gap-[15px]'>
         <a
           href='mailto:niharika13dalal@gmail.com'
-          className='font-mulish font-light text-[20px] text-black underline decoration-solid leading-[1.5] hover:text-[#106066] max-md:text-[18px]'
+          className='font-ibm-plex font-light text-[20px] text-black underline decoration-solid leading-[1.5] hover:text-[#106066] max-md:text-[18px]'
         >
           niharika13dalal@gmail.com
         </a>
-        <span className='font-mulish font-light text-[20px] text-[#c8c8c8] leading-[1.5] max-md:hidden'>
+        <span className='font-ibm-plex font-light text-[20px] text-[#c8c8c8] leading-[1.5] max-md:hidden'>
           |
         </span>
         <a
           href='https://linkedin.com/in/niharikadalal'
           target='_blank'
           rel='noopener noreferrer'
-          className='font-mulish font-light text-[20px] text-black underline decoration-solid leading-[1.5] hover:text-[#106066] max-md:text-[18px]'
+          className='font-ibm-plex font-light text-[20px] text-black underline decoration-solid leading-[1.5] hover:text-[#106066] max-md:text-[18px]'
         >
           linkedin.com/in/niharikadalal
         </a>
-        <span className='font-mulish font-light text-[20px] text-[#c8c8c8] leading-[1.5] max-md:hidden'>
+        <span className='font-ibm-plex font-light text-[20px] text-[#c8c8c8] leading-[1.5] max-md:hidden'>
           |
         </span>
         <a
           href={resumePDF}
           download
-          className='flex gap-[8px] items-center font-mulish font-light text-[20px] text-black underline decoration-solid leading-[1.5] hover:text-[#106066] no-underline max-md:text-[18px]'
+          className='flex gap-[8px] items-center font-ibm-plex font-light text-[20px] text-black underline decoration-solid leading-[1.5] hover:text-[#106066] no-underline max-md:text-[18px]'
         >
           <svg
             className='size-[30px] max-md:size-[24px]'

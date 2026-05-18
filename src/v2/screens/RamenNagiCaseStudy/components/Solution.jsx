@@ -7,7 +7,7 @@ import { Ticket, Users } from 'lucide-react';
 const Solution = () => {
     return (
         <section className="w-full max-w-[1160px] mx-auto px-5 mb-[120px] md:mb-[200px]">
-            <div className="w-full pt-[60px] md:pt-[100px] pb-0 bg-[#F5F5F5] text-[#111] text-center font-sans rounded-b-[40px] px-3 md:px-0">
+            <div className="w-full pt-[60px] md:pt-[100px] pb-0 bg-[#F5F5F5] text-[#111] text-center font-ibm-plex rounded-b-[40px] px-3 md:px-0">
 
                 {/* Header Area */}
                 <motion.div

@@ -168,7 +168,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
         {/* Left Sidebar TOC */}
         <aside className="hidden lg:block w-[180px] flex-shrink-0 sticky top-[130px] self-start max-h-[calc(100vh-140px)] overflow-y-auto">
           <nav className="flex flex-col gap-[40px]">
-            <Link to="/v2" className="back-link-group inline-flex items-center text-[#999] transition-colors duration-200 gap-1 font-sans text-base font-medium -ml-1">
+            <Link to="/v2" className="back-link-group inline-flex items-center text-[#999] transition-colors duration-200 gap-1 font-ibm-plex text-base font-medium -ml-1">
                 <ChevronLeft size={20} className="icon-solid-hover transition-colors duration-200" />
                 <Typography as="span" variant="smallLight" className="shimmer-text">Home</Typography>
             </Link>
@@ -222,7 +222,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
               {metrics.map((metric) => (
                 <div key={metric.label} className="flex justify-center">
                   <div className="w-[130px] text-center">
-                    <Typography as="div" variant="h5Regular" className="text-[#000] mb-3" style={{ fontWeight: 600, lineHeight: 1 }}>{metric.value}</Typography>
+                    <Typography as="div" variant="h5Regular" className="text-[#000] mb-3" style={{ fontWeight: 600 }}>{metric.value}</Typography>
                     <Typography variant="extraSmallRegular" className="text-[#1A1A1A]">{metric.label}</Typography>
                     <Typography variant="extraSmallRegular" className="text-[#1A1A1A]">{metric.detail}</Typography>
                   </div>
@@ -284,7 +284,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
 
             <blockquote className="relative pl-12 mb-[64px]">
               <Icon icon="material-symbols:format-quote-rounded" className="absolute left-0 top-1 text-[30px] text-[#1A1A1A] scale-x-[-1]" />
-              <Typography as="p" variant="h6Regular" className="italic text-[#1A1A1A] mb-5" style={{ lineHeight: '36px' }}>
+              <Typography as="p" variant="h6Regular" className="italic text-[#1A1A1A] mb-5">
                 The new site must be visually striking, bold, and impactful, with seamless functionality and exceptional B2B and B2C content. We aim to create an enjoyable experience where customers, independent agents, prospective customers, employees and potential investors can easily find what they need and accomplish their tasks with minimal efforts and few clicks.
               </Typography>
               <Typography as="cite" variant="extraSmallRegular" className="block not-italic text-[#4F4F4F]">— Client</Typography>
@@ -295,8 +295,8 @@ const InsuranceCompanyWebsiteRedesign = () => {
             <div className="grid sm:grid-cols-3 gap-5 mb-8">
               {auditStats.map((stat) => (
                 <div key={stat.label} className="rounded-[16px] bg-[#F3F3F3] p-5 min-h-[116px]">
-                  <Typography as="div" variant="h5Regular" className="mb-3" style={{ fontWeight: 600, lineHeight: 1 }}>{stat.value}</Typography>
-                  <Typography variant="bodyRegular" style={{ lineHeight: 2 }}>{stat.label}</Typography>
+                  <Typography as="div" variant="h5Regular" className="mb-3" style={{ fontWeight: 600 }}>{stat.value}</Typography>
+                  <Typography variant="bodyRegular">{stat.label}</Typography>
                   {stat.detail && <Typography variant="extraSmallRegular" className="text-[#777]">{stat.detail}</Typography>}
                 </div>
               ))}
@@ -333,7 +333,6 @@ const InsuranceCompanyWebsiteRedesign = () => {
                       as="span"
                       variant="smallRegular"
                       className={isPrimary || !issue.value ? 'text-[#1A1A1A]' : 'text-[#777]'}
-                      style={{ lineHeight: '20px' }}
                     >
                       {issue.label}
                     </Typography>
