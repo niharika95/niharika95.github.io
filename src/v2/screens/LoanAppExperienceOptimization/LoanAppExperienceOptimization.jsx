@@ -309,27 +309,39 @@ const LoanAppExperienceOptimization = () => {
               />
             </div>
 
-            <Label className="mb-6">Progressive disclosure</Label>
-            <ImageFrame
-              src={images.progressiveDisclosure}
-              alt="Placeholder for progressive disclosure screen"
-              className="mb-10"
-              imgClassName="w-full max-w-[520px] h-auto"
-            />
-            <Paragraph className="mb-14">
-              The single long form created a cognitive load problem: no sense of structure, no sense of progress. Breaking the flow into named sections gave users a mental model of where they were and what remained. Each section had a clear scope, so no field felt out of place.
-            </Paragraph>
+            <div className="mb-20 mt-10 grid items-center gap-12 lg:grid-cols-[minmax(270px,0.85fr)_minmax(420px,1.15fr)]">
+              <div>
+                <Label className="mb-6 max-w-[360px]">
+                  Progressive disclosure
+                </Label>
+                <Paragraph className="max-w-[390px]">
+                  The single long form created a cognitive load problem: no sense of structure, no sense of progress. Breaking the flow into named sections gave users a mental model of where they were and what remained. Each section had a clear scope, so no field felt out of place.
+                </Paragraph>
+              </div>
 
-            <Label className="mb-6">Milestone illustrations</Label>
-            <ImageFrame
-              src={images.milestoneIllustrations}
-              alt="Placeholder for milestone illustration screens"
-              className="mb-10"
-              imgClassName="w-full max-w-[520px] h-auto"
-            />
-            <Paragraph>
-              At three points in the flow, after personal information, after loan terms, and at final confirmation, I introduced milestone moments with illustrations and short encouraging messages. These aren't decoration. Multi-step forms create anxiety, and anxiety causes abandonment. Acknowledging completion at key points does two things: it rewards the effort already made, and it reframes what's left as achievable. The final milestone, "All set. Your loan rate has been emailed to you," provides clear closure, which matters as much as getting users through as getting them to feel good about having done it.
-            </Paragraph>
+              <ImageFrame
+                src={images.progressiveDisclosure}
+                alt="Placeholder for progressive disclosure screen"
+                caption="Named sections and a progress bar orient users through the flow."
+              />
+            </div>
+
+            <div className="mb-20 mt-10 grid items-center gap-12 lg:grid-cols-[minmax(270px,0.85fr)_minmax(420px,1.15fr)]">
+              <div>
+                <Label className="mb-6 max-w-[360px]">
+                  Milestone illustrations
+                </Label>
+                <Paragraph className="max-w-[390px]">
+                  Multi-step forms create anxiety, and anxiety causes abandonment. At three points in the flow, milestone illustrations and short messages acknowledge progress and reframe what's left as achievable. Completion feels earned, not just reached.
+                </Paragraph>
+              </div>
+
+              <ImageFrame
+                src={images.milestoneIllustrations}
+                alt="Placeholder for milestone illustration screens"
+                caption="Named sections and a progress bar orient users through the flow."
+              />
+            </div>
           </Section>
 
           <Section id="outcome" title="Outcome">
