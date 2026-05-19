@@ -86,15 +86,16 @@ const ImageFrame = ({
   captionVariant = 'smallRegular',
   dark = true,
   className = '',
-  imgClassName = 'w-full h-auto',
+  imgClassName = 'w-full h-auto mx-auto',
+  containerClassName = 'p-4 md:p-6',
   splitView = false,
 }) => (
   <figure className={className}>
-    <div className={`relative ${dark ? 'bg-gray-900' : 'bg-gray-50'} rounded-[40px] p-4 md:p-6 overflow-hidden`}>
+    <div className={`relative ${dark ? 'bg-gray-900' : 'bg-gray-50'} rounded-[40px] overflow-hidden ${containerClassName}`}>
       {splitView && (
         <div className="absolute left-1/2 top-0 bottom-0 w-[2px] bg-gray-300 z-20" />
       )}
-      <img src={`${ASSET_PATH}/${src}`} alt={alt} className={`${imgClassName} mx-auto relative z-10`} />
+      <img src={`${ASSET_PATH}/${src}`} alt={alt} className={`${imgClassName} relative z-10`} />
     </div>
     {caption && captionVariant === 'bodyRegular' ? (
       <Typography as="p" variant="bodyRegular" className="mt-2 text-gray-600">
@@ -411,8 +412,8 @@ const AfterArchitectureChart = () => (
   </figure>
 );
 
-const Quote = ({ children }) => (
-  <blockquote className="border-l-[8px] border-gray-900 pl-5 my-10">
+const Quote = ({ children, className = 'my-10' }) => (
+  <blockquote className={`border-l-[8px] border-gray-900 pl-5 ${className}`}>
     <Typography as="p" variant="bodyRegular" className="text-gray-900">
       {children}
     </Typography>
@@ -544,7 +545,7 @@ const ExposureTool = () => {
               alt="Exposure Tool hero placeholder"
               caption="The before and after of the home screen on the Exposure Tool."
               className="mb-[100px]"
-              imgClassName="w-[90%] h-auto"
+              imgClassName="w-[90%] h-auto mx-auto"
               splitView={true}
             />
 
@@ -559,7 +560,7 @@ const ExposureTool = () => {
               alt="Account match table placeholder"
               caption="The original dashboard after client selection, showing Lines of Business with no indication of next steps."
               className="mb-[20px]"
-              imgClassName="w-[90%] h-auto"
+              imgClassName="w-[90%] h-auto mx-auto"
             />
 
             <Paragraph className="mb-[20px]">
@@ -581,11 +582,11 @@ const ExposureTool = () => {
             </Paragraph>
           </Section>
 
-          <Section id="problems">
+          <Section id="problems" className="!mb-[100px]">
 
 
-            <div className="grid md:grid-cols-2 gap-12 items-start mb-16">
-              <StructuralFinding icon="material-symbols:signpost-rounded" title="No wayfinding">
+            <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
+              <StructuralFinding icon="material-symbols-light:signpost" title="No wayfinding">
                 The dashboard presented all destinations as equal. Client Profile, Exception Summary, and Correction Summary sat as parallel buttons with no indication of how they related to each other or to the broader workflow. <Typography as="strong" variant="bodySemibold">A user opening the tool for the first time had nothing to orient them.</Typography>
               </StructuralFinding>
               <ImageFrame
@@ -593,18 +594,22 @@ const ExposureTool = () => {
                 alt="Wayfinding issue placeholder"
                 caption="Three equal-weight buttons with no indication of sequence or priority."
                 className="w-full md:mt-2"
+                containerClassName="py-12 pr-6 pl-0 flex items-center min-h-[380px]"
+                imgClassName="w-[85%] h-auto ml-0"
               />
             </div>
 
-            <div className="grid md:grid-cols-2 gap-12 items-start">
-              <StructuralFinding icon="material-symbols:view-column-rounded" title={<>Same data,<br />two different structures</>}>
-                LOB Details showed Renewal and In-Force data as stacked pairs. Exception Summary showed the same data side by side with Value Change and Percentage Difference columns. <strong className="font-semibold">Every time a user moved between pages, they had to mentally re-map the same information into a different structure.</strong>
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <StructuralFinding icon="material-symbols-light:table-convert" title={<>Same data,<br />two different structures</>}>
+                LOB Details showed Renewal and In-Force data as stacked pairs. Exception Summary showed the same data side by side with Value Change and Percentage Difference columns. <Typography as="strong" variant="bodySemibold">Every time a user moved between pages, they had to mentally re-map the same information into a different structure.</Typography>
               </StructuralFinding>
               <ImageFrame
                 src={images.fragmentedData}
                 alt="Fragmented data placeholder"
                 caption="Stacked pairs on LOB Details (top), side-by-side comparison on Exception Summary (bottom)."
                 className="w-full md:mt-2"
+                containerClassName="py-12 pl-6 pr-0 md:py-16 md:pl-10 flex items-center min-h-[400px]"
+                imgClassName="w-[95%] h-auto ml-auto mr-0"
               />
             </div>
 
@@ -613,25 +618,25 @@ const ExposureTool = () => {
             </Paragraph>
           </Section>
 
-          <Section id="constraints" title="Constraints">
-            <Quote>
+          <Section id="constraints">
+            <Quote className="mb-[100px]">
               Exceptions are system-generated. The tool automatically compares Renewal and In-Force pairs and flags records where the delta exceeds a threshold. Exception Summary was not a separate workflow. It was LOS Details filtered to flagged records. And Correction Summary was the same data again, filtered to approved records, with export controls added.
             </Quote>
 
-            <div className="flex items-start gap-7 py-4">
-              <Icon icon="material-symbols:emoji-objects-rounded" className="mt-1 flex-shrink-0 text-[46px] text-[#6D20E8]" />
+            <div className="flex items-center gap-7 py-4">
+              <Icon icon="material-symbols-light:wb-incandescent" className="flex-shrink-0 text-[80px] text-[#611E90]" />
               <div>
                 <Typography as="p" variant="bodyRegular" className="text-gray-900">
                   The question that reframed the design:
                 </Typography>
-                <Typography as="p" variant="bodyRegular" className="text-gray-900" style={{ fontWeight: 700 }}>
+                <Typography as="p" variant="bodySemibold" className="text-gray-900">
                   If the data is the same, why do the pages need to exist separately?
                 </Typography>
               </div>
             </div>
           </Section>
 
-          <Section id="architecture" title="From fragmentation to a single source of truth">
+          <Section id="architecture" title="From fragmentation to a single source of truth" className="!mb-[100px]">
             <Paragraph className="mb-10">
               A master-detail architecture that consolidates the original three-page structure into a single persistent layout. One view. All states. No context switching.
             </Paragraph>
@@ -643,28 +648,36 @@ const ExposureTool = () => {
             <ImageFrame
               src={images.validationFlow}
               alt="Validation tool main screen placeholder"
-              caption="The core of the architecture. A single unified table replacing LOB Details, Exception Summary, and Correction Summary. One row per record."
-              captionVariant="bodyRegular"
-              className="mb-12"
+              className="mb-[20px]"
+              imgClassName="w-[90%] h-auto mx-auto"
             />
+            <Paragraph className="mb-[100px]">
+              The core of the architecture. A single unified table replacing LOB Details, Exception Summary, and Correction Summary. One row per record.
+            </Paragraph>
 
             <ImageFrame
               src={images.exceptionFilters}
               alt="Exception filters placeholder"
-              caption={<><strong className="font-semibold">Exception filters:</strong> filters by open, unresolved flags. Value Change and Percentage Change columns appear only in this state, surfacing the data that triggered the flag.</>}
-              captionVariant="bodyRegular"
-              className="mb-12"
+              className="mb-[20px]"
+              imgClassName="w-[90%] h-auto mx-auto"
+              containerClassName="pt-4 px-4 pb-0 md:pt-6 md:px-6 md:pb-0"
             />
+            <Paragraph className="mb-[100px]">
+              <Typography as="strong" variant="bodySemibold">Exception filters:</Typography> filters by open, unresolved flags. Value Change and Percentage Change columns appear only in this state, surfacing the data that triggered the flag.
+            </Paragraph>
 
             <ImageFrame
               src={images.resolvedFilter}
               alt="Resolved filter placeholder"
-              caption={<><strong className="font-semibold">Resolved filter:</strong> approved records for verification before export, replacing the original Correction Summary page entirely.</>}
-              captionVariant="bodyRegular"
-              className="mb-12"
+              className="mb-[20px]"
+              imgClassName="w-[90%] h-auto mx-auto"
+              containerClassName="pt-4 px-4 pb-0 md:pt-6 md:px-6 md:pb-0"
             />
+            <Paragraph className="mb-[100px]">
+              <Typography as="strong" variant="bodySemibold">Resolved filter:</Typography> approved records for verification before export, replacing the original Correction Summary page entirely.
+            </Paragraph>
 
-            <div className="grid md:grid-cols-2 gap-12 items-start">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
                 <Typography as="h3" variant="bodySemibold" className="mb-4 text-gray-900">
                   Dashboard
@@ -676,6 +689,7 @@ const ExposureTool = () => {
               <ImageFrame
                 src={images.dashboard}
                 alt="Dashboard placeholder"
+                containerClassName="p-4 md:p-6 flex items-center min-h-[300px]"
               />
             </div>
           </Section>
