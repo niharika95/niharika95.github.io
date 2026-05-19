@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronLeft } from 'lucide-react';
 import { Icon } from '@iconify/react';
@@ -66,14 +66,70 @@ const Caption = ({ children, className = '' }) => (
   </Typography>
 );
 
-const ImageFrame = ({ src, alt, caption, className = '', imgClassName = 'w-full h-auto' }) => (
-  <figure className={className}>
-    <div className="bg-gray-900 rounded-[20px] p-5 md:p-7 overflow-hidden">
-      <img src={`${ASSET_PATH}/${src}`} alt={alt} className={`${imgClassName} mx-auto`} />
-    </div>
-    {caption && <Caption className="mt-2">{caption}</Caption>}
-  </figure>
-);
+const ImageFrame = ({
+  src,
+  alt,
+  caption,
+  className = 'w-full max-w-[360px] justify-self-center lg:justify-self-end',
+  frameClassName = 'relative aspect-[4/5]',
+  imgClassName = 'absolute w-[80%] max-w-none object-contain',
+}) => {
+  const frameRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+  const [hasSettled, setHasSettled] = useState(false);
+
+  useEffect(() => {
+    const frame = frameRef.current;
+    if (!frame || isVisible) return undefined;
+
+    const revealWhenVisible = () => {
+      const rect = frame.getBoundingClientRect();
+      const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+
+      if (rect.top < viewportHeight * 0.78 && rect.bottom > viewportHeight * 0.2) {
+        setIsVisible(true);
+      }
+    };
+
+    revealWhenVisible();
+    window.addEventListener('scroll', revealWhenVisible, { passive: true });
+    window.addEventListener('resize', revealWhenVisible);
+
+    return () => {
+      window.removeEventListener('scroll', revealWhenVisible);
+      window.removeEventListener('resize', revealWhenVisible);
+    };
+  }, [isVisible]);
+
+  useEffect(() => {
+    if (!isVisible) return undefined;
+
+    const settleTimer = window.setTimeout(() => setHasSettled(true), 1200);
+    return () => window.clearTimeout(settleTimer);
+  }, [isVisible]);
+
+  return (
+    <figure className={className}>
+      <div
+        ref={frameRef}
+        className={`overflow-hidden rounded-[40px] bg-gray-900 ${frameClassName}`}
+      >
+        <img
+          key={hasSettled ? 'settled' : 'revealing'}
+          src={`${ASSET_PATH}/${src}`}
+          alt={alt}
+          className={`${imgClassName} ${hasSettled ? '' : 'transition-[top] duration-[1100ms] ease-[cubic-bezier(0.22,1,0.36,1)]'}`}
+          style={{
+            left: '50%',
+            top: isVisible ? '40px' : '100%',
+            transform: 'translateX(-50%)',
+          }}
+        />
+      </div>
+      {caption && <Caption className="mt-2">{caption}</Caption>}
+    </figure>
+  );
+};
 
 const ProblemBlock = ({ title, children }) => (
   <div>
@@ -212,15 +268,15 @@ const LoanAppExperienceOptimization = () => {
                 80% of digital loan applicants were pre-approved. The bank had already assessed their eligibility, already decided to offer them a loan. These should have been the easiest conversions in the funnel. They weren't.
               </Typography>
 
-              <figure>
-                <div className="flex h-[520px] items-center justify-center overflow-hidden rounded-[20px] bg-gray-50 px-8 py-10">
+              <figure className="flex flex-col items-center">
+                <div className="flex aspect-square w-full max-w-[520px] items-center justify-center overflow-hidden rounded-[20px] bg-gray-50 p-10">
                   <img
                     src={`${ASSET_PATH}/${images.hero}`}
                     alt="Redesigned loan application mobile dashboard"
-                    className="h-[560px] max-w-none -translate-y-4 object-contain"
+                    className="h-full max-h-[440px] w-auto object-contain"
                   />
                 </div>
-                <Caption className="mt-2 text-gray-900">
+                <Caption className="mt-2 w-full text-gray-900">
                   Redesigned landing page of the bank app.
                 </Caption>
               </figure>
@@ -277,12 +333,12 @@ const LoanAppExperienceOptimization = () => {
 
           <Section id="key-decisions" title="Decisions that shaped the design">
             <div className="mt-10 flex flex-col gap-[100px]">
-              <div className="grid items-center gap-12 lg:grid-cols-[minmax(270px,0.85fr)_minmax(420px,1.15fr)]">
+              <div className="grid items-center gap-12 lg:grid-cols-[minmax(340px,1fr)_minmax(300px,360px)]">
                 <div>
-                  <Label className="mb-6 max-w-[360px]">
+                  <Label className="mb-6 max-w-[430px]">
                     Replacing the dropdown with an interactive slider
                   </Label>
-                  <Paragraph className="max-w-[390px]">
+                  <Paragraph className="max-w-[460px]">
                     The original required three steps to do one thing: open a dropdown, select a term, wait for the rate to update. The slider collapsed those into a single gesture and changed the nature of the decision. Users can now explore the tradeoff between term length and monthly payment in real time, building confidence before they commit.
                   </Paragraph>
                 </div>
@@ -294,12 +350,12 @@ const LoanAppExperienceOptimization = () => {
                 />
               </div>
 
-              <div className="grid items-center gap-12 lg:grid-cols-[minmax(270px,0.85fr)_minmax(420px,1.15fr)]">
+              <div className="grid items-center gap-12 lg:grid-cols-[minmax(340px,1fr)_minmax(300px,360px)]">
                 <div>
-                  <Label className="mb-6 max-w-[360px]">
+                  <Label className="mb-6 max-w-[430px]">
                     Progressive disclosure
                   </Label>
-                  <Paragraph className="max-w-[390px]">
+                  <Paragraph className="max-w-[460px]">
                     The single long form created a cognitive load problem: no sense of structure, no sense of progress. Breaking the flow into named sections gave users a mental model of where they were and what remained. Each section had a clear scope, so no field felt out of place.
                   </Paragraph>
                 </div>
@@ -311,12 +367,12 @@ const LoanAppExperienceOptimization = () => {
                 />
               </div>
 
-              <div className="grid items-center gap-12 lg:grid-cols-[minmax(270px,0.85fr)_minmax(420px,1.15fr)]">
+              <div className="grid items-center gap-12 lg:grid-cols-[minmax(340px,1fr)_minmax(300px,360px)]">
                 <div>
-                  <Label className="mb-6 max-w-[360px]">
+                  <Label className="mb-6 max-w-[430px]">
                     Milestone illustrations
                   </Label>
-                  <Paragraph className="max-w-[390px]">
+                  <Paragraph className="max-w-[460px]">
                     Multi-step forms create anxiety, and anxiety causes abandonment. At three points in the flow, milestone illustrations and short messages acknowledge progress and reframe what's left as achievable. Completion feels earned, not just reached.
                   </Paragraph>
                 </div>
