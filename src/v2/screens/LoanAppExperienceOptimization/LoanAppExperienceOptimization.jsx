@@ -68,7 +68,7 @@ const Caption = ({ children, className = '' }) => (
 
 const ImageFrame = ({ src, alt, caption, className = '', imgClassName = 'w-full h-auto' }) => (
   <figure className={className}>
-    <div className="bg-[#F3F3F3] rounded-[10px] p-5 md:p-7 overflow-hidden">
+    <div className="bg-[#1a1a1a] rounded-[20px] p-5 md:p-7 overflow-hidden">
       <img src={`${ASSET_PATH}/${src}`} alt={alt} className={`${imgClassName} mx-auto`} />
     </div>
     {caption && <Caption className="mt-2">{caption}</Caption>}
@@ -87,7 +87,7 @@ const ProblemBlock = ({ title, children }) => (
 );
 
 const InsightCallout = () => (
-  <div className="mb-12 mt-20">
+  <div className="mb-12 mt-[100px]">
     <div className="flex items-center gap-5">
       <Icon
         icon="material-symbols-light:gpp-bad-outline"
@@ -105,7 +105,7 @@ const InsightCallout = () => (
 
 const WireframeExamples = () => (
   <figure>
-    <div className="flex items-center justify-center overflow-hidden rounded-[18px] bg-[#1a1a1a] p-8">
+    <div className="flex items-center justify-center overflow-hidden rounded-[20px] bg-[#1a1a1a] p-8">
       <img
         src={`${ASSET_PATH}/${images.audit}`}
         alt="Original application audit"
@@ -139,6 +139,11 @@ const LoanAppExperienceOptimization = () => {
           currentActiveId = item.id;
         }
       });
+
+      if (window.innerHeight + Math.round(window.scrollY) >= document.documentElement.scrollHeight - 10) {
+        currentActiveId = TOC[TOC.length - 1].id;
+      }
+
       setActiveSection(currentActiveId);
     };
 
@@ -183,11 +188,11 @@ const LoanAppExperienceOptimization = () => {
 
         <main className="mx-auto w-full max-w-[860px] lg:ml-20 xl:ml-32">
           <section id="intro" className="scroll-mt-28 mb-[84px]">
-            <Typography as="h1" variant="h2Regular" className="mb-20 max-w-[720px] text-[#1A1A1A]">
+            <Typography as="h1" variant="h2Regular" className="mb-[100px] max-w-[720px] text-[#1A1A1A]">
               Slashing projected loan application time by 36% by redesigning for trust and efficiency.
             </Typography>
 
-            <div className="mb-20 flex flex-col gap-1 text-[#808080]">
+            <div className="mb-[100px] flex flex-col gap-1 text-[#808080]">
               <div className="flex gap-4">
                 <Typography as="span" variant="bodyRegular" className="w-[74px] flex-shrink-0">Role</Typography>
                 <Typography as="span" variant="bodyRegular">UX/UI Designer, 4 weeks</Typography>
@@ -208,7 +213,7 @@ const LoanAppExperienceOptimization = () => {
               </Typography>
 
               <figure>
-                <div className="flex h-[520px] items-center justify-center overflow-hidden rounded-[24px] bg-[#f2f2f2] px-8 py-10">
+                <div className="flex h-[520px] items-center justify-center overflow-hidden rounded-[20px] bg-[#f2f2f2] px-8 py-10">
                   <img
                     src={`${ASSET_PATH}/${images.hero}`}
                     alt="Redesigned loan application mobile dashboard"
@@ -222,7 +227,7 @@ const LoanAppExperienceOptimization = () => {
             </div>
           </section>
 
-          <Section id="problem" title="" className="mb-20">
+          <Section id="problem" title="" className="mb-[100px]">
             <blockquote className="border-l-[8px] border-[#1a1a1a] pl-5">
               <ProblemBlock title="Problem for the business:">
                 High drop-off on a critical revenue channel, despite a pre-approved pool that should have converted easily.
@@ -271,55 +276,57 @@ const LoanAppExperienceOptimization = () => {
           </Section>
 
           <Section id="key-decisions" title="Decisions that shaped the design">
-            <div className="mb-20 mt-10 grid items-center gap-12 lg:grid-cols-[minmax(270px,0.85fr)_minmax(420px,1.15fr)]">
-              <div>
-                <Label className="mb-6 max-w-[360px]">
-                  Replacing the dropdown with an interactive slider
-                </Label>
-                <Paragraph className="max-w-[390px]">
-                  The original required three steps to do one thing: open a dropdown, select a term, wait for the rate to update. The slider collapsed those into a single gesture and changed the nature of the decision. Users can now explore the tradeoff between term length and monthly payment in real time, building confidence before they commit.
-                </Paragraph>
+            <div className="mt-10 flex flex-col gap-[100px]">
+              <div className="grid items-center gap-12 lg:grid-cols-[minmax(270px,0.85fr)_minmax(420px,1.15fr)]">
+                <div>
+                  <Label className="mb-6 max-w-[360px]">
+                    Replacing the dropdown with an interactive slider
+                  </Label>
+                  <Paragraph className="max-w-[390px]">
+                    The original required three steps to do one thing: open a dropdown, select a term, wait for the rate to update. The slider collapsed those into a single gesture and changed the nature of the decision. Users can now explore the tradeoff between term length and monthly payment in real time, building confidence before they commit.
+                  </Paragraph>
+                </div>
+
+                <ImageFrame
+                  src={images.dropdownSlider}
+                  alt="Loan details screen with interactive term and payment sliders"
+                  caption="Loan details screen: slider lets users explore term length and monthly payment in real time before committing."
+                />
               </div>
 
-              <ImageFrame
-                src={images.dropdownSlider}
-                alt="Loan details screen with interactive term and payment sliders"
-                caption="Loan details screen: slider lets users explore term length and monthly payment in real time before committing."
-              />
-            </div>
+              <div className="grid items-center gap-12 lg:grid-cols-[minmax(270px,0.85fr)_minmax(420px,1.15fr)]">
+                <div>
+                  <Label className="mb-6 max-w-[360px]">
+                    Progressive disclosure
+                  </Label>
+                  <Paragraph className="max-w-[390px]">
+                    The single long form created a cognitive load problem: no sense of structure, no sense of progress. Breaking the flow into named sections gave users a mental model of where they were and what remained. Each section had a clear scope, so no field felt out of place.
+                  </Paragraph>
+                </div>
 
-            <div className="mb-20 mt-10 grid items-center gap-12 lg:grid-cols-[minmax(270px,0.85fr)_minmax(420px,1.15fr)]">
-              <div>
-                <Label className="mb-6 max-w-[360px]">
-                  Progressive disclosure
-                </Label>
-                <Paragraph className="max-w-[390px]">
-                  The single long form created a cognitive load problem: no sense of structure, no sense of progress. Breaking the flow into named sections gave users a mental model of where they were and what remained. Each section had a clear scope, so no field felt out of place.
-                </Paragraph>
+                <ImageFrame
+                  src={images.progressiveDisclosure}
+                  alt="Placeholder for progressive disclosure screen"
+                  caption="Named sections and a progress bar orient users through the flow."
+                />
               </div>
 
-              <ImageFrame
-                src={images.progressiveDisclosure}
-                alt="Placeholder for progressive disclosure screen"
-                caption="Named sections and a progress bar orient users through the flow."
-              />
-            </div>
+              <div className="grid items-center gap-12 lg:grid-cols-[minmax(270px,0.85fr)_minmax(420px,1.15fr)]">
+                <div>
+                  <Label className="mb-6 max-w-[360px]">
+                    Milestone illustrations
+                  </Label>
+                  <Paragraph className="max-w-[390px]">
+                    Multi-step forms create anxiety, and anxiety causes abandonment. At three points in the flow, milestone illustrations and short messages acknowledge progress and reframe what's left as achievable. Completion feels earned, not just reached.
+                  </Paragraph>
+                </div>
 
-            <div className="mb-20 mt-10 grid items-center gap-12 lg:grid-cols-[minmax(270px,0.85fr)_minmax(420px,1.15fr)]">
-              <div>
-                <Label className="mb-6 max-w-[360px]">
-                  Milestone illustrations
-                </Label>
-                <Paragraph className="max-w-[390px]">
-                  Multi-step forms create anxiety, and anxiety causes abandonment. At three points in the flow, milestone illustrations and short messages acknowledge progress and reframe what's left as achievable. Completion feels earned, not just reached.
-                </Paragraph>
+                <ImageFrame
+                  src={images.milestoneIllustrations}
+                  alt="Placeholder for milestone illustration screens"
+                  caption="Named sections and a progress bar orient users through the flow."
+                />
               </div>
-
-              <ImageFrame
-                src={images.milestoneIllustrations}
-                alt="Placeholder for milestone illustration screens"
-                caption="Named sections and a progress bar orient users through the flow."
-              />
             </div>
           </Section>
 
@@ -334,11 +341,13 @@ const LoanAppExperienceOptimization = () => {
             </blockquote>
 
             <figure className="mb-14">
-              <img
-                src={`${ASSET_PATH}/${images.finalFlow}`}
-                alt="The redesigned 7-screen flow"
-                className="h-auto w-full rounded-[18px]"
-              />
+              <div className="flex items-center justify-center overflow-hidden rounded-[20px] bg-[#1a1a1a]">
+                <img
+                  src={`${ASSET_PATH}/${images.finalFlow}`}
+                  alt="The redesigned 7-screen flow"
+                  className="h-auto w-full object-contain"
+                />
+              </div>
               <Caption className="mt-2 text-[#1a1a1a]">
                 The redesigned 7-screen flow.
               </Caption>
