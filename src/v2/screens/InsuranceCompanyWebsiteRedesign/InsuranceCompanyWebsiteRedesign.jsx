@@ -86,7 +86,7 @@ const heuristicIssues = [
 ];
 
 const ImageFrame = ({ src, alt, className = '', imgClassName = 'w-full h-auto' }) => (
-  <div className={`rounded-[18px] bg-[#F3F3F3] overflow-hidden flex items-center justify-center ${className}`}>
+  <div className={`rounded-[40px] bg-[#F3F3F3] overflow-hidden flex items-center justify-center ${className}`}>
     <img src={src} alt={alt} className={imgClassName} />
   </div>
 );
@@ -206,7 +206,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
               </div>
             </div>
 
-            <div className="bg-[#F2F2F2] rounded-[18px] p-8 md:p-12 mb-[84px] flex items-center justify-center">
+            <div className="bg-[#F2F2F2] rounded-[40px] p-8 md:p-12 mb-[84px] flex items-center justify-center">
               <img
                 src={`${ASSET_PATH}/${images.insuranceHero}`}
                 alt="Insurance Hero"
@@ -249,7 +249,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
               src={`${ASSET_PATH}/${images.brandAuditBoard}`}
               alt="Brand audit board placeholder"
               className="p-6 mb-4"
-              imgClassName="w-full h-auto rounded-[10px]"
+              imgClassName="w-full h-auto rounded-[40px]"
             />
 
             <Caption className="mb-8">
@@ -262,7 +262,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
                   src={`${ASSET_PATH}/${images.contentAuditStatePage}`}
                   alt="Content audit state page placeholder"
                   className="p-5 mb-4"
-                  imgClassName="w-full h-auto rounded-[10px]"
+                  imgClassName="w-full h-auto rounded-[40px]"
                 />
                 <Caption>
                   Inconsistent data architecture across state pages created a fragmented and unpredictable user experience.
@@ -273,7 +273,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
                   src={`${ASSET_PATH}/${images.longTextContentPage}`}
                   alt="Long text content page placeholder"
                   className="p-5 mb-4"
-                  imgClassName="w-full h-auto rounded-[10px]"
+                  imgClassName="w-full h-auto rounded-[40px]"
                 />
                 <Caption>
                   Jarring background colors and poor contrast ratios created significant eye strain and accessibility barriers.
@@ -293,7 +293,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
           <Section id="diagnosis" title="What a website audit found">
             <div className="grid sm:grid-cols-3 gap-5 mb-8">
               {auditStats.map((stat) => (
-                <div key={stat.label} className="rounded-[16px] bg-[#F3F3F3] p-5 min-h-[116px]">
+                <div key={stat.label} className="rounded-[40px] bg-[#F3F3F3] p-5 min-h-[116px]">
                   <Typography as="div" variant="h5Regular" className="mb-3" style={{ fontWeight: 600 }}>{stat.value}</Typography>
                   <Typography variant="bodyRegular">{stat.label}</Typography>
                   {stat.detail && <Typography variant="extraSmallRegular" className="text-[#777]">{stat.detail}</Typography>}
@@ -305,7 +305,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
               src={`${ASSET_PATH}/${images.auditReportTable}`}
               alt="Audit report table placeholder"
               className="p-6 mb-12 bg-[#111]"
-              imgClassName="w-full h-auto rounded-[10px]"
+              imgClassName="w-full h-auto rounded-[40px]"
             />
 
             <Paragraph className="mb-6">
@@ -315,7 +315,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
               The automated accessibility score was 88, but manual screen reader testing uncovered <strong className="font-semibold">broken heading hierarchy, missing alt text, keyboard navigation failures, and color contrast violations.</strong> <a href="#" className="text-[#2F63CF] underline underline-offset-4">View the full UX audit report.</a>
             </Paragraph>
 
-            <div className="rounded-[18px] bg-[#F5F5F5] px-7 py-8 md:px-9 md:py-9">
+            <div className="rounded-[40px] bg-[#F5F5F5] px-7 py-8 md:px-9 md:py-9">
               <div className="flex items-center justify-between border-b border-[#DDDDDD] pb-6">
                 <Typography as="h3" variant="bodyRegular" className="text-[#1A1A1A]">Heuristic issues</Typography>
                 <Typography as="span" variant="bodyRegular" className="text-[#1A1A1A]">56 total</Typography>
@@ -368,7 +368,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
               src={`${ASSET_PATH}/${images.homeownerPersona}`}
               alt="Homeowner persona"
               className="p-8"
-              imgClassName="w-full h-auto rounded-[10px]"
+              imgClassName="w-full h-auto rounded-[40px]"
             />
           </Section>
 
@@ -389,7 +389,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
               src={`${ASSET_PATH}/${images.competitiveAnalysis}`}
               alt="Competitive analysis placeholder"
               className="p-6 mb-10"
-              imgClassName="w-full h-auto rounded-[10px]"
+              imgClassName="w-full h-auto rounded-[40px]"
             />
 
             <Subhead>Card sorting &amp; Survey</Subhead>
@@ -400,7 +400,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
               src={`${ASSET_PATH}/${images.cardSortingSurvey}`}
               alt="Card sorting and survey placeholder"
               className="p-6 mb-8"
-              imgClassName="w-full h-auto rounded-[10px]"
+              imgClassName="w-full h-auto rounded-[40px]"
             />
             <Paragraph className="mb-6">
               Inconclusive data led to a survey of four domain experts. On <strong className="font-semibold">Claims and Payments, multiple experts flagged them as too buried on mobile and recommended surfacing them directly.</strong> That shaped the final navigation.
@@ -424,7 +424,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
               src={`${ASSET_PATH}/${images.foundation}`}
               alt="Information architecture direction variants"
               className="p-10"
-              imgClassName="w-full h-auto rounded-[10px]"
+              imgClassName="w-full h-auto rounded-[40px]"
             />
           </Section>
 
@@ -436,7 +436,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
               src={`${ASSET_PATH}/${images.styleDirections}`}
               alt="Style directions placeholder"
               className="p-6 mb-10 bg-[#111]"
-              imgClassName="w-full h-auto rounded-[10px]"
+              imgClassName="w-full h-auto rounded-[40px]"
             />
 
             <div className="grid md:grid-cols-[1fr,1.15fr] gap-9 items-start mb-[84px]">
@@ -454,7 +454,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
                 src={`${ASSET_PATH}/${images.uxPilotLayout}`}
                 alt="UX Pilot layout placeholder"
                 className="p-5"
-                imgClassName="w-full h-auto rounded-[10px]"
+                imgClassName="w-full h-auto rounded-[40px]"
               />
             </div>
           </Section>
@@ -480,7 +480,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
               src={`${ASSET_PATH}/${images.approvedHero}`}
               alt="Approved dark and bold direction"
               className="p-6 bg-[#111]"
-              imgClassName="w-full h-auto rounded-[10px]"
+              imgClassName="w-full h-auto rounded-[40px]"
             />
           </Section>
 
@@ -493,7 +493,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
               src={`${ASSET_PATH}/${images.navigationBeforeAfter}`}
               alt="Navigation before and after placeholder"
               className="p-6 mb-10"
-              imgClassName="w-full h-auto rounded-[10px]"
+              imgClassName="w-full h-auto rounded-[40px]"
             />
 
             <Subhead>Hero entry point</Subhead>
@@ -504,7 +504,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
               src={`${ASSET_PATH}/${images.heroBeforeAfter}`}
               alt="Hero before and after placeholder"
               className="p-6 mb-10"
-              imgClassName="w-full h-auto rounded-[10px]"
+              imgClassName="w-full h-auto rounded-[40px]"
             />
 
             <Subhead>Claims form</Subhead>
@@ -515,7 +515,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
               src={`${ASSET_PATH}/${images.claimsFormBeforeAfter}`}
               alt="Claims form before and after placeholder"
               className="p-6 mb-16"
-              imgClassName="w-full h-auto rounded-[10px]"
+              imgClassName="w-full h-auto rounded-[40px]"
             />
 
             <Typography as="h2" variant="h5Regular" className="mb-8 text-[#1A1A1A]">Building for Scale</Typography>
@@ -526,7 +526,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
               src={`${ASSET_PATH}/${images.impact}`}
               alt="Reusable components and final screens"
               className="p-6 mb-8"
-              imgClassName="w-full h-auto rounded-[10px]"
+              imgClassName="w-full h-auto rounded-[40px]"
             />
             <Paragraph>
               Following launch, the redesign received strong reception across the client's leadership and cross-functional teams, including feedback incorporated from multiple internal departments during the design phase.

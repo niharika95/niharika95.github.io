@@ -87,10 +87,14 @@ const ImageFrame = ({
   dark = true,
   className = '',
   imgClassName = 'w-full h-auto',
+  splitView = false,
 }) => (
   <figure className={className}>
-    <div className={`${dark ? 'bg-gray-900' : 'bg-gray-50'} rounded-[10px] p-4 md:p-6 overflow-hidden`}>
-      <img src={`${ASSET_PATH}/${src}`} alt={alt} className={`${imgClassName} mx-auto rounded-[4px]`} />
+    <div className={`relative ${dark ? 'bg-gray-900' : 'bg-gray-50'} rounded-[40px] p-4 md:p-6 overflow-hidden`}>
+      {splitView && (
+        <div className="absolute left-1/2 top-0 bottom-0 w-[2px] bg-gray-300 z-20" />
+      )}
+      <img src={`${ASSET_PATH}/${src}`} alt={alt} className={`${imgClassName} mx-auto relative z-10`} />
     </div>
     {caption && captionVariant === 'bodyRegular' ? (
       <Typography as="p" variant="bodyRegular" className="mt-2 text-gray-600">
@@ -104,7 +108,7 @@ const ImageFrame = ({
 
 const HeuristicIssuesChart = () => (
   <figure className="mt-10">
-    <div className="rounded-[18px] bg-gray-50 px-6 py-7 md:px-8 md:py-8">
+    <div className="rounded-[40px] bg-gray-50 px-6 py-7 md:px-8 md:py-8">
       <div className="flex items-center justify-between border-b border-gray-150 pb-6">
         <Typography as="h3" variant="smallRegular" className="text-gray-900">
           Heuristic issues
@@ -180,7 +184,7 @@ const HeuristicIssuesChart = () => (
 
 const BeforeArchitectureChart = () => (
   <figure className="mb-12">
-    <div className="rounded-[18px] bg-gray-50 p-4 md:p-6">
+    <div className="rounded-[40px] bg-gray-50 p-4 md:p-6">
       <TransformWrapper
         initialScale={1}
         minScale={0.75}
@@ -291,7 +295,7 @@ const BeforeArchitectureChart = () => (
 
 const AfterArchitectureChart = () => (
   <figure>
-    <div className="rounded-[18px] bg-gray-50 p-4 md:p-6">
+    <div className="rounded-[40px] bg-gray-50 p-4 md:p-6">
       <TransformWrapper
         initialScale={1}
         minScale={0.75}
@@ -520,11 +524,11 @@ const ExposureTool = () => {
 
         <main className="w-full max-w-[720px] mx-auto lg:ml-20 xl:ml-32">
           <section id="intro" className="scroll-mt-28 mb-[84px]">
-            <Typography as="h1" variant="h2Regular" className="mb-[100px] max-w-[720px] text-gray-900">
+            <Typography as="h1" variant="h2Regular" className="mb-[80px] max-w-[720px] text-gray-900">
               An architectural rethink that resolved a structural data inconsistency across 3 fragmented views, consolidating them into 1 unified view.
             </Typography>
 
-            <div className="mb-[100px] flex flex-col gap-1 text-gray-500">
+            <div className="mb-[80px] flex flex-col gap-1 text-gray-500">
               <div className="flex gap-4">
                 <Typography as="span" variant="bodyRegular" className="w-[74px] flex-shrink-0">Role</Typography>
                 <Typography as="span" variant="bodyRegular">Lead Product Designer, 4 weeks</Typography>
@@ -540,6 +544,8 @@ const ExposureTool = () => {
               alt="Exposure Tool hero placeholder"
               caption="The before and after of the home screen on the Exposure Tool."
               className="mb-12"
+              imgClassName="w-[90%] h-auto"
+              splitView={true}
             />
 
             <Paragraph>
