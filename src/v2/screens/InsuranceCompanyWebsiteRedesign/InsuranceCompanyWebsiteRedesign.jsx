@@ -168,20 +168,19 @@ const InsuranceCompanyWebsiteRedesign = () => {
         {/* Left Sidebar TOC */}
         <aside className="hidden lg:block w-[180px] flex-shrink-0 sticky top-[130px] self-start max-h-[calc(100vh-140px)] overflow-y-auto">
           <nav className="flex flex-col gap-[40px]">
-            <Link to="/v2" className="back-link-group inline-flex items-center text-[#999] transition-colors duration-200 gap-1 font-ibm-plex text-base font-medium -ml-1">
-                <ChevronLeft size={20} className="icon-solid-hover transition-colors duration-200" />
-                <Typography as="span" variant="smallLight" className="shimmer-text">Home</Typography>
+            <Link to="/v2" className="back-link-group inline-flex items-center text-gray-500 transition-colors duration-200 gap-1 font-ibm-plex text-base font-medium -ml-1">
+              <ChevronLeft size={20} className="icon-solid-hover transition-colors duration-200" />
+              <Typography as="span" variant="smallRegular" className="shimmer-text">Home</Typography>
             </Link>
             <div className="flex flex-col gap-[12px]">
               {TOC.map((item) => (
                 <a
                   key={item.id}
                   href={`#${item.id}`}
-                  onClick={(e) => scrollToSection(e, item.id)}
-                  className={`transition-colors ${activeSection === item.id ? 'text-[#000]' : 'text-[#A0A0A0] nav-item-shimmer'
-                    }`}
+                  onClick={(event) => scrollToSection(event, item.id)}
+                  className={`transition-colors ${activeSection === item.id ? 'text-gray-900' : 'text-gray-500 nav-item-shimmer'}`}
                 >
-                  <Typography as="span" variant="extraSmallRegular">{item.label}</Typography>
+                  <Typography as="span" variant="smallRegular">{item.label}</Typography>
                 </a>
               ))}
             </div>

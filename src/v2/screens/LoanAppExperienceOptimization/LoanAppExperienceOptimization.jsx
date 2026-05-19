@@ -32,7 +32,7 @@ const images = {
 const Section = ({ id, title, children, className = '' }) => (
   <section id={id} className={`scroll-mt-28 ${className || 'mb-[88px]'}`}>
     {title && (
-      <Typography as="h2" variant="h6Regular" className="mb-8 text-[#1A1A1A]">
+      <Typography as="h2" variant="h6Regular" className="mb-8 text-gray-900">
         {title}
       </Typography>
     )}
@@ -44,14 +44,14 @@ const Paragraph = ({ children, className = '' }) => (
   <Typography
     as="p"
     variant="bodyRegular"
-    className={`text-[#1a1a1a] ${className}`}
+    className={`text-gray-900 ${className}`}
   >
     {children}
   </Typography>
 );
 
 const Label = ({ children, className = '' }) => (
-  <Typography as="h3" variant="bodySemibold" className={`text-[#1a1a1a] ${className}`}>
+  <Typography as="h3" variant="bodySemibold" className={`text-gray-900 ${className}`}>
     {children}
   </Typography>
 );
@@ -60,7 +60,7 @@ const Caption = ({ children, className = '' }) => (
   <Typography
     as="p"
     variant="smallRegular"
-    className={`text-[#1a1a1a] ${className}`}
+    className={`text-gray-900 ${className}`}
   >
     {children}
   </Typography>
@@ -68,7 +68,7 @@ const Caption = ({ children, className = '' }) => (
 
 const ImageFrame = ({ src, alt, caption, className = '', imgClassName = 'w-full h-auto' }) => (
   <figure className={className}>
-    <div className="bg-[#1a1a1a] rounded-[20px] p-5 md:p-7 overflow-hidden">
+    <div className="bg-gray-900 rounded-[20px] p-5 md:p-7 overflow-hidden">
       <img src={`${ASSET_PATH}/${src}`} alt={alt} className={`${imgClassName} mx-auto`} />
     </div>
     {caption && <Caption className="mt-2">{caption}</Caption>}
@@ -77,10 +77,10 @@ const ImageFrame = ({ src, alt, caption, className = '', imgClassName = 'w-full 
 
 const ProblemBlock = ({ title, children }) => (
   <div>
-    <Typography as="h3" variant="h6Medium" className="mb-4 text-[#1a1a1a]">
+    <Typography as="h3" variant="h6Medium" className="mb-4 text-gray-900">
       {title}
     </Typography>
-    <Typography as="p" variant="h6Regular" className="text-[#1a1a1a]">
+    <Typography as="p" variant="h6Regular" className="text-gray-900">
       {children}
     </Typography>
   </div>
@@ -105,14 +105,14 @@ const InsightCallout = () => (
 
 const WireframeExamples = () => (
   <figure>
-    <div className="flex items-center justify-center overflow-hidden rounded-[20px] bg-[#1a1a1a] p-8">
+    <div className="flex items-center justify-center overflow-hidden rounded-[20px] bg-gray-900 p-8">
       <img
         src={`${ASSET_PATH}/${images.audit}`}
         alt="Original application audit"
         className="h-auto w-full object-contain"
       />
     </div>
-    <Caption className="mt-2 text-[#1a1a1a]">
+    <Caption className="mt-2 text-gray-900">
       Wireframe examples.
     </Caption>
   </figure>
@@ -161,13 +161,13 @@ const LoanAppExperienceOptimization = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white text-[#1A1A1A]">
+    <div className="min-h-screen bg-white text-gray-900">
       <HeaderV2 />
 
       <div className="mx-auto flex max-w-[1440px] px-5 pb-32 pt-10 lg:px-10">
         <aside className="sticky top-[130px] hidden max-h-[calc(100vh-140px)] w-[180px] flex-shrink-0 self-start overflow-y-auto lg:block">
           <nav className="flex flex-col gap-[40px]">
-            <Link to="/v2" className="back-link-group -ml-1 inline-flex items-center gap-1 text-base font-medium text-[#808080] transition-colors duration-200">
+            <Link to="/v2" className="back-link-group -ml-1 inline-flex items-center gap-1 text-base font-medium text-gray-500 transition-colors duration-200">
               <ChevronLeft size={20} className="icon-solid-hover transition-colors duration-200" />
               <Typography as="span" variant="smallRegular" className="shimmer-text">Home</Typography>
             </Link>
@@ -177,7 +177,7 @@ const LoanAppExperienceOptimization = () => {
                   key={item.id}
                   href={`#${item.id}`}
                   onClick={(event) => scrollToSection(event, item.id)}
-                  className={`transition-colors ${activeSection === item.id ? 'text-[#1a1a1a]' : 'text-[#808080] nav-item-shimmer'}`}
+                  className={`transition-colors ${activeSection === item.id ? 'text-gray-900' : 'text-gray-500 nav-item-shimmer'}`}
                 >
                   <Typography as="span" variant="smallRegular">{item.label}</Typography>
                 </a>
@@ -188,11 +188,11 @@ const LoanAppExperienceOptimization = () => {
 
         <main className="mx-auto w-full max-w-[860px] lg:ml-20 xl:ml-32">
           <section id="intro" className="scroll-mt-28 mb-[84px]">
-            <Typography as="h1" variant="h2Regular" className="mb-[100px] max-w-[720px] text-[#1A1A1A]">
+            <Typography as="h1" variant="h2Regular" className="mb-[100px] max-w-[720px] text-gray-900">
               Slashing projected loan application time by 36% by redesigning for trust and efficiency.
             </Typography>
 
-            <div className="mb-[100px] flex flex-col gap-1 text-[#808080]">
+            <div className="mb-[100px] flex flex-col gap-1 text-gray-500">
               <div className="flex gap-4">
                 <Typography as="span" variant="bodyRegular" className="w-[74px] flex-shrink-0">Role</Typography>
                 <Typography as="span" variant="bodyRegular">UX/UI Designer, 4 weeks</Typography>
@@ -207,20 +207,20 @@ const LoanAppExperienceOptimization = () => {
               <Typography
                 as="p"
                 variant="bodyRegular"
-                className="max-w-[380px] text-[#1A1A1A]"
+                className="max-w-[380px] text-gray-900"
               >
                 80% of digital loan applicants were pre-approved. The bank had already assessed their eligibility, already decided to offer them a loan. These should have been the easiest conversions in the funnel. They weren't.
               </Typography>
 
               <figure>
-                <div className="flex h-[520px] items-center justify-center overflow-hidden rounded-[20px] bg-[#f2f2f2] px-8 py-10">
+                <div className="flex h-[520px] items-center justify-center overflow-hidden rounded-[20px] bg-gray-50 px-8 py-10">
                   <img
                     src={`${ASSET_PATH}/${images.hero}`}
                     alt="Redesigned loan application mobile dashboard"
                     className="h-[560px] max-w-none -translate-y-4 object-contain"
                   />
                 </div>
-                <Caption className="mt-2 text-[#1A1A1A]">
+                <Caption className="mt-2 text-gray-900">
                   Redesigned landing page of the bank app.
                 </Caption>
               </figure>
@@ -228,7 +228,7 @@ const LoanAppExperienceOptimization = () => {
           </section>
 
           <Section id="problem" title="" className="mb-[100px]">
-            <blockquote className="border-l-[8px] border-[#1a1a1a] pl-5">
+            <blockquote className="border-l-[8px] border-gray-900 pl-5">
               <ProblemBlock title="Problem for the business:">
                 High drop-off on a critical revenue channel, despite a pre-approved pool that should have converted easily.
               </ProblemBlock>
@@ -265,11 +265,11 @@ const LoanAppExperienceOptimization = () => {
               <WireframeExamples />
             </div>
 
-            <blockquote className="mt-16 border-l-[8px] border-[#1a1a1a] pl-7">
-              <Typography as="p" variant="h6Regular" className="text-[#1a1a1a]">
+            <blockquote className="mt-16 border-l-[8px] border-gray-900 pl-7">
+              <Typography as="p" variant="h6Regular" className="text-gray-900">
                 Each field was mapped against two questions: does the bank already have this? Does it affect eligibility? This heuristic audit covered every screen and field in the existing 11-screen flow.
               </Typography>
-              <Typography as="p" variant="h6Regular" className="mt-10 text-[#1a1a1a]">
+              <Typography as="p" variant="h6Regular" className="mt-10 text-gray-900">
                 Fields that failed both questions were removed. What remained was regrouped into a logical sequence - Personal Info, Financials, Review.
               </Typography>
             </blockquote>
@@ -331,24 +331,24 @@ const LoanAppExperienceOptimization = () => {
           </Section>
 
           <Section id="outcome" title="What changed">
-            <blockquote className="mb-14 border-l-[8px] border-[#1a1a1a] pl-7">
-              <Typography as="p" variant="h6Regular" className="text-[#1a1a1a]">
+            <blockquote className="mb-14 border-l-[8px] border-gray-900 pl-7">
+              <Typography as="p" variant="h6Regular" className="text-gray-900">
                 The redesigned flow reduced the application from 11 screens to 7, a 36% reduction based on screen count and interaction audit.
               </Typography>
-              <Typography as="p" variant="h6Regular" className="mt-10 text-[#1a1a1a]">
+              <Typography as="p" variant="h6Regular" className="mt-10 text-gray-900">
                 Redundant fields were removed; some others were converted from input fields to review fields, pre-populated with data the bank already had. The slider reduced a 3-step interaction to one.
               </Typography>
             </blockquote>
 
             <figure className="mb-14">
-              <div className="flex items-center justify-center overflow-hidden rounded-[20px] bg-[#1a1a1a]">
+              <div className="flex items-center justify-center overflow-hidden rounded-[20px] bg-gray-900">
                 <img
                   src={`${ASSET_PATH}/${images.finalFlow}`}
                   alt="The redesigned 7-screen flow"
                   className="h-auto w-full object-contain"
                 />
               </div>
-              <Caption className="mt-2 text-[#1a1a1a]">
+              <Caption className="mt-2 text-gray-900">
                 The redesigned 7-screen flow.
               </Caption>
             </figure>
@@ -371,7 +371,7 @@ const LoanAppExperienceOptimization = () => {
           </Section>
 
           <Section id="reflection" title="" className="mb-0">
-            <Typography as="h2" variant="h6Regular" className="mb-8 text-[#1A1A1A]">
+            <Typography as="h2" variant="h6Regular" className="mb-8 text-gray-900">
               What I'd do differently
             </Typography>
             <Paragraph>

@@ -13,9 +13,9 @@ const ASSET_PATH = '/v2/images/projects/exposure-tool';
 
 const TOC = [
   { id: 'intro', label: 'Intro' },
-  { id: 'problem', label: 'Problem' },
-  { id: 'constraints', label: 'Constraints' },
-  { id: 'architecture', label: 'Architecture' },
+  { id: 'heuristic-analysis', label: 'Heuristic analysis' },
+  { id: 'discovery', label: 'Discovery' },
+  { id: 'problems', label: 'Problems' },
   { id: 'solution', label: 'Solution' },
   { id: 'tradeoffs', label: 'Tradeoffs' },
   { id: 'impact', label: 'Impact' },
@@ -59,7 +59,7 @@ const heuristicExamples = [
 const Section = ({ id, title, titleVariant = 'h6Regular', children, className = '' }) => (
   <section id={id} className={`scroll-mt-28 mb-[88px] ${className}`}>
     {title && (
-      <Typography as="h2" variant={titleVariant} className="mb-8 text-[#171717]">
+      <Typography as="h2" variant={titleVariant} className="mb-8 text-gray-900">
         {title}
       </Typography>
     )}
@@ -68,13 +68,13 @@ const Section = ({ id, title, titleVariant = 'h6Regular', children, className = 
 );
 
 const Paragraph = ({ children, className = '' }) => (
-  <Typography as="p" variant="bodyRegular" className={`text-[#1E1E1E] ${className}`}>
+  <Typography as="p" variant="bodyRegular" className={`text-gray-900 ${className}`}>
     {children}
   </Typography>
 );
 
 const Caption = ({ children, className = '' }) => (
-  <Typography as="p" variant="extraSmallRegular" className={`text-[#555] ${className}`}>
+  <Typography as="p" variant="extraSmallRegular" className={`text-gray-600 ${className}`}>
     {children}
   </Typography>
 );
@@ -89,11 +89,11 @@ const ImageFrame = ({
   imgClassName = 'w-full h-auto',
 }) => (
   <figure className={className}>
-    <div className={`${dark ? 'bg-[#141414]' : 'bg-[#F5F5F5]'} rounded-[10px] p-4 md:p-6 overflow-hidden`}>
+    <div className={`${dark ? 'bg-gray-900' : 'bg-gray-50'} rounded-[10px] p-4 md:p-6 overflow-hidden`}>
       <img src={`${ASSET_PATH}/${src}`} alt={alt} className={`${imgClassName} mx-auto rounded-[4px]`} />
     </div>
     {caption && captionVariant === 'bodyRegular' ? (
-      <Typography as="p" variant="bodyRegular" className="mt-2 text-[#555]">
+      <Typography as="p" variant="bodyRegular" className="mt-2 text-gray-600">
         {caption}
       </Typography>
     ) : (
@@ -104,20 +104,20 @@ const ImageFrame = ({
 
 const HeuristicIssuesChart = () => (
   <figure className="mt-10">
-    <div className="rounded-[18px] bg-[#F5F5F5] px-6 py-7 md:px-8 md:py-8">
-      <div className="flex items-center justify-between border-b border-[#DDDDDD] pb-6">
-        <Typography as="h3" variant="smallRegular" className="text-[#1A1A1A]">
+    <div className="rounded-[18px] bg-gray-50 px-6 py-7 md:px-8 md:py-8">
+      <div className="flex items-center justify-between border-b border-gray-150 pb-6">
+        <Typography as="h3" variant="smallRegular" className="text-gray-900">
           Heuristic issues
         </Typography>
-        <Typography as="span" variant="smallRegular" className="text-[#1A1A1A]">
+        <Typography as="span" variant="smallRegular" className="text-gray-900">
           43 total
         </Typography>
       </div>
 
-      <div className="py-7 space-y-5 border-b border-[#DDDDDD]">
+      <div className="py-7 space-y-5 border-b border-gray-150">
         {heuristicIssues.map((issue) => {
           const width = issue.value ? `${(issue.value / 9) * 100}%` : '0%';
-          const lineColor = issue.highlight ? 'bg-[#8A2BFF]' : 'bg-[#9E9E9E]';
+          const lineColor = issue.highlight ? 'bg-[#8A2BFF]' : 'bg-gray-400';
           const muted = !issue.highlight;
 
           return (
@@ -128,11 +128,11 @@ const HeuristicIssuesChart = () => (
               <Typography
                 as="span"
                 variant="extraSmallRegular"
-                className={muted ? 'text-[#777]' : 'text-[#1A1A1A]'}
+                className={muted ? 'text-gray-600' : 'text-gray-900'}
               >
                 {issue.label}
               </Typography>
-              <div className="relative h-px bg-[#D2D2D2]">
+              <div className="relative h-px bg-gray-200">
                 {issue.value && (
                   <>
                     <span
@@ -146,7 +146,7 @@ const HeuristicIssuesChart = () => (
                   </>
                 )}
               </div>
-              <Typography as="span" variant="extraSmallRegular" className="text-right text-[#1A1A1A]">
+              <Typography as="span" variant="extraSmallRegular" className="text-right text-gray-900">
                 {issue.value || '-'}
               </Typography>
             </div>
@@ -155,7 +155,7 @@ const HeuristicIssuesChart = () => (
       </div>
 
       <div className="pt-5">
-        <Typography as="h4" variant="extraSmallRegular" className="mb-4 text-[#1A1A1A]" style={{ fontWeight: 600 }}>
+        <Typography as="h4" variant="extraSmallRegular" className="mb-4 text-gray-900" style={{ fontWeight: 600 }}>
           Example issues
         </Typography>
         <div className="flex flex-wrap gap-3">
@@ -164,7 +164,7 @@ const HeuristicIssuesChart = () => (
               key={example}
               as="span"
               variant="extraSmallRegular"
-              className="rounded-[7px] bg-[#DDDDDD] px-4 py-2 text-[#1A1A1A]"
+              className="rounded-[7px] bg-gray-150 px-4 py-2 text-gray-900"
             >
               {example}
             </Typography>
@@ -180,7 +180,7 @@ const HeuristicIssuesChart = () => (
 
 const BeforeArchitectureChart = () => (
   <figure className="mb-12">
-    <div className="rounded-[18px] bg-[#F5F5F5] p-4 md:p-6">
+    <div className="rounded-[18px] bg-gray-50 p-4 md:p-6">
       <TransformWrapper
         initialScale={1}
         minScale={0.75}
@@ -291,7 +291,7 @@ const BeforeArchitectureChart = () => (
 
 const AfterArchitectureChart = () => (
   <figure>
-    <div className="rounded-[18px] bg-[#F5F5F5] p-4 md:p-6">
+    <div className="rounded-[18px] bg-gray-50 p-4 md:p-6">
       <TransformWrapper
         initialScale={1}
         minScale={0.75}
@@ -408,19 +408,19 @@ const AfterArchitectureChart = () => (
 );
 
 const Quote = ({ children }) => (
-  <blockquote className="border-l-[8px] border-[#1A1A1A] pl-5 my-10">
-    <Typography as="p" variant="bodyRegular" className="text-[#1A1A1A]">
+  <blockquote className="border-l-[8px] border-gray-900 pl-5 my-10">
+    <Typography as="p" variant="bodyRegular" className="text-gray-900">
       {children}
     </Typography>
   </blockquote>
 );
 
 const SplitQuote = () => (
-  <blockquote className="border-l-[8px] border-[#1A1A1A] pl-5 my-10">
-    <Typography as="p" variant="h6Regular" className="text-[#1A1A1A]">
+  <blockquote className="border-l-[8px] border-gray-900 pl-5 my-10">
+    <Typography as="p" variant="h6Regular" className="text-gray-900">
       The ask was straightforward: modernize the UI.
     </Typography>
-    <Typography as="p" variant="h6Regular" className="text-[#1A1A1A]" style={{ fontWeight: 700 }}>
+    <Typography as="p" variant="h6Regular" className="text-gray-900" style={{ fontWeight: 700 }}>
       But the audit revealed something deeper.
     </Typography>
   </blockquote>
@@ -430,7 +430,7 @@ const StructuralFinding = ({ icon, title, children }) => (
   <div>
     <div className="flex items-center gap-5 mb-5">
       <Icon icon={icon} className="text-[#6D20E8] text-[38px] flex-shrink-0" />
-      <Typography as="h3" variant="bodyRegular" className="text-[#1A1A1A]" style={{ fontWeight: 700 }}>
+      <Typography as="h3" variant="bodyRegular" className="text-gray-900" style={{ fontWeight: 700 }}>
         {title}
       </Typography>
     </div>
@@ -444,7 +444,7 @@ const ImpactItem = ({ icon, title, children }) => (
       <Icon icon={icon} className="mt-1 text-[32px] text-[#6D20E8]" />
     </div>
     <div className="min-w-0">
-      <Typography as="h3" variant="bodySemibold" className="mb-3 text-[#1A1A1A]">
+      <Typography as="h3" variant="bodySemibold" className="mb-3 text-gray-900">
         {title}
       </Typography>
       <Paragraph>{children}</Paragraph>
@@ -471,6 +471,11 @@ const ExposureTool = () => {
           currentActiveId = item.id;
         }
       });
+
+      if (window.innerHeight + Math.round(window.scrollY) >= document.documentElement.scrollHeight - 10) {
+        currentActiveId = TOC[TOC.length - 1].id;
+      }
+
       setActiveSection(currentActiveId);
     };
 
@@ -488,15 +493,15 @@ const ExposureTool = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white text-[#1A1A1A]">
+    <div className="min-h-screen bg-white text-gray-900">
       <HeaderV2 />
 
       <div className="max-w-[1440px] mx-auto px-5 lg:px-10 flex pt-10 pb-32">
         <aside className="hidden lg:block w-[180px] flex-shrink-0 sticky top-[130px] self-start max-h-[calc(100vh-140px)] overflow-y-auto">
           <nav className="flex flex-col gap-[40px]">
-            <Link to="/v2" className="back-link-group inline-flex items-center text-[#999] transition-colors duration-200 gap-1 font-ibm-plex text-base font-medium -ml-1">
+            <Link to="/v2" className="back-link-group inline-flex items-center text-gray-500 transition-colors duration-200 gap-1 font-ibm-plex text-base font-medium -ml-1">
               <ChevronLeft size={20} className="icon-solid-hover transition-colors duration-200" />
-              <Typography as="span" variant="smallLight" className="shimmer-text">Home</Typography>
+              <Typography as="span" variant="smallRegular" className="shimmer-text">Home</Typography>
             </Link>
             <div className="flex flex-col gap-[12px]">
               {TOC.map((item) => (
@@ -504,9 +509,9 @@ const ExposureTool = () => {
                   key={item.id}
                   href={`#${item.id}`}
                   onClick={(event) => scrollToSection(event, item.id)}
-                  className={`transition-colors ${activeSection === item.id ? 'text-[#000]' : 'text-[#A0A0A0] nav-item-shimmer'}`}
+                  className={`transition-colors ${activeSection === item.id ? 'text-gray-900' : 'text-gray-500 nav-item-shimmer'}`}
                 >
-                  <Typography as="span" variant="extraSmallRegular">{item.label}</Typography>
+                  <Typography as="span" variant="smallRegular">{item.label}</Typography>
                 </a>
               ))}
             </div>
@@ -515,17 +520,17 @@ const ExposureTool = () => {
 
         <main className="w-full max-w-[720px] mx-auto lg:ml-20 xl:ml-32">
           <section id="intro" className="scroll-mt-28 mb-[84px]">
-            <Typography as="h1" variant="h5Regular" className="mb-12 max-w-[620px] text-[#1A1A1A]">
+            <Typography as="h1" variant="h2Regular" className="mb-[100px] max-w-[720px] text-gray-900">
               An architectural rethink that resolved a structural data inconsistency across 3 fragmented views, consolidating them into 1 unified view.
             </Typography>
 
-            <div className="mb-12 flex flex-col gap-1 text-[#686868]">
+            <div className="mb-[100px] flex flex-col gap-1 text-gray-500">
               <div className="flex gap-4">
-                <Typography as="span" variant="bodyRegular" className="w-[50px] flex-shrink-0">Role</Typography>
+                <Typography as="span" variant="bodyRegular" className="w-[74px] flex-shrink-0">Role</Typography>
                 <Typography as="span" variant="bodyRegular">Lead Product Designer, 4 weeks</Typography>
               </div>
               <div className="flex gap-4">
-                <Typography as="span" variant="bodyRegular" className="w-[50px] flex-shrink-0">Team</Typography>
+                <Typography as="span" variant="bodyRegular" className="w-[74px] flex-shrink-0">Team</Typography>
                 <Typography as="span" variant="bodyRegular">2 Product Designers, Product Manager</Typography>
               </div>
             </div>
@@ -553,17 +558,22 @@ const ExposureTool = () => {
             <Paragraph className="mb-5">
               Account teams found the tool <strong className="font-semibold">difficult to navigate</strong> and <strong className="font-semibold">visually outdated</strong>.
             </Paragraph>
+          </section>
+
+          <Section id="heuristic-analysis" title="Heuristic analysis">
             <Paragraph>
               With no client access to end users and a four-week timeline, a heuristic evaluation of the flow became the foundation, surfacing 43 documented issues across five screens.
             </Paragraph>
 
             <HeuristicIssuesChart />
-          </section>
+          </Section>
 
-          <Section id="problem" title="The architecture was the problem.">
+          <Section id="discovery" title="The architecture was the problem.">
             <BeforeArchitectureChart />
+          </Section>
 
-            <Typography as="h3" variant="smallRegular" className="mb-8 text-[#1A1A1A]" style={{ fontWeight: 600 }}>
+          <Section id="problems" title="Structural problems">
+            <Typography as="h3" variant="smallRegular" className="mb-8 text-gray-900" style={{ fontWeight: 600 }}>
               The audit surfaced two structural problems early.
             </Typography>
 
@@ -604,10 +614,10 @@ const ExposureTool = () => {
             <div className="flex items-start gap-7 py-4">
               <Icon icon="material-symbols:emoji-objects-rounded" className="mt-1 flex-shrink-0 text-[46px] text-[#6D20E8]" />
               <div>
-                <Typography as="p" variant="bodyRegular" className="text-[#1A1A1A]">
+                <Typography as="p" variant="bodyRegular" className="text-gray-900">
                   The question that reframed the design:
                 </Typography>
-                <Typography as="p" variant="bodyRegular" className="text-[#1A1A1A]" style={{ fontWeight: 700 }}>
+                <Typography as="p" variant="bodyRegular" className="text-gray-900" style={{ fontWeight: 700 }}>
                   If the data is the same, why do the pages need to exist separately?
                 </Typography>
               </div>
@@ -649,7 +659,7 @@ const ExposureTool = () => {
 
             <div className="grid md:grid-cols-2 gap-12 items-start">
               <div>
-                <Typography as="h3" variant="bodySemibold" className="mb-4 text-[#1A1A1A]">
+                <Typography as="h3" variant="bodySemibold" className="mb-4 text-gray-900">
                   Dashboard
                 </Typography>
                 <Paragraph>
@@ -664,7 +674,7 @@ const ExposureTool = () => {
           </Section>
 
           <Section id="tradeoffs" title="Tradeoffs worth making">
-            <Typography as="h3" variant="bodySemibold" className="mb-5 text-[#1A1A1A]">
+            <Typography as="h3" variant="bodySemibold" className="mb-5 text-gray-900">
               Single-row pair record replacing stacked Renewal/In-Force pairs
             </Typography>
             <ImageFrame
@@ -675,7 +685,7 @@ const ExposureTool = () => {
               className="mb-12"
             />
 
-            <Typography as="h3" variant="bodySemibold" className="mb-5 text-[#1A1A1A]">
+            <Typography as="h3" variant="bodySemibold" className="mb-5 text-gray-900">
               Single State Change: replacing row-level and bulk-state mechanisms
             </Typography>
             <ImageFrame
