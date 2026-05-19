@@ -110,10 +110,10 @@ const HeuristicIssuesChart = () => (
   <figure className="mt-10">
     <div className="rounded-[40px] bg-gray-50 px-6 py-7 md:px-8 md:py-8">
       <div className="flex items-center justify-between border-b border-gray-150 pb-6">
-        <Typography as="h3" variant="smallRegular" className="text-gray-900">
+        <Typography as="h3" variant="bodyRegular" className="text-gray-900">
           Heuristic issues
         </Typography>
-        <Typography as="span" variant="smallRegular" className="text-gray-900">
+        <Typography as="span" variant="bodyRegular" className="text-gray-900">
           43 total
         </Typography>
       </div>
@@ -131,12 +131,12 @@ const HeuristicIssuesChart = () => (
             >
               <Typography
                 as="span"
-                variant="extraSmallRegular"
+                variant="smallRegular"
                 className={muted ? 'text-gray-600' : 'text-gray-900'}
               >
                 {issue.label}
               </Typography>
-              <div className="relative h-px bg-gray-200">
+              <div className="relative h-px bg-gray-150">
                 {issue.value && (
                   <>
                     <span
@@ -150,7 +150,7 @@ const HeuristicIssuesChart = () => (
                   </>
                 )}
               </div>
-              <Typography as="span" variant="extraSmallRegular" className="text-right text-gray-900">
+              <Typography as="span" variant="smallRegular" className="text-right text-gray-900">
                 {issue.value || '-'}
               </Typography>
             </div>
@@ -433,8 +433,8 @@ const SplitQuote = () => (
 const StructuralFinding = ({ icon, title, children }) => (
   <div>
     <div className="flex items-center gap-5 mb-5">
-      <Icon icon={icon} className="text-[#6D20E8] text-[38px] flex-shrink-0" />
-      <Typography as="h3" variant="bodyRegular" className="text-gray-900" style={{ fontWeight: 700 }}>
+      <Icon icon={icon} className="text-[#611E90] text-[38px] flex-shrink-0" />
+      <Typography as="h6" variant="h6Regular" className="text-gray-900">
         {title}
       </Typography>
     </div>
@@ -575,16 +575,18 @@ const ExposureTool = () => {
 
           <Section id="discovery" title="The architecture was the problem.">
             <BeforeArchitectureChart />
+
+            <Paragraph className="mb-[20px]">
+              The audit surfaced two structural problems early.
+            </Paragraph>
           </Section>
 
-          <Section id="problems" title="Structural problems">
-            <Typography as="h3" variant="smallRegular" className="mb-8 text-gray-900" style={{ fontWeight: 600 }}>
-              The audit surfaced two structural problems early.
-            </Typography>
+          <Section id="problems">
+
 
             <div className="grid md:grid-cols-2 gap-12 items-start mb-16">
               <StructuralFinding icon="material-symbols:signpost-rounded" title="No wayfinding">
-                The dashboard presented all destinations as equal. Client Profile, Exception Summary, and Correction Summary sat as parallel buttons with no indication of how they related to each other or to the broader workflow. <strong className="font-semibold">A user opening the tool for the first time had nothing to orient them.</strong>
+                The dashboard presented all destinations as equal. Client Profile, Exception Summary, and Correction Summary sat as parallel buttons with no indication of how they related to each other or to the broader workflow. <Typography as="strong" variant="bodySemibold">A user opening the tool for the first time had nothing to orient them.</Typography>
               </StructuralFinding>
               <ImageFrame
                 src={images.wayfinding}
