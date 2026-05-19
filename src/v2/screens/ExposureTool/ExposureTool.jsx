@@ -56,10 +56,10 @@ const heuristicExamples = [
   'Inadequate spacing',
 ];
 
-const Section = ({ id, title, titleVariant = 'h6Regular', children, className = '' }) => (
+const Section = ({ id, title, titleVariant = 'h6Regular', children, className = '', titleClassName = 'mb-8' }) => (
   <section id={id} className={`scroll-mt-28 mb-[88px] ${className}`}>
     {title && (
-      <Typography as="h2" variant={titleVariant} className="mb-8 text-gray-900">
+      <Typography as="h2" variant={titleVariant} className={`${titleClassName} text-gray-900`}>
         {title}
       </Typography>
     )}
@@ -420,8 +420,8 @@ const Quote = ({ children, className = 'my-10' }) => (
   </blockquote>
 );
 
-const SplitQuote = () => (
-  <blockquote className="border-l-[8px] border-gray-900 pl-5 mb-[100px]">
+const SplitQuote = ({ id }) => (
+  <blockquote id={id} className="scroll-mt-28 border-l-[8px] border-gray-900 pl-5 mb-[100px]">
     <Typography as="p" variant="h6Regular" className="text-gray-900">
       The ask was straightforward: modernize the UI.
     </Typography>
@@ -553,7 +553,7 @@ const ExposureTool = () => {
               The Exposure Tool helps insurance account teams review and validate a client's risk data year over year. For this improvement, one process had major confusion in the system.
             </Paragraph>
 
-            <SplitQuote />
+            <SplitQuote id="heuristic-analysis" />
 
             <ImageFrame
               src={images.accountTable}
@@ -575,7 +575,14 @@ const ExposureTool = () => {
           </section>
 
           <Section id="discovery" title="The architecture was the problem.">
-            <BeforeArchitectureChart />
+            {/* <BeforeArchitectureChart /> */}
+            <ImageFrame
+              src={images.beforeArchitecture}
+              alt="Before architecture"
+              className="mb-12"
+              imgClassName="w-[90%] h-auto mx-auto"
+              dark={false}
+            />
 
             <Paragraph className="mb-[20px]">
               The audit surfaced two structural problems early.
@@ -636,15 +643,21 @@ const ExposureTool = () => {
             </div>
           </Section>
 
-          <Section id="architecture" title="From fragmentation to a single source of truth" className="!mb-[100px]">
+          <Section id="solution" title="From fragmentation to a single source of truth" className="!mb-[100px]">
             <Paragraph className="mb-10">
               A master-detail architecture that consolidates the original three-page structure into a single persistent layout. One view. All states. No context switching.
             </Paragraph>
 
-            <AfterArchitectureChart />
+            {/* <AfterArchitectureChart /> */}
+            <ImageFrame
+              src={images.afterArchitecture}
+              alt="After architecture"
+              imgClassName="w-[90%] h-auto mx-auto"
+              dark={false}
+            />
           </Section>
 
-          <Section id="solution" title="The Validation Tab" titleVariant="bodySemibold">
+          <Section id="validation-tab" title="The Validation Tab" titleVariant="bodySemibold" className="!mb-[100px]">
             <ImageFrame
               src={images.validationFlow}
               alt="Validation tool main screen placeholder"
@@ -694,17 +707,19 @@ const ExposureTool = () => {
             </div>
           </Section>
 
-          <Section id="tradeoffs" title="Tradeoffs worth making">
+          <Section id="tradeoffs" title="Tradeoffs worth making" titleClassName="mb-[40px]">
             <Typography as="h3" variant="bodySemibold" className="mb-5 text-gray-900">
               Single-row pair record replacing stacked Renewal/In-Force pairs
             </Typography>
             <ImageFrame
               src={images.firstPass}
               alt="First pass split view placeholder"
-              caption="Maintaining stacked Renewal and In-Force pairs would have preserved familiarity but made triage significantly harder. Moving to a single row per record was the less familiar choice, but it was the right one."
-              captionVariant="bodyRegular"
-              className="mb-12"
+              className="mb-[20px]"
+              containerClassName="p-4 md:p-6 flex items-center min-h-[400px]"
             />
+            <Paragraph className="mb-[100px]">
+              Maintaining stacked Renewal and In-Force pairs would have preserved familiarity but made triage significantly harder. Moving to a single row per record was the less familiar choice, but it was the right one.
+            </Paragraph>
 
             <Typography as="h3" variant="bodySemibold" className="mb-5 text-gray-900">
               Single State Change: replacing row-level and bulk-state mechanisms
@@ -712,20 +727,22 @@ const ExposureTool = () => {
             <ImageFrame
               src={images.stateChange}
               alt="State change comparison placeholder"
-              caption="The original tool offered two state mechanisms: per-row, or multiple records at once. A single State Changes button simplified bulk, contextual actions and reduced display noise."
-              captionVariant="bodyRegular"
+              className="mb-[20px]"
             />
+            <Paragraph>
+              The original tool offered two state mechanisms: per-row, or multiple records at once. A single State Changes button simplified bulk, contextual actions and reduced display noise.
+            </Paragraph>
           </Section>
 
           <Section id="impact" title="Impact">
             <div className="space-y-10">
-              <ImpactItem icon="material-symbols:account-tree-rounded" title="Full workflow, no context switching.">
+              <ImpactItem icon="material-symbols:device-hub" title="Full workflow, no context switching.">
                 Three separate screens consolidated into one persistent layout with no dashboard round trips required.
               </ImpactItem>
-              <ImpactItem icon="material-symbols:save-outline-rounded" title="Review rhythm uninterrupted across high-volume exception sets.">
-                A single Save Changes replaced two separate save mechanisms, removing decision fatigue during sessions with numerous flagged records.
+              <ImpactItem icon="material-symbols:save-outline" title="Review rhythm uninterrupted across high-volume exception sets.">
+                A single 'Save Changes' replaced two separate save mechanisms, removing decision fatigue during sessions with numerous flagged records.
               </ImpactItem>
-              <ImpactItem icon="material-symbols:table-rows-rounded" title="Consistent mental model across all data views.">
+              <ImpactItem icon="material-symbols:view-agenda-outline" title="Consistent mental model across all data views.">
                 Two inconsistent data structures unified into one with no cognitive re-mapping when switching between views.
               </ImpactItem>
             </div>
