@@ -74,7 +74,7 @@ const Paragraph = ({ children, className = '' }) => (
 );
 
 const Caption = ({ children, className = '' }) => (
-  <Typography as="p" variant="extraSmallRegular" className={`text-gray-600 ${className}`}>
+  <Typography as="p" variant="smallRegular" className={`text-gray-600 ${className}`}>
     {children}
   </Typography>
 );
@@ -83,7 +83,7 @@ const ImageFrame = ({
   src,
   alt,
   caption,
-  captionVariant = 'extraSmallRegular',
+  captionVariant = 'smallRegular',
   dark = true,
   className = '',
   imgClassName = 'w-full h-auto',
@@ -420,11 +420,11 @@ const Quote = ({ children }) => (
 );
 
 const SplitQuote = () => (
-  <blockquote className="border-l-[8px] border-gray-900 pl-5 my-10">
+  <blockquote className="border-l-[8px] border-gray-900 pl-5 mb-[100px]">
     <Typography as="p" variant="h6Regular" className="text-gray-900">
       The ask was straightforward: modernize the UI.
     </Typography>
-    <Typography as="p" variant="h6Regular" className="text-gray-900" style={{ fontWeight: 700 }}>
+    <Typography as="p" variant="h6Medium" className="text-gray-900">
       But the audit revealed something deeper.
     </Typography>
   </blockquote>
@@ -524,11 +524,11 @@ const ExposureTool = () => {
 
         <main className="w-full max-w-[720px] mx-auto lg:ml-20 xl:ml-32">
           <section id="intro" className="scroll-mt-28 mb-[84px]">
-            <Typography as="h1" variant="h2Regular" className="mb-[80px] max-w-[720px] text-gray-900">
+            <Typography as="h1" variant="h2Regular" className="mb-[100px] max-w-[720px] text-gray-900">
               An architectural rethink that resolved a structural data inconsistency across 3 fragmented views, consolidating them into 1 unified view.
             </Typography>
 
-            <div className="mb-[80px] flex flex-col gap-1 text-gray-500">
+            <div className="mb-[100px] flex flex-col gap-1 text-gray-500">
               <div className="flex gap-4">
                 <Typography as="span" variant="bodyRegular" className="w-[74px] flex-shrink-0">Role</Typography>
                 <Typography as="span" variant="bodyRegular">Lead Product Designer, 4 weeks</Typography>
@@ -543,12 +543,12 @@ const ExposureTool = () => {
               src={images.hero}
               alt="Exposure Tool hero placeholder"
               caption="The before and after of the home screen on the Exposure Tool."
-              className="mb-12"
+              className="mb-[100px]"
               imgClassName="w-[90%] h-auto"
               splitView={true}
             />
 
-            <Paragraph>
+            <Paragraph className="mb-[100px]">
               The Exposure Tool helps insurance account teams review and validate a client's risk data year over year. For this improvement, one process had major confusion in the system.
             </Paragraph>
 
@@ -557,22 +557,21 @@ const ExposureTool = () => {
             <ImageFrame
               src={images.accountTable}
               alt="Account match table placeholder"
-              caption="The original table had multiple columns that changed state and meaning across rows."
-              className="mb-10"
+              caption="The original dashboard after client selection, showing Lines of Business with no indication of next steps."
+              className="mb-[20px]"
+              imgClassName="w-[90%] h-auto"
             />
 
-            <Paragraph className="mb-5">
-              Account teams found the tool <strong className="font-semibold">difficult to navigate</strong> and <strong className="font-semibold">visually outdated</strong>.
+            <Paragraph className="mb-[20px]">
+              Account teams found the tool <Typography as="strong" variant="bodySemibold">difficult to navigate</Typography> and <Typography as="strong" variant="bodySemibold">visually outdated</Typography>.
             </Paragraph>
-          </section>
 
-          <Section id="heuristic-analysis" title="Heuristic analysis">
-            <Paragraph>
-              With no client access to end users and a four-week timeline, a heuristic evaluation of the flow became the foundation, surfacing 43 documented issues across five screens.
+            <Paragraph className="mb-[20px]">
+              With no direct access to end users and a four-week timeline, a heuristic evaluation of the live tool became the foundation, surfacing 43 documented issues across five screens.
             </Paragraph>
 
             <HeuristicIssuesChart />
-          </Section>
+          </section>
 
           <Section id="discovery" title="The architecture was the problem.">
             <BeforeArchitectureChart />
