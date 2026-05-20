@@ -28,7 +28,8 @@ const images = {
   contentAuditStatePage: 'content-audit-state-page.png',
   longTextContentPage: 'long-text-content-page.png',
   auditReportTable: 'audit-report-table.png',
-  homeownerPersona: 'homeowner-persona-placeholder.png',
+  homeownerPersona: 'homeowner-persona.png',
+  agentPersona: 'agent-persona.png',
   competitiveAnalysis: 'competitive-analysis.png',
   cardSortingSurvey: 'card-sorting-survey.png',
   microsoftCopilotLogo: 'microsoft-copilot-logo.svg',
@@ -97,9 +98,10 @@ const heuristicIssues = [
   { label: 'Other heuristics', value: 0 },
 ];
 
-const ImageFrame = ({ src, alt, className = '', imgClassName = 'w-full h-auto' }) => (
-  <div className={`rounded-[20px] bg-[#F3F3F3] overflow-hidden flex items-center justify-center ${className}`}>
+const ImageFrame = ({ src, alt, className = '', imgClassName = 'w-full h-auto', children }) => (
+  <div className={`rounded-[20px] bg-[#F3F3F3] overflow-hidden flex items-center justify-center relative ${className}`}>
     <img src={src} alt={alt} className={imgClassName} />
+    {children}
   </div>
 );
 
@@ -115,7 +117,7 @@ const Section = ({ id, title, children, className = '' }) => (
 );
 
 const Subhead = ({ children }) => (
-  <Typography as="h3" variant="smallRegular" className="mb-3 text-[#1A1A1A]" style={{ fontWeight: 600 }}>
+  <Typography as="h3" variant="bodySemibold" className="mb-3 text-[#1A1A1A]">
     {children}
   </Typography>
 );
@@ -141,6 +143,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
   useTimeTracking();
 
   const [activeSection, setActiveSection] = useState('intro');
+  const [activePersona, setActivePersona] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -392,11 +395,26 @@ const InsuranceCompanyWebsiteRedesign = () => {
               35-64 primary age range &nbsp;•&nbsp; 28% earning $150K+ &nbsp;•&nbsp; 54% owning homes valued $300K-$749K &nbsp;•&nbsp; concentrated in states SC, MS, AL
             </Typography>
             <ImageFrame
-              src={`${ASSET_PATH}/${images.homeownerPersona}`}
-              alt="Homeowner persona"
-              className="p-8 mb-2"
+              src={activePersona === 0 ? `${ASSET_PATH}/${images.homeownerPersona}` : `${ASSET_PATH}/${images.agentPersona}`}
+              alt={activePersona === 0 ? "Homeowner persona" : "Agent persona"}
+              className="p-8 mb-2 group"
               imgClassName="w-full h-auto rounded-[20px]"
-            />
+            >
+              <button 
+                onClick={() => setActivePersona((prev) => (prev === 0 ? 1 : 0))}
+                className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center text-[#777] hover:text-[#1A1A1A] transition-colors" 
+                aria-label="Previous image"
+              >
+                <Icon icon="material-symbols:arrow-back-ios" className="text-[24px]" />
+              </button>
+              <button 
+                onClick={() => setActivePersona((prev) => (prev === 0 ? 1 : 0))}
+                className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center text-[#777] hover:text-[#1A1A1A] transition-colors" 
+                aria-label="Next image"
+              >
+                <Icon icon="material-symbols:arrow-forward-ios" className="text-[24px]" />
+              </button>
+            </ImageFrame>
             <Caption>Homeowner and agent personas.</Caption>
           </Section>
 
