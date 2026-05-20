@@ -112,7 +112,7 @@ const ImageFrame = ({
     <figure className={className}>
       <div
         ref={frameRef}
-        className={`overflow-hidden rounded-[40px] bg-gray-900 ${frameClassName}`}
+        className={`overflow-hidden rounded-[20px] bg-gray-900 ${frameClassName}`}
       >
         <img
           key={hasSettled ? 'settled' : 'revealing'}
@@ -161,7 +161,7 @@ const InsightCallout = () => (
 
 const WireframeExamples = () => (
   <figure>
-    <div className="flex items-center justify-center overflow-hidden rounded-[40px] bg-gray-900 p-8">
+    <div className="flex items-center justify-center overflow-hidden rounded-[20px] bg-gray-900 p-8">
       <img
         src={`${ASSET_PATH}/${images.audit}`}
         alt="Original application audit"
@@ -225,7 +225,7 @@ const LoanAppExperienceOptimization = () => {
           <nav className="flex flex-col gap-[40px]">
             <Link to="/v2" className="back-link-group -ml-1 inline-flex items-center gap-1 text-base font-medium text-gray-500 transition-colors duration-200">
               <ChevronLeft size={20} className="icon-solid-hover transition-colors duration-200" />
-              <Typography as="span" variant="smallRegular" className="shimmer-text">Home</Typography>
+              <Typography as="span" variant="smallLight" className="shimmer-text">Home</Typography>
             </Link>
             <div className="flex flex-col gap-[12px]">
               {TOC.map((item) => (
@@ -235,7 +235,7 @@ const LoanAppExperienceOptimization = () => {
                   onClick={(event) => scrollToSection(event, item.id)}
                   className={`transition-colors ${activeSection === item.id ? 'text-gray-900' : 'text-gray-500 nav-item-shimmer'}`}
                 >
-                  <Typography as="span" variant="smallRegular">{item.label}</Typography>
+                  <Typography as="span" variant={activeSection === item.id ? 'smallRegular' : 'smallLight'}>{item.label}</Typography>
                 </a>
               ))}
             </div>
@@ -269,7 +269,7 @@ const LoanAppExperienceOptimization = () => {
               </Typography>
 
               <figure className="flex flex-col items-center">
-                <div className="flex aspect-square w-full max-w-[520px] items-center justify-center overflow-hidden rounded-[40px] bg-[#F5F5F5] p-10">
+                <div className="flex aspect-square w-full max-w-[520px] items-center justify-center overflow-hidden rounded-[20px] bg-[#F5F5F5] p-10">
                   <img
                     src={`${ASSET_PATH}/${images.hero}`}
                     alt="Redesigned loan application mobile dashboard"
@@ -397,7 +397,7 @@ const LoanAppExperienceOptimization = () => {
             </blockquote>
 
             <figure className="mb-14">
-              <div className="flex items-center justify-center overflow-hidden rounded-[40px] bg-gray-900">
+              <div className="flex items-center justify-center overflow-hidden rounded-[20px] bg-gray-900">
                 <img
                   src={`${ASSET_PATH}/${images.finalFlow}`}
                   alt="The redesigned 7-screen flow"

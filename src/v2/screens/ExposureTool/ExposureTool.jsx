@@ -91,7 +91,7 @@ const ImageFrame = ({
   splitView = false,
 }) => (
   <figure className={className}>
-    <div className={`relative ${dark ? 'bg-gray-900' : 'bg-gray-50'} rounded-[40px] overflow-hidden ${containerClassName}`}>
+    <div className={`relative ${dark ? 'bg-gray-900' : 'bg-gray-50'} rounded-[20px] overflow-hidden ${containerClassName}`}>
       {splitView && (
         <div className="absolute left-1/2 top-0 bottom-0 w-[2px] bg-gray-300 z-20" />
       )}
@@ -109,7 +109,7 @@ const ImageFrame = ({
 
 const HeuristicIssuesChart = () => (
   <figure className="mt-10">
-    <div className="rounded-[40px] bg-gray-50 px-6 py-7 md:px-8 md:py-8">
+    <div className="rounded-[20px] bg-gray-50 px-6 py-7 md:px-8 md:py-8">
       <div className="flex items-center justify-between border-b border-gray-150 pb-6">
         <Typography as="h3" variant="bodyRegular" className="text-gray-900">
           Heuristic issues
@@ -185,7 +185,7 @@ const HeuristicIssuesChart = () => (
 
 const BeforeArchitectureChart = () => (
   <figure className="mb-12">
-    <div className="rounded-[40px] bg-gray-50 p-4 md:p-6">
+    <div className="rounded-[20px] bg-gray-50 p-4 md:p-6">
       <TransformWrapper
         initialScale={1}
         minScale={0.75}
@@ -296,7 +296,7 @@ const BeforeArchitectureChart = () => (
 
 const AfterArchitectureChart = () => (
   <figure>
-    <div className="rounded-[40px] bg-gray-50 p-4 md:p-6">
+    <div className="rounded-[20px] bg-gray-50 p-4 md:p-6">
       <TransformWrapper
         initialScale={1}
         minScale={0.75}
@@ -506,7 +506,7 @@ const ExposureTool = () => {
           <nav className="flex flex-col gap-[40px]">
             <Link to="/v2" className="back-link-group inline-flex items-center text-gray-500 transition-colors duration-200 gap-1 font-ibm-plex text-base font-medium -ml-1">
               <ChevronLeft size={20} className="icon-solid-hover transition-colors duration-200" />
-              <Typography as="span" variant="smallRegular" className="shimmer-text">Home</Typography>
+              <Typography as="span" variant="smallLight" className="shimmer-text">Home</Typography>
             </Link>
             <div className="flex flex-col gap-[12px]">
               {TOC.map((item) => (
@@ -516,7 +516,7 @@ const ExposureTool = () => {
                   onClick={(event) => scrollToSection(event, item.id)}
                   className={`transition-colors ${activeSection === item.id ? 'text-gray-900' : 'text-gray-500 nav-item-shimmer'}`}
                 >
-                  <Typography as="span" variant="smallRegular">{item.label}</Typography>
+                  <Typography as="span" variant={activeSection === item.id ? 'smallRegular' : 'smallLight'}>{item.label}</Typography>
                 </a>
               ))}
             </div>
