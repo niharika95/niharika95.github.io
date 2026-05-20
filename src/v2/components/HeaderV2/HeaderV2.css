@@ -1,7 +1,7 @@
 .header-v2 {
   display: flex;
   justify-content: space-between;
-  padding: 30px 40px;
+  padding: 20px 40px;
   width: 100%;
   font-family: 'IBM Plex Sans', -apple-system, sans-serif;
   box-sizing: border-box;
@@ -43,16 +43,14 @@
 
 .header-v2-logo:hover .nav-text,
 .header-v2-link:hover .nav-text {
-  background-image: linear-gradient(
-    90deg,
-    #00AFD2 0%,
-    #0012D2 12.5%,
-    #7000D2 25%,
-    #B200D2 50%,
-    #7000D2 75%,
-    #0012D2 87.5%,
-    #00AFD2 100%
-  );
+  background-image: linear-gradient(90deg,
+      #00AFD2 0%,
+      #0012D2 12.5%,
+      #7000D2 25%,
+      #B200D2 50%,
+      #7000D2 75%,
+      #0012D2 87.5%,
+      #00AFD2 100%);
   background-size: 200% 100%;
   -webkit-background-clip: text;
   background-clip: text;
@@ -62,8 +60,13 @@
 }
 
 @keyframes text-gradient-shimmer {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 100% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 100% 50%;
+  }
 }
 
 .back-link-group:hover .icon-solid-hover {
@@ -72,16 +75,14 @@
 
 .back-link-group:hover .shimmer-text,
 .nav-item-shimmer:hover {
-  background-image: linear-gradient(
-    90deg,
-    #00AFD2 0%,
-    #0012D2 12.5%,
-    #7000D2 25%,
-    #B200D2 50%,
-    #7000D2 75%,
-    #0012D2 87.5%,
-    #00AFD2 100%
-  );
+  background-image: linear-gradient(90deg,
+      #00AFD2 0%,
+      #0012D2 12.5%,
+      #7000D2 25%,
+      #B200D2 50%,
+      #7000D2 75%,
+      #0012D2 87.5%,
+      #00AFD2 100%);
   background-size: 200% 100%;
   -webkit-background-clip: text;
   background-clip: text;
