@@ -15,7 +15,7 @@
 
 @media (max-width: 768px) {
   .header-v2 {
-    padding: 24px 20px;
+    padding: 24px 24px;
   }
 }
 
@@ -70,6 +70,15 @@
   }
   100% {
     transform: scaleX(1);
+  }
+}
+
+@keyframes pop-dot {
+  0% {
+    transform: translateX(-50%) scale(0);
+  }
+  100% {
+    transform: translateX(-50%) scale(1);
   }
 }
 

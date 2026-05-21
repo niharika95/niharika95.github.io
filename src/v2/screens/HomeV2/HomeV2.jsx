@@ -59,12 +59,22 @@ export default function HomeV2() {
       setTimerActive(true);
       sessionStorage.setItem('homeV2Loaded', 'true');
     }
-    setPage(prev => [index, index > prev[0] ? 1 : -1]);
+    setPage(prev => {
+      const prevIndex = prev[0];
+      let newDirection = index > prevIndex ? 1 : -1;
+      if (prevIndex === PROJECTS.length - 1 && index === 0) newDirection = 1;
+      if (prevIndex === 0 && index === PROJECTS.length - 1) newDirection = -1;
+      return [index, newDirection];
+    });
   }, [timerActive]);
 
   const [isHovered, setIsHovered] = useState(false);
   const scrollTimeoutRef = useRef(null);
   const rightPanelRef = useRef(null);
+
+  const handleSwipe = (dir) => {
+    handleSelect((activeIndex + dir + PROJECTS.length) % PROJECTS.length);
+  };
 
   useEffect(() => {
     if (isInitialLoad && !timerActive) {
@@ -149,27 +159,31 @@ export default function HomeV2() {
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
-          <HeroCard project={activeProject} isHovered={isHovered} direction={direction} />
+          <HeroCard project={activeProject} isHovered={isHovered} direction={direction} onSwipe={handleSwipe} />
           
           {/* Mobile Dots Indicator */}
           <div className="flex md:hidden justify-center items-center gap-2 mt-6">
             {PROJECTS.map((_, idx) => (
               <div 
                 key={idx} 
-                className={`h-[6px] rounded-full transition-all duration-300 ${idx === activeIndex ? 'w-10 bg-[#B3B3B3]' : 'w-[6px] bg-[#E6E6E6]'}`}
-              />
+                onClick={() => handleSelect(idx)}
+                className={`relative h-[6px] rounded-full overflow-hidden transition-all duration-300 cursor-pointer ${idx === activeIndex ? 'w-10 bg-[#E6E6E6]' : 'w-[6px] bg-[#E6E6E6]'}`}
+              >
+                {idx === activeIndex && (
+                  <div 
+                    key={timerActive ? 'active' : 'paused'}
+                    className="absolute top-0 left-0 h-full w-full bg-[#B3B3B3] origin-left"
+                    style={{
+                      animation: timerActive ? 'fillProgress 5s linear forwards' : 'none',
+                      animationPlayState: (!timerActive || isHovered) ? 'paused' : 'running'
+                    }}
+                  />
+                )}
+              </div>
             ))}
           </div>
         </div>
       </main>
-
-      {/* Mobile Floating Pill Navigation */}
-      <div className="fixed md:hidden bottom-6 left-1/2 -translate-x-1/2 bg-white rounded-[40px] shadow-[0_8px_30px_rgb(0,0,0,0.12)] px-8 py-4 flex items-center justify-between gap-6 z-[1000] border border-gray-100 w-[max-content]">
-        <Link to="/v2/about" className="text-gray-500 text-[15px] font-light no-underline">About</Link>
-        <Link to="/v2/resume" className="text-gray-500 text-[15px] font-light no-underline">Resume</Link>
-        <a href="https://www.linkedin.com/in/niharikadalal" target="_blank" rel="noopener noreferrer" className="text-gray-500 text-[15px] font-light no-underline">LinkedIn</a>
-        <a href="mailto:niharika95@gmail.com" className="text-gray-500 text-[15px] font-light no-underline">Email</a>
-      </div>
     </div>
   );
 }

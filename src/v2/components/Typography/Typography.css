@@ -6,3 +6,12 @@
   line-height: var(--typography-line-height);
   text-transform: var(--typography-text-transform);
 }
+
+@media (max-width: 768px) {
+  .typography-bodyRegular {
+    line-height: 1.5 !important;
+  }
+  .typography-h6Medium {
+    line-height: normal !important;
+  }
+}
