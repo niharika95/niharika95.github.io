@@ -151,7 +151,20 @@
 
 .social-links-text .separator {
   color: #CCCCCC;
-  /* subtle gray, Gray 200 */
   font-size: 16px;
   font-weight: 300;
+}
+
+@media (max-width: 768px) {
+  .index-top {
+    display: none;
+  }
+  .index-bottom {
+    margin-top: 0;
+    padding-top: 30px;
+    border-top: 1px solid #EBEBEB;
+  }
+  .social-links-text {
+    display: none;
+  }
 }

@@ -150,8 +150,26 @@ export default function HomeV2() {
           onMouseLeave={() => setIsHovered(false)}
         >
           <HeroCard project={activeProject} isHovered={isHovered} direction={direction} />
+          
+          {/* Mobile Dots Indicator */}
+          <div className="flex md:hidden justify-center items-center gap-2 mt-6">
+            {PROJECTS.map((_, idx) => (
+              <div 
+                key={idx} 
+                className={`h-[6px] rounded-full transition-all duration-300 ${idx === activeIndex ? 'w-10 bg-[#B3B3B3]' : 'w-[6px] bg-[#E6E6E6]'}`}
+              />
+            ))}
+          </div>
         </div>
       </main>
+
+      {/* Mobile Floating Pill Navigation */}
+      <div className="fixed md:hidden bottom-6 left-1/2 -translate-x-1/2 bg-white rounded-[40px] shadow-[0_8px_30px_rgb(0,0,0,0.12)] px-8 py-4 flex items-center justify-between gap-6 z-[1000] border border-gray-100 w-[max-content]">
+        <Link to="/v2/about" className="text-gray-500 text-[15px] font-light no-underline">About</Link>
+        <Link to="/v2/resume" className="text-gray-500 text-[15px] font-light no-underline">Resume</Link>
+        <a href="https://www.linkedin.com/in/niharikadalal" target="_blank" rel="noopener noreferrer" className="text-gray-500 text-[15px] font-light no-underline">LinkedIn</a>
+        <a href="mailto:niharika95@gmail.com" className="text-gray-500 text-[15px] font-light no-underline">Email</a>
+      </div>
     </div>
   );
 }
