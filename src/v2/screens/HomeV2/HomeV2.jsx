@@ -11,7 +11,7 @@ const PROJECTS = [
     sidebarTitle: 'Insurance company website redesign',
     cardTitle: 'Redesigning the digital face of a $1 billion-bound insurer',
     description: 'A full redesign serving two distinct audiences, built to scale with the business.',
-    image: '/v2/images/projects/insurance-company-website-design/panel-2-insurance-website.png',
+    image: '/images/projects/insurance-company-website-design/panel-2-insurance-website.png',
     link: '/v2/insurance-company-website-redesign',
     buttonStyle: 'dark',
     contentCols: 4,
@@ -20,12 +20,12 @@ const PROJECTS = [
   {
     id: 2,
     sidebarTitle: 'Exposure tool',
-    cardTitle: 'Exposure tool',
-    description: 'A new decision-support tool for making complex risk and portfolio exposure easier to understand.',
-    image: '/v2/images/home/campaign-builder-color.png',
+    cardTitle: 'Eliminating context switching across 3 fragmented views.',
+    description: 'An audit-led redesign of an internal insurance exposure management tool, uncovering a structural problem beneath a UI brief.',
+    image: '/v2/images/projects/exposure-tool/exposure-tool-thumbnail.png',
     link: '/v2/exposure-tool',
     buttonStyle: 'dark',
-    contentCols: 5,
+    contentCols: 6,
     hasBorder: true
   },
   {
@@ -52,7 +52,7 @@ const PROJECTS = [
 export default function HomeV2() {
   const [isInitialLoad] = useState(() => !sessionStorage.getItem('homeV2Loaded'));
   const [timerActive, setTimerActive] = useState(!isInitialLoad);
-  
+
   const [[activeIndex, direction], setPage] = useState([0, 1]);
   const handleSelect = useCallback((index) => {
     if (!timerActive) {
@@ -61,7 +61,7 @@ export default function HomeV2() {
     }
     setPage(prev => [index, index > prev[0] ? 1 : -1]);
   }, [timerActive]);
-  
+
   const [isHovered, setIsHovered] = useState(false);
   const scrollTimeoutRef = useRef(null);
   const rightPanelRef = useRef(null);
@@ -92,7 +92,7 @@ export default function HomeV2() {
 
       // Ignore further scroll events if in cooldown
       if (scrollTimeoutRef.current) return;
-      
+
       // Break initial load sequence locks identically to a sidebar click natively
       setTimerActive(active => {
         if (!active) sessionStorage.setItem('homeV2Loaded', 'true');

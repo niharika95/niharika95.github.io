@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './Cursor.css';
+import Typography from '../Typography/Typography';
+import { Icon } from '@iconify/react';
 
 export default function Cursor() {
   const cursorRef = useRef(null);
@@ -22,7 +24,7 @@ export default function Cursor() {
 
       const isProjectPanel = !!target.closest('.hero-card-viewport');
       const isInteractive = !!target.closest('a, button, [role="button"], .interactive-element');
-      
+
       if (isProjectPanel) {
         if (activeState !== 'project') setActiveState('project');
       } else if (isInteractive) {
@@ -40,11 +42,11 @@ export default function Cursor() {
   }, [activeState]);
 
   return (
-    <div 
-      ref={cursorRef} 
+    <div
+      ref={cursorRef}
       className={`custom-cursor ${activeState}`}
     >
-      <div className="cursor-tooltip">View case study</div>
+      <Typography as="div" variant="smallRegular" className="cursor-tooltip" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>View case study <Icon icon="material-symbols:arrow-right-alt-rounded" width="20" className="cursor-nudge-arrow" /></Typography>
     </div>
   );
 }
