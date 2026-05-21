@@ -115,6 +115,15 @@ export default function ProjectIndex({ projects, activeIndex, onSelect, isHovere
                 className={`index-item ${isVisualActive ? 'active' : ''} ${isInitialLoad ? 'anim-fade-in' : ''}`}
                 style={isInitialLoad ? { animationDelay: `${700 + 200 * index}ms`, animationDuration: '500ms', animationTimingFunction: 'ease-out' } : {}}
                 onClick={() => handleSelect(index)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    handleSelect(index);
+                  }
+                }}
+                tabIndex={0}
+                role="button"
+                aria-label={`View ${project.sidebarTitle} case study`}
               >
                 <Typography as="span" variant="smallLight" className="index-item-text">
                   {project.sidebarTitle}

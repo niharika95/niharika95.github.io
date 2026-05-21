@@ -498,7 +498,7 @@ const ExposureTool = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white text-gray-900">
+    <div className="bg-gradient-to-br from-white to-[#EBEBEB] min-h-screen text-gray-900">
       <HeaderV2 />
 
       <div className="max-w-[1440px] mx-auto px-5 lg:px-10 flex pt-10 pb-32">

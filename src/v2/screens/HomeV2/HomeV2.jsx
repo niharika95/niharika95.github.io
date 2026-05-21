@@ -19,7 +19,7 @@ const PROJECTS = [
   },
   {
     id: 2,
-    sidebarTitle: 'Exposure tool',
+    sidebarTitle: 'Insurance exposure tool restructure',
     cardTitle: 'Eliminating context switching across 3 fragmented views.',
     description: 'An audit-led redesign of an internal insurance exposure management tool, uncovering a structural problem beneath a UI brief.',
     image: '/v2/images/projects/exposure-tool/exposure-tool-thumbnail.png',

@@ -23,7 +23,7 @@ export default function Cursor() {
       if (!target) return;
 
       const isProjectPanel = !!target.closest('.hero-card-viewport');
-      const isInteractive = !!target.closest('a, button, [role="button"], .interactive-element');
+      const isInteractive = !!target.closest('a, button, [role="button"], .interactive-element, .index-item');
 
       if (isProjectPanel) {
         if (activeState !== 'project') setActiveState('project');

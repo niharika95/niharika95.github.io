@@ -179,7 +179,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
   };
 
   return (
-    <div className="bg-white text-[#1A1A1A] min-h-screen">
+    <div className="bg-gradient-to-br from-white to-[#EBEBEB] text-[#1A1A1A] min-h-screen">
       <HeaderV2 />
 
       <div className="max-w-[1440px] mx-auto px-5 lg:px-10 flex pt-10 pb-32">

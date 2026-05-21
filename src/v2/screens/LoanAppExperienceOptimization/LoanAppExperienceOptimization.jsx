@@ -217,7 +217,7 @@ const LoanAppExperienceOptimization = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white text-gray-900">
+    <div className="bg-gradient-to-br from-white to-[#EBEBEB] min-h-screen text-gray-900">
       <HeaderV2 />
 
       <div className="mx-auto flex max-w-[1440px] px-5 pb-32 pt-10 lg:px-10">
