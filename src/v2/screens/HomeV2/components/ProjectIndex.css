@@ -112,7 +112,7 @@
 }
 
 .personal-subtext {
-  color: #808080;
+  color: var(--color-gray-600, #666666);
   margin: 0 0 20px 0;
 }
 
