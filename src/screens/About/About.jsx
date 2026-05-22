@@ -22,7 +22,7 @@ function About() {
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="w-[280px] h-[280px] rounded-full overflow-hidden border-8 border-white shadow-2xl">
             <img
-              src="/about/niharika.png"
+              src="/images/home/niharika.png"
               alt="Niharika Dalal"
               className="w-full h-full object-cover"
             />

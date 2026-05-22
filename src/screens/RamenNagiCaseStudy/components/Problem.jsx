@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 // @ts-ignore
-import problemImage from '../../../assets/RamenNagiCaseStudy/A long line at Ramen Nagi.png';
 
 const Problem = () => {
     return (
@@ -30,7 +29,7 @@ const Problem = () => {
                 {/* Right Column (Visual) - Spans cols 7-11 (5 columns) */}
                 <div className="col-span-12 md:col-start-7 md:col-span-5">
                     <motion.img
-                        src={problemImage}
+                        src="/images/projects/ramen-nagi/A-long-line-at-Ramen-Nagi.png"
                         alt="Crowded line at Ramen Nagi"
                         initial={{ opacity: 0, scale: 0.95 }}
                         whileInView={{ opacity: 1, scale: 1 }}

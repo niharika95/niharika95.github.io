@@ -1,0 +1,119 @@
+.header-v2 {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 40px;
+  width: 100%;
+  font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+@media (max-width: 768px) {
+  .header-v2 {
+    padding: 24px 24px;
+  }
+}
+
+.header-v2-spacer {
+  height: 92px;
+  width: 100%;
+}
+
+.header-v2-logo {
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 2;
+  font-weight: 300;
+  color: var(--color-gray-600, #666666);
+  transition: color 0.2s ease;
+}
+
+.header-v2-link {
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 2;
+  font-weight: 300;
+  color: var(--color-gray-600, #666666);
+  transition: color 0.2s ease;
+  position: relative;
+  padding-bottom: 2px;
+}
+
+.header-v2-link.active .nav-text {
+  color: var(--color-gray-900, #1a1a1a);
+}
+
+.header-v2-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-gray-900, #1a1a1a);
+  transform: scaleX(0);
+  transform-origin: center;
+}
+
+.header-v2-link.active::after {
+  animation: expand-stroke 0.5s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+@keyframes expand-stroke {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes pop-dot {
+  0% {
+    transform: translateX(-50%) scale(0);
+  }
+  100% {
+    transform: translateX(-50%) scale(1);
+  }
+}
+
+.header-v2-nav {
+  display: flex;
+  gap: 32px;
+}
+
+@media (max-width: 768px) {
+  .header-v2-nav {
+    display: none !important;
+  }
+}
+
+.header-v2-logo:hover .nav-text,
+.header-v2-link:hover .nav-text {
+  color: #000000;
+}
+
+@keyframes text-gradient-shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+.back-link-group:hover .icon-solid-hover {
+  color: #000000;
+}
+
+.back-link-group:hover .shimmer-text,
+.nav-item-shimmer:hover {
+  color: #000000;
+  display: inline-block;
+}

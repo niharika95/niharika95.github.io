@@ -114,7 +114,7 @@ const IntelligentCampaignBuilder = () => {
             </div>
           </div>
           <img
-            src='/intelligent-campaign-builder-overhaul/hero.png'
+            src='/images/projects/intelligent-campaign-builder-overhaul/hero.png'
             alt='Intelligent Campaign Builder Hero'
             className='w-full max-w-[600px] self-end h-auto object-contain max-h-[500px]'
           />
@@ -302,17 +302,17 @@ const IntelligentCampaignBuilder = () => {
           <ContentContainer>
             <div className='grid grid-cols-3 gap-[30px] items-end'>
               <img
-                src='/intelligent-campaign-builder-overhaul/laying1.png'
+                src='/images/projects/intelligent-campaign-builder-overhaul/laying1.png'
                 alt='Laying the Foundation Image 1'
                 className='w-full h-auto object-cover'
               />
               <img
-                src='/intelligent-campaign-builder-overhaul/laying2.png'
+                src='/images/projects/intelligent-campaign-builder-overhaul/laying2.png'
                 alt='Laying the Foundation Image 2'
                 className='w-full h-auto object-cover'
               />
               <img
-                src='/intelligent-campaign-builder-overhaul/laying3.png'
+                src='/images/projects/intelligent-campaign-builder-overhaul/laying3.png'
                 alt='Laying the Foundation Image 3'
                 className='w-full h-auto object-cover'
               />
@@ -360,7 +360,7 @@ const IntelligentCampaignBuilder = () => {
           <ContentContainer className='py-5 md:py-[50px] lg:py-[100px]'>
             <div className='grid grid-cols-1 md:grid-cols-12 gap-8 items-center'>
               <img
-                src='/intelligent-campaign-builder-overhaul/clarity1.png'
+                src='/images/projects/intelligent-campaign-builder-overhaul/clarity1.png'
                 alt='Clarity Design Image'
                 className='w-full md:col-span-8'
               />
@@ -380,7 +380,7 @@ const IntelligentCampaignBuilder = () => {
           <ContentContainer className='py-5 md:py-[50px] lg:py-[100px]'>
             <div className='grid grid-cols-1 md:grid-cols-12 gap-8 items-center'>
               <img
-                src='/intelligent-campaign-builder-overhaul/clarity2.png'
+                src='/images/projects/intelligent-campaign-builder-overhaul/clarity2.png'
                 alt='Clarity Design Image'
                 className='w-full md:col-span-8'
               />
@@ -396,7 +396,7 @@ const IntelligentCampaignBuilder = () => {
           <ContentContainer className='py-5 md:py-[50px] lg:py-[100px]'>
             <div className='grid grid-cols-1 md:grid-cols-12 gap-8 items-center'>
               <img
-                src='/intelligent-campaign-builder-overhaul/clarity3.png'
+                src='/images/projects/intelligent-campaign-builder-overhaul/clarity3.png'
                 alt='Clarity Design Image'
                 className='w-full md:col-span-8'
               />
@@ -412,7 +412,7 @@ const IntelligentCampaignBuilder = () => {
           <ContentContainer className='py-5 md:py-[50px] lg:py-[100px]'>
             <div className='grid grid-cols-1 md:grid-cols-12 gap-8 items-center'>
               <img
-                src='/intelligent-campaign-builder-overhaul/clarity4.png'
+                src='/images/projects/intelligent-campaign-builder-overhaul/clarity4.png'
                 alt='Clarity Design Image'
                 className='w-full md:col-span-8'
               />

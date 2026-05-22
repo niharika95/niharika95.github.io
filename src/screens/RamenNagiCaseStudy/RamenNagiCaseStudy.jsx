@@ -9,6 +9,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import ReservationFlow from './components/ReservationFlow';
 import Solution from './components/Solution';
 import WhyThisWorks from './components/WhyThisWorks';
+import HeaderV2 from '../../components/HeaderV2/HeaderV2';
+import { Link } from 'react-router-dom';
+import { ChevronLeft } from 'lucide-react';
 
 const RamenNagiCaseStudy = () => {
     const [showGrid, setShowGrid] = useState(false);
@@ -67,6 +70,17 @@ const RamenNagiCaseStudy = () => {
 
             <div className="fixed inset-0 -z-10">
                 <BackgroundShapes />
+            </div>
+
+            <HeaderV2 />
+
+            <div className="w-full pt-8 px-[5vw] max-w-[1440px] mx-auto z-10 relative">
+                <div className="max-w-[1160px] mx-auto px-5 w-full">
+                    <Link to="/v2" className="back-link-group inline-flex items-center text-[#999] transition-colors duration-200 gap-1 font-sans text-base font-medium">
+                        <ChevronLeft size={20} className="icon-solid-hover transition-colors duration-200" />
+                        <span className="shimmer-text">Home</span>
+                    </Link>
+                </div>
             </div>
 
             <main className="w-full overflow-x-hidden">

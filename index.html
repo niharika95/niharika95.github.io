@@ -12,7 +12,7 @@
     gtag('config', 'G-2K28L93XWR');
   </script>
   <meta charset="utf-8" />
-  <link rel="icon" href="/niharikaLogo.png" />
+  <link rel="icon" href="/v2/images/home/niharika-round.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -117,6 +117,17 @@
 </head>
 
 <body>
+  <!-- Global SVG Filters for Glass Effects -->
+  <svg style="display: none; visibility: hidden; position: absolute;" width="0" height="0">
+    <filter id="liquidGlass" color-interpolation-filters="linearRGB" filterUnits="objectBoundingBox"
+      primitiveUnits="userSpaceOnUse">
+      <feDisplacementMap in="SourceGraphic" in2="SourceGraphic" scale="20" xChannelSelector="R" yChannelSelector="B"
+        x="0%" y="0%" width="100%" height="100%" result="displacementMap" />
+      <feGaussianBlur stdDeviation="3 3" x="0%" y="0%" width="100%" height="100%" in="displacementMap" edgeMode="none"
+        result="blur" />
+    </filter>
+  </svg>
+
   <noscript>You need to enable JavaScript to run this app. Niharika Dalal is a Product Designer with 5+ years of
     experience. Please enable JavaScript to view the portfolio.</noscript>
   <div id="root" role="main" aria-label="Portfolio content"></div>

@@ -2,13 +2,6 @@ import { DecorativeDots, StrokeAnimation } from '../../common';
 
 import { Icon } from '@iconify/react';
 import React from 'react';
-import svaasthyaHifiWireframesMobile from '../../assets/images/svaasthyaHifiWireframesMobile.png';
-import svaasthyaImg from '../../assets/images/svaasthya.png';
-import svaasthyaLofiWireframesMobile from '../../assets/images/svaasthyaLofiWireframesMobile.png';
-import svaasthyaPaperWireframes from '../../assets/images/svaasthyaPaperWireframes.png';
-import svaasthyaPersona1Priya from '../../assets/images/svaasthyaPersona1Priya.png';
-import svaasthyaPersona2Rakesh from '../../assets/images/svaasthyaPersona2Rakesh.png';
-import svaasthyaStyleGuide from '../../assets/images/svaasthyaStyleGuide.png';
 import { useAnalytics } from '../../hooks/useAnalytics';
 import { useScrollTracking } from '../../hooks/useScrollTracking';
 import { useTimeTracking } from '../../hooks/useTimeTracking';
@@ -79,7 +72,7 @@ const Svaasthya = () => {
             </div>
           </div>
           <img
-            src={svaasthyaImg}
+            src="/images/projects/svaasthya/svaasthya.png"
             alt='Svaasthya Hero'
             className='w-full max-w-[400px] self-end h-auto object-contain max-h-[500px]'
           />
@@ -188,8 +181,8 @@ const Svaasthya = () => {
               <div>
                 <h3 className='font-playfair text-2xl font-bold mb-6'>User Personas</h3>
                 <div className='flex flex-col md:flex-row gap-4'>
-                  <img src={svaasthyaPersona1Priya} alt='Persona 1 - Priya' className='w-full md:w-1/2 h-auto' />
-                  <img src={svaasthyaPersona2Rakesh} alt='Persona 2 - Rakesh' className='w-full md:w-1/2 h-auto' />
+                  <img src="/images/projects/svaasthya/svaasthyaPersona1Priya.png" alt='Persona 1 - Priya' className='w-full md:w-1/2 h-auto' />
+                  <img src="/images/projects/svaasthya/svaasthyaPersona2Rakesh.png" alt='Persona 2 - Rakesh' className='w-full md:w-1/2 h-auto' />
                 </div>
               </div>
             </div>
@@ -203,13 +196,13 @@ const Svaasthya = () => {
             <p className='font-mulish text-lg leading-relaxed mb-8 max-w-[800px]'>
               Starting with paper wireframes to quickly explore different conversation flows and interface layouts for the chatbot experience.
             </p>
-            <img src={svaasthyaPaperWireframes} alt='Paper Wireframes' className='w-full h-auto mb-12' />
+            <img src="/images/projects/svaasthya/svaasthyaPaperWireframes.png" alt='Paper Wireframes' className='w-full h-auto mb-12' />
             
             <h3 className='font-playfair text-2xl font-bold mb-6'>Digital Wireframes</h3>
             <p className='font-mulish text-lg leading-relaxed mb-8 max-w-[800px]'>
               Translating the paper sketches into digital wireframes helped refine the chatbot interaction patterns and user flow.
             </p>
-            <img src={svaasthyaLofiWireframesMobile} alt='Digital Wireframes' className='w-full h-auto' />
+            <img src="/images/projects/svaasthya/svaasthyaLofiWireframesMobile.png" alt='Digital Wireframes' className='w-full h-auto' />
           </ContentContainer>
         </section>
 
@@ -221,7 +214,7 @@ const Svaasthya = () => {
             <p className='font-mulish text-lg leading-relaxed mb-8 max-w-[800px]'>
               The high-fidelity wireframes bring the chatbot to life with a clean, medical-appropriate color scheme and intuitive conversation interface.
             </p>
-            <img src={svaasthyaHifiWireframesMobile} alt='Hi-Fi Mobile Screens' className='w-full h-auto' />
+            <img src="/images/projects/svaasthya/svaasthyaHifiWireframesMobile.png" alt='Hi-Fi Mobile Screens' className='w-full h-auto' />
           </ContentContainer>
         </section>
 
@@ -232,7 +225,7 @@ const Svaasthya = () => {
             <p className='font-mulish text-lg leading-relaxed mb-8 max-w-[800px]'>
               A comprehensive style guide was created to ensure consistency across all screens and interactions, establishing a trustworthy and professional healthcare brand identity.
             </p>
-            <img src={svaasthyaStyleGuide} alt='Style Guide' className='w-full h-auto' />
+            <img src="/images/projects/svaasthya/svaasthyaStyleGuide.png" alt='Style Guide' className='w-full h-auto' />
           </ContentContainer>
         </section>
 

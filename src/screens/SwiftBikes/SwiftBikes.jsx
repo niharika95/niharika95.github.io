@@ -2,14 +2,6 @@ import { DecorativeDots, StrokeAnimation } from '../../common';
 
 import { Icon } from '@iconify/react';
 import React from 'react';
-import swiftbikesHifiWireframesDesktop from '../../assets/images/swiftbikesHifiWireframesDesktop.png';
-import swiftbikesHifiWireframesMobile from '../../assets/images/swiftbikesHifiWireframesMobile.png';
-import swiftbikesImg from '../../assets/images/swiftbikes.png';
-import swiftbikesLofiWireframesDesktop from '../../assets/images/swiftbikesLofiWireframesDesktop.png';
-import swiftbikesLofiWireframesMobile from '../../assets/images/swiftbikesLofiWireframesMobile.png';
-import swiftbikesPaperWireframes from '../../assets/images/swiftbikesPaperWireframes.png';
-import swiftbikesPersona1Matthew from '../../assets/images/swiftbikesPersona1Matthew.png';
-import swiftbikesPersona2Kate from '../../assets/images/swiftbikesPersona2Kate.png';
 import { useAnalytics } from '../../hooks/useAnalytics';
 import { useScrollTracking } from '../../hooks/useScrollTracking';
 import { useTimeTracking } from '../../hooks/useTimeTracking';
@@ -79,7 +71,7 @@ const SwiftBikes = () => {
             </div>
           </div>
           <img
-            src={swiftbikesImg}
+            src="/images/projects/swiftbikes/swiftbikes.png"
             alt='Swift Bikes Hero'
             className='w-full max-w-[600px] self-end h-auto object-contain max-h-[500px]'
           />
@@ -191,8 +183,8 @@ const SwiftBikes = () => {
               <div>
                 <h3 className='font-playfair text-2xl font-bold mb-6'>User Personas</h3>
                 <div className='flex flex-col md:flex-row gap-4'>
-                  <img src={swiftbikesPersona1Matthew} alt='Persona 1 - Matthew' className='w-full md:w-1/2 h-auto' />
-                  <img src={swiftbikesPersona2Kate} alt='Persona 2 - Kate' className='w-full md:w-1/2 h-auto' />
+                  <img src="/images/projects/swiftbikes/swiftbikesPersona1Matthew.png" alt='Persona 1 - Matthew' className='w-full md:w-1/2 h-auto' />
+                  <img src="/images/projects/swiftbikes/swiftbikesPersona2Kate.png" alt='Persona 2 - Kate' className='w-full md:w-1/2 h-auto' />
                 </div>
               </div>
             </div>
@@ -206,13 +198,13 @@ const SwiftBikes = () => {
             <p className='font-mulish text-lg leading-relaxed mb-8 max-w-[800px]'>
               Starting with paper wireframes allowed for rapid exploration of different layout ideas and user flow concepts.
             </p>
-            <img src={swiftbikesPaperWireframes} alt='Paper Wireframes' className='w-full h-auto mb-12' />
+            <img src="/images/projects/swiftbikes/swiftbikesPaperWireframes.png" alt='Paper Wireframes' className='w-full h-auto mb-12' />
             
             <h3 className='font-playfair text-2xl font-bold mb-6'>Digital Wireframes - Mobile</h3>
-            <img src={swiftbikesLofiWireframesMobile} alt='Mobile Wireframes' className='w-full h-auto mb-12' />
+            <img src="/images/projects/swiftbikes/swiftbikesLofiWireframesMobile.png" alt='Mobile Wireframes' className='w-full h-auto mb-12' />
             
             <h3 className='font-playfair text-2xl font-bold mb-6'>Digital Wireframes - Desktop</h3>
-            <img src={swiftbikesLofiWireframesDesktop} alt='Desktop Wireframes' className='w-full h-auto' />
+            <img src="/images/projects/swiftbikes/swiftbikesLofiWireframesDesktop.png" alt='Desktop Wireframes' className='w-full h-auto' />
           </ContentContainer>
         </section>
 
@@ -226,10 +218,10 @@ const SwiftBikes = () => {
             </p>
             
             <h3 className='font-playfair text-2xl font-bold mb-6'>Mobile Screens</h3>
-            <img src={swiftbikesHifiWireframesMobile} alt='Hi-Fi Mobile Screens' className='w-full h-auto mb-12' />
+            <img src="/images/projects/swiftbikes/swiftbikesHifiWireframesMobile.png" alt='Hi-Fi Mobile Screens' className='w-full h-auto mb-12' />
             
             <h3 className='font-playfair text-2xl font-bold mb-6'>Desktop Screens</h3>
-            <img src={swiftbikesHifiWireframesDesktop} alt='Hi-Fi Desktop Screens' className='w-full h-auto' />
+            <img src="/images/projects/swiftbikes/swiftbikesHifiWireframesDesktop.png" alt='Hi-Fi Desktop Screens' className='w-full h-auto' />
           </ContentContainer>
         </section>
 

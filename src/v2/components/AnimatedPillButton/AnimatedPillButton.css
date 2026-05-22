@@ -1,0 +1,8 @@
+.animated-pill-btn .pill-stroke {
+  transition: stroke-dashoffset 250ms ease-in;
+}
+
+.animated-pill-btn:hover .pill-stroke {
+  stroke-dashoffset: 0 !important;
+  transition: stroke-dashoffset 400ms ease-out;
+}

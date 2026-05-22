@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Mulish:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Mulish:wght@300;400;500;600;700&display=swap');
 
 @theme {
   --color-brand-primary: #106066;
@@ -17,8 +17,25 @@
 
   /* Font families */
   --font-playfair: "Playfair Display", serif;
+  --font-ibm-plex: "IBM Plex Sans", sans-serif;
   --font-mulish: "Mulish", sans-serif;
   --font-sans: "Mulish", sans-serif;
+
+  /* Custom Gray Scale */
+  --color-gray-50: #f2f2f2;
+  --color-gray-100: #e6e6e6;
+  --color-gray-150: #d9d9d9;
+  --color-gray-200: #cccccc;
+  --color-gray-250: #bfbfbf;
+  --color-gray-300: #b3b3b3;
+  --color-gray-350: #a6a6a6;
+  --color-gray-400: #999999;
+  --color-gray-450: #8c8c8c;
+  --color-gray-500: #808080;
+  --color-gray-600: #666666;
+  --color-gray-700: #4d4d4d;
+  --color-gray-800: #333333;
+  --color-gray-900: #1a1a1a;
 }
 
 
@@ -41,6 +58,7 @@ code {
 /* Smooth scroll behavior */
 html {
   scroll-behavior: smooth;
+  overflow-y: scroll;
 }
 
 @media (prefers-reduced-motion: reduce) {

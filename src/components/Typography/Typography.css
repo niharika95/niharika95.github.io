@@ -1,0 +1,8 @@
+.typography {
+  font-family: var(--typography-font-family);
+  font-size: var(--typography-font-size);
+  font-weight: var(--typography-font-weight);
+  letter-spacing: var(--typography-letter-spacing);
+  line-height: var(--typography-line-height);
+  text-transform: var(--typography-text-transform);
+}

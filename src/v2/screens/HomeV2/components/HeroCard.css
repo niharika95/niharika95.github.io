@@ -1,0 +1,98 @@
+.hero-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  /* anchor content to top */
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 40px;
+  max-width: 600px;
+  /* prevents text from spanning too wide */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.hero-content.col-4 {
+  max-width: 45%;
+}
+
+.hero-content.col-5 {
+  max-width: 52%;
+}
+
+.hero-content.col-6 {
+  max-width: 75%;
+}
+
+.hero-content.col-6 .hero-desc {
+  max-width: 75%;
+  /* Keeps description tighter so it clears the monitor */
+}
+
+.hero-title {
+  color: #F9FAFB;
+  margin: 0;
+  margin-bottom: 8px;
+}
+
+.hero-desc {
+  color: #E5E7EB;
+  margin: 0;
+  margin-bottom: 28px;
+}
+
+.hero-content.text-dark .hero-title {
+  color: #111827;
+  /* Near black */
+}
+
+.hero-content.text-dark .hero-desc {
+  color: #374151;
+  /* Dark gray */
+}
+
+.hero-card-layout {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  gap: 4px;
+}
+
+.hero-card-viewport {
+  position: relative;
+  width: 100%;
+  flex-grow: 1;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.hero-card-viewport.panel-border::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 20px;
+  border: 1px solid transparent;
+  background: linear-gradient(to bottom right, #F2F2F2, #FFFFFF) border-box;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  z-index: 10;
+  pointer-events: none;
+}

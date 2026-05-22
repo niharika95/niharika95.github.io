@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Expand } from 'lucide-react';
-import walkInFlowImage from "../../../assets/images/Ramen Nagi/Ramen Nagi - Walk-in flow.png";
 import InteractiveImageModal from './InteractiveImageModal';
 
 const WalkInFlow = () => {
@@ -40,7 +39,7 @@ const WalkInFlow = () => {
                         {/* Image */}
                         <div className="w-full h-full p-8 flex items-center justify-center">
                             <img
-                                src={walkInFlowImage}
+                                src="/images/projects/ramen-nagi/Ramen-Nagi---Walk-in-flow.png"
                                 alt="Walk-in Flow Diagram"
                                 className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
                             />
@@ -61,7 +60,7 @@ const WalkInFlow = () => {
             <InteractiveImageModal
                 isOpen={isModalOpen}
                 onClose={() => setIsModalOpen(false)}
-                imageSrc={walkInFlowImage}
+                imageSrc={"/images/projects/ramen-nagi/Ramen-Nagi---Walk-in-flow.png"}
                 altText="Walk-in Flow Diagram"
             />
         </section>

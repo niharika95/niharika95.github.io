@@ -2,18 +2,14 @@ import React, { useEffect, useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 
 import { ContentContainer } from '../../common';
-import femhealthImg from '../../assets/images/femhealth.png';
-import svaasthyaImg from '../../assets/images/svaasthya.png';
-// import ramenNagiImg from '../../assets/RamenNagiCaseStudy/Ramen nagi app in hand.png';
-import swiftbikesImg from '../../assets/images/swiftbikes.png';
-import { trackProjectCardClick } from '../../utils/analytics';
+// import { trackProjectCardClick } from '../../utils/analytics';
 
 const personalProjects = [
   {
     title: 'FemHealth',
     description:
       'A platform helping women access reliable health information anonymously and find clinics accepting their insurance.',
-    image: femhealthImg,
+    image: "/images/projects/femhealth/femhealth.png",
     link: '#/femhealth',
     color: '3E122D',
     accentColor: 'D97706',
@@ -22,7 +18,7 @@ const personalProjects = [
     title: 'Swift Bikes',
     description:
       'An e-commerce platform enabling users to customize bikes for work, athletics, or leisure.',
-    image: swiftbikesImg,
+    image: "/images/projects/swiftbikes/swiftbikes.png",
     link: '#/swiftbikes',
     color: 'FF980A',
     accentColor: '1E40AF',
@@ -31,7 +27,7 @@ const personalProjects = [
     title: 'Svaasthya',
     description:
       'A chatbot application for a hospital in India streamlining patient services through appointment booking and online payments.',
-    image: svaasthyaImg,
+    image: "/images/projects/svaasthya/svaasthya.png",
     link: '#/svaasthya',
     color: '1D5D82',
     accentColor: '10B981',
@@ -40,7 +36,7 @@ const personalProjects = [
   //   title: 'Ramen Nagi',
   //   description:
   //     'Eliminating the 2-Hour Wait: A hybrid queuing system preserving operational speed while giving customers their time back.',
-  //   image: ramenNagiImg,
+  //   image: "/images/projects/ramen-nagi/Ramen-nagi-app-in-hand.png",
   //   link: '#/ramen-nagi',
   //   color: 'DC0411',
   //   accentColor: 'DC0411',
