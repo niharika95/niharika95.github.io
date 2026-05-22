@@ -7,32 +7,18 @@
 
 .mobile-carousel-viewport {
   width: 100%;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch; /* Butter-smooth native momentum inertia scrolling */
-  display: flex;
-  
-  /* Hide scrollbars across all browsers */
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE 10+ */
-}
-
-.mobile-carousel-viewport::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, and Opera */
+  overflow: hidden;
 }
 
 .mobile-carousel-track {
   display: flex;
-  column-gap: 20px; /* Precise gap between adjacent cards */
-  padding: 0 7vw;   /* Margins to perfectly center the active card and show neighbors */
+  will-change: transform;
 }
 
 .mobile-carousel-slide {
-  flex-shrink: 0;
-  width: 86vw;      /* Centered slide width */
-  scroll-snap-align: center;
-  scroll-snap-stop: always;
+  flex: 0 0 86vw;
+  min-width: 0;
+  margin-right: 20px;
   display: flex;
   flex-direction: column;
 }
