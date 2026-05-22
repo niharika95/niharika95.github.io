@@ -146,7 +146,7 @@ export default function ProjectIndex({ projects, activeIndex, onSelect, isHovere
         </div> */}
 
         <Typography variant="smallLight" className="personal-text">
-          I started as a front-end developer<br/>before moving into design. That<br/>changes how I work.
+          I started as a front-end developer <br className="hidden md:inline"/>before moving into design. That <br className="hidden md:inline"/>changes how I work.
         </Typography>
 
         <Typography variant="extraSmallRegular" className="personal-subtext">

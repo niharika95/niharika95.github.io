@@ -4,8 +4,35 @@ import './Cursor.css';
 export default function Cursor() {
   const cursorRef = useRef(null);
   const [activeState, setActiveState] = useState(''); // '' or 'project'
+  const [isSupported, setIsSupported] = useState(false);
 
   useEffect(() => {
+    // Detect fine pointer and hover support
+    const mediaQuery = window.matchMedia('(hover: hover) and (pointer: fine)');
+    setIsSupported(mediaQuery.matches);
+
+    const handleMediaChange = (e) => {
+      setIsSupported(e.matches);
+    };
+
+    if (mediaQuery.addEventListener) {
+      mediaQuery.addEventListener('change', handleMediaChange);
+    } else {
+      mediaQuery.addListener(handleMediaChange);
+    }
+
+    return () => {
+      if (mediaQuery.removeEventListener) {
+        mediaQuery.removeEventListener('change', handleMediaChange);
+      } else {
+        mediaQuery.removeListener(handleMediaChange);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!isSupported) return;
+
     let rafId;
 
     const handleMouseMove = (e) => {
@@ -37,7 +64,9 @@ export default function Cursor() {
       window.removeEventListener('mousemove', handleMouseMove);
       if (rafId) cancelAnimationFrame(rafId);
     };
-  }, [activeState]);
+  }, [activeState, isSupported]);
+
+  if (!isSupported) return null;
 
   return (
     <div 

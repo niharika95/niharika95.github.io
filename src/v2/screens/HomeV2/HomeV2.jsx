@@ -159,20 +159,29 @@ export default function HomeV2() {
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
-          <HeroCard project={activeProject} isHovered={isHovered} direction={direction} onSwipe={handleSwipe} />
+          <HeroCard 
+            project={activeProject} 
+            projects={PROJECTS}
+            activeIndex={activeIndex}
+            onSelect={handleSelect}
+            isHovered={isHovered} 
+            direction={direction} 
+            onSwipe={handleSwipe}
+            setTimerActive={setTimerActive}
+          />
           
-          {/* Mobile Dots Indicator */}
+          {/* Mobile Dots Indicator - Static below the card, representing both image and text */}
           <div className="flex md:hidden justify-center items-center gap-2 mt-6">
             {PROJECTS.map((_, idx) => (
               <div 
                 key={idx} 
                 onClick={() => handleSelect(idx)}
-                className={`relative h-[6px] rounded-full overflow-hidden transition-all duration-300 cursor-pointer ${idx === activeIndex ? 'w-10 bg-[#E6E6E6]' : 'w-[6px] bg-[#E6E6E6]'}`}
+                className={`relative h-[6px] rounded-full overflow-hidden transition-all duration-300 cursor-pointer bg-[#bfbfbf] ${idx === activeIndex ? 'w-10' : 'w-[6px]'}`}
               >
                 {idx === activeIndex && (
                   <div 
                     key={timerActive ? 'active' : 'paused'}
-                    className="absolute top-0 left-0 h-full w-full bg-[#B3B3B3] origin-left"
+                    className="absolute top-0 left-0 h-full w-full bg-[#808080] origin-left"
                     style={{
                       animation: timerActive ? 'fillProgress 5s linear forwards' : 'none',
                       animationPlayState: (!timerActive || isHovered) ? 'paused' : 'running'

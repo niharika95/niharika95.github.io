@@ -2,20 +2,29 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import Typography from '../../../components/Typography';
+import MobileCarousel from './MobileCarousel';
 import './HeroCard.css';
 
-const swipeConfidenceThreshold = 10000;
-const swipePower = (offset, velocity) => {
-  return Math.abs(offset) * velocity;
-};
-
-export default function HeroCard({ project, isHovered, direction = 1, onSwipe }) {
-  if (!project) return null;
+export default function HeroCard({ 
+  project, 
+  projects = [], 
+  activeIndex = 0, 
+  onSelect,
+  isHovered, 
+  direction = 1, 
+  onSwipe,
+  setTimerActive
+}) {
+  if (!project || projects.length === 0) return null;
 
   return (
     <div className="hero-card-layout">
       {/* DESKTOP LAYOUT */}
-      <Link to={project.link} style={{ textDecoration: 'none', color: 'inherit' }} className={`hero-card-viewport hidden md:block ${project.hasBorder ? 'panel-border' : ''}`}>
+      <Link 
+        to={project.link} 
+        style={{ textDecoration: 'none', color: 'inherit' }} 
+        className={`hero-card-viewport hidden md:block ${project.hasBorder ? 'panel-border' : ''}`}
+      >
         <AnimatePresence initial={false}>
           <motion.div
             key={`img-${project.id}`}
@@ -57,36 +66,15 @@ export default function HeroCard({ project, isHovered, direction = 1, onSwipe })
         </AnimatePresence>
       </Link>
 
-      {/* MOBILE LAYOUT */}
-      <Link to={project.link} style={{ textDecoration: 'none', color: 'inherit' }} className="md:hidden grid w-full relative overflow-hidden">
-        <AnimatePresence custom={direction}>
-          <motion.div
-            key={`mob-${project.id}`}
-            custom={direction}
-            initial={{ opacity: 0, x: direction === 1 ? '100%' : '-100%' }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: direction === 1 ? '-100%' : '100%' }}
-            transition={{ x: { type: 'spring', stiffness: 300, damping: 30 }, opacity: { duration: 0.2 } }}
-            className="flex flex-col w-full col-start-1 row-start-1"
-            drag="x"
-            dragConstraints={{ left: 0, right: 0 }}
-            dragElastic={1}
-            onDragEnd={(e, { offset, velocity }) => {
-              const swipe = swipePower(offset.x, velocity.x);
-              if (swipe < -swipeConfidenceThreshold && onSwipe) {
-                onSwipe(1);
-              } else if (swipe > swipeConfidenceThreshold && onSwipe) {
-                onSwipe(-1);
-              }
-            }}
-          >
-            <Typography variant="extraSmallRegular" className="text-[#808080] mb-3">Case study</Typography>
-            <Typography as="h2" variant="h6Medium" className="text-[#1A1A1A] mb-3">{project.cardTitle}</Typography>
-            <Typography variant="bodyRegular" className="text-[#4D4D4D] mb-6 leading-[1.6]">{project.description}</Typography>
-            <img src={project.image} alt={project.sidebarTitle} draggable={false} className="w-full aspect-[4/3] object-cover rounded-[20px] shadow-sm" />
-          </motion.div>
-        </AnimatePresence>
-      </Link>
+      {/* MOBILE LAYOUT - Scoped GPU-accelerated CSS scroll snap carousel */}
+      <div className="md:hidden w-full">
+        <MobileCarousel 
+          projects={projects}
+          activeIndex={activeIndex}
+          onSelect={onSelect}
+          setTimerActive={setTimerActive}
+        />
+      </div>
     </div>
   );
 }
