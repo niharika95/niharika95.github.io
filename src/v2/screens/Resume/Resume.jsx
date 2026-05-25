@@ -8,7 +8,7 @@ import { trackExternalLink } from '../../utils/analytics';
 import { useAnalytics } from '../../hooks/useAnalytics';
 import { useScrollTracking } from '../../hooks/useScrollTracking';
 import { useTimeTracking } from '../../hooks/useTimeTracking';
-import resumePDF from '../../assets/documents/Dalal, Niharika Resume.pdf';
+import resumePDF from '../../assets/documents/Resume_Niharika Dalal_Product Designer.pdf';
 
 function Resume() {
   // Track page view, scroll depth, and time on page

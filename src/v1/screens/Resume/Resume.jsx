@@ -1,7 +1,7 @@
 import { Gutter } from '../../common';
 import { Icon } from '@iconify/react';
 import React from 'react';
-import resumePDF from '../../assets/documents/Dalal, Niharika Resume.pdf';
+import resumePDF from '../../assets/documents/Resume_Niharika Dalal_Product Designer.pdf';
 import resumePNG from '../../assets/documents/resume.png';
 import { trackExternalLink } from '../../utils/analytics';
 import { useAnalytics } from '../../hooks/useAnalytics';
@@ -18,7 +18,7 @@ function Resume() {
     <Gutter className="pt-[100px] mt-[100px] flex flex-col justify-center items-center mb-[100px]">
       <a
         href={resumePDF}
-        download="Resume-NiharikaDalal.pdf"
+        download="Resume_Niharika Dalal_Product Designer.pdf"
         onClick={() => trackExternalLink('resume_download', resumePDF, 'Download Resume PDF', window.location.pathname)}
         className="flex items-center gap-[8px] font-normal text-[20px] bg-[var(--color-brand-primary)] text-white py-[8px] px-[16px] rounded-[4px] mb-[20px] no-underline cursor-pointer self-end"
       >
