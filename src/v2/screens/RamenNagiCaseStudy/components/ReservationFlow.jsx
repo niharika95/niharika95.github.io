@@ -22,7 +22,7 @@ const ReservationFlow = () => {
                 {/* Image Preview */}
                 <div className="col-span-1 md:col-span-12">
                     <motion.div
-                        className="relative w-full h-[500px] md:h-[600px] bg-gray-50 border border-gray-200 rounded-[32px] overflow-hidden shadow-sm cursor-zoom-in group"
+                        className="relative w-full h-[250px] sm:h-[400px] md:h-[600px] bg-gray-50 border border-gray-200 rounded-[32px] overflow-hidden shadow-sm cursor-zoom-in group"
                         onClick={() => setIsModalOpen(true)}
                         whileHover={{ scale: 1.01 }}
                         transition={{ duration: 0.3 }}

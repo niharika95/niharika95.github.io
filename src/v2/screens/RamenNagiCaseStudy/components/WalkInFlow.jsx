@@ -32,7 +32,7 @@ const WalkInFlow = () => {
                         whileInView={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.8 }}
                         viewport={{ once: true }}
-                        className="relative w-full h-[500px] md:h-[600px] bg-gray-50 border border-gray-200 rounded-[32px] overflow-hidden shadow-sm cursor-zoom-in group"
+                        className="relative w-full h-[250px] sm:h-[400px] md:h-[600px] bg-gray-50 border border-gray-200 rounded-[32px] overflow-hidden shadow-sm cursor-zoom-in group"
                         onClick={() => setIsModalOpen(true)}
                         whileHover={{ scale: 1.01 }}
                     >

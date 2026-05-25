@@ -16,7 +16,7 @@ function About() {
     <div className="bg-gradient-to-br from-white to-[#EBEBEB] text-[#1A1A1A] min-h-screen">
       <HeaderV2 style={{ background: 'rgba(250, 250, 250, 0.85)' }} />
 
-      <div className="max-w-[1440px] mx-auto px-5 lg:px-10 flex pt-10 pb-32">
+      <div className="max-w-[1440px] mx-auto px-5 lg:px-10 flex pt-6 pb-20 lg:pt-10 lg:pb-32">
         {/* Left Sidebar */}
         <aside className="hidden lg:block w-[180px] flex-shrink-0 sticky top-[130px] self-start max-h-[calc(100vh-140px)] overflow-y-auto">
           <nav className="flex flex-col gap-[40px]">
@@ -28,7 +28,7 @@ function About() {
         </aside>
 
         {/* Main Content */}
-        <main className="w-full max-w-[800px] mx-auto lg:ml-[60px] xl:ml-[100px] flex flex-col md:flex-row gap-12 md:gap-[70px] items-center">
+        <main className="w-full max-w-[800px] mx-auto lg:ml-[60px] xl:ml-[100px] flex flex-col md:flex-row gap-8 md:gap-[70px] items-center">
           
           {/* Left: Image */}
           <div className="relative w-full max-w-[320px] flex-shrink-0">

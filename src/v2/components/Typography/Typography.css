@@ -11,7 +11,38 @@
   .typography-bodyRegular {
     line-height: 1.5 !important;
   }
-  .typography-h6Medium {
-    line-height: normal !important;
+  
+  .typography-h1Bold,
+  .typography-h1Regular {
+    --typography-font-size: 32px !important;
+    --typography-line-height: 1.3 !important;
+  }
+
+  .typography-h2Medium,
+  .typography-h2Regular {
+    --typography-font-size: 28px !important;
+    --typography-line-height: 1.3 !important;
+  }
+
+  .typography-h3Medium,
+  .typography-h3Regular {
+    --typography-font-size: 24px !important;
+    --typography-line-height: 1.3 !important;
+  }
+
+  .typography-h4Regular {
+    --typography-font-size: 22px !important;
+    --typography-line-height: 1.3 !important;
+  }
+
+  .typography-h5Regular {
+    --typography-font-size: 20px !important;
+    --typography-line-height: 1.4 !important;
+  }
+
+  .typography-h6Medium,
+  .typography-h6Regular {
+    --typography-font-size: 18px !important;
+    --typography-line-height: 1.4 !important;
   }
 }

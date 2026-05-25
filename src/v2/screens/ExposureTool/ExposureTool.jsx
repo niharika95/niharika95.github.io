@@ -57,7 +57,7 @@ const heuristicExamples = [
 ];
 
 const Section = ({ id, title, titleVariant = 'h6Regular', children, className = '', titleClassName = 'mb-8' }) => (
-  <section id={id} className={`scroll-mt-28 mb-[88px] ${className}`}>
+  <section id={id} className={`scroll-mt-28 mb-12 md:mb-[88px] ${className}`}>
     {title && (
       <Typography as="h2" variant={titleVariant} className={`${titleClassName} text-gray-900`}>
         {title}
@@ -421,7 +421,7 @@ const Quote = ({ children, className = 'my-10' }) => (
 );
 
 const SplitQuote = ({ id }) => (
-  <blockquote id={id} className="scroll-mt-28 border-l-[8px] border-gray-900 pl-5 mb-[100px]">
+  <blockquote id={id} className="scroll-mt-28 border-l-[8px] border-gray-900 pl-5 mb-12 md:mb-[100px]">
     <Typography as="p" variant="h6Regular" className="text-gray-900">
       The ask was straightforward: modernize the UI.
     </Typography>
@@ -524,12 +524,12 @@ const ExposureTool = () => {
         </aside>
 
         <main className="w-full max-w-[720px] mx-auto lg:ml-20 xl:ml-32">
-          <section id="intro" className="scroll-mt-28 mb-[84px]">
-            <Typography as="h1" variant="h2Regular" className="mb-[100px] max-w-[720px] text-gray-900">
+          <section id="intro" className="scroll-mt-28 mb-10 md:mb-[84px]">
+            <Typography as="h1" variant="h2Regular" className="mb-12 md:mb-[100px] max-w-[720px] text-gray-900">
               An architectural rethink that resolved a structural data inconsistency across 3 fragmented views, consolidating them into 1 unified view.
             </Typography>
 
-            <div className="mb-[100px] flex flex-col gap-1 text-gray-500">
+            <div className="mb-12 md:mb-[100px] flex flex-col gap-1 text-gray-500">
               <div className="flex gap-4">
                 <Typography as="span" variant="bodyRegular" className="w-[74px] flex-shrink-0">Role</Typography>
                 <Typography as="span" variant="bodyRegular">Lead Product Designer, 4 weeks</Typography>
@@ -544,12 +544,12 @@ const ExposureTool = () => {
               src={images.hero}
               alt="Exposure Tool hero placeholder"
               caption="The before and after of the home screen on the Exposure Tool."
-              className="mb-[100px]"
+              className="mb-12 md:mb-[100px]"
               imgClassName="w-[90%] h-auto mx-auto"
               splitView={true}
             />
 
-            <Paragraph className="mb-[100px]">
+            <Paragraph className="mb-12 md:mb-[100px]">
               The Exposure Tool helps insurance account teams review and validate a client's risk data year over year. For this improvement, one process had major confusion in the system.
             </Paragraph>
 
@@ -643,7 +643,7 @@ const ExposureTool = () => {
             </div>
           </Section>
 
-          <Section id="solution" title="From fragmentation to a single source of truth" className="!mb-[100px]">
+          <Section id="solution" title="From fragmentation to a single source of truth" className="!mb-12 md:!mb-[100px]">
             <Paragraph className="mb-10">
               A master-detail architecture that consolidates the original three-page structure into a single persistent layout. One view. All states. No context switching.
             </Paragraph>
@@ -657,14 +657,14 @@ const ExposureTool = () => {
             />
           </Section>
 
-          <Section id="validation-tab" title="The Validation Tab" titleVariant="bodySemibold" className="!mb-[100px]">
+          <Section id="validation-tab" title="The Validation Tab" titleVariant="bodySemibold" className="!mb-12 md:!mb-[100px]">
             <ImageFrame
               src={images.validationFlow}
               alt="Validation tool main screen placeholder"
               className="mb-[20px]"
               imgClassName="w-[90%] h-auto mx-auto"
             />
-            <Paragraph className="mb-[100px]">
+            <Paragraph className="mb-12 md:mb-[100px]">
               The core of the architecture. A single unified table replacing LOB Details, Exception Summary, and Correction Summary. One row per record.
             </Paragraph>
 
@@ -675,7 +675,7 @@ const ExposureTool = () => {
               imgClassName="w-[90%] h-auto mx-auto"
               containerClassName="pt-4 px-4 pb-0 md:pt-6 md:px-6 md:pb-0"
             />
-            <Paragraph className="mb-[100px]">
+            <Paragraph className="mb-12 md:mb-[100px]">
               <Typography as="strong" variant="bodySemibold">Exception filters:</Typography> filters by open, unresolved flags. Value Change and Percentage Change columns appear only in this state, surfacing the data that triggered the flag.
             </Paragraph>
 
@@ -686,7 +686,7 @@ const ExposureTool = () => {
               imgClassName="w-[90%] h-auto mx-auto"
               containerClassName="pt-4 px-4 pb-0 md:pt-6 md:px-6 md:pb-0"
             />
-            <Paragraph className="mb-[100px]">
+            <Paragraph className="mb-12 md:mb-[100px]">
               <Typography as="strong" variant="bodySemibold">Resolved filter:</Typography> approved records for verification before export, replacing the original Correction Summary page entirely.
             </Paragraph>
 
@@ -717,7 +717,7 @@ const ExposureTool = () => {
               className="mb-[20px]"
               containerClassName="p-4 md:p-6 flex items-center min-h-[400px]"
             />
-            <Paragraph className="mb-[100px]">
+            <Paragraph className="mb-12 md:mb-[100px]">
               Maintaining stacked Renewal and In-Force pairs would have preserved familiarity but made triage significantly harder. Moving to a single row per record was the less familiar choice, but it was the right one.
             </Paragraph>
 
