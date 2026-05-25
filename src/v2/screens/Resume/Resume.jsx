@@ -59,113 +59,102 @@ function Resume() {
           <div className="w-full bg-white rounded-[24px] shadow-[0_4px_30px_rgba(0,0,0,0.03)] border border-[#E5E7EB] p-6 md:p-12 text-left font-ibm-plex text-[#1A1A1A]">
             
             {/* Header Block */}
-            <div className="border-b border-[#F3F4F6] pb-6 mb-6">
-              <Typography as="h1" variant="h3Medium" className="text-gray-900 font-bold tracking-tight mb-2" style={{ fontWeight: 700 }}>
+            <div className="pb-6 mb-6 border-b border-[#F3F4F6]">
+              <h1 className="text-[#2F63CF] text-[32px] font-bold tracking-tight mb-2" style={{ fontFamily: 'IBM Plex Sans, sans-serif' }}>
                 Niharika Dalal
-              </Typography>
-              <Typography as="p" variant="bodySemibold" className="text-gray-600 mb-4 font-normal" style={{ fontSize: '16px' }}>
-                Product Designer | San Jose, CA
-              </Typography>
-              
-              <div className="flex flex-wrap gap-x-6 gap-y-2 text-[#777] text-[14px]">
-                <a href="https://niharika95.github.io" className="hover:text-gray-950 transition-colors duration-200 flex items-center gap-1.5 no-underline">
-                  <Icon icon="material-symbols:language" className="text-lg" />
-                  <span>niharika95.github.io</span>
-                </a>
-                <a href="https://www.linkedin.com/in/niharikadalal" target="_blank" rel="noopener noreferrer" className="hover:text-gray-950 transition-colors duration-200 flex items-center gap-1.5 no-underline">
-                  <Icon icon="mdi:linkedin" className="text-lg" />
-                  <span>in/niharikadalal</span>
-                </a>
-                <a href="mailto:niharika13dalal@gmail.com" className="hover:text-gray-950 transition-colors duration-200 flex items-center gap-1.5 no-underline">
-                  <Icon icon="material-symbols:mail-outline" className="text-lg" />
-                  <span>niharika13dalal@gmail.com</span>
-                </a>
-                <span className="flex items-center gap-1.5">
-                  <Icon icon="material-symbols:call-outline" className="text-lg" />
-                  <span>585-729-3306</span>
-                </span>
+              </h1>
+              <div className="text-gray-800 text-[14.5px] font-medium leading-relaxed">
+                <span className="font-bold text-gray-950">Product Designer | San Jose, CA</span>
+                <span className="mx-2 text-gray-400">•</span>
+                <a href="https://niharika95.github.io" className="text-gray-800 underline hover:text-[#2F63CF] transition-colors">niharika95.github.io</a>
+                <span className="mx-2 text-gray-400">•</span>
+                <a href="https://www.linkedin.com/in/niharikadalal" target="_blank" rel="noopener noreferrer" className="text-gray-800 underline hover:text-[#2F63CF] transition-colors">in/niharikadalal</a>
+                <span className="mx-2 text-gray-400">•</span>
+                <a href="mailto:niharika13dalal@gmail.com" className="text-gray-800 underline hover:text-[#2F63CF] transition-colors">niharika13dalal@gmail.com</a>
+                <span className="mx-2 text-gray-400">•</span>
+                <span className="text-gray-800">585-729-3306</span>
               </div>
             </div>
 
             {/* Summary Section */}
             <div className="mb-6">
-              <Typography as="h2" variant="bodySemibold" className="text-gray-900 uppercase tracking-wider text-[13px] font-bold mb-3 border-b border-[#E5E7EB] pb-1.5" style={{ fontWeight: 700 }}>
+              <Typography as="h2" variant="bodySemibold" className="text-[#2F63CF] uppercase tracking-wider text-[13px] font-bold mb-3" style={{ fontWeight: 700 }}>
                 Summary
               </Typography>
-              <Typography as="p" variant="bodyRegular" className="text-gray-800 leading-[1.8]" style={{ fontSize: '15px' }}>
-                5+ years asking "why" before "what" and simplifying complex workflows across finance, insurance, and education. Former developer with technical fluency bridging design and engineering. Reduced loan app friction by 36%, and optimized conversion by ~20% across projects. Seeking product design roles where systems thinking drives measurable outcomes.
+              <Typography as="p" variant="bodyRegular" className="text-gray-800 leading-[1.8]" style={{ fontSize: '14.5px' }}>
+                <strong className="font-bold text-gray-950">5+ years asking "why" before "what"</strong> and simplifying workflows across finance, insurance, and education. <strong className="font-bold text-gray-950">Former developer</strong> with technical fluency bridging design and engineering. <strong className="font-bold text-gray-950">Reduced loan app friction by 36%</strong>, and <strong className="font-bold text-gray-950">optimized conversion by ~20%</strong> across projects. Seeking product design roles where <strong className="font-bold text-gray-950">systems thinking</strong> drives measurable outcomes.
               </Typography>
             </div>
 
             {/* Experience Section */}
             <div className="mb-6">
-              <Typography as="h2" variant="bodySemibold" className="text-gray-900 uppercase tracking-wider text-[13px] font-bold mb-4 border-b border-[#E5E7EB] pb-1.5" style={{ fontWeight: 700 }}>
+              <Typography as="h2" variant="bodySemibold" className="text-[#2F63CF] uppercase tracking-wider text-[13px] font-bold mb-4" style={{ fontWeight: 700 }}>
                 Work Experience
               </Typography>
 
               {/* UX Designer | EXL */}
               <div className="mb-6">
-                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-3">
-                  <Typography as="h3" variant="bodySemibold" className="text-gray-900 text-[17px] font-bold">
-                    UX Designer <span className="font-light text-gray-500">| EXL</span>
-                  </Typography>
-                  <Typography as="span" variant="smallRegular" className="text-gray-500 font-medium mt-1 sm:mt-0">
+                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-baseline mb-2">
+                  <span className="text-gray-900 text-[16px] font-bold">
+                    UX Designer <span className="font-normal text-gray-500">| EXL</span>
+                  </span>
+                  <span className="text-gray-500 text-[14px] font-medium mt-0.5 sm:mt-0">
                     2021 - Present
-                  </Typography>
+                  </span>
                 </div>
 
-                <div className="space-y-5">
+                <div className="space-y-4">
                   <div>
-                    <Typography as="h4" variant="bodySemibold" className="text-gray-900 text-[15px] mb-1.5 font-semibold">
+                    <p className="text-gray-900 text-[14.5px] italic mb-1.5 font-normal">
                       Marketing Website Redesign (Client: Insurance Company)
-                    </Typography>
+                    </p>
                     <ul className="list-disc pl-5 space-y-1.5 text-gray-700 text-[14px] leading-relaxed">
-                      <li>Spearheaded redesign strategy for a winning RFP proof-of-concept, securing a contract with a $600M insurance provider impacting the user experience for 250K+ users across a responsive customer-facing platform.</li>
-                      <li>Elevated site performance through strategic UX audit (56 violations identified) and competitive analysis of 8 competitors, architecting a scalable design system with 30+ reusable components across 40+ pages; accelerated design by leveraging AI tools (ChatGPT, UX Pilot, Photoshop’s AI) for rapid ideation and image optimization.</li>
-                      <li>Achieved measurable post-launch improvements: +37% desktop performance, +28% best practices, and 90+ accessibility score.</li>
+                      <li>Spearheaded redesign strategy for a <strong className="font-bold text-gray-950">winning RFP proof-of-concept</strong>, securing a contract with a <strong className="font-bold text-gray-950">$600M insurance provider</strong> impacting the user experience for <strong className="font-bold text-gray-950">250K+ users</strong> across a responsive customer-facing platform.</li>
+                      <li>Elevated site performance through strategic UX audit (<strong className="font-bold text-gray-950">56 violations identified</strong>) and competitive analysis of <strong className="font-bold text-gray-950">8 competitors</strong>, architecting a scalable design system with <strong className="font-bold text-gray-950">30+ reusable components</strong> across <strong className="font-bold text-gray-950">40+ pages</strong>; accelerated design by leveraging <strong className="font-bold text-gray-950">AI tools</strong> (ChatGPT, UX Pilot, Photoshop’s AI) for rapid ideation and image optimization.</li>
+                      <li>Achieved measurable post-launch improvements: <strong className="font-bold text-gray-950">+37% desktop performance</strong>, <strong className="font-bold text-gray-950">+28% best practices</strong>, and <strong className="font-bold text-gray-950">90+ accessibility score</strong>.</li>
                     </ul>
                   </div>
 
                   <div>
-                    <Typography as="h4" variant="bodySemibold" className="text-gray-900 text-[15px] mb-1.5 font-semibold">
+                    <p className="text-gray-900 text-[14.5px] italic mb-1.5 font-normal">
                       Loan App Experience Optimization (Client: Global Bank)
-                    </Typography>
+                    </p>
                     <ul className="list-disc pl-5 space-y-1.5 text-gray-700 text-[14px] leading-relaxed">
-                      <li>Streamlined loan application for 16M+ customers by reducing friction 36% (11 to 7 screens), optimizing the primary digital channel for pre-approved customers representing 80% of digital installment loan volume.</li>
-                      <li>Reduced interaction cost and enabled instant loan rate comparison by replacing multi-tap dropdowns with dynamic sliders that provided real-time rate updates based on term selection.</li>
-                      <li>Sustained user momentum and reduced abandonment risk by introducing progress indicators and milestone illustrations at 3 key completion points throughout the application flow.</li>
+                      <li><strong className="font-bold text-gray-950">Streamlined loan application</strong> for <strong className="font-bold text-gray-950">16M+ customers</strong> by <strong className="font-bold text-gray-950">reducing friction 36% (11 to 7 screens)</strong>, optimizing the primary digital channel for pre-approved customers representing <strong className="font-bold text-gray-950">80% of digital installment loan volume</strong>.</li>
+                      <li><strong className="font-bold text-gray-950">Reduced interaction cost</strong> and <strong className="font-bold text-gray-950">enabled instant loan rate comparison</strong> by replacing multi-tap dropdowns with dynamic sliders that <strong className="font-bold text-gray-950">provided real-time rate updates</strong> based on term selection.</li>
+                      <li><strong className="font-bold text-gray-950">Sustained user momentum</strong> and <strong className="font-bold text-gray-950">reduced abandonment risk</strong> by introducing progress indicators and milestone illustrations at <strong className="font-bold text-gray-950">3 key completion points</strong> throughout the application flow.</li>
                     </ul>
                   </div>
 
                   <div>
-                    <Typography as="h4" variant="bodySemibold" className="text-gray-900 text-[15px] mb-1.5 font-semibold">
+                    <p className="text-gray-900 text-[14.5px] italic mb-1.5 font-normal">
                       Admissions Process Acceleration (Client: Private University)
-                    </Typography>
+                    </p>
                     <ul className="list-disc pl-5 space-y-1.5 text-gray-700 text-[14px] leading-relaxed">
-                      <li>Boosted admissions counselor productivity by 60% (from 16 to 25 applications daily) by designing an automated transfer credit evaluation system with a rules engine eliminating manual cross-referencing and reducing human error.</li>
-                      <li>Simplified evaluation workflow by architecting a platform that automatically mapped transfer credits to coursework, allowing counselors to focus on exceptions requiring expert review rather than repetitive manual tasks.</li>
+                      <li><strong className="font-bold text-gray-950">Boosted admissions counselor productivity by 60%</strong> (from 16 to 25 applications daily) by designing an <strong className="font-bold text-gray-950">automated transfer credit evaluation system</strong> with a rules engine eliminating manual cross-referencing and reducing human error.</li>
+                      <li><strong className="font-bold text-gray-950">Simplified evaluation workflow</strong> by architecting a platform that <strong className="font-bold text-gray-950">automatically mapped transfer credits</strong> to coursework, allowing counselors to focus on exceptions requiring expert review rather than repetitive manual tasks.</li>
                     </ul>
                   </div>
                 </div>
               </div>
 
               {/* Front-end Developer | EXL */}
-              <div>
-                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-3">
-                  <Typography as="h3" variant="bodySemibold" className="text-gray-900 text-[17px] font-bold">
-                    Front-end Developer <span className="font-light text-gray-500">| EXL</span>
-                  </Typography>
-                  <Typography as="span" variant="smallRegular" className="text-gray-500 font-medium mt-1 sm:mt-0">
+              <div className="mt-6">
+                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-baseline mb-2">
+                  <span className="text-gray-900 text-[16px] font-bold">
+                    Front-end Developer <span className="font-normal text-gray-500">| EXL</span>
+                  </span>
+                  <span className="text-gray-500 text-[14px] font-medium mt-0.5 sm:mt-0">
                     2020 - 2021
-                  </Typography>
+                  </span>
                 </div>
 
                 <div>
-                  <Typography as="h4" variant="bodySemibold" className="text-gray-900 text-[15px] mb-1.5 font-semibold">
+                  <p className="text-gray-900 text-[14.5px] italic mb-1.5 font-normal">
                     Transaction Ledger Centralization (Client: FinTech Company)
-                  </Typography>
+                  </p>
                   <ul className="list-disc pl-5 space-y-1.5 text-gray-700 text-[14px] leading-relaxed">
-                    <li>Improved data-entry accuracy and enabled real-time transaction visibility by building a ReactJS ledger application; translated mockups into production UI while reducing defects through QA and engineering collaboration.</li>
+                    <li>Improved <strong className="font-bold text-gray-950">data-entry accuracy</strong> and enabled <strong className="font-bold text-gray-950">real-time transaction visibility</strong> by building a ReactJS ledger application; <strong className="font-bold text-gray-950">translated mockups into production UI</strong> while <strong className="font-bold text-gray-950">reducing defects</strong> through QA and engineering collaboration.</li>
                   </ul>
                 </div>
               </div>
@@ -173,62 +162,50 @@ function Resume() {
 
             {/* Skills Section */}
             <div className="mb-6">
-              <Typography as="h2" variant="bodySemibold" className="text-gray-900 uppercase tracking-wider text-[13px] font-bold mb-3 border-b border-[#E5E7EB] pb-1.5" style={{ fontWeight: 700 }}>
+              <Typography as="h2" variant="bodySemibold" className="text-[#2F63CF] uppercase tracking-wider text-[13px] font-bold mb-3" style={{ fontWeight: 700 }}>
                 Skills
               </Typography>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3 text-[14px]">
-                <div>
-                  <Typography as="p" variant="bodyRegular" className="text-gray-800 leading-relaxed mb-2" style={{ fontSize: '14px' }}>
-                    <strong className="font-semibold text-gray-950">Design & UX:</strong> Product Design, UX/UI Design, Interaction Design, User Research, Design Systems (Style Guides, Components), Information Architecture, Usability Testing, Prototyping, User Flows, Wireframing, Visual Design.
-                  </Typography>
-                  <Typography as="p" variant="bodyRegular" className="text-gray-800 leading-relaxed" style={{ fontSize: '14px' }}>
-                    <strong className="font-semibold text-gray-950">Tools & Tech:</strong> Figma, Adobe XD, Balsamiq, InVision, Photoshop, JIRA, ReactJS, JavaScript, HTML/CSS, Drupal, Tableau.
-                  </Typography>
-                </div>
-                <div>
-                  <Typography as="p" variant="bodyRegular" className="text-gray-800 leading-relaxed mb-2" style={{ fontSize: '14px' }}>
-                    <strong className="font-semibold text-gray-950">AI Tools:</strong> Gemini, ChatGPT, UX Pilot, Google Antigravity, Photoshop AI (Generative Fill and Expand), FigJam AI.
-                  </Typography>
-                  <Typography as="p" variant="bodyRegular" className="text-gray-800 leading-relaxed" style={{ fontSize: '14px' }}>
-                    <strong className="font-semibold text-gray-950">Methods & Process:</strong> User-Centered Design, Agile/SCRUM, Persona Development, User Journey Mapping, Analytical Problem Solving, Cross-functional & Cross-cultural Collaboration.
-                  </Typography>
-                </div>
-              </div>
+              <ul className="list-disc pl-5 space-y-1.5 text-gray-700 text-[14px] leading-relaxed">
+                <li><strong className="font-bold text-gray-950">Design & UX:</strong> Product Design, UX/UI Design, Interaction Design, User Research, Design Systems (Style Guides, Components), Information Architecture, Usability Testing, Prototyping, User Flows, Wireframing, Visual Design.</li>
+                <li><strong className="font-bold text-gray-950">Tools & Tech:</strong> Figma, Adobe XD, Balsamiq, InVision, Photoshop, JIRA, ReactJS, JavaScript, HTML/CSS, Drupal, Tableau.</li>
+                <li><strong className="font-bold text-gray-950">AI Tools:</strong> Gemini, ChatGPT, UX Pilot, Google Antigravity, Photoshop AI (Generative Fill and Expand), FigJam AI.</li>
+                <li><strong className="font-bold text-gray-950">Methods & Process:</strong> User-Centered Design, Agile/SCRUM, Persona Development, User Journey Mapping, Analytical Problem Solving, Cross-functional & Cross-cultural Collaboration.</li>
+              </ul>
             </div>
 
             {/* Education Section */}
             <div>
-              <Typography as="h2" variant="bodySemibold" className="text-gray-900 uppercase tracking-wider text-[13px] font-bold mb-3 border-b border-[#E5E7EB] pb-1.5" style={{ fontWeight: 700 }}>
+              <Typography as="h2" variant="bodySemibold" className="text-[#2F63CF] uppercase tracking-wider text-[13px] font-bold mb-3" style={{ fontWeight: 700 }}>
                 Education & Certification
               </Typography>
 
-              <div className="space-y-3 text-[14px]">
-                <div className="flex justify-between items-start">
-                  <Typography as="p" variant="bodyRegular" className="text-gray-800" style={{ fontSize: '14px' }}>
-                    <strong className="font-semibold text-gray-950">Google UX Design Certification</strong>, Coursera
-                  </Typography>
-                  <Typography as="span" variant="smallRegular" className="text-gray-500 font-medium flex-shrink-0 ml-4">
+              <div className="space-y-2 text-[14px]">
+                <div className="flex justify-between items-baseline">
+                  <span className="text-gray-800">
+                    <strong className="font-bold text-gray-950">Google UX Design Certification,</strong> Coursera
+                  </span>
+                  <span className="text-gray-500 font-medium flex-shrink-0 ml-4">
                     2021
-                  </Typography>
+                  </span>
                 </div>
 
-                <div className="flex justify-between items-start">
-                  <Typography as="p" variant="bodyRegular" className="text-gray-800" style={{ fontSize: '14px' }}>
-                    <strong className="font-semibold text-gray-950">Rochester Institute of Technology</strong>, MS in Software Engineering
-                  </Typography>
-                  <Typography as="span" variant="smallRegular" className="text-gray-500 font-medium flex-shrink-0 ml-4">
+                <div className="flex justify-between items-baseline">
+                  <span className="text-gray-800">
+                    <strong className="font-bold text-gray-950">Rochester Institute of Technology,</strong> MS in Software Engineering
+                  </span>
+                  <span className="text-gray-500 font-medium flex-shrink-0 ml-4">
                     2020
-                  </Typography>
+                  </span>
                 </div>
 
-                <div className="flex justify-between items-start">
-                  <Typography as="p" variant="bodyRegular" className="text-gray-800" style={{ fontSize: '14px' }}>
-                    <strong className="font-semibold text-gray-950">Narsee Monjee Institute of Management Studies (NMIMS)</strong>, BTech in Computer Engineering
-                  </Typography>
-                  <Typography as="span" variant="smallRegular" className="text-gray-500 font-medium flex-shrink-0 ml-4">
+                <div className="flex justify-between items-baseline">
+                  <span className="text-gray-800">
+                    <strong className="font-bold text-gray-950">Narsee Monjee Institute of Management Studies (NMIMS),</strong> BTech in Computer Engineering
+                  </span>
+                  <span className="text-gray-500 font-medium flex-shrink-0 ml-4">
                     2017
-                  </Typography>
+                  </span>
                 </div>
               </div>
             </div>
