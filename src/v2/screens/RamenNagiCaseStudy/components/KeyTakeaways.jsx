@@ -8,7 +8,7 @@ const KeyTakeaways = () => {
     ];
 
     return (
-        <section className="w-full max-w-[1160px] mx-auto px-5 pt-[60px] pb-32 md:py-32 bg-white font-ibm-plex text-[#111]">
+        <section className="w-full max-w-[1160px] mx-auto px-5 pt-[60px] pb-44 md:py-32 bg-white font-ibm-plex text-[#111]">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-[20px]">
                 <div className="col-span-1 md:col-span-5">
                     <motion.div
@@ -21,7 +21,7 @@ const KeyTakeaways = () => {
                         <h2 className="text-[36px] font-semibold">Key Takeaways</h2>
                     </motion.div>
 
-                    <div className="space-y-12">
+                    <div className="space-y-6 md:space-y-12">
                         {takeaways.map((takeaway, index) => (
                             <motion.div
                                 key={index}
