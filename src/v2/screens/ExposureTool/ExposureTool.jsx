@@ -128,32 +128,34 @@ const HeuristicIssuesChart = () => (
           return (
             <div
               key={issue.label}
-              className="grid grid-cols-[minmax(130px,210px)_1fr_24px] gap-4 items-center"
+              className="flex flex-col gap-2 sm:grid sm:grid-cols-[minmax(120px,210px)_1fr_24px] sm:gap-4 sm:items-center"
             >
               <Typography
                 as="span"
                 variant="smallRegular"
-                className={muted ? 'text-gray-600' : 'text-gray-900'}
+                className={`${muted ? 'text-gray-600' : 'text-gray-900'} w-full`}
               >
                 {issue.label}
               </Typography>
-              <div className="relative h-px bg-gray-150">
-                {issue.value && (
-                  <>
-                    <span
-                      className={`absolute left-0 top-1/2 h-[2px] -translate-y-1/2 ${lineColor}`}
-                      style={{ width }}
-                    />
-                    <span
-                      className={`absolute top-1/2 size-[7px] -translate-y-1/2 rounded-full ${lineColor}`}
-                      style={{ left: `calc(${width} - 3.5px)` }}
-                    />
-                  </>
-                )}
+              <div className="flex items-center gap-3 w-full sm:contents">
+                <div className="relative h-px bg-gray-150 flex-1 sm:h-px sm:bg-gray-150">
+                  {issue.value && (
+                    <>
+                      <span
+                        className={`absolute left-0 top-1/2 h-[2px] -translate-y-1/2 ${lineColor}`}
+                        style={{ width }}
+                      />
+                      <span
+                        className={`absolute top-1/2 size-[7px] -translate-y-1/2 rounded-full ${lineColor}`}
+                        style={{ left: `calc(${width} - 3.5px)` }}
+                      />
+                    </>
+                  )}
+                </div>
+                <Typography as="span" variant="smallRegular" className="w-8 text-right flex-shrink-0 text-gray-900">
+                  {issue.value || '-'}
+                </Typography>
               </div>
-              <Typography as="span" variant="smallRegular" className="text-right text-gray-900">
-                {issue.value || '-'}
-              </Typography>
             </div>
           );
         })}

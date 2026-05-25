@@ -232,9 +232,9 @@ const InsuranceCompanyWebsiteRedesign = () => {
               />
             </div>
 
-            <div className="relative grid grid-cols-2 md:grid-cols-4 gap-y-8 mb-12 md:mb-[100px]">
+            <div className="relative grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-y-8 mb-12 md:mb-[100px]">
               <span className="hidden md:block absolute left-1/4 top-1/2 h-[92px] w-px -translate-y-1/2 bg-[#D8D8D8]" />
-              <span className="hidden md:block absolute left-1/2 top-1/2 h-[92px] w-px -translate-y-1/2 bg-[#D8D8D8]" />
+              <span className="hidden sm:block absolute left-1/2 top-1/2 h-[92px] w-px -translate-y-1/2 bg-[#D8D8D8]" />
               <span className="hidden md:block absolute left-3/4 top-1/2 h-[92px] w-px -translate-y-1/2 bg-[#D8D8D8]" />
               {metrics.map((metric) => (
                 <div key={metric.label} className="flex justify-center">
@@ -246,7 +246,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
                       {metric.icon && metric.tooltip ? (
                         <div className="relative flex items-center group cursor-pointer">
                           <Icon icon={metric.icon} className="text-[#2F63CF] text-[20px]" style={{ fontWeight: 400 }} />
-                          <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-[320px] p-4 bg-[#1A1A1A] rounded-[16px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 text-left pointer-events-none shadow-xl">
+                          <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-[calc(100vw-60px)] sm:w-[320px] p-4 bg-[#1A1A1A] rounded-[16px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 text-left pointer-events-none shadow-xl">
                             <Typography as="div" variant="extraSmallRegular" className="text-[#F3F3F3]">
                               {metric.tooltip}
                             </Typography>
@@ -360,29 +360,31 @@ const InsuranceCompanyWebsiteRedesign = () => {
                   const colorClass = isPrimary ? 'bg-[#D6003B]' : 'bg-[#9C9C9C]';
 
                   return (
-                    <div key={issue.label} className="grid grid-cols-[minmax(150px,230px)_1fr_32px] items-center gap-5 md:gap-7">
+                    <div key={issue.label} className="flex flex-col gap-2 sm:grid sm:grid-cols-[minmax(120px,230px)_1fr_24px] sm:items-center sm:gap-5 md:gap-7">
                       <Typography
                         as="span"
                         variant="smallRegular"
-                        className={isPrimary ? 'text-[#1A1A1A]' : 'text-gray-600'}
+                        className={`${isPrimary ? 'text-[#1A1A1A]' : 'text-gray-600'} w-full`}
                       >
                         {issue.label}
                       </Typography>
-                      <div className="h-px bg-[#D6D6D6] relative">
-                        {issue.value > 0 && (
-                          <>
-                            <span
-                              className={`absolute left-0 top-1/2 h-[2px] -translate-y-1/2 ${colorClass}`}
-                              style={{ width }}
-                            />
-                            <span
-                              className={`absolute top-1/2 size-[8px] -translate-y-1/2 rounded-full ${colorClass}`}
-                              style={{ left: `calc(${width} - 4px)` }}
-                            />
-                          </>
-                        )}
+                      <div className="flex items-center gap-3 w-full sm:contents">
+                        <div className="h-px bg-[#D6D6D6] relative flex-1 sm:h-px sm:bg-[#D6D6D6]">
+                          {issue.value > 0 && (
+                            <>
+                              <span
+                                className={`absolute left-0 top-1/2 h-[2px] -translate-y-1/2 ${colorClass}`}
+                                style={{ width }}
+                              />
+                              <span
+                                className={`absolute top-1/2 size-[8px] -translate-y-1/2 rounded-full ${colorClass}`}
+                                style={{ left: `calc(${width} - 4px)` }}
+                              />
+                            </>
+                          )}
+                        </div>
+                        <Typography as="span" variant="smallRegular" className={`w-8 text-right flex-shrink-0 ${isPrimary ? 'text-[#1A1A1A]' : 'text-gray-600'}`}>{issue.value || '-'}</Typography>
                       </div>
-                      <Typography as="span" variant="smallRegular" className={`text-right ${isPrimary ? 'text-[#1A1A1A]' : 'text-gray-600'}`}>{issue.value || '-'}</Typography>
                     </div>
                   );
                 })}
