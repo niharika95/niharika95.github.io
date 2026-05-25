@@ -109,7 +109,7 @@ const ImageFrame = ({ src, alt, className = '', imgClassName = 'w-full h-auto', 
 );
 
 const Section = ({ id, title, children, className = '' }) => (
-  <section id={id} className={`scroll-mt-28 mb-[92px] ${className}`}>
+  <section id={id} className={`scroll-mt-28 mb-12 md:mb-[92px] ${className}`}>
     {title && (
       <Typography as="h2" variant="h5Regular" className="mb-8 text-[#1A1A1A]">
         {title}
@@ -209,11 +209,11 @@ const InsuranceCompanyWebsiteRedesign = () => {
         <main className="w-full max-w-[720px] mx-auto lg:ml-20 xl:ml-32">
 
           <section id="intro" className="scroll-mt-28 mb-[40px]">
-            <Typography as="h1" variant="h2Regular" className="mb-[70px] text-[#1A1A1A] max-w-[680px]">
+            <Typography as="h1" variant="h2Regular" className="mb-8 md:mb-[70px] text-[#1A1A1A] max-w-[680px]">
               Redesign that improved site performance by 37% and resolved 53 heuristic issues.
             </Typography>
 
-            <div className="flex flex-col mb-[86px] text-gray-500 gap-1">
+            <div className="flex flex-col mb-10 md:mb-[86px] text-gray-500 gap-1">
               <div className="flex gap-4">
                 <Typography as="span" variant="bodyRegular" className="w-[74px] flex-shrink-0">Role</Typography>
                 <Typography as="span" variant="bodyRegular">UX/UI Designer, 10 months</Typography>
@@ -224,7 +224,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
               </div>
             </div>
 
-            <div className="bg-[#F2F2F2] rounded-[20px] p-8 md:p-12 mb-[100px] flex items-center justify-center">
+            <div className="bg-[#F2F2F2] rounded-[20px] p-8 md:p-12 mb-12 md:mb-[100px] flex items-center justify-center">
               <img
                 src={`${ASSET_PATH}/${images.insuranceHero}`}
                 alt="Insurance Hero"
@@ -232,9 +232,9 @@ const InsuranceCompanyWebsiteRedesign = () => {
               />
             </div>
 
-            <div className="relative grid grid-cols-2 md:grid-cols-4 gap-y-8 mb-[100px]">
+            <div className="relative grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-y-8 mb-12 md:mb-[100px]">
               <span className="hidden md:block absolute left-1/4 top-1/2 h-[92px] w-px -translate-y-1/2 bg-[#D8D8D8]" />
-              <span className="hidden md:block absolute left-1/2 top-1/2 h-[92px] w-px -translate-y-1/2 bg-[#D8D8D8]" />
+              <span className="hidden sm:block absolute left-1/2 top-1/2 h-[92px] w-px -translate-y-1/2 bg-[#D8D8D8]" />
               <span className="hidden md:block absolute left-3/4 top-1/2 h-[92px] w-px -translate-y-1/2 bg-[#D8D8D8]" />
               {metrics.map((metric) => (
                 <div key={metric.label} className="flex justify-center">
@@ -246,7 +246,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
                       {metric.icon && metric.tooltip ? (
                         <div className="relative flex items-center group cursor-pointer">
                           <Icon icon={metric.icon} className="text-[#2F63CF] text-[20px]" style={{ fontWeight: 400 }} />
-                          <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-[320px] p-4 bg-[#1A1A1A] rounded-[16px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 text-left pointer-events-none shadow-xl">
+                          <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-[calc(100vw-60px)] sm:w-[320px] p-4 bg-[#1A1A1A] rounded-[16px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 text-left pointer-events-none shadow-xl">
                             <Typography as="div" variant="extraSmallRegular" className="text-[#F3F3F3]">
                               {metric.tooltip}
                             </Typography>
@@ -267,7 +267,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
             </Paragraph>
           </section>
 
-          <section id="problems" className="scroll-mt-28 mb-[84px]">
+          <section id="problems" className="scroll-mt-28 mb-12 md:mb-[84px]">
             <Typography as="h2" variant="h6Regular" className="mb-8 text-[#1A1A1A]">The gap between ambition and reality</Typography>
             <div className="flex flex-col gap-5 mb-[56px]">
               {problemAreas.map(({ icon, label }) => (
@@ -285,11 +285,11 @@ const InsuranceCompanyWebsiteRedesign = () => {
               imgClassName="w-full h-auto"
             />
 
-            <Caption className="mb-[80px]">
+            <Caption className="mb-10 md:mb-[80px]">
               The absence of a unified design system resulted in inconsistent button, card, and icon styles that diluted the brand identity.
             </Caption>
 
-            <div className="grid md:grid-cols-2 gap-6 mb-[100px]">
+            <div className="grid md:grid-cols-2 gap-6 mb-12 md:mb-[100px]">
               <div>
                 <ImageFrame
                   src={`${ASSET_PATH}/${images.contentAuditStatePage}`}
@@ -314,7 +314,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
               </div>
             </div>
 
-            <blockquote className="relative pl-12 mb-[64px]">
+            <blockquote className="relative pl-12 mb-10 md:mb-[64px]">
               <Icon icon="material-symbols:format-quote" className="absolute left-0 top-1 text-[40px] text-[#1A1A1A] scale-x-[-1] scale-y-[-1]" />
               <Typography as="p" variant="h6Regular" className="italic text-[#1A1A1A] mb-5">
                 The new site must be visually striking, bold, and impactful, with seamless functionality and exceptional B2B and B2C content. We aim to create an enjoyable experience where customers, independent agents, prospective customers, employees and potential investors can easily find what they need and accomplish their tasks with minimal efforts and few clicks.
@@ -360,29 +360,31 @@ const InsuranceCompanyWebsiteRedesign = () => {
                   const colorClass = isPrimary ? 'bg-[#D6003B]' : 'bg-[#9C9C9C]';
 
                   return (
-                    <div key={issue.label} className="grid grid-cols-[minmax(150px,230px)_1fr_32px] items-center gap-5 md:gap-7">
+                    <div key={issue.label} className="flex flex-col gap-2 sm:grid sm:grid-cols-[minmax(120px,230px)_1fr_24px] sm:items-center sm:gap-5 md:gap-7">
                       <Typography
                         as="span"
                         variant="smallRegular"
-                        className={isPrimary ? 'text-[#1A1A1A]' : 'text-gray-600'}
+                        className={`${isPrimary ? 'text-[#1A1A1A]' : 'text-gray-600'} w-full`}
                       >
                         {issue.label}
                       </Typography>
-                      <div className="h-px bg-[#D6D6D6] relative">
-                        {issue.value > 0 && (
-                          <>
-                            <span
-                              className={`absolute left-0 top-1/2 h-[2px] -translate-y-1/2 ${colorClass}`}
-                              style={{ width }}
-                            />
-                            <span
-                              className={`absolute top-1/2 size-[8px] -translate-y-1/2 rounded-full ${colorClass}`}
-                              style={{ left: `calc(${width} - 4px)` }}
-                            />
-                          </>
-                        )}
+                      <div className="flex items-center gap-3 w-full sm:contents">
+                        <div className="h-px bg-[#D6D6D6] relative flex-1 sm:h-px sm:bg-[#D6D6D6]">
+                          {issue.value > 0 && (
+                            <>
+                              <span
+                                className={`absolute left-0 top-1/2 h-[2px] -translate-y-1/2 ${colorClass}`}
+                                style={{ width }}
+                              />
+                              <span
+                                className={`absolute top-1/2 size-[8px] -translate-y-1/2 rounded-full ${colorClass}`}
+                                style={{ left: `calc(${width} - 4px)` }}
+                              />
+                            </>
+                          )}
+                        </div>
+                        <Typography as="span" variant="smallRegular" className={`w-8 text-right flex-shrink-0 ${isPrimary ? 'text-[#1A1A1A]' : 'text-gray-600'}`}>{issue.value || '-'}</Typography>
                       </div>
-                      <Typography as="span" variant="smallRegular" className={`text-right ${isPrimary ? 'text-[#1A1A1A]' : 'text-gray-600'}`}>{issue.value || '-'}</Typography>
                     </div>
                   );
                 })}
@@ -519,7 +521,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
             </ImageFrame>
             <Caption className="mb-10">Exploration moodboard of 4 stylistic directions</Caption>
 
-            <div className="flex flex-col md:flex-row gap-9 items-center mb-[84px]">
+            <div className="flex flex-col md:flex-row gap-9 items-center mb-12 md:mb-[84px]">
               <div className="w-full md:w-[45%]">
                 <img
                   src={`${ASSET_PATH}/${images.uxPilotLogo}`}

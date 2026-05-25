@@ -30,7 +30,7 @@ const images = {
 };
 
 const Section = ({ id, title, children, className = '' }) => (
-  <section id={id} className={`scroll-mt-28 ${className || 'mb-[88px]'}`}>
+  <section id={id} className={`scroll-mt-28 ${className || 'mb-12 md:mb-[88px]'}`}>
     {title && (
       <Typography as="h2" variant="h6Regular" className="mb-8 text-gray-900">
         {title}
@@ -143,7 +143,7 @@ const ProblemBlock = ({ title, children }) => (
 );
 
 const InsightCallout = () => (
-  <div className="mb-12 mt-[100px]">
+  <div className="mb-12 mt-12 md:mt-[100px]">
     <div className="flex items-center gap-5">
       <Icon
         icon="material-symbols-light:gpp-bad-outline"
@@ -243,12 +243,12 @@ const LoanAppExperienceOptimization = () => {
         </aside>
 
         <main className="mx-auto w-full max-w-[860px] lg:ml-20 xl:ml-32">
-          <section id="intro" className="scroll-mt-28 mb-[84px]">
-            <Typography as="h1" variant="h2Regular" className="mb-[100px] max-w-[720px] text-gray-900">
+          <section id="intro" className="scroll-mt-28 mb-10 md:mb-[84px]">
+            <Typography as="h1" variant="h2Regular" className="mb-12 md:mb-[100px] max-w-[720px] text-gray-900">
               Slashing projected loan application time by 36% by redesigning for trust and efficiency.
             </Typography>
 
-            <div className="mb-[100px] flex flex-col gap-1 text-gray-500">
+            <div className="mb-12 md:mb-[100px] flex flex-col gap-1 text-gray-500">
               <div className="flex gap-4">
                 <Typography as="span" variant="bodyRegular" className="w-[74px] flex-shrink-0">Role</Typography>
                 <Typography as="span" variant="bodyRegular">UX/UI Designer, 4 weeks</Typography>
@@ -283,7 +283,7 @@ const LoanAppExperienceOptimization = () => {
             </div>
           </section>
 
-          <Section id="problem" title="" className="mb-[100px]">
+          <Section id="problem" title="" className="mb-12 md:mb-[100px]">
             <blockquote className="border-l-[8px] border-gray-900 pl-5">
               <ProblemBlock title="Problem for the business:">
                 High drop-off on a critical revenue channel, despite a pre-approved pool that should have converted easily.
@@ -332,7 +332,7 @@ const LoanAppExperienceOptimization = () => {
           </Section>
 
           <Section id="key-decisions" title="Decisions that shaped the design">
-            <div className="mt-10 flex flex-col gap-[100px]">
+            <div className="mt-10 flex flex-col gap-12 md:gap-[100px]">
               <div className="grid items-center gap-12 lg:grid-cols-[minmax(340px,1fr)_minmax(300px,360px)]">
                 <div>
                   <Label className="mb-6 max-w-[430px]">
