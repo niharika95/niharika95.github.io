@@ -12,7 +12,7 @@ const PROJECTS = [
     cardTitle: 'Redesigning the digital face of a $1 billion-bound insurer',
     description: 'A full redesign serving two distinct audiences, built to scale with the business.',
     image: '/images/projects/insurance-company-website-design/panel-2-insurance-website.png',
-    link: '/v2/insurance-company-website-redesign',
+    link: '/insurance-company-website-redesign',
     buttonStyle: 'dark',
     contentCols: 4,
     hasBorder: true
@@ -23,7 +23,7 @@ const PROJECTS = [
     cardTitle: 'Eliminating context switching across 3 fragmented views.',
     description: 'An audit-led redesign of an internal insurance exposure management tool, uncovering a structural problem beneath a UI brief.',
     image: '/v2/images/projects/exposure-tool/exposure-tool-thumbnail.png',
-    link: '/v2/exposure-tool',
+    link: '/exposure-tool',
     buttonStyle: 'dark',
     contentCols: 6,
     hasBorder: true
@@ -34,7 +34,7 @@ const PROJECTS = [
     cardTitle: <>Eliminating the 2 hour wait at Ramen Nagi</>,
     description: 'A hybrid system that eliminates physical waiting without sacrificing the walk-in culture of a successful restaurant.',
     image: "/v2/images/projects/ramen-nagi/panel-1-ramen-nagi.png",
-    link: '/v2/ramen-nagi',
+    link: '/ramen-nagi',
     contentCols: 4
   },
   {
@@ -43,7 +43,7 @@ const PROJECTS = [
     cardTitle: '36% faster digital loan application experience',
     description: 'Streamlined a flow that was losing users it had already pre-approved, using progressive disclosure and smart defaults.',
     image: '/v2/images/projects/loan-app-experience-optimization/panel-3-loan-application.png',
-    link: '/v2/loan-app-experience-optimization',
+    link: '/loan-app-experience-optimization',
     buttonStyle: 'light',
     contentCols: 5
   }

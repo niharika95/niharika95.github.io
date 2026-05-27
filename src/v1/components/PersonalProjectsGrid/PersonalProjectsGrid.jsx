@@ -14,7 +14,7 @@ const personalProjects = [
     description:
       'A platform helping women access reliable health information anonymously and find clinics accepting their insurance.',
     image: femhealthImg,
-    link: '#/femhealth',
+    link: '#/archived/femhealth',
     color: '3E122D',
     accentColor: 'D97706',
   },
@@ -23,7 +23,7 @@ const personalProjects = [
     description:
       'An e-commerce platform enabling users to customize bikes for work, athletics, or leisure.',
     image: swiftbikesImg,
-    link: '#/swiftbikes',
+    link: '#/archived/swiftbikes',
     color: 'FF980A',
     accentColor: '1E40AF',
   },
@@ -32,7 +32,7 @@ const personalProjects = [
     description:
       'A chatbot application for a hospital in India streamlining patient services through appointment booking and online payments.',
     image: svaasthyaImg,
-    link: '#/svaasthya',
+    link: '#/archived/svaasthya',
     color: '1D5D82',
     accentColor: '10B981',
   },
@@ -41,7 +41,7 @@ const personalProjects = [
   //   description:
   //     'Eliminating the 2-Hour Wait: A hybrid queuing system preserving operational speed while giving customers their time back.',
   //   image: ramenNagiImg,
-  //   link: '#/ramen-nagi',
+  //   link: '#/archived/ramen-nagi',
   //   color: 'DC0411',
   //   accentColor: 'DC0411',
   // },

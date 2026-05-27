@@ -42,7 +42,7 @@ function Project() {
     <ContentContainer className="pt-[100px] mt-[100px]">
       <Gutter>
         <Link
-          to="/"
+          to="/archived"
           className="flex items-center text-[28px] text-[var(--color-brand-primary)] no-underline gap-[12px] mb-[100px]"
         >
           <Icon icon="ep:back" />
