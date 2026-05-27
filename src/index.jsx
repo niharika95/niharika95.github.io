@@ -1,6 +1,6 @@
 import './index.css';
 
-import { HashRouter, Route, Routes } from 'react-router-dom';
+import { HashRouter, Navigate, Route, Routes } from 'react-router-dom';
 
 import AboutV1 from './v1/screens/About/About';
 import AdmissionsProcessAccelerationV1 from './v1/screens/AdmissionsProcessAcceleration/AdmissionsProcessAcceleration';
@@ -45,6 +45,7 @@ root.render(
       <ScrollToTop />
       <Routes>
         <Route path="/presentation" element={<PresentationV1 />} />
+        <Route path="/v2" element={<Navigate to="/" replace />} />
         
         {/* V2 Routes (Default Portfolio Version) */}
         <Route path="/" element={<V2Route><HomeV2 /></V2Route>} />
