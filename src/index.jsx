@@ -45,31 +45,34 @@ root.render(
       <ScrollToTop />
       <Routes>
         <Route path="/presentation" element={<PresentationV1 />} />
-        <Route path="/v2" element={<V2Route><HomeV2 /></V2Route>} />
-        <Route path="/v2/exposure-tool" element={<V2Route><ExposureToolV2 /></V2Route>} />
-        <Route path="/v2/insurance-company-website-redesign" element={<V2Route><InsuranceCompanyWebsiteRedesignV2 /></V2Route>} />
-        <Route path="/v2/ramen-nagi" element={<V2Route><RamenNagiCaseStudyV2 /></V2Route>} />
-        <Route path="/v2/loan-app-experience-optimization" element={<V2Route><LoanAppExperienceOptimizationV2 /></V2Route>} />
-        <Route path="/v2/about" element={<V2Route><AboutV2 /></V2Route>} />
-        <Route path="/v2/resume" element={<V2Route><ResumeV2 /></V2Route>} />
-        <Route path="/v1" element={<HomeV1 />} />
+        
+        {/* V2 Routes (Default Portfolio Version) */}
+        <Route path="/" element={<V2Route><HomeV2 /></V2Route>} />
+        <Route path="/exposure-tool" element={<V2Route><ExposureToolV2 /></V2Route>} />
+        <Route path="/insurance-company-website-redesign" element={<V2Route><InsuranceCompanyWebsiteRedesignV2 /></V2Route>} />
+        <Route path="/ramen-nagi" element={<V2Route><RamenNagiCaseStudyV2 /></V2Route>} />
+        <Route path="/loan-app-experience-optimization" element={<V2Route><LoanAppExperienceOptimizationV2 /></V2Route>} />
+        <Route path="/about" element={<V2Route><AboutV2 /></V2Route>} />
+        <Route path="/resume" element={<V2Route><ResumeV2 /></V2Route>} />
+
+        {/* V1 Archived Routes */}
         <Route element={<MainLayoutV1 />}>
-          <Route path="/" element={<HomeV1 />} />
-          <Route path="/#projects" element={<HomeV1 />} />
-          <Route path="/#about" element={<HomeV1 />} />
-          <Route path="/about" element={<AboutV1 />} />
-          <Route path="/project/:id" element={<ProjectV1 />} />
-          <Route path="/resume" element={<ResumeV1 />} />
+          <Route path="/archived" element={<HomeV1 />} />
+          <Route path="/archived/#projects" element={<HomeV1 />} />
+          <Route path="/archived/#about" element={<HomeV1 />} />
+          <Route path="/archived/about" element={<AboutV1 />} />
+          <Route path="/archived/project/:id" element={<ProjectV1 />} />
+          <Route path="/archived/resume" element={<ResumeV1 />} />
           {/* Personal Projects */}
-          <Route path="/femhealth" element={<FemHealthV1 />} />
-          <Route path="/swiftbikes" element={<SwiftBikesV1 />} />
-          <Route path="/svaasthya" element={<SvaasthyaV1 />} />
+          <Route path="/archived/femhealth" element={<FemHealthV1 />} />
+          <Route path="/archived/swiftbikes" element={<SwiftBikesV1 />} />
+          <Route path="/archived/svaasthya" element={<SvaasthyaV1 />} />
           {/* Professional Projects */}
-          <Route path="/intelligent-campaign-builder" element={<IntelligentCampaignBuilderV1 />} />
-          <Route path="/loan-app-experience-optimization" element={<LoanAppExperienceOptimizationV1 />} />
-          <Route path="/admissions-process-acceleration" element={<AdmissionsProcessAccelerationV1 />} />
-          <Route path="/insurance-company-website-redesign" element={<InsuranceCompanyWebsiteRedesignV1 />} />
-          {featureFlagsV1.showRamenNagi && <Route path="/ramen-nagi" element={<RamenNagiCaseStudyV1 />} />}
+          <Route path="/archived/intelligent-campaign-builder" element={<IntelligentCampaignBuilderV1 />} />
+          <Route path="/archived/loan-app-experience-optimization" element={<LoanAppExperienceOptimizationV1 />} />
+          <Route path="/archived/admissions-process-acceleration" element={<AdmissionsProcessAccelerationV1 />} />
+          <Route path="/archived/insurance-company-website-redesign" element={<InsuranceCompanyWebsiteRedesignV1 />} />
+          {featureFlagsV1.showRamenNagi && <Route path="/archived/ramen-nagi" element={<RamenNagiCaseStudyV1 />} />}
         </Route>
       </Routes>
     </HashRouter>

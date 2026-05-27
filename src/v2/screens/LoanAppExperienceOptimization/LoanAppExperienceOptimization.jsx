@@ -223,7 +223,7 @@ const LoanAppExperienceOptimization = () => {
       <div className="mx-auto flex max-w-[1440px] px-5 pb-32 pt-10 lg:px-10">
         <aside className="sticky top-[130px] hidden max-h-[calc(100vh-140px)] w-[180px] flex-shrink-0 self-start overflow-y-auto lg:block">
           <nav className="flex flex-col gap-[40px]">
-            <Link to="/v2" className="back-link-group -ml-1 inline-flex items-center gap-1 text-base font-medium text-gray-500 transition-colors duration-200">
+            <Link to="/" className="back-link-group -ml-1 inline-flex items-center gap-1 text-base font-medium text-gray-500 transition-colors duration-200">
               <ChevronLeft size={20} className="icon-solid-hover transition-colors duration-200" />
               <Typography as="span" variant="smallLight" className="shimmer-text">Home</Typography>
             </Link>

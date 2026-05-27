@@ -12,7 +12,7 @@ const projects = [
   {
     title: 'Ramen Nagi: Eliminating the 2-Hour Wait',
     image: ramenNagiImg,
-    link: '#/ramen-nagi',
+    link: '#/archived/ramen-nagi',
     isMobile: true,
     color: '000000',
     strokeColor: 'DC0411',
@@ -20,14 +20,14 @@ const projects = [
   {
     title: 'Building Trust in Fintech: A 0→1 Redesign for a $1B Growth Company',
     image: '/v1/home-v2/insurance-website-color.png',
-    link: '#/insurance-company-website-redesign',
+    link: '#/archived/insurance-company-website-redesign',
     color: 'A10026',
     strokeColor: '000000',
   },
   {
     title: 'Loan App Experience Optimization',
     image: '/v1/home-v2/loan-app-color.png',
-    link: '#/loan-app-experience-optimization',
+    link: '#/archived/loan-app-experience-optimization',
     isMobile: true,
     color: '1C4882',
     strokeColor: 'D97706',
@@ -35,14 +35,14 @@ const projects = [
   {
     title: 'Admissions Process Acceleration',
     image: '/v1/home-v2/admissions-process-color.png',
-    link: '#/admissions-process-acceleration',
+    link: '#/archived/admissions-process-acceleration',
     color: '522398',
     strokeColor: 'FB4E0B',
   },
   {
     title: 'Intelligent Campaign Builder Overhaul',
     image: '/v1/home-v2/campaign-builder-color.png',
-    link: '#/intelligent-campaign-builder',
+    link: '#/archived/intelligent-campaign-builder',
     color: 'FB4E0B',
     strokeColor: '48A3FF',
   },

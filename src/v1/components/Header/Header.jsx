@@ -21,8 +21,8 @@ const StyledLink = ({ className = '', ...rest }) => (
 );
 
 const links = [
-  { href: '/#projects', label: 'Projects', component: HashLink },
-  { href: '/about', label: 'About Me', component: StyledLink },
+  { href: '/archived/#projects', label: 'Projects', component: HashLink },
+  { href: '/archived/about', label: 'About Me', component: StyledLink },
 ];
 
 // Component for adaptive hamburger icon
@@ -480,7 +480,7 @@ function Header() {
             className="max-[600px]:col-start-1"
           >
             <HashLink
-              to="/#"
+              to="/archived/#"
               className="no-underline"
               onClick={() => trackLogoClick(window.location.pathname)}
             >
