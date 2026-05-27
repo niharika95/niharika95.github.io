@@ -35,13 +35,13 @@ const RamenNagiCaseStudy = () => {
 
     return (
         <div className="w-full overflow-x-hidden font-ibm-plex text-neutral-900 bg-white antialiased">
-            <div
+            {/* <div
                 ref={progressBarRef}
                 className="fixed top-0 left-0 h-[6px] bg-[#DC0411] z-[1000] origin-left cursor-pointer"
                 style={{ width: '0%' }}
                 onClick={scrollToTop}
                 title="Back to Top"
-            />
+            /> */}
 
 
 

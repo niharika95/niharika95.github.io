@@ -85,7 +85,7 @@ export default function MobileCarousel({
 
                 {/* 2. Unified Text Content */}
                 <div className="mobile-carousel-content">
-                  <Typography as="h2" variant="h6Medium" className="mobile-carousel-title">
+                  <Typography as="h2" variant="h3Medium" className="mobile-carousel-title">
                     {proj.cardTitle}
                   </Typography>
                   <Typography variant="bodyRegular" className="mobile-carousel-desc">

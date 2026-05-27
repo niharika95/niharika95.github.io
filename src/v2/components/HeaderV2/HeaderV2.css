@@ -117,3 +117,19 @@
   color: #000000;
   display: inline-block;
 }
+
+.nav-icon-material {
+  font-variation-settings: 'wght' 300, 'opsz' 24, 'FILL' 0, 'GRAD' 0 !important;
+  font-weight: 300 !important;
+  font-size: 32px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 32px !important;
+  height: 32px !important;
+  line-height: 1 !important;
+}
+
+.nav-icon-material-active {
+  font-variation-settings: 'wght' 300, 'opsz' 24, 'FILL' 1, 'GRAD' 0 !important;
+}

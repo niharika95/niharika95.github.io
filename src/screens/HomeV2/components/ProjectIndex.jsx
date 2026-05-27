@@ -158,7 +158,7 @@ export default function ProjectIndex({ projects, activeIndex, onSelect, isHovere
             <Typography as="span" variant="bodyLight">LinkedIn</Typography>
           </a>
           <span className="separator">|</span>
-          <a href="mailto:niharika95@gmail.com">
+          <a href="mailto:niharika13dalal@gmail.com">
             <Typography as="span" variant="bodyLight">Email</Typography>
           </a>
         </div>
