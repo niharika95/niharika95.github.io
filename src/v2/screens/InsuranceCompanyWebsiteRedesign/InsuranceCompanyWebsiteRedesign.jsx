@@ -111,7 +111,7 @@ const ImageFrame = ({ src, alt, className = '', imgClassName = 'w-full h-auto', 
 const Section = ({ id, title, children, className = '' }) => (
   <section id={id} className={`scroll-mt-28 mb-12 md:mb-[92px] ${className}`}>
     {title && (
-      <Typography as="h2" variant="h5Regular" className="mb-8 text-[#1A1A1A]">
+      <Typography as="h2" variant="h6Medium" className="mb-8 text-[#1A1A1A]">
         {title}
       </Typography>
     )}
@@ -132,7 +132,7 @@ const Paragraph = ({ children, className = '' }) => (
 );
 
 const Caption = ({ children, className = '' }) => (
-  <Typography as="p" variant="smallRegular" className={`text-[#1A1A1A] ${className}`}>
+  <Typography as="p" variant="smallRegular" className={`text-gray-600 ${className}`}>
     {children}
   </Typography>
 );
@@ -147,6 +147,17 @@ const InsuranceCompanyWebsiteRedesign = () => {
 
   const [activeSection, setActiveSection] = useState('intro');
   const [activePersona, setActivePersona] = useState(0);
+  const [activeTooltip, setActiveTooltip] = useState(null);
+
+  useEffect(() => {
+    const handleDocumentClick = () => {
+      setActiveTooltip(null);
+    };
+    document.addEventListener('click', handleDocumentClick);
+    return () => {
+      document.removeEventListener('click', handleDocumentClick);
+    };
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -218,7 +229,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
                 <Typography as="span" variant="bodyRegular" className="w-[74px] flex-shrink-0">Role</Typography>
                 <Typography as="span" variant="bodyRegular">UX/UI Designer, 10 months</Typography>
               </div>
-              <div className="flex flex-col md:flex-row gap-4 md:items-start">
+              <div className="flex gap-4 items-start">
                 <Typography as="span" variant="bodyRegular" className="w-[74px] flex-shrink-0">Team</Typography>
                 <Typography as="span" variant="bodyRegular" className="max-w-[500px]">Product Manager, Product Owner, 2 UX/UI Designers, Content Writer, Webflow Developer, Drupal Developer</Typography>
               </div>
@@ -232,34 +243,58 @@ const InsuranceCompanyWebsiteRedesign = () => {
               />
             </div>
 
-            <div className="relative grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-y-8 mb-12 md:mb-[100px]">
+            <div className="relative grid grid-cols-2 md:grid-cols-4 gap-y-8 mb-12 md:mb-[100px]">
               <span className="hidden md:block absolute left-1/4 top-1/2 h-[92px] w-px -translate-y-1/2 bg-[#D8D8D8]" />
-              <span className="hidden sm:block absolute left-1/2 top-1/2 h-[92px] w-px -translate-y-1/2 bg-[#D8D8D8]" />
+              <span className="hidden md:block absolute left-1/2 top-1/2 h-[92px] w-px -translate-y-1/2 bg-[#D8D8D8]" />
               <span className="hidden md:block absolute left-3/4 top-1/2 h-[92px] w-px -translate-y-1/2 bg-[#D8D8D8]" />
-              {metrics.map((metric) => (
-                <div key={metric.label} className="flex justify-center">
-                  <div className="w-full max-w-[180px] text-center flex flex-col items-center">
-                    <Typography as="div" variant="h3Medium" className="text-[#1A1A1A] mb-1">{metric.value}</Typography>
-                    <Typography variant="smallRegular" className="text-[#1A1A1A] text-center">{metric.label}</Typography>
-                    <div className="flex items-center justify-center gap-1.5 mt-1">
-                      <Typography variant="smallRegular" className="text-[#1A1A1A]">{metric.detail}</Typography>
-                      {metric.icon && metric.tooltip ? (
-                        <div className="relative flex items-center group cursor-pointer">
-                          <Icon icon={metric.icon} className="text-[#2F63CF] text-[20px]" style={{ fontWeight: 400 }} />
-                          <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-[calc(100vw-60px)] sm:w-[320px] p-4 bg-[#1A1A1A] rounded-[16px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 text-left pointer-events-none shadow-xl">
-                            <Typography as="div" variant="extraSmallRegular" className="text-[#F3F3F3]">
-                              {metric.tooltip}
-                            </Typography>
-                            <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-[1px] border-[6px] border-transparent border-t-[#1A1A1A]"></div>
+              {/* Mobile/Tablet 2x2 grid dividers */}
+              <span className="md:hidden absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[85%] w-px bg-[#D8D8D8]" />
+              <span className="md:hidden absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[85%] h-px bg-[#D8D8D8]" />
+              {metrics.map((metric, index) => {
+                const isLeftColumn = index % 2 === 0;
+                return (
+                  <div key={metric.label} className="flex justify-center">
+                    <div className="w-full max-w-[180px] text-center flex flex-col items-center">
+                      <Typography as="div" variant="h3Medium" className="text-[#1A1A1A] mb-1">{metric.value}</Typography>
+                      <Typography variant="smallRegular" className="text-[#1A1A1A] text-center">{metric.label}</Typography>
+                      <div className="flex items-center justify-center gap-1.5 mt-1">
+                        <Typography variant="smallRegular" className="text-[#1A1A1A]">{metric.detail}</Typography>
+                        {metric.icon && metric.tooltip ? (
+                          <div 
+                            className="relative flex items-center group cursor-pointer"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setActiveTooltip(activeTooltip === metric.label ? null : metric.label);
+                            }}
+                          >
+                            <Icon icon={metric.icon} className="text-[#2F63CF] text-[20px]" style={{ fontWeight: 400 }} />
+                            <div className={`absolute bottom-full left-1/2 mb-2 w-[280px] sm:w-[320px] p-4 bg-[#1A1A1A] rounded-[16px] transition-all duration-200 z-50 text-left shadow-xl ${
+                              isLeftColumn 
+                                ? '-translate-x-[25%] sm:-translate-x-1/2' 
+                                : '-translate-x-[75%] sm:-translate-x-1/2'
+                            } ${
+                              activeTooltip === metric.label 
+                                ? 'opacity-100 visible pointer-events-auto' 
+                                : 'opacity-0 invisible group-hover:opacity-100 group-hover:visible pointer-events-none'
+                            }`}>
+                              <Typography as="div" variant="extraSmallRegular" className="text-[#F3F3F3]">
+                                {metric.tooltip}
+                              </Typography>
+                              <div className={`absolute top-full -mt-[1px] border-[6px] border-transparent border-t-[#1A1A1A] -translate-x-1/2 ${
+                                isLeftColumn 
+                                  ? 'left-[25%] sm:left-1/2' 
+                                  : 'left-[75%] sm:left-1/2'
+                              }`}></div>
+                            </div>
                           </div>
-                        </div>
-                      ) : metric.icon && (
-                        <Icon icon={metric.icon} className="text-[#2F63CF] text-[20px]" style={{ fontWeight: 400 }} />
-                      )}
+                        ) : metric.icon && (
+                          <Icon icon={metric.icon} className="text-[#2F63CF] text-[20px]" style={{ fontWeight: 400 }} />
+                        )}
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
 
             <Paragraph>
@@ -268,7 +303,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
           </section>
 
           <section id="problems" className="scroll-mt-28 mb-12 md:mb-[84px]">
-            <Typography as="h2" variant="h6Regular" className="mb-8 text-[#1A1A1A]">The gap between ambition and reality</Typography>
+            <Typography as="h2" variant="h6Medium" className="mb-8 text-[#1A1A1A]">The gap between ambition and reality</Typography>
             <div className="flex flex-col gap-5 mb-[56px]">
               {problemAreas.map(({ icon, label }) => (
                 <div key={label} className="flex items-center gap-5">
@@ -324,14 +359,22 @@ const InsuranceCompanyWebsiteRedesign = () => {
           </section>
 
           <Section id="diagnosis" title="What the website audit found">
-            <div className="grid sm:grid-cols-3 gap-5 mb-8">
-              {auditStats.map((stat) => (
-                <div key={stat.label} className="rounded-[20px] bg-[#F3F3F3] p-5 min-h-[116px] flex flex-col justify-center">
-                  <Typography as="div" variant="h3Medium" className="mb-0 text-[#1A1A1A]">{stat.value}</Typography>
-                  <Typography variant="bodyRegular">{stat.label}</Typography>
-                  {stat.detail && <Typography variant="extraSmallRegular" className="text-[#777]">{stat.detail}</Typography>}
-                </div>
-              ))}
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-5 mb-8">
+              {auditStats.map((stat, index) => {
+                const isThird = index === 2;
+                return (
+                  <div 
+                    key={stat.label} 
+                    className={`rounded-[16px] sm:rounded-[20px] bg-[#F3F3F3] p-4 sm:p-5 min-h-[100px] sm:min-h-[116px] flex flex-col justify-center ${
+                      isThird ? 'col-span-2 sm:col-span-1' : 'col-span-1'
+                    }`}
+                  >
+                    <Typography as="div" variant="h3Medium" className="mb-0 text-[#1A1A1A]">{stat.value}</Typography>
+                    <Typography variant="bodyRegular" className="text-[#1A1A1A] leading-tight">{stat.label}</Typography>
+                    {stat.detail && <Typography variant="extraSmallRegular" className="text-[#777] mt-1 leading-tight">{stat.detail}</Typography>}
+                  </div>
+                );
+              })}
             </div>
 
             <ImageFrame
@@ -486,7 +529,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
 
             <Subhead>Information Architecture (direction variants)</Subhead>
             <Paragraph className="mb-8">
-              Three structural approaches were explored to handle the dual-audience structure: combined view, split view, and hybrid. The combined view with nav parity was the strongest fit: it served both audiences equally, kept SEO on a single domain, and avoided the maintenance overhead of two separate experiences. <a href="#" className="text-[#2F63CF] underline underline-offset-4">View the full tradeoff analysis.</a>
+              Three structural approaches were explored to handle the dual-audience structure: combined view, split view, and hybrid. The combined view with nav parity was the strongest fit: it served both audiences equally, kept SEO on a single domain, and avoided the maintenance overhead of two separate experiences.
             </Paragraph>
             <ImageFrame
               className="mb-2"

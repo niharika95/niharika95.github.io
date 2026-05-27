@@ -56,7 +56,7 @@ const heuristicExamples = [
   'Inadequate spacing',
 ];
 
-const Section = ({ id, title, titleVariant = 'h6Regular', children, className = '', titleClassName = 'mb-8' }) => (
+const Section = ({ id, title, titleVariant = 'h6Medium', children, className = '', titleClassName = 'mb-8' }) => (
   <section id={id} className={`scroll-mt-28 mb-12 md:mb-[88px] ${className}`}>
     {title && (
       <Typography as="h2" variant={titleVariant} className={`${titleClassName} text-gray-900`}>
@@ -436,7 +436,7 @@ const SplitQuote = ({ id }) => (
 const StructuralFinding = ({ icon, title, children }) => (
   <div>
     <div className="flex items-center gap-5 mb-5">
-      <Icon icon={icon} className="text-[#611E90] text-[38px] flex-shrink-0" />
+      <Icon icon={icon} className="text-[#6D20E8] text-[38px] flex-shrink-0" />
       <Typography as="h6" variant="h6Regular" className="text-gray-900">
         {title}
       </Typography>
@@ -633,7 +633,7 @@ const ExposureTool = () => {
             </Quote>
 
             <div className="flex items-center gap-7 py-4">
-              <Icon icon="material-symbols-light:wb-incandescent" className="flex-shrink-0 text-[80px] text-[#611E90]" />
+              <Icon icon="material-symbols-light:wb-incandescent" className="flex-shrink-0 text-[80px] text-[#6D20E8]" />
               <div>
                 <Typography as="p" variant="bodyRegular" className="text-gray-900">
                   The question that reframed the design:

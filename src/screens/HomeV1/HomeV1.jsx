@@ -33,7 +33,7 @@ const HomeV1 = () => {
         </a>
         <span className="home-v1-footer-pipe">|</span>
         <a 
-          href="mailto:niharika95@gmail.com" 
+          href="mailto:niharika13dalal@gmail.com" 
           className="home-v1-social-link"
         >
           <i className="icon-email"></i> Say hello!

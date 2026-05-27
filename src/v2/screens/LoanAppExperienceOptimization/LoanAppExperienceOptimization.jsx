@@ -32,7 +32,7 @@ const images = {
 const Section = ({ id, title, children, className = '' }) => (
   <section id={id} className={`scroll-mt-28 ${className || 'mb-12 md:mb-[88px]'}`}>
     {title && (
-      <Typography as="h2" variant="h6Regular" className="mb-8 text-gray-900">
+      <Typography as="h2" variant="h6Medium" className="mb-8 text-gray-900">
         {title}
       </Typography>
     )}
@@ -427,7 +427,7 @@ const LoanAppExperienceOptimization = () => {
           </Section>
 
           <Section id="reflection" title="" className="mb-0">
-            <Typography as="h2" variant="h6Regular" className="mb-8 text-gray-900">
+            <Typography as="h2" variant="h6Medium" className="mb-8 text-gray-900">
               What I'd do differently
             </Typography>
             <Paragraph>
