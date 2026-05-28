@@ -407,9 +407,10 @@ const InsuranceCompanyWebsiteRedesign = () => {
             <ImageFrame
               src={`${ASSET_PATH}/hero.png`}
               alt="Approved dark and bold direction"
-              className="p-6 bg-[#111] mb-8"
+              className="p-6 bg-[#111] mb-2"
               imgClassName="w-full h-auto rounded-[10px]"
             />
+            <Caption className="mb-8">A selection of final screens across the redesigned site.</Caption>
             <div className="flex gap-3 mb-8">
               <img
                 src={`${ASSET_PATH}/photoshop-40.svg`}

@@ -594,9 +594,10 @@ const InsuranceCompanyWebsiteRedesign = () => {
             <ImageFrame
               src={`${ASSET_PATH}/${images.approvedHero}`}
               alt="Approved dark and bold direction"
-              className="p-6 mb-8 bg-gray-900"
+              className="p-6 mb-2 bg-gray-900"
               imgClassName="w-full h-auto"
             />
+            <Caption className="mb-8">A selection of final screens across the redesigned site.</Caption>
             <div className="flex gap-3 mb-8">
               <img
                 src={`${ASSET_PATH}/${images.photoshopLogo}`}
@@ -607,7 +608,6 @@ const InsuranceCompanyWebsiteRedesign = () => {
                 Stock photos were sourced and enhanced using Photoshop AI, with elements modified where needed to carry the brand color palette, balancing cohesion with visual variety.
               </Paragraph>
             </div>
-            <Caption>A selection of final screens across the redesigned site.</Caption>
           </Section>
 
           {/* 
