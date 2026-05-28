@@ -589,10 +589,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
 
           <Section id="pivot" title="The Stakeholder Pivot">
             <Paragraph className="mb-8">
-              A month of iteration and feedback with the client's marketing team produced a light, airy stylistic direction. However, the CEO and CTO, who had not been present in earlier meetings, rejected it, clarifying that they had envisioned something darker and bolder.
-            </Paragraph>
-            <Paragraph className="mb-8">
-              Quickly reorienting to earlier explorations, we built a new concept grounded in their brief. It aligned with their vision and was approved on the first demo.
+              A month of iteration and feedback with the client's marketing team produced a light, airy stylistic direction. However, the CEO and CTO, who had not been present in earlier meetings, rejected it, envisioning something darker and bolder. Rather than redirecting to the marketing team's earlier guidance, we drew on the broad explorations we'd invested in early in the process, and because that groundwork was already done, we were able to pivot in a direction that aligned more closely with their vision, within a week. The new concept was approved on the first demo.
             </Paragraph>
             <div className="flex gap-3 mb-8">
               <img
