@@ -404,6 +404,12 @@ const InsuranceCompanyWebsiteRedesign = () => {
             <Paragraph className="mb-8">
               A month of iteration and feedback with the client's marketing team produced a light, airy stylistic direction. However, the CEO and CTO, who had not been present in earlier meetings, rejected it, envisioning something darker and bolder. Rather than redirecting to the marketing team's earlier guidance, we drew on the broad explorations we'd invested in early in the process, and because that groundwork was already done, we were able to pivot in a direction that aligned more closely with their vision, within a week. The new concept was approved on the first demo.
             </Paragraph>
+            <ImageFrame
+              src={`${ASSET_PATH}/hero.png`}
+              alt="Approved dark and bold direction"
+              className="p-6 bg-[#111] mb-8"
+              imgClassName="w-full h-auto rounded-[10px]"
+            />
             <div className="flex gap-3 mb-8">
               <img
                 src={`${ASSET_PATH}/photoshop-40.svg`}
@@ -414,12 +420,6 @@ const InsuranceCompanyWebsiteRedesign = () => {
                 Stock photos were sourced and enhanced using Photoshop AI, with elements modified where needed to carry the brand color palette, balancing cohesion with visual variety.
               </Paragraph>
             </div>
-            <ImageFrame
-              src={`${ASSET_PATH}/hero.png`}
-              alt="Approved dark and bold direction"
-              className="p-6 bg-[#111]"
-              imgClassName="w-full h-auto rounded-[10px]"
-            />
           </Section>
 
           <Section id="impact" title="Tradeoffs & Design Decisions">
