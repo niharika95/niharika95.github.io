@@ -479,7 +479,10 @@ const ExposureTool = () => {
         }
       });
 
-      if (window.innerHeight + Math.round(window.scrollY) >= document.documentElement.scrollHeight - 10) {
+      // If we reach the bottom of the page, force the last section to be active.
+      // We check if the viewport is within 100px of the bottom of the page to handle zoom, dynamic heights, or scaled displays robustly.
+      const isAtBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 100;
+      if (isAtBottom) {
         currentActiveId = TOC[TOC.length - 1].id;
       }
 
