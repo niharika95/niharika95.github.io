@@ -10,8 +10,7 @@ import { Icon } from '@iconify/react';
 
 const TOC = [
   { id: 'intro', label: 'Intro' },
-  { id: 'problems', label: 'Problems' },
-  { id: 'diagnosis', label: 'Diagnosis & discovery' },
+  { id: 'diagnosis', label: 'Diagnosis' },
   { id: 'audience', label: 'Audience' },
   { id: 'foundation', label: 'Foundation' },
   { id: 'crafting', label: 'Exploration' },
@@ -38,10 +37,9 @@ const images = {
   informationArchitectureVideo: 'information-architecture.mp4',
   styleDirections: 'style-directions.png',
   styleDirectionsVideo: 'moodboarding.mp4',
-  uxPilotLogo: 'ux-pilot-logo.png',
-  uxPilotLayout: 'ux-pilot-layout.png',
   photoshopLogo: 'photoshop-40.svg',
-  approvedHero: 'approved-hero-placeholder.png',
+  earlierExplorations: 'earlier-explorations.png',
+  finalScreens: 'final-screens.png',
   navigationBeforeAfter: 'navigation-before-after.png',
   heroBeforeAfter: 'hero-before-after.png',
   claimsFormBeforeAfter: 'claims-form-before-after.png',
@@ -147,6 +145,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
 
   const [activeSection, setActiveSection] = useState('intro');
   const [activePersona, setActivePersona] = useState(0);
+  const [activeSitemap, setActiveSitemap] = useState(0);
   const [activeTooltip, setActiveTooltip] = useState(null);
 
   useEffect(() => {
@@ -227,30 +226,19 @@ const InsuranceCompanyWebsiteRedesign = () => {
         <main className="w-full max-w-[720px] mx-auto lg:ml-20 xl:ml-32">
 
           <section id="intro" className="scroll-mt-28 mb-[40px]">
-            <Typography as="h1" variant="h2Regular" className="mb-8 md:mb-[70px] text-[#1A1A1A] max-w-[680px]">
-              Redesign that improved site performance by 37% and resolved 53 heuristic issues.
-            </Typography>
-
-            <div className="flex flex-col mb-10 md:mb-[86px] text-gray-500 gap-1">
-              <div className="flex gap-4">
-                <Typography as="span" variant="bodyRegular" className="w-[74px] flex-shrink-0">Role</Typography>
-                <Typography as="span" variant="bodyRegular">UX/UI Designer, 10 months</Typography>
-              </div>
-              <div className="flex gap-4 items-start">
-                <Typography as="span" variant="bodyRegular" className="w-[74px] flex-shrink-0">Team</Typography>
-                <Typography as="span" variant="bodyRegular" className="max-w-[500px]">Product Manager, Product Owner, 2 UX/UI Designers, Content Writer, Webflow Developer, Drupal Developer</Typography>
-              </div>
-            </div>
-
-            <div className="bg-[#F2F2F2] rounded-[20px] p-8 md:p-12 mb-12 md:mb-[100px] flex items-center justify-center">
+            <div className="mb-20 overflow-hidden rounded-[20px]">
               <img
                 src={`${ASSET_PATH}/${images.insuranceHero}`}
                 alt="Insurance Hero"
-                className="w-full h-auto rounded-md"
+                className="w-full h-auto"
               />
             </div>
 
-            <div className="relative grid grid-cols-2 md:grid-cols-4 gap-y-8 mb-12 md:mb-[100px]">
+            <Typography as="h1" variant="h2Regular" className="mb-20 text-[#1A1A1A] max-w-[680px]">
+              A 10-month UX overhaul that turned 56 usability issues, built a scalable system, and improved site performance by 37%.
+            </Typography>
+
+            <div className="relative grid grid-cols-2 md:grid-cols-4 gap-y-8 mb-[100px]">
               <span className="hidden md:block absolute left-1/4 top-1/2 h-[92px] w-px -translate-y-1/2 bg-[#D8D8D8]" />
               <span className="hidden md:block absolute left-1/2 top-1/2 h-[92px] w-px -translate-y-1/2 bg-[#D8D8D8]" />
               <span className="hidden md:block absolute left-3/4 top-1/2 h-[92px] w-px -translate-y-1/2 bg-[#D8D8D8]" />
@@ -304,151 +292,79 @@ const InsuranceCompanyWebsiteRedesign = () => {
               })}
             </div>
 
-            <Paragraph>
-              A mid-sized U.S. home insurer, the third-fastest-growing in the country and on a path from $600M to $1B in revenue, needed a marketing website that matched its ambition.
-            </Paragraph>
-          </section>
-
-          <section id="problems" className="scroll-mt-28 mb-12 md:mb-[84px]">
-            <Typography as="h2" variant="h6Medium" className="mb-8 text-[#1A1A1A]">The gap between ambition and reality</Typography>
-            <div className="flex flex-col gap-5 mb-[56px]">
-              {problemAreas.map(({ icon, label }) => (
-                <div key={label} className="flex items-center gap-5">
-                  <Icon icon={icon} className="text-[#D43A4B] flex-shrink-0 text-[32px]" />
-                  <Typography as="span" variant="bodySemibold" className="text-[#1A1A1A]">{label}</Typography>
-                </div>
-              ))}
-            </div>
-
-            <ImageFrame
-              src={`${ASSET_PATH}/${images.brandAuditBoard}`}
-              alt="Brand audit board placeholder"
-              className="p-6 mb-2"
-              imgClassName="w-full h-auto"
-            />
-
-            <Caption className="mb-10 md:mb-[80px]">
-              The absence of a unified design system resulted in inconsistent button, card, and icon styles that diluted the brand identity.
-            </Caption>
-
-            <div className="grid md:grid-cols-2 gap-6 mb-12 md:mb-[100px]">
-              <div>
-                <ImageFrame
-                  src={`${ASSET_PATH}/${images.contentAuditStatePage}`}
-                  alt="Content audit state page placeholder"
-                  className="pt-5 px-5 pb-0 mb-2 aspect-[4/3] !items-end"
-                  imgClassName="w-full h-auto"
-                />
-                <Caption>
-                  Inconsistent data architecture across state pages created a fragmented and unpredictable user experience.
-                </Caption>
+            <div className="flex flex-col mb-[100px] text-gray-500 gap-1">
+              <div className="flex gap-4">
+                <Typography as="span" variant="bodyRegular" className="w-[74px] flex-shrink-0">Role</Typography>
+                <Typography as="span" variant="bodyRegular">UX/UI Designer, 10 months</Typography>
               </div>
-              <div>
-                <ImageFrame
-                  src={`${ASSET_PATH}/${images.longTextContentPage}`}
-                  alt="Long text content page placeholder"
-                  className="pt-5 pl-5 pr-0 pb-0 mb-2 aspect-[4/3] !items-end !justify-end"
-                  imgClassName="w-full h-auto"
-                />
-                <Caption>
-                  Jarring background colors and poor contrast ratios created significant eye strain and accessibility barriers.
-                </Caption>
+              <div className="flex gap-4 items-start">
+                <Typography as="span" variant="bodyRegular" className="w-[74px] flex-shrink-0">Team</Typography>
+                <Typography as="span" variant="bodyRegular" className="max-w-[500px]">Product Manager, Product Owner, 2 UX/UI Designers, Content Writer, Webflow Developer, Drupal Developer</Typography>
               </div>
             </div>
 
-            <blockquote className="relative pl-12 mb-10 md:mb-[64px]">
-              <Icon icon="material-symbols:format-quote" className="absolute left-0 top-1 text-[40px] text-[#1A1A1A] scale-x-[-1] scale-y-[-1]" />
-              <Typography as="p" variant="h6Regular" className="italic text-[#1A1A1A] mb-5">
-                The new site must be visually striking, bold, and impactful, with seamless functionality and exceptional B2B and B2C content. We aim to create an enjoyable experience where customers, independent agents, prospective customers, employees and potential investors can easily find what they need and accomplish their tasks with minimal efforts and few clicks.
+            <div id="diagnosis" className="scroll-mt-28 mb-2 overflow-hidden rounded-[20px]">
+              <img
+                src={`${ASSET_PATH}/existing-website-hero.png`}
+                alt="Landing page of the existing website"
+                className="w-full h-auto"
+              />
+            </div>
+            <Caption className="mb-[100px]">Landing page of the existing website.</Caption>
+
+            <blockquote className="relative pl-12 mb-[100px]">
+              <Icon 
+                icon="material-symbols:format-quote-rounded" 
+                className="absolute left-0 top-1 text-[30px] text-[#1A1A1A] scale-x-[-1]" 
+              />
+              <Typography 
+                as="p" 
+                variant="h6Regular" 
+                className="italic text-[#1A1A1A] mb-4" 
+                style={{ lineHeight: '36px' }}
+              >
+                The new site must be visually striking, bold, and impactful, with seamless functionality and exceptional B2B and B2C content.
               </Typography>
-              <Typography as="cite" variant="bodyRegular" className="block not-italic text-gray-500">— Client</Typography>
+              <Typography 
+                as="cite" 
+                variant="extraSmallRegular" 
+                className="block not-italic text-gray-500"
+              >
+                — VP of Marketing, client company
+              </Typography>
             </blockquote>
+
+            <Paragraph className="mb-[100px]">
+              A high-level look at the site before we started had already flagged inconsistency and visual fragmentation. The audit made that precise: two designers, one week, a 27-page report surfacing 56 usability issues. The top violations clustered around visual inconsistency, clutter, and unnecessary friction, confirming that this wasn't a cosmetic problem. The client had framed it as a refresh. The audit showed it was structural. That shared, documented diagnosis became the foundation for every decision that followed.
+            </Paragraph>
+
           </section>
 
-          <Section id="diagnosis" title="What the website audit found">
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-5 mb-8">
-              {auditStats.map((stat, index) => {
-                const isThird = index === 2;
-                return (
-                  <div 
-                    key={stat.label} 
-                    className={`rounded-[16px] sm:rounded-[20px] bg-[#F3F3F3] p-4 sm:p-5 min-h-[100px] sm:min-h-[116px] flex flex-col justify-center ${
-                      isThird ? 'col-span-2 sm:col-span-1' : 'col-span-1'
-                    }`}
-                  >
-                    <Typography as="div" variant="h3Medium" className="mb-0 text-[#1A1A1A]">{stat.value}</Typography>
-                    <Typography variant="bodyRegular" className="text-[#1A1A1A] leading-tight">{stat.label}</Typography>
-                    {stat.detail && <Typography variant="extraSmallRegular" className="text-[#777] mt-1 leading-tight">{stat.detail}</Typography>}
-                  </div>
-                );
-              })}
-            </div>
+          <Section id="diagnosis-audit" title="">
 
             <ImageFrame
               src={`${ASSET_PATH}/${images.auditReportTable}`}
               alt="Audit report table placeholder"
-              className="py-6 pr-10 pl-0 mb-12 bg-[#111]"
+              className="py-6 pr-10 pl-0 mb-2 bg-[#111]"
               imgClassName="w-full h-auto"
             />
-
-            <Paragraph className="mb-6">
-              The top three heuristic violations pointed to the same root problems: visual inconsistency, clutter, and unnecessary friction.
-            </Paragraph>
-            <Paragraph className="mb-12">
-              The automated accessibility score was 88, but manual screen reader testing uncovered <strong className="font-semibold">broken heading hierarchy, missing alt text, keyboard navigation failures, and color contrast violations.</strong>
-            </Paragraph>
-
-            <div className="rounded-[20px] bg-[#F5F5F5] px-7 py-8 md:px-9 md:py-9">
-              <div className="flex items-center justify-between border-b border-[#DDDDDD] pb-6">
-                <Typography as="h3" variant="bodyRegular" className="text-[#1A1A1A]">Heuristic issues</Typography>
-                <Typography as="span" variant="bodyRegular" className="text-[#1A1A1A]">56 total</Typography>
-              </div>
-              <div className="pt-6 space-y-6">
-                {heuristicIssues.map((issue) => {
-                  const isPrimary = issue.value > 1;
-                  const width = issue.value ? `${Math.max((issue.value / 30) * 100, 3)}%` : '0%';
-                  const colorClass = isPrimary ? 'bg-[#D6003B]' : 'bg-[#9C9C9C]';
-
-                  return (
-                    <div key={issue.label} className="flex flex-col gap-2 sm:grid sm:grid-cols-[minmax(120px,230px)_1fr_24px] sm:items-center sm:gap-5 md:gap-7">
-                      <Typography
-                        as="span"
-                        variant="smallRegular"
-                        className={`${isPrimary ? 'text-[#1A1A1A]' : 'text-gray-600'} w-full`}
-                      >
-                        {issue.label}
-                      </Typography>
-                      <div className="flex items-center gap-3 w-full sm:contents">
-                        <div className="h-px bg-[#D6D6D6] relative flex-1 sm:h-px sm:bg-[#D6D6D6]">
-                          {issue.value > 0 && (
-                            <>
-                              <span
-                                className={`absolute left-0 top-1/2 h-[2px] -translate-y-1/2 ${colorClass}`}
-                                style={{ width }}
-                              />
-                              <span
-                                className={`absolute top-1/2 size-[8px] -translate-y-1/2 rounded-full ${colorClass}`}
-                                style={{ left: `calc(${width} - 4px)` }}
-                              />
-                            </>
-                          )}
-                        </div>
-                        <Typography as="span" variant="smallRegular" className={`w-8 text-right flex-shrink-0 ${isPrimary ? 'text-[#1A1A1A]' : 'text-gray-600'}`}>{issue.value || '-'}</Typography>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
+            <Caption className="mb-10 md:mb-[80px]">
+              A summary of the 27-page report surfacing 56 usability issues.
+            </Caption>
           </Section>
 
-          <Section id="audience" title="Understanding the Audience">
-            <Paragraph className="mb-6">
-              The company serves two audiences: <strong className="font-semibold">homeowners</strong> and <strong className="font-semibold">agents</strong>. Research revealed that the affluent and established homeowner persona responded to credibility over price. That profile directly shaped the visual direction.
-            </Paragraph>
-            <Typography variant="h6Medium" className="mb-10 text-[#1A1A1A]">
-              35-64 primary age range &nbsp;•&nbsp; 28% earning $150K+ &nbsp;•&nbsp; 54% owning homes valued $300K-$749K &nbsp;•&nbsp; concentrated in states SC, MS, AL
+          <Section id="audience" title="" className="!mb-[100px]">
+            <Typography as="h2" variant="h6Medium" className="mb-10 text-[#1A1A1A]">
+              Understanding the Audience
             </Typography>
+
+            <Paragraph className="mb-10">
+              The client provided a customer profile that told a clear story: <Typography as="strong" variant="bodySemibold">homeowners</Typography> aged 35–64, heavily concentrated in high-income segments, with household incomes above $150K and home values above $500K. For this audience, price wasn't the primary motivator: trust was. That shaped the visual direction toward credibility.
+            </Paragraph>
+            <Paragraph className="mb-10">
+              <Typography as="strong" variant="bodySemibold">Agents</Typography> were the second audience. The site included sections built specifically for them, and the header navigation reflected both equally, showing dual dropdowns, one per audience, so neither had to hunt for what was relevant to them.
+            </Paragraph>
+
             <ImageFrame
               className="p-8 mb-2 group"
             >
@@ -482,80 +398,101 @@ const InsuranceCompanyWebsiteRedesign = () => {
             <Caption>Homeowner and agent personas.</Caption>
           </Section>
 
-          <Section id="foundation" title="Rebuilding the Foundation">
-            <Subhead>Competitive Analysis</Subhead>
-            <Paragraph className="mb-4">
-              Analyzing 8 competitors surfaced gaps in the information architecture that were common across the landscape but absent from the client site:
-            </Paragraph>
-            <ul className="list-disc pl-6 mb-4">
-              <Typography as="li" variant="bodyRegular">a Spanish language toggle</Typography>
-              <Typography as="li" variant="bodyRegular">direct contact number</Typography>
-              <Typography as="li" variant="bodyRegular">sustainability and diversity sections</Typography>
-            </ul>
-            <Paragraph className="mb-8">
-              Each was recommended and declined for operational and strategic reasons, sharpening our understanding of the company's constraints.
-            </Paragraph>
-            <ImageFrame
-              className="mb-2"
-            >
-              <video
-                src={`${ASSET_PATH}/${images.competitiveAnalysisVideo}`}
-                className="w-full h-auto"
-                autoPlay
-                loop
-                muted
-                playsInline
-              />
-            </ImageFrame>
-            <Caption className="mb-10">Competitive analysis</Caption>
+          <Section id="foundation" title="">
+            <Typography as="h2" variant="h6Medium" className="mb-10 text-[#1A1A1A]">
+              Rebuilding the Foundation
+            </Typography>
 
-            <Subhead>Card sorting &amp; Survey</Subhead>
-            <Paragraph className="mb-6">
-              Card sorting with three participants revealed where the existing IA was intuitive and where it was not. <strong className="font-semibold">Agent content grouped consistently, but Claims, Payments, and Find an Agent produced a different grouping every time.</strong>
+            <Paragraph className="mb-10">
+              Analyzing eight competitors surfaced three gaps absent from the client site: a Spanish language toggle, prominent contact numbers, sustainability sections. Each was recommended. Each was declined, and the reasons revealed the real constraints shaping the project: cost and operational lift, deliberate routing decisions, strategic positioning choices. The analysis also revealed something structural: no consensus on how competitors organized their navigation. This led me to a card sort.
             </Paragraph>
+            <Paragraph className="mb-10">
+              Three designers outside the project (a proxy for real users given we didn't have access to them, chosen specifically because they had no prior knowledge of the site) sorted the existing content. Agent content grouped consistently; ‘Claims’, ‘Payments’, and ‘Find an Agent’ didn't. A survey with four domain experts resolved the categorization, and raised the next question: combined, split, or hybrid navigation structure?
+            </Paragraph>
+
             <ImageFrame
-              src={`${ASSET_PATH}/${images.cardSortingSurvey}`}
-              alt="Card sorting and survey placeholder"
-              className="p-6 mb-2"
-              imgClassName="w-full h-auto"
+              src={`${ASSET_PATH}/structure-comparison.png`}
+              alt="Sitemap structures comparison"
+              className="p-6 mb-2 bg-gray-50"
+              imgClassName="w-full h-auto rounded-none"
             />
-            <Caption className="mb-8">Card sorting</Caption>
-            <Paragraph className="mb-6">
-              Inconclusive data led to a survey of four domain experts. On <strong className="font-semibold">Claims and Payments, multiple experts flagged them as too buried on mobile and recommended surfacing them directly.</strong> That shaped the final navigation.
-            </Paragraph>
-            <div className="mb-10 flex items-start gap-3">
-              <img
-                src={`${ASSET_PATH}/${images.microsoftCopilotLogo}`}
-                alt="Microsoft Copilot"
-                className="mt-1 size-6 flex-shrink-0"
-              />
-              <Paragraph>
-                Cross-referencing the existing site structure against insurance industry norms with Microsoft Copilot helped sharpen what content each screen needed to carry.
-              </Paragraph>
-            </div>
+            <Caption className="mb-10">
+              A comparison of the pros and cons of combined, split, and hybrid sitemap structures.
+            </Caption>
 
-            <Subhead>Information Architecture (direction variants)</Subhead>
-            <Paragraph className="mb-8">
-              Three structural approaches were explored to handle the dual-audience structure: combined view, split view, and hybrid. The combined view with nav parity was the strongest fit: it served both audiences equally, kept SEO on a single domain, and avoided the maintenance overhead of two separate experiences.
+            <Paragraph className="mb-10">
+              The audit had flagged the navigation structure as a problem before any IA decisions were made. The original site had two navigation bars: neither surfaced a customer-facing path, while agents had a dedicated dropdown. For a company serving both audiences equally, that asymmetry wasn't intentional, but it was structural. We researched three approaches to the dual-audience navigation: combined view, split view, and hybrid. Each was evaluated against the specific constraints of the insurance domain, with input from domain experts on the project team. The tradeoffs were documented in a structured pros and cons assessment and walked through with the client. Combined view with symmetric dropdowns for both audiences was the strongest fit: it corrected the asymmetry, kept SEO on a single domain, and avoided the maintenance overhead of two separate experiences. The client aligned with the recommendation based on that documentation.
             </Paragraph>
+
             <ImageFrame
-              className="mb-2"
+              className="p-8 mb-2 group flex-col !items-stretch !rounded-none"
             >
-              <video
-                src={`${ASSET_PATH}/${images.informationArchitectureVideo}`}
-                className="w-full h-auto"
-                autoPlay
-                loop
-                muted
-                playsInline
-              />
+              {/* Header with Title and Optional Finalized Label */}
+              <div className="flex items-center gap-3 mb-6">
+                <Typography variant="bodyRegular" className="text-[#1A1A1A]">
+                  {activeSitemap === 0 && "Combined sitemap"}
+                  {activeSitemap === 1 && "Split sitemap (Homeowner)"}
+                  {activeSitemap === 2 && "Split sitemap (Agent)"}
+                </Typography>
+                {activeSitemap === 0 && (
+                  <Typography 
+                    as="span" 
+                    variant="extraSmallRegular" 
+                    className="px-2.5 py-0.5 rounded-[4px] font-semibold tracking-wide" 
+                    style={{ backgroundColor: '#008A35', color: '#ffffff' }}
+                  >
+                    Finalized
+                  </Typography>
+                )}
+              </div>
+
+              {/* Slider Images */}
+              <div className="grid w-full items-center flex-1">
+                <img
+                  src={`${ASSET_PATH}/combined-sitemap.png`}
+                  alt="Combined sitemap"
+                  className={`col-start-1 row-start-1 w-full h-auto rounded-none transition-opacity duration-300 ${activeSitemap === 0 ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'}`}
+                />
+                <img
+                  src={`${ASSET_PATH}/split-sitemap-homeowner.png`}
+                  alt="Split sitemap (Homeowner)"
+                  className={`col-start-1 row-start-1 w-full h-auto rounded-none transition-opacity duration-300 ${activeSitemap === 1 ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'}`}
+                />
+                <img
+                  src={`${ASSET_PATH}/split-sitemap-agent.png`}
+                  alt="Split sitemap (Agent)"
+                  className={`col-start-1 row-start-1 w-full h-auto rounded-none transition-opacity duration-300 ${activeSitemap === 2 ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'}`}
+                />
+              </div>
+
+              {/* Controls */}
+              <button
+                onClick={() => setActiveSitemap((prev) => (prev === 0 ? 2 : prev - 1))}
+                className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center text-[#777] hover:text-[#1A1A1A] transition-colors z-20"
+                aria-label="Previous sitemap"
+              >
+                <Icon icon="material-symbols:arrow-back-ios" className="text-[24px]" />
+              </button>
+              <button
+                onClick={() => setActiveSitemap((prev) => (prev === 2 ? 0 : prev + 1))}
+                className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center text-[#777] hover:text-[#1A1A1A] transition-colors z-20"
+                aria-label="Next sitemap"
+              >
+                <Icon icon="material-symbols:arrow-forward-ios" className="text-[24px]" />
+              </button>
             </ImageFrame>
-            <Caption>Information architecture</Caption>
+            <Caption className="mb-10">
+              Information architecture sitemaps for the combined (finalized) and split views.
+            </Caption>
           </Section>
 
-          <Section id="crafting" title="Crafting the Experience">
-            <Paragraph className="mb-8">
-              We developed four distinct stylistic directions to give the client a structured basis for decision-making. Each direction included a guide covering theme, typography, UI elements, and a rationale. The client gravitated toward a hybrid of Friendly and Sleek: enough warmth to feel human, and enough sophistication to reflect their growth.
+          <Section id="crafting" title="">
+            <Typography as="h2" variant="h6Medium" className="mb-10 text-[#1A1A1A]">
+              Crafting the Experience
+            </Typography>
+
+            <Paragraph className="mb-10">
+              The client had been explicit: they didn't want something cookie-cutter. So rather than limiting the reference set to insurance sites, we pulled from adjacent industries as well, anything that felt visually adjacent to the brand's ambition without being bound by insurance conventions. About 50 designs in total. No framework imposed upfront; we let visual patterns cluster before naming them. Four distinct directions emerged.
             </Paragraph>
             <ImageFrame
               className="mb-2 bg-[#111]"
@@ -569,94 +506,68 @@ const InsuranceCompanyWebsiteRedesign = () => {
                 playsInline
               />
             </ImageFrame>
-            <Caption className="mb-10">Exploration moodboard of 4 stylistic directions</Caption>
+            <Caption className="mb-10">Exploration moodboard of 4 stylistic directions.</Caption>
 
-            <div className="flex flex-col md:flex-row gap-9 items-center mb-12 md:mb-[84px]">
-              <div className="w-full md:w-[45%]">
-                <img
-                  src={`${ASSET_PATH}/${images.uxPilotLogo}`}
-                  alt="UX Pilot"
-                  className="mb-6 h-auto w-[120px]"
-                />
-                <Paragraph>
-                  Catching structural problems before any visual decisions were made was the priority at this stage. Generating and comparing layout configurations rapidly with UX Pilot allowed us to pressure-test the IA decisions we'd finalized while the cost of change was still low.
-                </Paragraph>
-              </div>
-              <div className="w-full md:w-[55%] flex flex-col">
-                <ImageFrame
-                  src={`${ASSET_PATH}/${images.uxPilotLayout}`}
-                  alt="UX Pilot layout placeholder"
-                  className="py-6 pl-6 pr-0 mb-2 !justify-start"
-                  imgClassName="w-[150%] max-w-none h-auto rounded-l-[12px] shadow-sm"
-                />
-                <Caption>Rapid mockups in UX Pilot</Caption>
-              </div>
-            </div>
+            <Paragraph className="mb-10">
+              For each, we built a full brief: color logic, typography pairings, UI element behavior, and an honest pros/cons assessment against the client's brand and audience. Some directions were more live than others. ‘Playful and Illustrated’ had visual energy but nothing in it spoke to the client's brand or audience. ‘Friendly and Approachable’ was harder to dismiss: warmth and modern feel had real appeal for homeowners. The documented risk was competitive. Most insurers were already in that territory, and for a client targeting high-net-worth homeowners, blending in was the wrong kind of familiar.
+            </Paragraph>
+
+            <ImageFrame
+              src={`${ASSET_PATH}/${images.styleDirections}`}
+              alt="Briefs for stylistic directions"
+              className="pt-6 px-6 mb-2 !bg-gray-900"
+              imgClassName="w-full h-auto rounded-tl-[12px]"
+            />
+            <Caption className="mb-10">
+              Individual briefs explaining the design language for each stylistic direction to help the client make highly informed decisions.
+            </Caption>
+
+            <Paragraph className="mb-10">
+              We walked the marketing team through all four. They landed on a hybrid of Friendly and Approachable and Elegant and Sleek: enough warmth to feel human, enough sophistication to reflect the company's growth ambitions. When they said "bold and impactful" in early conversations, we had interpreted that as a quality bar, not a visual direction. We didn't verify that read. That assumption held until it didn't.
+            </Paragraph>
           </Section>
 
-          <Section id="pivot" title="The Stakeholder Pivot">
-            <Paragraph className="mb-8">
-              A month of iteration and feedback with the client's marketing team produced a light, airy stylistic direction. However, the CEO and CTO, who had not been present in earlier meetings, rejected it, envisioning something darker and bolder. Rather than redirecting to the marketing team's earlier guidance, we drew on the broad explorations we'd invested in early in the process, and because that groundwork was already done, we were able to pivot in a direction that aligned more closely with their vision, within a week. The new concept was approved on the first demo.
+          <Section id="pivot" title="">
+            <Typography as="h2" variant="h6Medium" className="mb-10 text-[#1A1A1A]">
+              The Stakeholder Pivot
+            </Typography>
+            <Paragraph className="mb-10">
+              A month of iteration with the marketing team had produced a direction: light, airy, credibility-forward. When the CEO and CTO joined for the first time to review it, they rejected it. They wanted something darker and bolder.
             </Paragraph>
             <ImageFrame
-              src={`${ASSET_PATH}/${images.approvedHero}`}
-              alt="Approved dark and bold direction"
-              className="p-6 mb-2 bg-gray-900"
+              src={`${ASSET_PATH}/${images.earlierExplorations}`}
+              alt="Earlier explorations"
+              className="mb-2"
               imgClassName="w-full h-auto"
             />
-            <Caption className="mb-8">A selection of final screens across the redesigned site.</Caption>
-            <div className="flex gap-3 mb-8">
-              <img
-                src={`${ASSET_PATH}/${images.photoshopLogo}`}
-                alt="Adobe Photoshop"
-                className="mt-1 size-6 flex-shrink-0"
-              />
-              <Paragraph>
-                Stock photos were sourced and enhanced using Photoshop AI, with elements modified where needed to carry the brand color palette, balancing cohesion with visual variety.
-              </Paragraph>
-            </div>
+            <Caption className="mb-10">
+              Showing earlier explorations in the same meeting gave them language for what they actually wanted: not full dark mode, but strong contrast. That conversation became the new brief.
+            </Caption>
+            <Paragraph className="mb-10">
+              We went back and built a hybrid direction that answered that brief directly.
+            </Paragraph>
+            <Paragraph className="mb-10">
+              Dark and light sections in deliberate tension: dark to stop the eye, light elsewhere. We also used the pivot to establish imagery rules that hadn't existed: cosmos imagery as background texture only, lifestyle imagery for product sections, and a red-element constraint on all photos tied back to brand color. Where stock images didn't cooperate, Photoshop's generative AI closed the gap.
+            </Paragraph>
+            <Paragraph className="mb-10">
+              The direction went to the marketing team first, then to the CEO and CTO. It resonated well, and was approved without revision.
+            </Paragraph>
+            <ImageFrame
+              src={`${ASSET_PATH}/${images.finalScreens}`}
+              alt="Final screens"
+              className="mb-2"
+              imgClassName="w-full h-auto"
+            />
+            <Caption className="mb-10">
+              A selection of final screens across the redesigned site.
+            </Caption>
           </Section>
-
-          {/* 
-          <Section id="tradeoffs" title="Tradeoffs & Design Decisions">
-            <Subhead>Navigation Parity</Subhead>
-            <Paragraph className="mb-8">
-              Unifying two navigation bars into one and introducing a customer dropdown to match the existing agent dropdown corrected an implicit hierarchy that had always existed in the structure.
-            </Paragraph>
-            <ImageFrame
-              src={`${ASSET_PATH}/${images.navigationBeforeAfter}`}
-              alt="Navigation before and after placeholder"
-              className="p-6 mb-10"
-              imgClassName="w-full h-auto rounded-[20px]"
-            />
-
-            <Subhead>Hero entry point</Subhead>
-            <Paragraph className="mb-8">
-              Despite competitive analysis pointing to a quote initiation path in the hero, the client prioritized brand narrative over immediate conversion, a reasonable call for a company still establishing market position, and one the hero was designed to serve.
-            </Paragraph>
-            <ImageFrame
-              src={`${ASSET_PATH}/${images.heroBeforeAfter}`}
-              alt="Hero before and after placeholder"
-              className="p-6 mb-10"
-              imgClassName="w-full h-auto rounded-[20px]"
-            />
-
-            <Subhead>Claims form</Subhead>
-            <Paragraph className="mb-8">
-              The UX audit flagged the claims form's field count as a known friction point. Reducing it was not within scope, so the fields were restructured into grouped categories to reduce cognitive load within the existing constraint.
-            </Paragraph>
-            <ImageFrame
-              src={`${ASSET_PATH}/${images.claimsFormBeforeAfter}`}
-              alt="Claims form before and after placeholder"
-              className="p-6 mb-16"
-              imgClassName="w-full h-auto rounded-[20px]"
-            />
-          </Section>
-          */}
-
           <Section id="impact" title="Building for Scale">
             <Paragraph className="mb-8">
-              With the company actively expanding coverage and exploring new product lines, the redesign introduced 30+ reusable section components across 40+ screens, with state pages templated from the ground up. Entering a new state or extending the system to a new product no longer requires a design or development decision. The structure absorbs expansion.
+              As the design progressed, a pattern kept surfacing: similar content types being solved differently across screens, each one-off decision compounding the inconsistency. The fix wasn't to resolve each screen individually. It was to systematize the solution.
+            </Paragraph>
+            <Paragraph className="mb-8">
+              A cohesive visual experience does more than look good. For a company asking homeowners to trust them with high-value assets, inconsistency reads as instability.
             </Paragraph>
             <ImageFrame
               src={`${ASSET_PATH}/${images.impact}`}
@@ -665,16 +576,29 @@ const InsuranceCompanyWebsiteRedesign = () => {
               imgClassName="w-full h-auto"
             />
             <Paragraph>
-              Following launch, the redesign received strong reception across the client's leadership and cross-functional teams, including feedback incorporated from multiple internal departments during the design phase.
+              30+ reusable section components across 40+ screens. State pages templated from the ground up. Entering a new state or extending the system to a new product no longer requires a design decision. The structure absorbs expansion.
             </Paragraph>
           </Section>
 
           <Section id="learnings" title="Challenges & Learnings" className="mb-0">
-            <ul className="text-[#1A1A1A] space-y-2">
-              <Typography as="li" variant="bodyRegular">Engage final decision-makers early, not just the marketing team.</Typography>
-              <Typography as="li" variant="bodyRegular">Advocate for brand strategy before a site redesign begins.</Typography>
-              <Typography as="li" variant="bodyRegular">Set clear feedback turnaround expectations upfront; delays cost weeks.</Typography>
-            </ul>
+            <div className="flex flex-col gap-[40px] mt-[8px]">
+              <div>
+                <Typography as="h3" variant="bodySemibold" className="text-[#1A1A1A] mb-0">
+                  Make the case, then design for the decision.
+                </Typography>
+                <Paragraph className="mt-0">
+                  When user-centered recommendations meet business priorities, the job is to make the case clearly and design well for whatever decision gets made. We recommended a quote initiation path in the hero. The client chose brand narrative instead, for defensible reasons tied to where they were in their growth.
+                </Paragraph>
+              </div>
+              <div>
+                <Typography as="h3" variant="bodySemibold" className="text-[#1A1A1A] mb-0">
+                  Engage final decision-makers early.
+                </Typography>
+                <Paragraph className="mt-0">
+                  The CEO and CTO hadn't been in the room for a month of iteration. Their first appearance reset the direction entirely.
+                </Paragraph>
+              </div>
+            </div>
           </Section>
 
         </main>

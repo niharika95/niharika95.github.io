@@ -10,13 +10,12 @@ import { Icon } from '@iconify/react';
 
 const TOC = [
   { id: 'intro', label: 'Intro' },
-  { id: 'problems', label: 'Problems' },
-  { id: 'diagnosis', label: 'Diagnosis & discovery' },
+  { id: 'problems', label: 'Diagnosis' },
   { id: 'audience', label: 'Understanding the audience' },
   { id: 'foundation', label: 'Rebuilding the foundation' },
   { id: 'crafting', label: 'Crafting the experience' },
   { id: 'pivot', label: 'The Stakeholder Pivot' },
-  { id: 'impact', label: 'The Impact' },
+  { id: 'impact', label: 'Building for scale' },
   { id: 'learnings', label: 'Challenges & Learnings' },
 ];
 
@@ -430,28 +429,12 @@ const InsuranceCompanyWebsiteRedesign = () => {
             </div>
           </Section>
 
-          <Section id="impact" title="Tradeoffs & Design Decisions">
-            <Subhead>Navigation Parity</Subhead>
+          <Section id="impact" title="Building for Scale">
             <Paragraph className="mb-8">
-              Unifying two navigation bars into one and introducing a customer dropdown to match the existing agent dropdown corrected an implicit hierarchy that had always existed in the structure.
+              As the design progressed, a pattern kept surfacing: similar content types being solved differently across screens, each one-off decision compounding the inconsistency. The fix wasn't to resolve each screen individually. It was to systematize the solution.
             </Paragraph>
-            <Placeholder className="mb-10">[Before/after of navigation - dual bar vs. unified nav with both dropdowns visible]</Placeholder>
-
-            <Subhead>Hero entry point</Subhead>
             <Paragraph className="mb-8">
-              Despite competitive analysis pointing to a quote initiation path in the hero, the client prioritized brand narrative over immediate conversion, a reasonable call for a company still establishing market position, and one the hero was designed to serve.
-            </Paragraph>
-            <Placeholder className="mb-10">[Hero before/after - side by side]</Placeholder>
-
-            <Subhead>Claims form</Subhead>
-            <Paragraph className="mb-8">
-              The UX audit flagged the claims form's field count as a known friction point. Reducing it was not within scope, so the fields were restructured into grouped categories to reduce cognitive load within the existing constraint.
-            </Paragraph>
-            <Placeholder className="mb-16">[Claims form - before vs after]</Placeholder>
-
-            <Typography as="h2" variant="h5Regular" className="mb-8 text-[#1A1A1A]">Building for Scale</Typography>
-            <Paragraph className="mb-8">
-              With the company actively expanding coverage and exploring new product lines, the redesign introduced 30+ reusable section components across 40+ screens, with state pages templated from the ground up. Entering a new state or extending the system to a new product no longer requires a design or development decision. The structure absorbs expansion.
+              A cohesive visual experience does more than look good. For a company asking homeowners to trust them with high-value assets, inconsistency reads as instability.
             </Paragraph>
             <ImageFrame
               src={`${ASSET_PATH}/impact.png`}
@@ -460,16 +443,29 @@ const InsuranceCompanyWebsiteRedesign = () => {
               imgClassName="w-full h-auto rounded-[10px]"
             />
             <Paragraph>
-              Following launch, the redesign received strong reception across the client's leadership and cross-functional teams, including feedback incorporated from multiple internal departments during the design phase.
+              30+ reusable section components across 40+ screens. State pages templated from the ground up. Entering a new state or extending the system to a new product no longer requires a design decision. The structure absorbs expansion.
             </Paragraph>
           </Section>
 
           <Section id="learnings" title="Challenges & Learnings" className="mb-0">
-            <ul className="text-[#1A1A1A] space-y-2">
-              <Typography as="li" variant="bodyRegular">Engage final decision-makers early, not just the marketing team.</Typography>
-              <Typography as="li" variant="bodyRegular">Advocate for brand strategy before a site redesign begins.</Typography>
-              <Typography as="li" variant="bodyRegular">Set clear feedback turnaround expectations upfront; delays cost weeks.</Typography>
-            </ul>
+            <div className="flex flex-col gap-[40px] mt-[8px]">
+              <div>
+                <Typography as="h3" variant="bodySemibold" className="text-[#1A1A1A] mb-0">
+                  Make the case, then design for the decision.
+                </Typography>
+                <Paragraph className="mt-0">
+                  When user-centered recommendations meet business priorities, the job is to make the case clearly and design well for whatever decision gets made. We recommended a quote initiation path in the hero. The client chose brand narrative instead, for defensible reasons tied to where they were in their growth.
+                </Paragraph>
+              </div>
+              <div>
+                <Typography as="h3" variant="bodySemibold" className="text-[#1A1A1A] mb-0">
+                  Engage final decision-makers early.
+                </Typography>
+                <Paragraph className="mt-0">
+                  The CEO and CTO hadn't been in the room for a month of iteration. Their first appearance reset the direction entirely.
+                </Paragraph>
+              </div>
+            </div>
           </Section>
 
         </main>
