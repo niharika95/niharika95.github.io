@@ -537,7 +537,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
             <ImageFrame
               src={`${ASSET_PATH}/${images.earlierExplorations}`}
               alt="Earlier explorations"
-              className="mb-2"
+              className="mb-2 px-6 md:px-12 !bg-gray-900"
               imgClassName="w-full h-auto"
             />
             <Caption className="mb-10">
