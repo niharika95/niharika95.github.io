@@ -14,8 +14,6 @@ The labeled placeholder PNGs are intentionally wired into the page and can be re
 - `card-sorting-survey.png`
 - `foundation-placeholder.png`
 - `style-directions.png`
-- `ux-pilot-layout.png`
-- `approved-hero-placeholder.png`
 - `navigation-before-after.png`
 - `hero-before-after.png`
 - `claims-form-before-after.png`
@@ -24,5 +22,4 @@ The labeled placeholder PNGs are intentionally wired into the page and can be re
 Real logo assets retained for this page:
 
 - `microsoft-copilot-logo.svg`
-- `ux-pilot-logo.png`
 - `photoshop-40.svg`
