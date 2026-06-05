@@ -15,7 +15,6 @@ const TOC = [
   { id: 'crafting', label: 'Crafting the experience' },
   { id: 'pivot', label: 'The Stakeholder Pivot' },
   { id: 'impact', label: 'Building for scale' },
-  { id: 'learnings', label: 'Challenges & Learnings' },
 ];
 
 const ASSET_PATH = '/images/projects/insurance-company-website-design';
@@ -429,27 +428,6 @@ const InsuranceCompanyWebsiteRedesign = () => {
             <Paragraph>
               30+ reusable section components across 40+ screens. State pages templated from the ground up. Entering a new state or extending the system to a new product no longer requires a design decision. The structure absorbs expansion.
             </Paragraph>
-          </Section>
-
-          <Section id="learnings" title="Challenges & Learnings" className="mb-0">
-            <div className="flex flex-col gap-[40px] mt-[8px]">
-              <div>
-                <Typography as="h3" variant="bodySemibold" className="text-[#1A1A1A] mb-0">
-                  Make the case, then design for the decision.
-                </Typography>
-                <Paragraph className="mt-0">
-                  When user-centered recommendations meet business priorities, the job is to make the case clearly and design well for whatever decision gets made. We recommended a quote initiation path in the hero. The client chose brand narrative instead, for defensible reasons tied to where they were in their growth.
-                </Paragraph>
-              </div>
-              <div>
-                <Typography as="h3" variant="bodySemibold" className="text-[#1A1A1A] mb-0">
-                  Engage final decision-makers early.
-                </Typography>
-                <Paragraph className="mt-0">
-                  The CEO and CTO hadn't been in the room for a month of iteration. Their first appearance reset the direction entirely.
-                </Paragraph>
-              </div>
-            </div>
           </Section>
 
         </main>

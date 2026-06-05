@@ -295,30 +295,6 @@ const InsuranceCompanyWebsiteRedesign = () => {
           </ContentContainer>
         </section>
 
-        {/* Challenges & Learnings */}
-        <section className='py-5 md:py-[50px] lg:py-[100px]'>
-          <ContentContainer className='relative overflow-hidden'>
-            <DecorativeDots color="A10026" position="top-right" />
-            <h2 className='font-playfair text-3xl font-bold mb-4'>Challenges & Learnings</h2>
-            <p className='font-mulish text-lg leading-relaxed mb-8 max-w-[800px]'>
-              No project is without its hurdles. Navigating these challenges provided valuable lessons for future engagements:
-            </p>
-            <ul className='space-y-6 max-w-[800px]'>
-              <li className='flex items-start gap-4'>
-                <Icon icon='mdi:account-group' className='text-2xl text-[#A10026] mt-1 flex-shrink-0' />
-                <p className='font-mulish text-lg leading-relaxed'>Engage final decision-makers early and often. Securing their buy-in on foundational elements is crucial to prevent wasted cycles.</p>
-              </li>
-              <li className='flex items-start gap-4'>
-                <Icon icon='mdi:lightbulb-on-outline' className='text-2xl text-[#A10026] mt-1 flex-shrink-0' />
-                <p className='font-mulish text-lg leading-relaxed'>A strong brand foundation is a prerequisite for a strong website. In the future, I would advocate for a brand strategy engagement before commencing a full site redesign.</p>
-              </li>
-              <li className='flex items-start gap-4'>
-                <Icon icon='mdi:clock-outline' className='text-2xl text-[#A10026] mt-1 flex-shrink-0' />
-                <p className='font-mulish text-lg leading-relaxed'>Delays in client feedback and approvals pushed our timeline back by several weeks. Set clear expectations for feedback turnaround times in the project plan and proactively communicate the impact of delays on the timeline.</p>
-              </li>
-            </ul>
-          </ContentContainer>
-        </section>
       </main>
     </div>
   );
