@@ -15,7 +15,6 @@ const TOC = [
   { id: 'crafting', label: 'Exploration' },
   { id: 'pivot', label: 'Stakeholder pivot' },
   { id: 'impact', label: 'Building for scale' },
-  { id: 'learnings', label: 'Challenges & learnings' },
 ];
 
 const ASSET_PATH = '/v2/images/projects/insurance-company-website-design';
@@ -531,27 +530,6 @@ const InsuranceCompanyWebsiteRedesign = () => {
             <Paragraph>
               The solution was section components: 30+ reusable sections across 40+ screens whose content could change but whose layout, hierarchy, and visual logic stayed fixed.  For state and product pages, which were structurally identical, I built full page templates, making it easier to add newer state and product screens in the future.
             </Paragraph>
-          </Section>
-
-          <Section id="learnings" title="Challenges & Learnings" className="mb-0">
-            <div className="flex flex-col gap-[40px] mt-[8px]">
-              <div>
-                <Typography as="h3" variant="bodySemibold" className="text-[#1A1A1A] mb-0">
-                  Make the case, then design for the decision.
-                </Typography>
-                <Paragraph className="mt-0">
-                  When user-centered recommendations meet business priorities, the job is to make the case clearly and design well for whatever decision gets made. We recommended a quote initiation path in the hero. The client chose brand narrative instead, for defensible reasons tied to where they were in their growth.
-                </Paragraph>
-              </div>
-              <div>
-                <Typography as="h3" variant="bodySemibold" className="text-[#1A1A1A] mb-0">
-                  Engage final decision-makers early.
-                </Typography>
-                <Paragraph className="mt-0">
-                  The CEO and CTO hadn't been in the room for a month of iteration. Their first appearance reset the direction entirely.
-                </Paragraph>
-              </div>
-            </div>
           </Section>
 
         </main>
