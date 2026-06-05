@@ -212,7 +212,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
             <DecorativeDots color="A10026" position="top-right" />
             <div className='flex flex-col gap-12'>
               <div>
-                <h2 className='font-playfair text-3xl font-bold mb-4'>Rebuilding the Foundation</h2>
+                <h2 className='font-playfair text-3xl font-bold mb-4'>The audit showed it wasn't a refresh</h2>
                 <p className='font-mulish text-lg leading-relaxed mb-6 max-w-[800px]'>The existing site's structure was convoluted. Our process to fix it involved:</p>
                 <ul className='font-mulish space-y-4 text-lg max-w-[800px]'>
                   <li><p className='font-mulish'><span className='font-bold'>Information Architecture Audit:</span> We mapped the current sitemap and identified redundant pages and misplaced components.</p></li>
@@ -230,7 +230,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
 
         <section className='py-5 md:py-[50px] lg:py-[100px]'>
           <ContentContainer>
-            <h2 className='font-playfair text-3xl font-bold mb-4'>Crafting the Experience</h2>
+            <h2 className='font-playfair text-3xl font-bold mb-4'>Four directions, one recommendation</h2>
             <p className='font-mulish text-lg leading-relaxed mb-6 max-w-[800px]'>With a solid architectural foundation, we moved into stylistic exploration. We explored four distinct stylistic directions to push the creative boundaries, based on our analysis of competitor websites:</p>
             <ol className='font-mulish list-decimal list-inside text-lg leading-relaxed space-y-2 mb-6 max-w-[800px]'>
               <li>Friendly & Approachable</li>
@@ -245,7 +245,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
         {/* Red Band Section 2 */}
         <section className='w-full bg-[#A10026] text-white py-5 md:py-[50px] lg:py-[100px]'>
           <ContentContainer>
-            <h2 className='font-playfair text-3xl font-bold mb-4'>A Stakeholder-driven Pivot</h2>
+            <h2 className='font-playfair text-3xl font-bold mb-4'>When leadership redirected, the earlier explorations held the solution</h2>
             <p className='font-mulish text-lg leading-relaxed opacity-90 max-w-[800px]'>Based on the 'Hybrid' style, we developed a high-fidelity visual design with a light, airy, and open feel. The light theme projected friendliness and the use of airy / negative space gave the impression of modernness. Until now, we had been working with the client's marketing team and receiving feedback from them. However, in a demo with the CEO and CTO, the hybrid design was met with disapproval. The upper leadership had envisioned a dark, and bold theme. This was a critical moment. We quickly pivoted, revisiting our design explorations and adopted them into a sophisticated dark theme. Over a few iterations involving continuous feedback from the upper leadership, the revised mockup was presented to the client, including the CEO and CTO, and it was met with an enthusiastic approval. This was our finalized direction.</p>
           </ContentContainer>
         </section>
@@ -254,7 +254,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
         <section className='py-5 md:py-[50px] lg:py-[100px]'>
           <ContentContainer className='relative overflow-hidden'>
             <DecorativeDots color="A10026" position="top-right" />
-            <h2 className='font-playfair text-3xl font-bold mb-4'>Designing for Scalability</h2>
+            <h2 className='font-playfair text-3xl font-bold mb-4'>Built to grow without breaking</h2>
             <p className='font-mulish text-lg leading-relaxed mb-4 max-w-[800px]'>We wireframed layouts for the home page, exploring multiple versions for each section. This upfront exploration gave us a library of section layouts we could adapt later.</p>
             <p className='font-mulish text-lg leading-relaxed mb-4 max-w-[800px]'>With the visual style locked in, we designed the remaining pages. To ensure consistency and efficiency, we developed a component-based system.</p>
             <ul className='font-mulish list-disc list-inside text-lg leading-relaxed space-y-2 max-w-[800px]'>

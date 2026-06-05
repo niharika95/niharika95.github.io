@@ -316,7 +316,10 @@ const InsuranceCompanyWebsiteRedesign = () => {
             </div>
           </Section>
 
-          <Section id="foundation" title="Rebuilding the Foundation">
+          <Section id="foundation" title="">
+            <Typography as="h2" variant="h3Regular" className="mb-10 text-[#1A1A1A]">
+              The audit showed it wasn't a refresh
+            </Typography>
             <Subhead>Competitive Analysis</Subhead>
             <Paragraph className="mb-4">
               Analyzing 8 competitors surfaced gaps in the information architecture that were common across the landscape but absent from the client site:
@@ -366,7 +369,10 @@ const InsuranceCompanyWebsiteRedesign = () => {
             />
           </Section>
 
-          <Section id="crafting" title="Crafting the Experience">
+          <Section id="crafting" title="">
+            <Typography as="h2" variant="h3Regular" className="mb-10 text-[#1A1A1A]">
+              Four directions, one recommendation
+            </Typography>
             <Paragraph className="mb-8">
               We developed four distinct stylistic directions to give the client a structured basis for decision-making. Each direction included a guide covering theme, typography, UI elements, and a rationale. The client gravitated toward a hybrid of Friendly and Sleek: enough warmth to feel human, and enough sophistication to reflect their growth.
             </Paragraph>
@@ -389,7 +395,10 @@ const InsuranceCompanyWebsiteRedesign = () => {
             </div>
           </Section>
 
-          <Section id="pivot" title="The Stakeholder Pivot">
+          <Section id="pivot" title="">
+            <Typography as="h2" variant="h3Regular" className="mb-10 text-[#1A1A1A]">
+              When leadership redirected, the earlier explorations held the solution
+            </Typography>
             <Paragraph className="mb-8">
               A month of iteration and feedback with the client's marketing team produced a light, airy stylistic direction. However, the CEO and CTO, who had not been present in earlier meetings, rejected it, envisioning something darker and bolder. Rather than redirecting to the marketing team's earlier guidance, we drew on the broad explorations we'd invested in early in the process, and because that groundwork was already done, we were able to pivot in a direction that aligned more closely with their vision, within a week. The new concept was approved on the first demo.
             </Paragraph>
@@ -412,7 +421,10 @@ const InsuranceCompanyWebsiteRedesign = () => {
             </div>
           </Section>
 
-          <Section id="impact" title="Building for Scale">
+          <Section id="impact" title="">
+            <Typography as="h2" variant="h3Regular" className="mb-10 text-[#1A1A1A]">
+              Built to grow without breaking
+            </Typography>
             <Paragraph className="mb-8">
               As the design progressed, a pattern kept surfacing: similar content types being solved differently across screens, each one-off decision compounding the inconsistency. The fix wasn't to resolve each screen individually. It was to systematize the solution.
             </Paragraph>

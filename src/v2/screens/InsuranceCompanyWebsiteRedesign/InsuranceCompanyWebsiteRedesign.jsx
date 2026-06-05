@@ -351,8 +351,8 @@ const InsuranceCompanyWebsiteRedesign = () => {
           </Section>
 
           <Section id="foundation" title="">
-            <Typography as="h2" variant="h6Medium" className="mb-10 text-[#1A1A1A]">
-              Rebuilding the Foundation
+            <Typography as="h2" variant="h3Regular" className="mb-10 text-[#1A1A1A]">
+              The audit showed it wasn't a refresh
             </Typography>
 
             <Paragraph className="mb-10">
@@ -439,8 +439,8 @@ const InsuranceCompanyWebsiteRedesign = () => {
           </Section>
 
           <Section id="crafting" title="">
-            <Typography as="h2" variant="h6Medium" className="mb-10 text-[#1A1A1A]">
-              Crafting the Experience
+            <Typography as="h2" variant="h3Regular" className="mb-10 text-[#1A1A1A]">
+              Four directions, one recommendation
             </Typography>
 
             <Paragraph className="mb-10">
@@ -480,8 +480,8 @@ const InsuranceCompanyWebsiteRedesign = () => {
           </Section>
 
           <Section id="pivot" title="">
-            <Typography as="h2" variant="h6Medium" className="mb-10 text-[#1A1A1A]">
-              The Stakeholder Pivot
+            <Typography as="h2" variant="h3Regular" className="mb-10 text-[#1A1A1A]">
+              When leadership redirected, the earlier explorations held the solution
             </Typography>
             <Paragraph className="mb-10">
               The marketing team had signed off. A month of iteration had produced a direction that was light, airy, and credibility-forward. What we hadn't accounted for was who wasn't in the room.
@@ -517,7 +517,10 @@ const InsuranceCompanyWebsiteRedesign = () => {
               A selection of final screens across the redesigned site.
             </Caption>
           </Section>
-          <Section id="impact" title="Building for Scale">
+          <Section id="impact" title="">
+            <Typography as="h2" variant="h3Regular" className="mb-10 text-[#1A1A1A]">
+              Built to grow without breaking
+            </Typography>
             <Paragraph className="mb-8">
               The audit had flagged inconsistency from the start: seven different button styles across the site, imagery that mixed lifestyle and illustration with no logic, state pages that showed different content in different hierarchies with no standard for what belonged on each one.
             </Paragraph>
