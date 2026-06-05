@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import Typography from '../../../components/Typography';
+import AnimatedPillButton from '../../../components/AnimatedPillButton/AnimatedPillButton';
+import { Icon } from '@iconify/react';
 import MobileCarousel from './MobileCarousel';
 import './HeroCard.css';
 
@@ -20,9 +22,7 @@ export default function HeroCard({
   return (
     <div className="hero-card-layout">
       {/* DESKTOP LAYOUT */}
-      <Link 
-        to={project.link} 
-        style={{ textDecoration: 'none', color: 'inherit' }} 
+      <div 
         className={`hero-card-viewport hidden md:block ${project.hasBorder ? 'panel-border' : ''}`}
       >
         <AnimatePresence initial={false}>
@@ -61,10 +61,20 @@ export default function HeroCard({
             >
               <Typography as="h1" variant="h2Medium" className="hero-title">{project.cardTitle}</Typography>
               <Typography variant="bodyRegular" className="hero-desc">{project.description}</Typography>
+              <AnimatedPillButton
+                as="link"
+                to={project.link}
+                style={{ textDecoration: 'none' }}
+                strokeColor={project.buttonStyle === 'dark' ? '#111827' : '#FFFFFF'}
+                className={`hero-card-button ${project.buttonStyle === 'dark' ? 'dark-theme' : 'light-theme'}`}
+              >
+                <span>View case study</span>
+                <Icon icon="material-symbols:arrow-right-alt-rounded" width="20" className="hero-card-button-icon" />
+              </AnimatedPillButton>
             </div>
           </motion.div>
         </AnimatePresence>
-      </Link>
+      </div>
 
       {/* MOBILE LAYOUT - Scoped GPU-accelerated CSS scroll snap carousel */}
       <div className="md:hidden w-full">

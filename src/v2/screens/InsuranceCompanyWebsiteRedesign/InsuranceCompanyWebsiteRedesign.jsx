@@ -11,7 +11,6 @@ import { Icon } from '@iconify/react';
 const TOC = [
   { id: 'intro', label: 'Intro' },
   { id: 'diagnosis', label: 'Diagnosis' },
-  { id: 'audience', label: 'Audience' },
   { id: 'foundation', label: 'Foundation' },
   { id: 'crafting', label: 'Exploration' },
   { id: 'pivot', label: 'Stakeholder pivot' },
@@ -144,7 +143,6 @@ const InsuranceCompanyWebsiteRedesign = () => {
   useTimeTracking();
 
   const [activeSection, setActiveSection] = useState('intro');
-  const [activePersona, setActivePersona] = useState(0);
   const [activeSitemap, setActiveSitemap] = useState(0);
   const [activeTooltip, setActiveTooltip] = useState(null);
 
@@ -235,7 +233,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
             </div>
 
             <Typography as="h1" variant="h2Regular" className="mb-20 text-[#1A1A1A] max-w-[680px]">
-              A 10-month UX overhaul that turned 56 usability issues, built a scalable system, and improved site performance by 37%.
+              Rethinking the website of a $1 billion-bound insurer.
             </Typography>
 
             <div className="relative grid grid-cols-2 md:grid-cols-4 gap-y-8 mb-[100px]">
@@ -323,7 +321,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
                 className="italic text-[#1A1A1A] mb-4" 
                 style={{ lineHeight: '36px' }}
               >
-                The new site must be visually striking, bold, and impactful, with seamless functionality and exceptional B2B and B2C content.
+                The new website must be visually striking, bold, and impactful, with seamless functionality and exceptional B2B and B2C content.
               </Typography>
               <Typography 
                 as="cite" 
@@ -335,7 +333,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
             </blockquote>
 
             <Paragraph className="mb-[100px]">
-              A high-level look at the site before we started had already flagged inconsistency and visual fragmentation. The audit made that precise: two designers, one week, a 27-page report surfacing 56 usability issues. The top violations clustered around visual inconsistency, clutter, and unnecessary friction, confirming that this wasn't a cosmetic problem. The client had framed it as a refresh. The audit showed it was structural. That shared, documented diagnosis became the foundation for every decision that followed.
+              A high-level look at the site before I started had already flagged inconsistency and visual fragmentation. A heuristic audit made that precise: two designers, one week, a 27-page report surfacing 56 usability issues. The top issues clustered around the absence of a unified design system that resulted in inconsistent design elements,  and inconsistent information architecture across pages. The client had framed it as a refresh, but the audit showed it was structural. That shared, documented diagnosis became the foundation for every decision that followed.
             </Paragraph>
 
           </section>
@@ -353,61 +351,16 @@ const InsuranceCompanyWebsiteRedesign = () => {
             </Caption>
           </Section>
 
-          <Section id="audience" title="" className="!mb-[100px]">
-            <Typography as="h2" variant="h6Medium" className="mb-10 text-[#1A1A1A]">
-              Understanding the Audience
-            </Typography>
-
-            <Paragraph className="mb-10">
-              The client provided a customer profile that told a clear story: <Typography as="strong" variant="bodySemibold">homeowners</Typography> aged 35–64, heavily concentrated in high-income segments, with household incomes above $150K and home values above $500K. For this audience, price wasn't the primary motivator: trust was. That shaped the visual direction toward credibility.
-            </Paragraph>
-            <Paragraph className="mb-10">
-              <Typography as="strong" variant="bodySemibold">Agents</Typography> were the second audience. The site included sections built specifically for them, and the header navigation reflected both equally, showing dual dropdowns, one per audience, so neither had to hunt for what was relevant to them.
-            </Paragraph>
-
-            <ImageFrame
-              className="p-8 mb-2 group"
-            >
-              <div className="grid w-full items-center">
-                <img
-                  src={`${ASSET_PATH}/${images.homeownerPersona}`}
-                  alt="Homeowner persona"
-                  className={`col-start-1 row-start-1 w-full h-auto rounded-[20px] transition-opacity duration-300 ${activePersona === 0 ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'}`}
-                />
-                <img
-                  src={`${ASSET_PATH}/${images.agentPersona}`}
-                  alt="Agent persona"
-                  className={`col-start-1 row-start-1 w-full h-auto rounded-[20px] transition-opacity duration-300 ${activePersona === 1 ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'}`}
-                />
-              </div>
-              <button
-                onClick={() => setActivePersona((prev) => (prev === 0 ? 1 : 0))}
-                className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center text-[#777] hover:text-[#1A1A1A] transition-colors z-20"
-                aria-label="Previous image"
-              >
-                <Icon icon="material-symbols:arrow-back-ios" className="text-[24px]" />
-              </button>
-              <button
-                onClick={() => setActivePersona((prev) => (prev === 0 ? 1 : 0))}
-                className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center text-[#777] hover:text-[#1A1A1A] transition-colors z-20"
-                aria-label="Next image"
-              >
-                <Icon icon="material-symbols:arrow-forward-ios" className="text-[24px]" />
-              </button>
-            </ImageFrame>
-            <Caption>Homeowner and agent personas.</Caption>
-          </Section>
-
           <Section id="foundation" title="">
             <Typography as="h2" variant="h6Medium" className="mb-10 text-[#1A1A1A]">
               Rebuilding the Foundation
             </Typography>
 
             <Paragraph className="mb-10">
-              Analyzing eight competitors surfaced three gaps absent from the client site: a Spanish language toggle, prominent contact numbers, sustainability sections. Each was recommended. Each was declined, and the reasons revealed the real constraints shaping the project: cost and operational lift, deliberate routing decisions, strategic positioning choices. The analysis also revealed something structural: no consensus on how competitors organized their navigation. This led me to a card sort.
+              A demographic report of the client's customer base showed that homeowners were heavily concentrated in high-income segments, with household incomes above $150K and home values above $500K. For this audience, price wasn't the primary motivator: trust was. Agents were an equally important audience, as a major chunk of revenue came through this channel. The original site had two navigation bars: neither surfaced a customer-facing path, while agents had a dedicated dropdown. For a company serving both audiences equally, that asymmetry wasn't intentional, but it was structural.
             </Paragraph>
             <Paragraph className="mb-10">
-              Three designers outside the project (a proxy for real users given we didn't have access to them, chosen specifically because they had no prior knowledge of the site) sorted the existing content. Agent content grouped consistently; ‘Claims’, ‘Payments’, and ‘Find an Agent’ didn't. A survey with four domain experts resolved the categorization, and raised the next question: combined, split, or hybrid navigation structure?
+              To understand how users actually grouped the content, I ran a card sort with three designers outside the project, chosen specifically because they had no prior knowledge of the site. Most content categorized cleanly: Products, States Served, FAQs grouped consistently. Claims and Payments didn't. A survey with four domain experts resolved it: three of four agreed these were high-frequency actions that needed to be immediately visible, not buried under a dropdown.
             </Paragraph>
 
             <ImageFrame
@@ -421,11 +374,11 @@ const InsuranceCompanyWebsiteRedesign = () => {
             </Caption>
 
             <Paragraph className="mb-10">
-              The audit had flagged the navigation structure as a problem before any IA decisions were made. The original site had two navigation bars: neither surfaced a customer-facing path, while agents had a dedicated dropdown. For a company serving both audiences equally, that asymmetry wasn't intentional, but it was structural. We researched three approaches to the dual-audience navigation: combined view, split view, and hybrid. Each was evaluated against the specific constraints of the insurance domain, with input from domain experts on the project team. The tradeoffs were documented in a structured pros and cons assessment and walked through with the client. Combined view with symmetric dropdowns for both audiences was the strongest fit: it corrected the asymmetry, kept SEO on a single domain, and avoided the maintenance overhead of two separate experiences. The client aligned with the recommendation based on that documentation.
+              Those same expert conversations surfaced a bigger open question: how should the navigation be structured for two distinct audiences? No consensus emerged. I evaluated three approaches, combined, split, and hybrid (homeowner-leaning), against a structured pros and cons assessment. Split introduced unnecessary friction: users would need to declare their role before accessing content, and overlapping content would require duplicate maintenance across two experiences. The combined view was the strongest fit. It kept SEO consolidated on a single domain and eliminated maintenance overhead. The original site gave agents a dropdown and homeowners nothing. I corrected that with symmetric dropdowns for both.
             </Paragraph>
 
             <ImageFrame
-              className="p-8 mb-2 group flex-col !items-stretch !rounded-none"
+              className="p-8 mb-2 group flex-col !items-stretch"
             >
               {/* Header with Title and Optional Finalized Label */}
               <div className="flex items-center gap-3 mb-6">
@@ -492,7 +445,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
             </Typography>
 
             <Paragraph className="mb-10">
-              The client had been explicit: they didn't want something cookie-cutter. So rather than limiting the reference set to insurance sites, we pulled from adjacent industries as well, anything that felt visually adjacent to the brand's ambition without being bound by insurance conventions. About 50 designs in total. No framework imposed upfront; we let visual patterns cluster before naming them. Four distinct directions emerged.
+              The client had been explicit: they didn't want something cookie-cutter. Rather than limiting the reference set to insurance sites, I pulled from adjacent industries as well, anything visually adjacent to the brand's ambition without being bound by insurance conventions. About 50 references in total, split between myself and the other designer. No framework imposed upfront. We let visual patterns cluster before naming them. Four distinct directions emerged.
             </Paragraph>
             <ImageFrame
               className="mb-2 bg-[#111]"
@@ -509,7 +462,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
             <Caption className="mb-10">Exploration moodboard of 4 stylistic directions.</Caption>
 
             <Paragraph className="mb-10">
-              For each, we built a full brief: color logic, typography pairings, UI element behavior, and an honest pros/cons assessment against the client's brand and audience. Some directions were more live than others. ‘Playful and Illustrated’ had visual energy but nothing in it spoke to the client's brand or audience. ‘Friendly and Approachable’ was harder to dismiss: warmth and modern feel had real appeal for homeowners. The documented risk was competitive. Most insurers were already in that territory, and for a client targeting high-net-worth homeowners, blending in was the wrong kind of familiar.
+              For each, we built a brief: color logic, typography pairings, UI element behavior, and a pros/cons assessment against the client's brand and audience. That last part is where the directions started to separate. Playful and Illustrated had visual energy but nothing in it spoke to who this client was or who they were selling to. Friendly and Approachable was harder to dismiss, warmth and a modern feel had real appeal for homeowners. But most insurers were already heading that direction, and this client's customer base was high-income, high-asset homeowners. For that audience, blending in wasn't just a missed opportunity. It was the wrong signal entirely. My recommendation was Elegant and Sleek: sophisticated enough to reflect the company's positioning, distinctive enough to not disappear into the category.
             </Paragraph>
 
             <ImageFrame
@@ -523,7 +476,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
             </Caption>
 
             <Paragraph className="mb-10">
-              We walked the marketing team through all four. They landed on a hybrid of Friendly and Approachable and Elegant and Sleek: enough warmth to feel human, enough sophistication to reflect the company's growth ambitions. When they said "bold and impactful" in early conversations, we had interpreted that as a quality bar, not a visual direction. We didn't verify that read. That assumption held until it didn't.
+              I didn't push that recommendation in the room. We presented all four directions and let the marketing team decide, not to tilt them towards anything. They landed on a hybrid of Friendly and Approachable and Elegant and Sleek. The Elegant and Sleek half was the right call. The hybrid held until it didn't.
             </Paragraph>
           </Section>
 
@@ -532,7 +485,10 @@ const InsuranceCompanyWebsiteRedesign = () => {
               The Stakeholder Pivot
             </Typography>
             <Paragraph className="mb-10">
-              A month of iteration with the marketing team had produced a direction: light, airy, credibility-forward. When the CEO and CTO joined for the first time to review it, they rejected it. They wanted something darker and bolder.
+              The marketing team had signed off. A month of iteration had produced a direction that was light, airy, and credibility-forward. What we hadn't accounted for was who wasn't in the room.
+            </Paragraph>
+            <Paragraph className="mb-10">
+              When the CEO and CTO joined for the first time to review the work, they rejected it. They wanted something darker and bolder. We pulled earlier explorations into the same meeting, directions we had developed but not pursued, and that gave the leadership team language for what they actually wanted. Not full dark mode; strong contrast. That conversation became the new brief.
             </Paragraph>
             <ImageFrame
               src={`${ASSET_PATH}/${images.earlierExplorations}`}
@@ -541,13 +497,13 @@ const InsuranceCompanyWebsiteRedesign = () => {
               imgClassName="w-full h-auto"
             />
             <Caption className="mb-10">
-              Showing earlier explorations in the same meeting gave them language for what they actually wanted: not full dark mode, but strong contrast. That conversation became the new brief.
+              Earlier design explorations presented to the leadership team.
             </Caption>
             <Paragraph className="mb-10">
-              We went back and built a hybrid direction that answered that brief directly.
+              I didn't start from scratch. I went back into what we had already built and pulled the parts that answered it: sharp corners for a more premium, elegant feel; bold, contrasting colors; clean layouts. The earlier explorations had the bones. The pivot was about knowing which bones to keep.
             </Paragraph>
             <Paragraph className="mb-10">
-              Dark and light sections in deliberate tension: dark to stop the eye, light elsewhere. We also used the pivot to establish imagery rules that hadn't existed: cosmos imagery as background texture only, lifestyle imagery for product sections, and a red-element constraint on all photos tied back to brand color. Where stock images didn't cooperate, Photoshop's generative AI closed the gap.
+              Dark and light sections in deliberate tension: dark to stop the eye, light for everything secondary. I also established imagery constraints, something the project hadn't had. Cosmos imagery works as background texture: it ties to the client's brand direction without competing for attention where it has no functional role. Lifestyle imagery, people, families, homes, anchors product sections because it projects warmth and relatability, which matters when you're asking homeowners to trust you with high-value assets. A red-element constraint on all photos tied everything back to the primary brand color, increasing cohesion across the site.
             </Paragraph>
             <Paragraph className="mb-10">
               The direction went to the marketing team first, then to the CEO and CTO. It resonated well, and was approved without revision.
@@ -564,10 +520,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
           </Section>
           <Section id="impact" title="Building for Scale">
             <Paragraph className="mb-8">
-              As the design progressed, a pattern kept surfacing: similar content types being solved differently across screens, each one-off decision compounding the inconsistency. The fix wasn't to resolve each screen individually. It was to systematize the solution.
-            </Paragraph>
-            <Paragraph className="mb-8">
-              A cohesive visual experience does more than look good. For a company asking homeowners to trust them with high-value assets, inconsistency reads as instability.
+              The audit had flagged inconsistency from the start: seven different button styles across the site, imagery that mixed lifestyle and illustration with no logic, state pages that showed different content in different hierarchies with no standard for what belonged on each one.
             </Paragraph>
             <ImageFrame
               src={`${ASSET_PATH}/${images.impact}`}
@@ -576,7 +529,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
               imgClassName="w-full h-auto"
             />
             <Paragraph>
-              30+ reusable section components across 40+ screens. State pages templated from the ground up. Entering a new state or extending the system to a new product no longer requires a design decision. The structure absorbs expansion.
+              The solution was section components: 30+ reusable sections across 40+ screens whose content could change but whose layout, hierarchy, and visual logic stayed fixed.  For state and product pages, which were structurally identical, I built full page templates, making it easier to add newer state and product screens in the future.
             </Paragraph>
           </Section>
 
