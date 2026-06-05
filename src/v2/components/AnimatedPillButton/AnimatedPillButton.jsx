@@ -28,7 +28,7 @@ export default function AnimatedPillButton({
     return () => observer.disconnect();
   }, []);
 
-  const Component = as === 'link' ? Link : as === 'a' ? 'a' : 'button';
+  const Component = as === 'link' ? Link : as === 'a' ? 'a' : as === 'div' ? 'div' : 'button';
 
   const totalW = size.width > 0 ? size.width + offset * 2 : 0;
   const totalH = size.height > 0 ? size.height + offset * 2 : 0;

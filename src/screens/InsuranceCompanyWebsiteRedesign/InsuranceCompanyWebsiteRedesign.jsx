@@ -11,7 +11,6 @@ import { Icon } from '@iconify/react';
 const TOC = [
   { id: 'intro', label: 'Intro' },
   { id: 'problems', label: 'Diagnosis' },
-  { id: 'audience', label: 'Understanding the audience' },
   { id: 'foundation', label: 'Rebuilding the foundation' },
   { id: 'crafting', label: 'Crafting the experience' },
   { id: 'pivot', label: 'The Stakeholder Pivot' },
@@ -183,7 +182,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
 
           <section id="intro" className="scroll-mt-28 mb-[80px]">
             <Typography as="h1" variant="h2Regular" className="mb-[70px] text-[#1A1A1A] max-w-[680px]">
-              Redesign that improved site performance by 37% and resolved 53 heuristic issues.
+              Rethinking the website of a $1 billion-bound insurer.
             </Typography>
 
             <div className="flex flex-col mb-[86px] text-[#6F6F6F] gap-4">
@@ -262,7 +261,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
             <blockquote className="relative pl-12 mb-[64px]">
               <Icon icon="material-symbols:format-quote-rounded" className="absolute left-0 top-1 text-[30px] text-[#1A1A1A] scale-x-[-1]" />
               <Typography as="p" variant="h6Regular" className="italic text-[#1A1A1A] mb-5" style={{ lineHeight: '36px' }}>
-                The new site must be visually striking, bold, and impactful, with seamless functionality and exceptional B2B and B2C content. We aim to create an enjoyable experience where customers, independent agents, prospective customers, employees and potential investors can easily find what they need and accomplish their tasks with minimal efforts and few clicks.
+                The new website must be visually striking, bold, and impactful, with seamless functionality and exceptional B2B and B2C content. We aim to create an enjoyable experience where customers, independent agents, prospective customers, employees and potential investors can easily find what they need and accomplish their tasks with minimal efforts and few clicks.
               </Typography>
               <Typography as="cite" variant="extraSmallRegular" className="block not-italic text-[#4F4F4F]">— Client</Typography>
             </blockquote>
@@ -316,21 +315,6 @@ const InsuranceCompanyWebsiteRedesign = () => {
                 ))}
               </div>
             </div>
-          </Section>
-
-          <Section id="audience" title="Understanding the Audience">
-            <Paragraph className="mb-6">
-              The company serves two audiences: <strong className="font-semibold">homeowners</strong> and <strong className="font-semibold">agents</strong>. Research revealed that the affluent and established homeowner persona responded to credibility over price. That profile directly shaped the visual direction.
-            </Paragraph>
-            <Typography variant="bodySemibold" className="mb-10">
-              35-64 primary age range &nbsp;•&nbsp; 28% earning $150K+ &nbsp;•&nbsp; 54% owning homes valued $300K-$749K &nbsp;•&nbsp; concentrated in states SC, MS, AL
-            </Typography>
-            <ImageFrame
-              src={`${ASSET_PATH}/persona1.png`}
-              alt="Homeowner persona"
-              className="p-8"
-              imgClassName="w-full h-auto rounded-[10px]"
-            />
           </Section>
 
           <Section id="foundation" title="Rebuilding the Foundation">

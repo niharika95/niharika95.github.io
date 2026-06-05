@@ -1,8 +1,8 @@
 import { Gutter } from '../../common';
 import { Icon } from '@iconify/react';
 import React from 'react';
-import resumePDF from '../../assets/documents/Resume_Niharika Dalal_Product Designer.pdf';
-import resumePNG from '../../assets/documents/resume.png';
+import resumePDF from '../../../assets/documents/Resume_Niharika Dalal_Product Designer.pdf';
+import resumePNG from '../../../assets/documents/resume.png';
 import { trackExternalLink } from '../../utils/analytics';
 import { useAnalytics } from '../../hooks/useAnalytics';
 import { useScrollTracking } from '../../hooks/useScrollTracking';

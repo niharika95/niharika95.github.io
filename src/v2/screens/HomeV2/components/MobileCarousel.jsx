@@ -2,6 +2,8 @@ import React, { useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import useEmblaCarousel from 'embla-carousel-react';
 import Typography from '../../../components/Typography';
+import AnimatedPillButton from '../../../components/AnimatedPillButton/AnimatedPillButton';
+import { Icon } from '@iconify/react';
 import './MobileCarousel.css';
 
 export default function MobileCarousel({
@@ -72,7 +74,7 @@ export default function MobileCarousel({
               key={proj.id}
               className="mobile-carousel-slide"
             >
-              <Link to={proj.link} style={{ textDecoration: 'none', color: 'inherit' }} className="w-full block">
+              <div className="w-full block">
                 {/* 1. Hardware Accelerated Image Container */}
                 <div className="mobile-carousel-image-wrapper">
                   <img 
@@ -91,8 +93,18 @@ export default function MobileCarousel({
                   <Typography variant="bodyRegular" className="mobile-carousel-desc">
                     {proj.description}
                   </Typography>
+                  <AnimatedPillButton
+                    as="link"
+                    to={proj.link}
+                    style={{ textDecoration: 'none' }}
+                    strokeColor="#111827"
+                    className="hero-card-button dark-theme mt-4 self-start"
+                  >
+                    <span>View case study</span>
+                    <Icon icon="material-symbols:arrow-right-alt-rounded" width="20" className="hero-card-button-icon" />
+                  </AnimatedPillButton>
                 </div>
-              </Link>
+              </div>
             </div>
           ))}
         </div>

@@ -71,7 +71,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
         <ContentContainer className='relative flex flex-col md:flex-row'>
           <div className='text-white max-w-2xl py-5 md:py-[50px] lg:py-[100px]'>
             <h1 className='font-playfair text-4xl md:text-5xl font-extrabold leading-tight tracking-tight'>
-              Building Trust in Fintech: A 0→1 Redesign for a $1B Growth Company
+              Rethinking the website of a $1 billion-bound insurer.
             </h1>
             <p className='font-mulish text-lg md:text-xl mt-4 opacity-95'>
               Redesign that <StrokeAnimation strokeColor="000000">reduced heuristic violations by 90%</StrokeAnimation> and overall <StrokeAnimation strokeColor="000000">site performance by 37%</StrokeAnimation>, creating a platform built for growth.
@@ -155,7 +155,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
               <div>
                 <h2 className='font-playfair text-3xl font-bold mb-4'>A Digital Experience Lagging Behind Business Ambition</h2>
                 <blockquote className="relative my-8 p-6 bg-gray-50 border-l-4 border-[#A10026]">
-                  <p className="font-mulish text-lg italic text-gray-700">The new site must be visually striking, bold, and impactful, with seamless functionality and exceptional B2B and B2C content. We aim to create an enjoyable experience where customers, independent agents, prospective customers, employees and potential investors can easily find what they need and accomplish their tasks with minimal efforts and few clicks.</p>
+                  <p className="font-mulish text-lg italic text-gray-700">The new website must be visually striking, bold, and impactful, with seamless functionality and exceptional B2B and B2C content. We aim to create an enjoyable experience where customers, independent agents, prospective customers, employees and potential investors can easily find what they need and accomplish their tasks with minimal efforts and few clicks.</p>
                   <footer className="text-right mt-4 text-gray-600">— Client</footer>
                 </blockquote>
 
@@ -211,16 +211,6 @@ const InsuranceCompanyWebsiteRedesign = () => {
           <ContentContainer className='relative overflow-hidden'>
             <DecorativeDots color="A10026" position="top-right" />
             <div className='flex flex-col gap-12'>
-              <div>
-                <h2 className='font-playfair text-3xl font-bold mb-4'>Understanding the Audience</h2>
-                <p className='font-mulish text-lg leading-relaxed max-w-[800px]'>
-                  The client serves two distinct primary audiences: Customers (homeowners) and Agents (B2B partners). We created personas, informed by demographic data provided by the client. Creating these personas was critical as it built empathy, focused our decision-making on user needs, and created alignment between our team and the client who we were building for.
-                </p>
-                <div className='flex flex-col md:flex-row gap-4 mt-8'>
-                  <img src='/v1/insurance-company-website-design/persona1.png' alt='Persona 1' className='w-full md:w-1/2 h-auto' />
-                  <img src='/v1/insurance-company-website-design/persona2.png' alt='Persona 2' className='w-full md:w-1/2 h-auto object-cover' />
-                </div>
-              </div>
               <div>
                 <h2 className='font-playfair text-3xl font-bold mb-4'>Rebuilding the Foundation</h2>
                 <p className='font-mulish text-lg leading-relaxed mb-6 max-w-[800px]'>The existing site's structure was convoluted. Our process to fix it involved:</p>

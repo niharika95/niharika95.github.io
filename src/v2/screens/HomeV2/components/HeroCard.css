@@ -96,3 +96,57 @@
   z-index: 10;
   pointer-events: none;
 }
+
+/* Landing Page Hero Card Button Styles */
+.hero-card-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 9999px;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  text-transform: none;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.hero-card-button.dark-theme {
+  background-color: #111827;
+  color: #FFFFFF;
+}
+
+.hero-card-button.light-theme {
+  background-color: #FFFFFF;
+  color: #111827;
+}
+
+/* Card Hover Interactions */
+.hero-card-viewport:hover .hero-card-button {
+  transform: translateY(-1px);
+}
+
+.hero-card-viewport:hover .hero-card-button.dark-theme {
+  background-color: #1F2937;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.hero-card-viewport:hover .hero-card-button.light-theme {
+  background-color: #F9FAFB;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.hero-card-button-icon {
+  transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.hero-card-viewport:hover .hero-card-button-icon {
+  transform: translateX(4px);
+}
+
+.hero-card-viewport:hover .animated-pill-btn .pill-stroke {
+  stroke-dashoffset: 0 !important;
+  transition: stroke-dashoffset 400ms ease-out;
+}

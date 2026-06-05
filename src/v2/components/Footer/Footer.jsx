@@ -1,5 +1,5 @@
 import GeometricPattern from '../GeometricPattern';
-import resumePDF from '../../assets/documents/Resume_Niharika Dalal_Product Designer.pdf';
+import resumePDF from '../../../assets/documents/Resume_Niharika Dalal_Product Designer.pdf';
 import React from 'react';
 
 function Footer() {

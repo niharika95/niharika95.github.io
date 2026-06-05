@@ -8,7 +8,7 @@ import { trackExternalLink } from '../../utils/analytics';
 import { useAnalytics } from '../../hooks/useAnalytics';
 import { useScrollTracking } from '../../hooks/useScrollTracking';
 import { useTimeTracking } from '../../hooks/useTimeTracking';
-import resumePDF from '../../assets/documents/Resume_Niharika Dalal_Product Designer.pdf';
+import resumePDF from '../../../assets/documents/Resume_Niharika Dalal_Product Designer.pdf';
 
 function Resume() {
   // Track page view, scroll depth, and time on page
@@ -73,7 +73,7 @@ function Resume() {
                 <span className="text-gray-300">•</span>
                 <a href="mailto:niharika13dalal@gmail.com" className="text-gray-800 underline hover:text-blue-600 transition-colors">niharika13dalal@gmail.com</a>
                 <span className="text-gray-300">•</span>
-                <span className="text-gray-800">585-729-3306</span>
+                <a href="tel:585-729-3306" className="text-gray-800 underline hover:text-blue-600 transition-colors">585-729-3306</a>
               </div>
             </div>
 
