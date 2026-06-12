@@ -28,6 +28,7 @@ import LoanAppExperienceOptimizationV2 from './v2/screens/LoanAppExperienceOptim
 import RamenNagiCaseStudyV2 from './v2/screens/RamenNagiCaseStudy/RamenNagiCaseStudy';
 import ResumeV2 from './v2/screens/Resume/Resume';
 import ExposureToolV2 from './v2/screens/ExposureTool/ExposureTool';
+import HomeV2LargeThumbnails from './v2/screens/HomeV2LargeThumbnails/HomeV2LargeThumbnails';
 
 const container = document.getElementById('root');
 const root = createRoot(container);
@@ -46,6 +47,7 @@ root.render(
       <Routes>
         <Route path="/presentation" element={<PresentationV1 />} />
         <Route path="/v2" element={<Navigate to="/" replace />} />
+        <Route path="/archived" element={<Navigate to="/archived-geometrical" replace />} />
         
         {/* V2 Routes (Default Portfolio Version) */}
         <Route path="/" element={<V2Route><HomeV2 /></V2Route>} />
@@ -56,24 +58,27 @@ root.render(
         <Route path="/about" element={<V2Route><AboutV2 /></V2Route>} />
         <Route path="/resume" element={<V2Route><ResumeV2 /></V2Route>} />
 
+        {/* V2 Archived Routes */}
+        <Route path="/archived-large-thumbnails" element={<V2Route><HomeV2LargeThumbnails /></V2Route>} />
+
         {/* V1 Archived Routes */}
         <Route element={<MainLayoutV1 />}>
-          <Route path="/archived" element={<HomeV1 />} />
-          <Route path="/archived/#projects" element={<HomeV1 />} />
-          <Route path="/archived/#about" element={<HomeV1 />} />
-          <Route path="/archived/about" element={<AboutV1 />} />
-          <Route path="/archived/project/:id" element={<ProjectV1 />} />
-          <Route path="/archived/resume" element={<ResumeV1 />} />
+          <Route path="/archived-geometrical" element={<HomeV1 />} />
+          <Route path="/archived-geometrical/#projects" element={<HomeV1 />} />
+          <Route path="/archived-geometrical/#about" element={<HomeV1 />} />
+          <Route path="/archived-geometrical/about" element={<AboutV1 />} />
+          <Route path="/archived-geometrical/project/:id" element={<ProjectV1 />} />
+          <Route path="/archived-geometrical/resume" element={<ResumeV1 />} />
           {/* Personal Projects */}
-          <Route path="/archived/femhealth" element={<FemHealthV1 />} />
-          <Route path="/archived/swiftbikes" element={<SwiftBikesV1 />} />
-          <Route path="/archived/svaasthya" element={<SvaasthyaV1 />} />
+          <Route path="/archived-geometrical/femhealth" element={<FemHealthV1 />} />
+          <Route path="/archived-geometrical/swiftbikes" element={<SwiftBikesV1 />} />
+          <Route path="/archived-geometrical/svaasthya" element={<SvaasthyaV1 />} />
           {/* Professional Projects */}
-          <Route path="/archived/intelligent-campaign-builder" element={<IntelligentCampaignBuilderV1 />} />
-          <Route path="/archived/loan-app-experience-optimization" element={<LoanAppExperienceOptimizationV1 />} />
-          <Route path="/archived/admissions-process-acceleration" element={<AdmissionsProcessAccelerationV1 />} />
-          <Route path="/archived/insurance-company-website-redesign" element={<InsuranceCompanyWebsiteRedesignV1 />} />
-          {featureFlagsV1.showRamenNagi && <Route path="/archived/ramen-nagi" element={<RamenNagiCaseStudyV1 />} />}
+          <Route path="/archived-geometrical/intelligent-campaign-builder" element={<IntelligentCampaignBuilderV1 />} />
+          <Route path="/archived-geometrical/loan-app-experience-optimization" element={<LoanAppExperienceOptimizationV1 />} />
+          <Route path="/archived-geometrical/admissions-process-acceleration" element={<AdmissionsProcessAccelerationV1 />} />
+          <Route path="/archived-geometrical/insurance-company-website-redesign" element={<InsuranceCompanyWebsiteRedesignV1 />} />
+          {featureFlagsV1.showRamenNagi && <Route path="/archived-geometrical/ramen-nagi" element={<RamenNagiCaseStudyV1 />} />}
         </Route>
       </Routes>
     </HashRouter>

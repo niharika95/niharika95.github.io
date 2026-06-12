@@ -1,21 +1,32 @@
 .header-v2 {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px 40px;
   width: 100%;
-  font-family: 'IBM Plex Sans', -apple-system, sans-serif;
-  box-sizing: border-box;
   position: fixed;
   top: 0;
+  left: 0;
   z-index: 999;
   background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
+  font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+  box-sizing: border-box;
+}
+
+.header-v2-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: calc(100% - 48px);
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 20px 0px;
+  box-sizing: border-box;
 }
 
 @media (max-width: 768px) {
-  .header-v2 {
-    padding: 24px 24px;
+  .header-v2-inner {
+    padding: 20px 24px;
+    width: 100%;
+    max-width: none;
   }
 }
 

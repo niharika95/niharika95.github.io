@@ -1,197 +1,163 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import ProjectIndex from './components/ProjectIndex';
-import HeroCard from './components/HeroCard';
 import HeaderV2 from '../../components/HeaderV2/HeaderV2';
+import Typography from '../../components/Typography';
+import { Icon } from '@iconify/react';
 import './HomeV2.css';
 
-const PROJECTS = [
-  {
-    id: 1,
-    sidebarTitle: 'Insurance company website redesign',
-    cardTitle: 'Redesigning the digital face of a $1 billion-bound insurer',
-    description: 'A full redesign serving two distinct audiences, built to scale with the business.',
-    image: '/images/projects/insurance-company-website-design/panel-2-insurance-website.png',
-    link: '/insurance-company-website-redesign',
-    buttonStyle: 'dark',
-    contentCols: 4,
-    hasBorder: true
-  },
-  {
-    id: 2,
-    sidebarTitle: 'Insurance exposure tool restructure',
-    cardTitle: 'Eliminating context switching across 3 fragmented views.',
-    description: 'An audit-led redesign of an internal insurance exposure management tool, uncovering a structural problem beneath a UI brief.',
-    image: '/v2/images/projects/exposure-tool/exposure-tool-thumbnail.png',
-    link: '/exposure-tool',
-    buttonStyle: 'dark',
-    contentCols: 6,
-    hasBorder: true
-  },
-  {
-    id: 3,
-    sidebarTitle: 'Waitlist system for Ramen Nagi',
-    cardTitle: <>Eliminating the 2 hour wait at Ramen Nagi</>,
-    description: 'A hybrid system that eliminates physical waiting without sacrificing the walk-in culture of a successful restaurant.',
-    image: "/v2/images/projects/ramen-nagi/panel-1-ramen-nagi.png",
-    link: '/ramen-nagi',
-    contentCols: 4
-  },
-  {
-    id: 4,
-    sidebarTitle: 'Loan application optimization',
-    cardTitle: '36% faster digital loan application experience',
-    description: 'Streamlined a flow that was losing users it had already pre-approved, using progressive disclosure and smart defaults.',
-    image: '/v2/images/projects/loan-app-experience-optimization/panel-3-loan-application.png',
-    link: '/loan-app-experience-optimization',
-    buttonStyle: 'light',
-    contentCols: 5
-  }
-];
-
 export default function HomeV2() {
-  const [isInitialLoad] = useState(() => !sessionStorage.getItem('homeV2Loaded'));
-  const [timerActive, setTimerActive] = useState(!isInitialLoad);
-
-  const [[activeIndex, direction], setPage] = useState([0, 1]);
-  const handleSelect = useCallback((index) => {
-    if (!timerActive) {
-      setTimerActive(true);
-      sessionStorage.setItem('homeV2Loaded', 'true');
-    }
-    setPage(prev => {
-      const prevIndex = prev[0];
-      let newDirection = index > prevIndex ? 1 : -1;
-      if (prevIndex === PROJECTS.length - 1 && index === 0) newDirection = 1;
-      if (prevIndex === 0 && index === PROJECTS.length - 1) newDirection = -1;
-      return [index, newDirection];
-    });
-  }, [timerActive]);
-
-  const [isHovered, setIsHovered] = useState(false);
-  const scrollTimeoutRef = useRef(null);
-  const rightPanelRef = useRef(null);
-
-  const handleSwipe = (dir) => {
-    handleSelect((activeIndex + dir + PROJECTS.length) % PROJECTS.length);
-  };
-
-  useEffect(() => {
-    if (isInitialLoad && !timerActive) {
-      const timer = setTimeout(() => {
-        setTimerActive(true);
-        sessionStorage.setItem('homeV2Loaded', 'true');
-      }, 1700);
-      return () => clearTimeout(timer);
-    }
-  }, [isInitialLoad, timerActive]);
-
-  // Auto-cycle is now driven visually by the RAF timer in ProjectIndex.jsx
-
-  useEffect(() => {
-    const el = rightPanelRef.current;
-    if (!el) return;
-
-    const handleWheel = (e) => {
-      // Only intercept wheel events if they hit the deltaY threshold
-      if (Math.abs(e.deltaY) >= 30) {
-        e.preventDefault(); // Do not hijack page scroll globally, just over the panel
-      } else {
-        return; // Ignore micro-scrolls
-      }
-
-      // Ignore further scroll events if in cooldown
-      if (scrollTimeoutRef.current) return;
-
-      // Break initial load sequence locks identically to a sidebar click natively
-      setTimerActive(active => {
-        if (!active) sessionStorage.setItem('homeV2Loaded', 'true');
-        return true;
-      });
-
-      setPage(prev => {
-        const currentIndex = prev[0];
-        if (e.deltaY > 0) {
-          // User scrolls down -> advance to next panel
-          return [(currentIndex + 1) % PROJECTS.length, 1];
-        } else if (e.deltaY < 0) {
-          // User scrolls up -> go to previous panel
-          return [(currentIndex - 1 + PROJECTS.length) % PROJECTS.length, -1];
-        }
-        return prev;
-      });
-
-      // 700ms cooldown
-      scrollTimeoutRef.current = setTimeout(() => {
-        scrollTimeoutRef.current = null;
-      }, 700);
-    };
-
-    // Localized interception on the panel area only
-    el.addEventListener('wheel', handleWheel, { passive: false });
-    return () => {
-      el.removeEventListener('wheel', handleWheel);
-      if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current);
-    };
-  }, [setPage]);
-
-  const activeProject = PROJECTS[activeIndex];
-
   return (
     <div className="home-v2">
-      <HeaderV2 isInitialLoad={isInitialLoad} />
+      <HeaderV2 />
 
-      <main className="home-v2-main">
-        <div className="home-v2-left">
-          <ProjectIndex
-            projects={PROJECTS}
-            activeIndex={activeIndex}
-            onSelect={handleSelect}
-            isHovered={isHovered}
-            isInitialLoad={isInitialLoad}
-            timerActive={timerActive}
-          />
-        </div>
-        <div
-          ref={rightPanelRef}
-          className={`home-v2-right ${isInitialLoad ? 'anim-panel-up' : ''}`}
-          style={isInitialLoad ? { animationDelay: '900ms', animationDuration: '800ms', animationTimingFunction: 'ease-out' } : {}}
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-        >
-          <HeroCard 
-            project={activeProject} 
-            projects={PROJECTS}
-            activeIndex={activeIndex}
-            onSelect={handleSelect}
-            isHovered={isHovered} 
-            direction={direction} 
-            onSwipe={handleSwipe}
-            setTimerActive={setTimerActive}
-          />
+      <main className="home-v2-container">
+        {/* Intro Section - Max Width 720px */}
+        <section className="intro-section">
+          <Typography as="h1" variant="h4Regular" className="intro-headline">
+            <span className="font-light">Most UX problems live in the gap between</span> <span className="font-medium">what a product <span className="italic">assumes</span> about its user and what that user actually experiences.</span>
+          </Typography>
           
-          {/* Mobile Dots Indicator - Static below the card, representing both image and text */}
-          <div className="flex md:hidden justify-center items-center gap-2 mt-6">
-            {PROJECTS.map((_, idx) => (
-              <div 
-                key={idx} 
-                onClick={() => handleSelect(idx)}
-                className={`relative h-[6px] rounded-full overflow-hidden transition-all duration-300 cursor-pointer bg-[#bfbfbf] ${idx === activeIndex ? 'w-10' : 'w-[6px]'}`}
-              >
-                {idx === activeIndex && (
-                  <div 
-                    key={timerActive ? 'active' : 'paused'}
-                    className="absolute top-0 left-0 h-full w-full bg-[#808080] origin-left"
-                    style={{
-                      animation: timerActive ? 'fillProgress 5s linear forwards' : 'none',
-                      animationPlayState: (!timerActive || isHovered) ? 'paused' : 'running'
-                    }}
-                  />
-                )}
+          <Typography variant="bodyRegular" className="intro-paragraph">
+            I came to design from engineering. That switch was deliberate, and it changed how I look at everything I work on.
+          </Typography>
+          
+          <Typography variant="bodyRegular" className="intro-subtitle">
+            A couple of things that are true about me.
+          </Typography>
+
+          <div className="notebook-list">
+            <div className="notebook-item">
+              <div className="notebook-icon-wrapper">
+                <Icon icon="material-symbols:done-all-rounded" className="notebook-check-icon" />
               </div>
-            ))}
+              <div className="notebook-text">
+                <strong>I design systems before fixing screens.</strong> The same way my calendar and to-do lists are built so nothing slips through.
+              </div>
+            </div>
+            
+            <div className="notebook-item">
+              <div className="notebook-icon-wrapper">
+                <Icon icon="material-symbols:done-all-rounded" className="notebook-check-icon" />
+              </div>
+              <div className="notebook-text">
+                <strong>I trust consistency over intensity.</strong> One suryanamaskar and a one-minute plank every day, not to be impressive, but to never break the chain.
+              </div>
+            </div>
           </div>
-        </div>
+
+          <Typography as="div" variant="smallRegular" className="case-studies-label text-gray-600">Case studies</Typography>
+        </section>
+
+        {/* Case Studies Section - Max Width 1040px */}
+        <section className="case-studies-section">
+          {/* Main Case Study (Insurance Redesign) */}
+          <Link to="/insurance-company-website-redesign" className="main-card-link">
+            <div className="main-project-card">
+              <div className="main-card-image-container">
+                <img 
+                  src="/v2/images/projects/insurance-company-website-design/Insurance - thumbnail.png" 
+                  alt="Insurance company website redesign mockup" 
+                  className="main-card-image"
+                />
+              </div>
+              <div className="main-card-content">
+                <div className="main-card-text-wrapper">
+                  <Typography as="h2" variant="h5Regular" className="main-card-title">
+                    Rethinking the website of a $1 billion-bound insurance company.
+                  </Typography>
+                  <Typography as="p" variant="bodyRegular" className="main-card-description text-gray-300">
+                    The navigation wasn't broken; it had never considered one of its two audiences.
+                  </Typography>
+                  <Typography variant="extraSmallRegular" className="main-card-tags text-gray-400">
+                    Information architecture &bull; Design systems &bull; Content strategy
+                  </Typography>
+                </div>
+                <div className="card-arrow-btn dark-theme">
+                  <span className="cta-text">View case study</span>
+                  <Icon icon="material-symbols:arrow-forward" className="arrow-icon" width="24" height="24" />
+                </div>
+              </div>
+            </div>
+          </Link>
+
+          {/* Grid of 3 Case Studies */}
+          <div className="projects-grid">
+            {/* Card 1: Exposure Tool */}
+            <Link to="/exposure-tool" className="grid-card-link">
+              <div className="grid-project-card">
+                <div className="grid-card-image-container exposure-image-container">
+                  <img 
+                    src="/v2/images/projects/exposure-tool/exposure-thumbnail.png" 
+                    alt="Financial tool system architecture table mockup" 
+                    className="grid-card-image exposure-image"
+                  />
+                </div>
+                <div className="grid-card-content">
+                  <Typography as="h3" variant="bodySemibold" className="grid-card-title">
+                    Aligning system architecture with user mental models in a high-density financial tool.
+                  </Typography>
+                  <Typography as="p" variant="bodyRegular" className="grid-card-description">
+                    Disjointed pages treated identical datasets as separate workflows.
+                  </Typography>
+                  <div className="card-arrow-btn light-theme">
+                    <span className="cta-text">View case study</span>
+                    <Icon icon="material-symbols:arrow-forward" className="arrow-icon" width="24" height="24" />
+                  </div>
+                </div>
+              </div>
+            </Link>
+
+            {/* Card 2: Ramen Nagi */}
+            <Link to="/ramen-nagi" className="grid-card-link">
+              <div className="grid-project-card">
+                <div className="grid-card-image-container">
+                  <img 
+                    src="/v2/images/projects/ramen-nagi/ramen-nagi-thumbnail.png" 
+                    alt="Solving the Demand Paradox for Ramen Nagi mockup" 
+                    className="grid-card-image ramen-nagi-image"
+                  />
+                </div>
+                <div className="grid-card-content">
+                  <Typography as="h3" variant="bodySemibold" className="grid-card-title">
+                    Solving the Demand Paradox for Ramen Nagi.
+                  </Typography>
+                  <Typography as="p" variant="bodyRegular" className="grid-card-description">
+                    A grueling 2-hour wait experience was actively dismantling the product value.
+                  </Typography>
+                  <div className="card-arrow-btn light-theme">
+                    <span className="cta-text">View case study</span>
+                    <Icon icon="material-symbols:arrow-forward" className="arrow-icon" width="24" height="24" />
+                  </div>
+                </div>
+              </div>
+            </Link>
+
+            {/* Card 3: Loan App */}
+            <Link to="/loan-app-experience-optimization" className="grid-card-link">
+              <div className="grid-project-card">
+                <div className="grid-card-image-container">
+                  <img 
+                    src="/v2/images/projects/loan-app-experience-optimization/panel-3-loan-application.png" 
+                    alt="Fixing a loan application mockup" 
+                    className="grid-card-image"
+                  />
+                </div>
+                <div className="grid-card-content">
+                  <Typography as="h3" variant="bodySemibold" className="grid-card-title">
+                    Fixing a loan application that didn't trust its customers.
+                  </Typography>
+                  <Typography as="p" variant="bodyRegular" className="grid-card-description">
+                    The loan application form wasn't the problem. What it was asking for was.
+                  </Typography>
+                  <div className="card-arrow-btn light-theme">
+                    <span className="cta-text">View case study</span>
+                    <Icon icon="material-symbols:arrow-forward" className="arrow-icon" width="24" height="24" />
+                  </div>
+                </div>
+              </div>
+            </Link>
+          </div>
+        </section>
       </main>
     </div>
   );

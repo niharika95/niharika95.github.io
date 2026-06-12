@@ -33,7 +33,8 @@
     --typography-line-height: 1.3 !important;
   }
 
-  .typography-h4Regular {
+  .typography-h4Regular,
+  .typography-h4Medium {
     --typography-font-size: 20px !important;
     --typography-line-height: 1.3 !important;
   }

@@ -76,6 +76,18 @@ export const presentationTextStyles = [
     textCase: 'ORIGINAL'
   },
   {
+    name: 'H4 (medium)',
+    variant: 'h4Medium',
+    fontFamily: 'IBM Plex Sans',
+    fontWeight: 'Medium',
+    fontSize: 32,
+    letterSpacing: {
+      unit: 'PERCENT',
+      value: 0
+    },
+    textCase: 'ORIGINAL'
+  },
+  {
     name: 'H4 (regular)',
     variant: 'h4Regular',
     fontFamily: 'IBM Plex Sans',
@@ -231,6 +243,7 @@ const DEFAULT_TAGS = {
   h2Regular: 'h2',
   h3Medium: 'h3',
   h3Regular: 'h3',
+  h4Medium: 'h4',
   h4Regular: 'h4',
   h5Regular: 'h5',
   h6Medium: 'h6',
@@ -245,7 +258,7 @@ const DEFAULT_TAGS = {
 };
 
 const lineHeightForVariant = (variant) => {
-  if (['h1Bold', 'h1Regular', 'h3Medium', 'h3Regular', 'h4Regular'].includes(variant)) return 1.5;
+  if (['h1Bold', 'h1Regular', 'h3Medium', 'h3Regular', 'h4Regular', 'h4Medium'].includes(variant)) return 1.5;
   if (['h5Regular', 'h6Regular', 'h6Medium'].includes(variant)) return 1.8;
   if (variant === 'microcopyRegular') return 1.5;
   if (variant === 'extraSmallRegular' || variant.startsWith('small')) return 1.5;

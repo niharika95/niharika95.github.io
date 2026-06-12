@@ -475,7 +475,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
             </Caption>
 
             <Paragraph className="mb-10">
-              I didn't push that recommendation in the room. We presented all four directions and let the marketing team decide, not to tilt them towards anything. They landed on a hybrid of Friendly and Approachable and Elegant and Sleek. The Elegant and Sleek half was the right call. The hybrid held until it didn't.
+              My recommendation was Elegant and Sleek. We presented all four directions on the call, and the marketing team landed on a hybrid with Friendly and Approachable. The Elegant and Sleek half was the right call. The hybrid held until it didn't.
             </Paragraph>
           </Section>
 
