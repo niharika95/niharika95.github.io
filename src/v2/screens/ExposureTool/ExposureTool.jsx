@@ -13,21 +13,19 @@ const ASSET_PATH = '/v2/images/projects/exposure-tool';
 
 const TOC = [
   { id: 'intro', label: 'Intro' },
-  { id: 'heuristic-analysis', label: 'Heuristic analysis' },
-  { id: 'discovery', label: 'Discovery' },
-  { id: 'problems', label: 'Problems' },
+  { id: 'heuristic-analysis', label: 'UX Audit' },
+  { id: 'constraints', label: 'First direction' },
+  { id: 'navigation-problem', label: 'The reframe' },
   { id: 'solution', label: 'Solution' },
-  { id: 'tradeoffs', label: 'Tradeoffs' },
-  { id: 'impact', label: 'Impact' },
   { id: 'reflection', label: 'Reflection' },
 ];
 
 const images = {
   hero: 'hero-data-tool.png',
+  workflow: 'generic-workflow-diagram.png',
+  wizard: 'wizard-sloution-wireframe.png',
   accountTable: 'account-match-table.png',
   beforeArchitecture: 'before-architecture.png',
-  wayfinding: 'wayfinding-example.png',
-  fragmentedData: 'fragmented-data-example.png',
   afterArchitecture: 'after-architecture.png',
   validationFlow: 'validation-tool-main.png',
   exceptionFilters: 'exception-filters.png',
@@ -35,26 +33,9 @@ const images = {
   dashboard: 'dashboard.png',
   firstPass: 'first-pass-split-view.png',
   stateChange: 'state-change-comparison.png',
+  fragmentedData: 'fragmented-data-example.png',
 };
 
-const heuristicIssues = [
-  { label: 'Flexibility & Efficiency of Use', value: 9, highlight: true },
-  { label: 'Recognition Rather than Recall', value: 9, highlight: true },
-  { label: 'Aesthetic & Minimalist Design', value: 9, highlight: true },
-  { label: 'Consistency & Standards', value: 9, highlight: true },
-  { label: 'Visibility of System Status', value: 4 },
-  { label: 'Error Prevention', value: 2 },
-  { label: 'Help & Documentation', value: 1 },
-  { label: 'Other heuristics', value: null },
-];
-
-const heuristicExamples = [
-  'Inconsistent alignment',
-  'Missing tooltips',
-  'Missing contextual guidance',
-  'Unclear system status',
-  'Inadequate spacing',
-];
 
 const Section = ({ id, title, titleVariant = 'h6Medium', children, className = '', titleClassName = 'mb-8' }) => (
   <section id={id} className={`scroll-mt-28 mb-12 md:mb-[88px] ${className}`}>
@@ -80,6 +61,7 @@ const Caption = ({ children, className = '' }) => (
 );
 
 const ImageFrame = ({
+  id,
   src,
   alt,
   caption,
@@ -89,11 +71,16 @@ const ImageFrame = ({
   imgClassName = 'w-full h-auto mx-auto',
   containerClassName = 'p-4 md:p-6',
   splitView = false,
+  splitViewClassName = 'top-0 bottom-0 bg-gray-300',
+  splitViewStyle = {},
 }) => (
-  <figure className={className}>
+  <figure id={id} className={className}>
     <div className={`relative ${dark ? 'bg-gray-900' : 'bg-gray-50'} rounded-[20px] overflow-hidden ${containerClassName}`}>
       {splitView && (
-        <div className="absolute left-1/2 top-0 bottom-0 w-[2px] bg-gray-300 z-20" />
+        <div 
+          className={`absolute left-1/2 w-[2px] z-20 ${splitViewClassName}`} 
+          style={splitViewStyle}
+        />
       )}
       <img src={`${ASSET_PATH}/${src}`} alt={alt} className={`${imgClassName} relative z-10`} />
     </div>
@@ -107,83 +94,6 @@ const ImageFrame = ({
   </figure>
 );
 
-const HeuristicIssuesChart = () => (
-  <figure className="mt-10">
-    <div className="rounded-[20px] bg-gray-50 px-6 py-7 md:px-8 md:py-8">
-      <div className="flex items-center justify-between border-b border-gray-150 pb-6">
-        <Typography as="h3" variant="bodyRegular" className="text-gray-900">
-          Heuristic issues
-        </Typography>
-        <Typography as="span" variant="bodyRegular" className="text-gray-900">
-          43 total
-        </Typography>
-      </div>
-
-      <div className="py-7 space-y-5 border-b border-gray-150">
-        {heuristicIssues.map((issue) => {
-          const width = issue.value ? `${(issue.value / 9) * 100}%` : '0%';
-          const lineColor = issue.highlight ? 'bg-[#8A2BFF]' : 'bg-gray-400';
-          const muted = !issue.highlight;
-
-          return (
-            <div
-              key={issue.label}
-              className="flex flex-col gap-2 sm:grid sm:grid-cols-[minmax(120px,210px)_1fr_24px] sm:gap-4 sm:items-center"
-            >
-              <Typography
-                as="span"
-                variant="smallRegular"
-                className={`${muted ? 'text-gray-600' : 'text-gray-900'} w-full`}
-              >
-                {issue.label}
-              </Typography>
-              <div className="flex items-center gap-3 w-full sm:contents">
-                <div className="relative h-px bg-gray-150 flex-1 sm:h-px sm:bg-gray-150">
-                  {issue.value && (
-                    <>
-                      <span
-                        className={`absolute left-0 top-1/2 h-[2px] -translate-y-1/2 ${lineColor}`}
-                        style={{ width }}
-                      />
-                      <span
-                        className={`absolute top-1/2 size-[7px] -translate-y-1/2 rounded-full ${lineColor}`}
-                        style={{ left: `calc(${width} - 3.5px)` }}
-                      />
-                    </>
-                  )}
-                </div>
-                <Typography as="span" variant="smallRegular" className="w-8 text-right flex-shrink-0 text-gray-900">
-                  {issue.value || '-'}
-                </Typography>
-              </div>
-            </div>
-          );
-        })}
-      </div>
-
-      <div className="pt-5">
-        <Typography as="h4" variant="extraSmallRegular" className="mb-4 text-gray-900" style={{ fontWeight: 600 }}>
-          Example issues
-        </Typography>
-        <div className="flex flex-wrap gap-3">
-          {heuristicExamples.map((example) => (
-            <Typography
-              key={example}
-              as="span"
-              variant="extraSmallRegular"
-              className="rounded-[7px] bg-gray-150 px-4 py-2 text-gray-900"
-            >
-              {example}
-            </Typography>
-          ))}
-        </div>
-      </div>
-    </div>
-    <Caption className="mt-2">
-      36 of 43 issues clustered in four heuristics — Flexibility and Efficiency of Use, Recognition Rather than Recall, Aesthetic &amp; Minimalist Design, Consistency and Standards.
-    </Caption>
-  </figure>
-);
 
 const BeforeArchitectureChart = () => (
   <figure className="mb-12">
@@ -414,50 +324,7 @@ const AfterArchitectureChart = () => (
   </figure>
 );
 
-const Quote = ({ children, className = 'my-10' }) => (
-  <blockquote className={`border-l-[8px] border-gray-900 pl-5 ${className}`}>
-    <Typography as="p" variant="bodyRegular" className="text-gray-900">
-      {children}
-    </Typography>
-  </blockquote>
-);
 
-const SplitQuote = ({ id }) => (
-  <blockquote id={id} className="scroll-mt-28 border-l-[8px] border-gray-900 pl-5 mb-12 md:mb-[100px]">
-    <Typography as="p" variant="h6Regular" className="text-gray-900">
-      The ask was straightforward: modernize the UI.
-    </Typography>
-    <Typography as="p" variant="h6Medium" className="text-gray-900">
-      But the audit revealed something deeper.
-    </Typography>
-  </blockquote>
-);
-
-const StructuralFinding = ({ icon, title, children }) => (
-  <div>
-    <div className="flex items-center gap-5 mb-5">
-      <Icon icon={icon} className="text-[#6D20E8] text-[38px] flex-shrink-0" />
-      <Typography as="h6" variant="h6Regular" className="text-gray-900">
-        {title}
-      </Typography>
-    </div>
-    <Paragraph>{children}</Paragraph>
-  </div>
-);
-
-const ImpactItem = ({ icon, title, children }) => (
-  <div className="flex items-start gap-6">
-    <div className="w-[34px] flex-shrink-0">
-      <Icon icon={icon} className="mt-1 text-[32px] text-[#6D20E8]" />
-    </div>
-    <div className="min-w-0">
-      <Typography as="h3" variant="bodySemibold" className="mb-3 text-gray-900">
-        {title}
-      </Typography>
-      <Paragraph>{children}</Paragraph>
-    </div>
-  </div>
-);
 
 const ExposureTool = () => {
   useAnalytics('project_detail', {
@@ -530,8 +397,20 @@ const ExposureTool = () => {
 
         <main className="w-full max-w-[720px] mx-auto lg:ml-20 xl:ml-32">
           <section id="intro" className="scroll-mt-28 mb-10 md:mb-[84px]">
-            <Typography as="h1" variant="h2Regular" className="mb-12 md:mb-[100px] max-w-[720px] text-gray-900">
-              An architectural rethink that resolved a structural data inconsistency across 3 fragmented views, consolidating them into 1 unified view.
+            <ImageFrame
+              src={images.hero}
+              alt="Exposure Tool hero placeholder"
+              className="mb-[80px]"
+              imgClassName="w-full h-auto"
+              containerClassName="!p-0 !bg-transparent"
+              dark={false}
+              splitView={true}
+              splitViewClassName="bg-gray-900"
+              splitViewStyle={{ top: '0%', height: '98.8%' }}
+            />
+
+            <Typography as="h1" variant="h2Regular" className="mb-[100px] max-w-[720px] text-gray-900">
+              Aligning system architecture with user mental models in a high-density financial tool.
             </Typography>
 
             <div className="mb-12 md:mb-[100px] flex flex-col gap-1 text-gray-500">
@@ -545,217 +424,225 @@ const ExposureTool = () => {
               </div>
             </div>
 
+            <Paragraph className="mb-[40px]">
+              The Exposure Tool helps insurance account teams review and validate a client's risk data year over year, flag discrepancies, and generate a final report before the policy renews.
+            </Paragraph>
+
             <ImageFrame
-              src={images.hero}
-              alt="Exposure Tool hero placeholder"
-              caption="The before and after of the home screen on the Exposure Tool."
-              className="mb-12 md:mb-[100px]"
-              imgClassName="w-[90%] h-auto mx-auto"
-              splitView={true}
+              src={images.workflow}
+              alt="Generic workflow diagram"
+              caption="Exposure process workflow."
+              className="mb-[40px]"
+              imgClassName="w-full h-auto"
+              containerClassName="!p-0 !bg-transparent !rounded-none"
+              dark={false}
             />
 
             <Paragraph className="mb-12 md:mb-[100px]">
-              The Exposure Tool helps insurance account teams review and validate a client's risk data year over year. For this improvement, one process had major confusion in the system.
+              The ask was to modernize the UI. There was no direct access to end users, and all project communication ran through a PM intermediary.
             </Paragraph>
-
-            <SplitQuote id="heuristic-analysis" />
 
             <ImageFrame
               src={images.accountTable}
               alt="Account match table placeholder"
               caption="The original dashboard after client selection, showing Lines of Business with no indication of next steps."
-              className="mb-[20px]"
-              imgClassName="w-[90%] h-auto mx-auto"
-            />
-
-            <Paragraph className="mb-[20px]">
-              Account teams found the tool <Typography as="strong" variant="bodySemibold">difficult to navigate</Typography> and <Typography as="strong" variant="bodySemibold">visually outdated</Typography>.
-            </Paragraph>
-
-            <Paragraph className="mb-[20px]">
-              With no direct access to end users and a four-week timeline, a heuristic evaluation of the live tool became the foundation, surfacing 43 documented issues across five screens.
-            </Paragraph>
-
-            <HeuristicIssuesChart />
-          </section>
-
-          <Section id="discovery" title="The architecture was the problem.">
-            {/* <BeforeArchitectureChart /> */}
-            <ImageFrame
-              src={images.beforeArchitecture}
-              alt="Before architecture"
-              className="mb-12"
-              imgClassName="w-[90%] h-auto mx-auto"
+              className="mb-[100px]"
+              imgClassName="w-full h-auto"
+              containerClassName="!p-0 !bg-transparent"
               dark={false}
             />
 
-            <Paragraph className="mb-[20px]">
-              The audit surfaced two structural problems early.
+            <Typography id="heuristic-analysis" as="h3" variant="h3Regular" className="scroll-mt-28 mb-[40px] text-gray-900">
+              The audit found more than what I expected.
+            </Typography>
+
+            <Paragraph className="mb-[40px]">
+              I audited the live tool end to end, documenting interaction patterns, navigation behavior, system feedback, and visual inconsistencies across every screen; and found 43 heuristic issues across 5 screens.
+            </Paragraph>
+
+
+            <Paragraph className="mb-[40px]">
+              The pattern pointed to something specific: the functionality worked. The tool was hard to learn, hard to navigate, and visually inconsistent, but those were experience problems, not functional ones. That distinction mattered for where the redesign needed to focus.
+            </Paragraph>
+
+            <Paragraph className="mb-[100px]">
+              The audit also surfaced something structural. Every inner page routed back through the dashboard. There was no direct path between any two working pages. To move from LOB Details to Exception Summary, you had to return to the dashboard first, every time.
+            </Paragraph>
+          </section>
+
+          <Section id="discovery" className="!mb-[100px]">
+            <ImageFrame
+              src={images.beforeArchitecture}
+              alt="Before user flow diagram"
+              caption="Original user flow of the Exposure Tool."
+              className="mb-0"
+              imgClassName="w-[90%] h-auto mx-auto"
+              dark={false}
+            />
+          </Section>
+
+          <Section id="constraints" className="!mb-[100px]">
+            <Typography as="h3" variant="h3Regular" className="mb-[40px] text-gray-900">
+              The first direction that revealed a deeper problem.
+            </Typography>
+
+            <Paragraph className="mb-[100px]">
+              The navigation felt like the primary problem, so we started there: a wizard-style flow linking the main stages, with explicit step navigation so users could move between them without retracing. A reasonable response to what the audit had surfaced.
+            </Paragraph>
+
+            <ImageFrame
+              src={images.wizard}
+              alt="Wizard solution wireframe"
+              caption="A wireframe of the wizard-style flow solution."
+              className="mb-[100px]"
+              imgClassName="w-full h-auto"
+              containerClassName="!p-0 !bg-transparent border border-gray-150"
+              dark={false}
+            />
+
+            <Paragraph className="mb-[40px]">
+              As I wireframed the individual steps, something kept feeling off. The LOB Details table and the Exception Summary table were showing the same records. Column names were nearly identical across both. And structurally, one showed Renewal and In-Force data as stacked row pairs, while the other showed the same values side by side with delta columns.
+            </Paragraph>
+
+            <Paragraph className="mb-[100px]">
+              Looking closer at how the tool actually worked made it clear why. Exceptions aren't manually created. The system automatically compares Renewal and In-Force values and flags records where the difference exceeds a threshold. Exception Summary wasn't a separate workflow. It was LOB Details filtered to flagged records. Correction Summary was the same data again, filtered to approved records, with export controls added.
+            </Paragraph>
+
+            <ImageFrame
+              src={images.fragmentedData}
+              alt="Fragmented data example"
+              caption="Stacked pairs on LOB Details (top); side-by-side comparison on Exception Summary (bottom)."
+              className="mb-[100px]"
+              imgClassName="w-full h-auto mx-auto"
+              containerClassName="p-4 md:p-6"
+              dark={true}
+            />
+
+            <Paragraph className="mb-[40px]">
+              Three pages. Same dataset. Two different structures. No clear reason for any of it to exist separately.
+            </Paragraph>
+
+            <Paragraph className="mb-0">
+              I walked the PM through what we were seeing. The three pages weren't three distinct workflows. They were the same dataset, filtered differently and structured inconsistently.
             </Paragraph>
           </Section>
 
-          <Section id="problems" className="!mb-[100px]">
+          <Section id="navigation-problem" className="!mb-[100px]">
+            <Typography as="h3" variant="h3Regular" className="mb-[40px] text-gray-900">
+              The navigation was never the problem.
+            </Typography>
 
+            <Paragraph className="mb-[40px]">
+              That changed the design problem entirely.
+            </Paragraph>
 
-            <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
-              <StructuralFinding icon="material-symbols-light:signpost" title="No wayfinding">
-                The dashboard presented all destinations as equal. Client Profile, Exception Summary, and Correction Summary sat as parallel buttons with no indication of how they related to each other or to the broader workflow. <Typography as="strong" variant="bodySemibold">A user opening the tool for the first time had nothing to orient them.</Typography>
-              </StructuralFinding>
-              <ImageFrame
-                src={images.wayfinding}
-                alt="Wayfinding issue placeholder"
-                caption="Three equal-weight buttons with no indication of sequence or priority."
-                className="w-full md:mt-2"
-                containerClassName="py-12 pr-6 pl-0 flex items-center min-h-[380px]"
-                imgClassName="w-[85%] h-auto ml-0"
-              />
-            </div>
+            <Paragraph className="mb-[40px]">
+              If LOB Details, Exception Summary, and Correction Summary were all showing the same underlying data, differing only in filter state and visual structure, then navigating between them more efficiently wasn't the answer. The question was whether those pages needed to exist separately at all.
+            </Paragraph>
 
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <StructuralFinding icon="material-symbols-light:table-convert" title={<>Same data,<br />two different structures</>}>
-                LOB Details showed Renewal and In-Force data as stacked pairs. Exception Summary showed the same data side by side with Value Change and Percentage Difference columns. <Typography as="strong" variant="bodySemibold">Every time a user moved between pages, they had to mentally re-map the same information into a different structure.</Typography>
-              </StructuralFinding>
-              <ImageFrame
-                src={images.fragmentedData}
-                alt="Fragmented data placeholder"
-                caption="Stacked pairs on LOB Details (top), side-by-side comparison on Exception Summary (bottom)."
-                className="w-full md:mt-2"
-                containerClassName="py-12 pl-6 pr-0 md:py-16 md:pl-10 flex items-center min-h-[400px]"
-                imgClassName="w-[95%] h-auto ml-auto mr-0"
-              />
-            </div>
-
-            <Paragraph className="mt-12">
-              The second observation became the thread that pulled the whole information architecture apart.
+            <Paragraph className="mb-0">
+              The ask was to clean up the UI. What the tool actually needed was a rethink of its information architecture.
             </Paragraph>
           </Section>
 
-          <Section id="constraints">
-            <Quote className="mb-[100px]">
-              Exceptions are system-generated. The tool automatically compares Renewal and In-Force pairs and flags records where the delta exceeds a threshold. Exception Summary was not a separate workflow. It was LOS Details filtered to flagged records. And Correction Summary was the same data again, filtered to approved records, with export controls added.
-            </Quote>
+          <Section id="solution" className="!mb-12 md:!mb-[100px]">
+            <Typography as="h3" variant="h3Regular" className="mb-[40px] text-gray-900">
+              From fragmentation to a single source of truth.
+            </Typography>
 
-            <div className="flex items-center gap-7 py-4">
-              <Icon icon="material-symbols-light:wb-incandescent" className="flex-shrink-0 text-[80px] text-[#6D20E8]" />
-              <div>
-                <Typography as="p" variant="bodyRegular" className="text-gray-900">
-                  The question that reframed the design:
-                </Typography>
-                <Typography as="p" variant="bodySemibold" className="text-gray-900">
-                  If the data is the same, why do the pages need to exist separately?
-                </Typography>
-              </div>
-            </div>
-          </Section>
-
-          <Section id="solution" title="From fragmentation to a single source of truth" className="!mb-12 md:!mb-[100px]">
             <Paragraph className="mb-10">
-              A master-detail architecture that consolidates the original three-page structure into a single persistent layout. One view. All states. No context switching.
+              Once I could see the redundancy clearly, the structure followed directly. If LOB Details, Exception Summary, and Correction Summary were all showing the same underlying data, the answer was not better navigation between them. It was one view with the ability to filter to what mattered at each stage.
             </Paragraph>
 
             {/* <AfterArchitectureChart /> */}
             <ImageFrame
               src={images.afterArchitecture}
               alt="After architecture"
+              caption="Improved user flow of the Exposure Tool."
               imgClassName="w-[90%] h-auto mx-auto"
               dark={false}
             />
           </Section>
 
           <Section id="validation-tab" title="The Validation Tab" titleVariant="bodySemibold" className="!mb-12 md:!mb-[100px]">
+            <Paragraph className="mb-[40px]">
+              A single persistent table replacing the original three pages. One row per record. One consistent data structure regardless of where a user is in the workflow.
+            </Paragraph>
+
+            <Paragraph className="mb-[100px]">
+              Two filter states replaced the three-page structure entirely. Exceptions surfaces open, unresolved flags: the delta columns that were previously only accessible on Exception Summary are now always present in this state, no page switch required. Resolved replaces Correction Summary: approved records available for verification before export.
+            </Paragraph>
+
             <ImageFrame
               src={images.validationFlow}
               alt="Validation tool main screen placeholder"
-              className="mb-[20px]"
-              imgClassName="w-[90%] h-auto mx-auto"
+              caption="The core of the architecture. A single unified table replacing LOB Details, Exception Summary, and Correction Summary. One row per record."
+              className="mb-12 md:mb-[100px]"
+              imgClassName="w-full h-auto"
+              containerClassName="!p-0 !bg-transparent border border-gray-150"
+              dark={false}
             />
-            <Paragraph className="mb-12 md:mb-[100px]">
-              The core of the architecture. A single unified table replacing LOB Details, Exception Summary, and Correction Summary. One row per record.
-            </Paragraph>
 
             <ImageFrame
               src={images.exceptionFilters}
               alt="Exception filters placeholder"
-              className="mb-[20px]"
-              imgClassName="w-[90%] h-auto mx-auto"
-              containerClassName="pt-4 px-4 pb-0 md:pt-6 md:px-6 md:pb-0"
+              caption="The Exceptions state. Delta columns surface here and the the difference between Renewal and In-Force values is visible at a glance, on the records that need attention."
+              className="mb-12 md:mb-[100px]"
+              imgClassName="w-full h-auto"
+              containerClassName="!p-0 !bg-transparent border border-gray-150"
+              dark={false}
             />
-            <Paragraph className="mb-12 md:mb-[100px]">
-              <Typography as="strong" variant="bodySemibold">Exception filters:</Typography> filters by open, unresolved flags. Value Change and Percentage Change columns appear only in this state, surfacing the data that triggered the flag.
-            </Paragraph>
 
             <ImageFrame
               src={images.resolvedFilter}
               alt="Resolved filter placeholder"
-              className="mb-[20px]"
-              imgClassName="w-[90%] h-auto mx-auto"
-              containerClassName="pt-4 px-4 pb-0 md:pt-6 md:px-6 md:pb-0"
+              caption="The Resolved state. Approved records staged for export. Same records, no separate page."
+              className="mb-12 md:mb-[100px]"
+              imgClassName="w-full h-auto"
+              containerClassName="!p-0 !bg-transparent border border-gray-150"
+              dark={false}
             />
-            <Paragraph className="mb-12 md:mb-[100px]">
-              <Typography as="strong" variant="bodySemibold">Resolved filter:</Typography> approved records for verification before export, replacing the original Correction Summary page entirely.
+
+            <Paragraph className="mb-[40px]">
+              I chose a single row per record over stacked pairs. It was a tradeoff on familiarity. Maintaining stacked Renewal and In-Force pairs would have preserved the structure users already knew, but a single row per record structure let users compare values at a glance rather than read them across stacked rows.
             </Paragraph>
 
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <Typography as="h3" variant="bodySemibold" className="mb-4 text-gray-900">
-                  Dashboard
-                </Typography>
-                <Paragraph>
-                  The dashboard only acts as a client selection surface. Exception counts and status chips surface risk-record attention before clicking into anything. In-force and renewal dates are presented as columns, removing ambiguity before data appears.
-                </Paragraph>
-              </div>
+            <Paragraph className="mb-[40px]">
+              The original tool required users to manually select which records they had changed before saving, despite the system already knowing which records had been modified. I removed the checkboxes and per-row Update buttons and replaced them with a single Save Changes button. Auto-save would have gone further, but in a tool where data directly affects policy pricing, explicit control over what gets committed matters more than convenience.
+            </Paragraph>
+
+            <ImageFrame
+              src={images.stateChange}
+              alt="State change comparison placeholder"
+              caption="A before and after of the mechanism of saving changes."
+              className="mb-12 md:mb-[100px]"
+              containerClassName="p-4 md:p-6"
+              dark={true}
+            />
+
+            <div>
+              <Typography as="h3" variant="bodySemibold" className="mb-4 text-gray-900">
+                Dashboard
+              </Typography>
+              <Paragraph className="mb-[40px]">
+                The original dashboard presented all destinations as equal buttons with no indication of sequence or status. The redesigned dashboard has one job: client selection. Exception counts and status indicators now surface at this level, so a user knows who needs attention before clicking into anything.
+              </Paragraph>
               <ImageFrame
                 src={images.dashboard}
                 alt="Dashboard placeholder"
-                containerClassName="p-4 md:p-6 flex items-center min-h-[300px]"
+                imgClassName="w-full h-auto"
+                containerClassName="!p-0 !bg-transparent border border-gray-150"
+                dark={false}
               />
             </div>
           </Section>
 
-          <Section id="tradeoffs" title="Tradeoffs worth making" titleClassName="mb-[40px]">
-            <Typography as="h3" variant="bodySemibold" className="mb-5 text-gray-900">
-              Single-row pair record replacing stacked Renewal/In-Force pairs
+          <Section id="reflection" className="mb-0">
+            <Typography as="h3" variant="h3Regular" className="mb-[40px] text-gray-900">
+              What I would have measured.
             </Typography>
-            <ImageFrame
-              src={images.firstPass}
-              alt="First pass split view placeholder"
-              className="mb-[20px]"
-              containerClassName="p-4 md:p-6 flex items-center min-h-[400px]"
-            />
-            <Paragraph className="mb-12 md:mb-[100px]">
-              Maintaining stacked Renewal and In-Force pairs would have preserved familiarity but made triage significantly harder. Moving to a single row per record was the less familiar choice, but it was the right one.
-            </Paragraph>
-
-            <Typography as="h3" variant="bodySemibold" className="mb-5 text-gray-900">
-              Single State Change: replacing row-level and bulk-state mechanisms
-            </Typography>
-            <ImageFrame
-              src={images.stateChange}
-              alt="State change comparison placeholder"
-              className="mb-[20px]"
-            />
             <Paragraph>
-              The original tool offered two state mechanisms: per-row, or multiple records at once. A single State Changes button simplified bulk, contextual actions and reduced display noise.
-            </Paragraph>
-          </Section>
-
-          <Section id="impact" title="Impact">
-            <div className="space-y-10">
-              <ImpactItem icon="material-symbols:device-hub" title="Full workflow, no context switching.">
-                Three separate screens consolidated into one persistent layout with no dashboard round trips required.
-              </ImpactItem>
-              <ImpactItem icon="material-symbols:save-outline" title="Review rhythm uninterrupted across high-volume exception sets.">
-                A single 'Save Changes' replaced two separate save mechanisms, removing decision fatigue during sessions with numerous flagged records.
-              </ImpactItem>
-              <ImpactItem icon="material-symbols:view-agenda-outline" title="Consistent mental model across all data views.">
-                Two inconsistent data structures unified into one with no cognitive re-mapping when switching between views.
-              </ImpactItem>
-            </div>
-          </Section>
-
-          <Section id="reflection" title="Reflection" className="mb-0">
-            <Paragraph>
-              Enterprise UI problems are rarely screen-level. The 45 audit issues were symptoms. The real problem was an inconsistent mental model embedded in the architecture. Without time for usability testing, the most important question remains unanswered: whether the unified validation tool feels as logical to users as it does on paper.
+              All client communication ran through a PM intermediary. I asked for direct access to the client, early in the engagement. It wasn't offered. I handed off the designs for client-side implementation, and the engagement ended at delivery. The average review session time would have been the right measure of whether the consolidation landed, but that data wasn't within scope to capture.
             </Paragraph>
           </Section>
         </main>
