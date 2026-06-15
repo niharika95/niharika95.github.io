@@ -4,6 +4,7 @@ import { ChevronLeft } from 'lucide-react';
 import { Icon } from '@iconify/react';
 import HeaderV2 from '../../components/HeaderV2/HeaderV2';
 import Typography from '../../components/Typography';
+import MoreCaseStudies from '../../components/MoreCaseStudies/MoreCaseStudies';
 import { useAnalytics } from '../../hooks/useAnalytics';
 import { useScrollTracking } from '../../hooks/useScrollTracking';
 import { useTimeTracking } from '../../hooks/useTimeTracking';
@@ -437,6 +438,8 @@ const LoanAppExperienceOptimization = () => {
               I'd push the client to share funnel analytics before starting. Without data on where users dropped off, the redesign was solving for a pattern rather than a specific problem. Even rough drop-off rates by screen would have sharpened prioritization and made the outcome measurable rather than projected.
             </Paragraph>
           </Section>
+
+          <MoreCaseStudies currentId="loan" />
         </main>
       </div>
     </div>

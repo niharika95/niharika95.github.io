@@ -12,6 +12,7 @@ import WhyThisWorks from './components/WhyThisWorks';
 import HeaderV2 from '../../components/HeaderV2/HeaderV2';
 import { Link } from 'react-router-dom';
 import { ChevronLeft } from 'lucide-react';
+import MoreCaseStudies from '../../components/MoreCaseStudies/MoreCaseStudies';
 
 const RamenNagiCaseStudy = () => {
     const progressBarRef = useRef(null);
@@ -71,6 +72,9 @@ const RamenNagiCaseStudy = () => {
                     <ReservationFlow />
                     <WalkInFlow />
                     <KeyTakeaways />
+                    <div className="max-w-[1160px] mx-auto px-5 pb-32">
+                        <MoreCaseStudies currentId="ramen" />
+                    </div>
                 </div>
             </main>
         </div>
