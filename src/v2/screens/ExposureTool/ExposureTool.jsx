@@ -4,6 +4,7 @@ import Typography from '../../components/Typography';
 import { Link } from 'react-router-dom';
 import { ChevronLeft } from 'lucide-react';
 import { Icon } from '@iconify/react';
+import MoreCaseStudies from '../../components/MoreCaseStudies/MoreCaseStudies';
 import { TransformComponent, TransformWrapper } from 'react-zoom-pan-pinch';
 import { useAnalytics } from '../../hooks/useAnalytics';
 import { useScrollTracking } from '../../hooks/useScrollTracking';
@@ -645,6 +646,8 @@ const ExposureTool = () => {
               All client communication ran through a PM intermediary. I asked for direct access to the client, early in the engagement. It wasn't offered. I handed off the designs for client-side implementation, and the engagement ended at delivery. The average review session time would have been the right measure of whether the consolidation landed, but that data wasn't within scope to capture.
             </Paragraph>
           </Section>
+
+          <MoreCaseStudies currentId="exposure" />
         </main>
       </div>
     </div>

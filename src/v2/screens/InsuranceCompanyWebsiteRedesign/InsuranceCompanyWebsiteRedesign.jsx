@@ -7,6 +7,7 @@ import { useTimeTracking } from '../../hooks/useTimeTracking';
 import { Link } from 'react-router-dom';
 import { ChevronLeft } from 'lucide-react';
 import { Icon } from '@iconify/react';
+import MoreCaseStudies from '../../components/MoreCaseStudies/MoreCaseStudies';
 
 const TOC = [
   { id: 'intro', label: 'Intro' },
@@ -517,7 +518,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
               A selection of final screens across the redesigned site.
             </Caption>
           </Section>
-          <Section id="impact" title="">
+          <Section id="impact" title="" className="mb-0 md:mb-0">
             <Typography as="h2" variant="h3Regular" className="mb-10 text-[#1A1A1A]">
               Built to grow without breaking
             </Typography>
@@ -535,6 +536,7 @@ const InsuranceCompanyWebsiteRedesign = () => {
             </Paragraph>
           </Section>
 
+          <MoreCaseStudies currentId="insurance" />
         </main>
       </div>
     </div>
