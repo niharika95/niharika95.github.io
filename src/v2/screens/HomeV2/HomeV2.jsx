@@ -14,15 +14,9 @@ export default function HomeV2() {
         {/* Intro Section - Max Width 720px */}
         <section className="intro-section">
           <Typography as="h1" variant="h4Regular" className="intro-headline">
-            <span className="font-light">Most UX problems live in the gap between</span> <span className="font-medium">what a product <span className="italic">assumes</span> about its user and what that user actually experiences.</span>
-          </Typography>
-          
-          <Typography variant="bodyRegular" className="intro-paragraph">
-            I came to design from engineering. That switch was deliberate, and it changed how I look at everything I work on.
-          </Typography>
-          
-          <Typography variant="bodyRegular" className="intro-subtitle">
-            A couple of things that are true about me.
+            <span className="font-medium">From software engineer to product designer:</span>
+            <br />
+            <span className="font-light">a deliberate shift that shapes how I build systems.</span>
           </Typography>
 
           <div className="notebook-list">
@@ -40,7 +34,7 @@ export default function HomeV2() {
                 <Icon icon="material-symbols:done-all-rounded" className="notebook-check-icon" />
               </div>
               <div className="notebook-text">
-                <strong>I trust consistency over intensity.</strong> One suryanamaskar and a one-minute plank every day, not to be impressive, but to never break the chain.
+                <strong>I trust consistency over intensity.</strong> A daily suryanamaskar & 1-min plank. Not to impress, but to never break the chain.
               </div>
             </div>
           </div>
