@@ -16,24 +16,22 @@ export default function HeaderV2({ isInitialLoad = false, style = {} }) {
         <div className="header-v2-inner">
           <Link
             to="/"
-            className={`header-v2-logo flex items-center gap-3 ${isInitialLoad ? 'anim-fade-in' : ''}`}
-            style={isInitialLoad ? { animationDelay: '0ms', animationDuration: '600ms', animationTimingFunction: 'ease-out' } : {}}
+            className={`header-v2-logo flex items-center gap-3 ${isInitialLoad ? 'anim-slide-left' : ''}`}
+            style={isInitialLoad ? { animationDelay: '0ms' } : {}}
           >
             <img src="/v2/images/home/niharika-round.png" alt="Niharika Dalal" className="w-[36px] h-[36px] rounded-full object-cover" />
             <Typography as="span" variant="bodyLight" className="nav-text">Niharika Dalal</Typography>
           </Link>
-          <div className="header-v2-nav hidden md:flex">
+          <div className={`header-v2-nav hidden md:flex ${isInitialLoad ? 'anim-slide-right' : ''}`} style={isInitialLoad ? { animationDelay: '100ms' } : {}}>
             <Link
               to="/about"
-              className={`header-v2-link ${isInitialLoad ? 'anim-fade-in' : ''} ${isAboutActive ? 'active' : ''}`}
-              style={isInitialLoad ? { animationDelay: '200ms', animationDuration: '600ms', animationTimingFunction: 'ease-out' } : {}}
+              className={`header-v2-link ${isAboutActive ? 'active' : ''}`}
             >
               <Typography as="span" variant="bodyLight" className="nav-text">About</Typography>
             </Link>
             <Link
               to="/resume"
-              className={`header-v2-link ${isInitialLoad ? 'anim-fade-in' : ''} ${isResumeActive ? 'active' : ''}`}
-              style={isInitialLoad ? { animationDelay: '200ms', animationDuration: '600ms', animationTimingFunction: 'ease-out' } : {}}
+              className={`header-v2-link ${isResumeActive ? 'active' : ''}`}
             >
               <Typography as="span" variant="bodyLight" className="nav-text">Resume</Typography>
             </Link>
@@ -41,15 +39,13 @@ export default function HeaderV2({ isInitialLoad = false, style = {} }) {
               href="https://www.linkedin.com/in/niharikadalal"
               target="_blank"
               rel="noopener noreferrer"
-              className={`header-v2-link ${isInitialLoad ? 'anim-fade-in' : ''}`}
-              style={isInitialLoad ? { animationDelay: '200ms', animationDuration: '600ms', animationTimingFunction: 'ease-out' } : {}}
+              className="header-v2-link"
             >
               <Typography as="span" variant="bodyLight" className="nav-text">LinkedIn</Typography>
             </a>
             <a
               href="mailto:niharika13dalal@gmail.com"
-              className={`header-v2-link ${isInitialLoad ? 'anim-fade-in' : ''}`}
-              style={isInitialLoad ? { animationDelay: '200ms', animationDuration: '600ms', animationTimingFunction: 'ease-out' } : {}}
+              className="header-v2-link"
             >
               <Typography as="span" variant="bodyLight" className="nav-text">Email</Typography>
             </a>
