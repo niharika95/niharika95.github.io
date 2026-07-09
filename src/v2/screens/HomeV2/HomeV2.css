@@ -146,6 +146,311 @@
   margin-bottom: 64px;
 }
 
+/* ==========================================
+   Yoga Link Interactive Hover State Styles (Zen Edition)
+   ========================================== */
+
+/* Interactive Link Styling (No Underline) */
+.yoga-link {
+  color: #3b82f6;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.8s cubic-bezier(0.25, 1, 0.35, 1);
+  position: relative;
+  display: inline;
+  z-index: 101;
+  font-weight: 500;
+}
+
+.yoga-link:hover {
+  color: #1d4ed8;
+}
+
+/* Ambient Sunrise Radial Background on Sides Only with Moving Waves (Seamless & Zen) */
+.yoga-ambient-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.8s cubic-bezier(0.25, 1, 0.35, 1);
+  overflow: hidden;
+}
+
+.yoga-ambient-bg.active {
+  opacity: 1;
+}
+
+.ambient-side {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: max(320px, calc((100vw - 1040px) / 2 + 40px));
+  pointer-events: none;
+}
+
+.ambient-left {
+  left: 0;
+  background: linear-gradient(to left, #ffffff 0%, rgba(255, 175, 100, 0.18) 45%, rgba(255, 130, 50, 0.35) 100%),
+              radial-gradient(ellipse at 0% 45%, rgba(255, 140, 66, 0.32) 0%, rgba(244, 93, 1, 0.15) 60%, #ffffff 100%);
+  animation: wavyGlowLeft 10s ease-in-out infinite alternate;
+}
+
+.ambient-right {
+  right: 0;
+  background: linear-gradient(to right, #ffffff 0%, rgba(255, 190, 60, 0.18) 45%, rgba(255, 110, 110, 0.32) 100%),
+              radial-gradient(ellipse at 100% 45%, rgba(255, 183, 3, 0.3) 0%, rgba(255, 107, 107, 0.15) 60%, #ffffff 100%);
+  animation: wavyGlowRight 10s ease-in-out infinite alternate;
+}
+
+/* Vertical-only floating animation - ZERO horizontal scaling or slit effects */
+@keyframes wavyGlowLeft {
+  0% {
+    transform: translateY(0px);
+    opacity: 0.85;
+  }
+  50% {
+    transform: translateY(-25px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(20px);
+    opacity: 0.9;
+  }
+}
+
+@keyframes wavyGlowRight {
+  0% {
+    transform: translateY(0px);
+    opacity: 0.85;
+  }
+  50% {
+    transform: translateY(25px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-20px);
+    opacity: 0.9;
+  }
+}
+
+/* Page Content Stacking & Dimming */
+.home-v2-container,
+.case-studies-section {
+  position: relative;
+  z-index: 10;
+}
+
+.intro-headline,
+.notebook-item,
+.case-studies-label,
+.case-studies-section,
+.header-v2 {
+  transition: opacity 0.8s cubic-bezier(0.25, 1, 0.35, 1);
+}
+
+.dimmed-content-b1 .intro-headline,
+.dimmed-content-b1 .notebook-item:nth-child(2),
+.dimmed-content-b1 .case-studies-label,
+.dimmed-content-b1 .case-studies-section,
+.dimmed-content-b1 .header-v2,
+.dimmed-content-b2 .intro-headline,
+.dimmed-content-b2 .notebook-item:nth-child(1),
+.dimmed-content-b2 .case-studies-label,
+.dimmed-content-b2 .case-studies-section,
+.dimmed-content-b2 .header-v2 {
+  opacity: 0.5 !important;
+  filter: none !important;
+}
+
+.notebook-item-active-focus {
+  position: relative;
+  z-index: 100 !important;
+}
+
+/* Floating Card Image Stack Popup (Zen Smooth Entrance) */
+.intro-section {
+  position: relative;
+}
+
+.yoga-card-stack {
+  position: absolute;
+  width: 300px;
+  height: 200px;
+  pointer-events: none;
+  z-index: 120;
+  opacity: 0;
+  transition: opacity 0.8s cubic-bezier(0.25, 1, 0.35, 1), transform 0.8s cubic-bezier(0.25, 1, 0.35, 1);
+}
+
+/* Stack Above link text */
+.yoga-card-stack.stack-above {
+  transform: translate(-50%, -100%) translateY(-10px) scale(0.92);
+}
+
+.yoga-card-stack.stack-above.active {
+  opacity: 1;
+  transform: translate(-50%, -100%) translateY(-18px) scale(1);
+}
+
+/* Stack Below link text */
+.yoga-card-stack.stack-below {
+  transform: translate(-50%, 0%) translateY(10px) scale(0.92);
+}
+
+.yoga-card-stack.stack-below.active {
+  opacity: 1;
+  transform: translate(-50%, 0%) translateY(18px) scale(1);
+}
+
+/* Bullet 1 Specific Card Stack Layout */
+.bullet1-card-stack {
+  width: 270px;
+  height: 200px;
+}
+
+.bullet1-card-left {
+  left: 0px;
+  top: 10px;
+  width: 145px;
+  height: 195px;
+  z-index: 30;
+  transform: rotate(-10deg);
+}
+
+.bullet1-card-right {
+  left: 115px;
+  top: 0px;
+  width: 145px;
+  height: 195px;
+  z-index: 20;
+  transform: rotate(8deg);
+}
+
+.yoga-card-stack.active .bullet1-card-left {
+  transform: rotate(-12deg) translateY(-8px) translateX(-4px);
+  animation: gentleBounceB1Left 3.4s ease-in-out infinite;
+}
+
+.yoga-card-stack.active .bullet1-card-right {
+  transform: rotate(10deg) translateY(-12px) translateX(4px);
+  animation: gentleBounceB1Right 3.6s ease-in-out infinite 0.3s;
+}
+
+@keyframes gentleBounceB1Left {
+  0%, 100% {
+    transform: rotate(-12deg) translateY(-8px) translateX(-4px);
+  }
+  50% {
+    transform: rotate(-12deg) translateY(-14px) translateX(-4px);
+  }
+}
+
+@keyframes gentleBounceB1Right {
+  0%, 100% {
+    transform: rotate(10deg) translateY(-12px) translateX(4px);
+  }
+  50% {
+    transform: rotate(10deg) translateY(-18px) translateX(4px);
+  }
+}
+
+.yoga-card {
+  position: absolute;
+  width: 140px;
+  height: 190px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: #ffffff;
+  transition: transform 0.8s cubic-bezier(0.25, 1, 0.35, 1);
+}
+
+.yoga-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Fanned-out Rotated Card Stack Layout matching attached screenshot */
+.yoga-card-left {
+  left: 0px;
+  top: 20px;
+  z-index: 10;
+  transform: rotate(-12deg);
+}
+
+.yoga-card-center {
+  left: 85px;
+  top: 0px;
+  z-index: 30;
+  transform: rotate(0deg) scale(1.05);
+}
+
+.yoga-card-right {
+  left: 170px;
+  top: 20px;
+  z-index: 20;
+  transform: rotate(12deg);
+}
+
+.yoga-card-stack.active .yoga-card-left {
+  transform: rotate(-14deg) translateY(-8px) translateX(-6px);
+  animation: gentleBounceLeft 3.2s ease-in-out infinite;
+}
+
+.yoga-card-stack.active .yoga-card-center {
+  transform: rotate(0deg) scale(1.08) translateY(-12px);
+  animation: gentleBounceCenter 3.6s ease-in-out infinite 0.2s;
+}
+
+.yoga-card-stack.active .yoga-card-right {
+  transform: rotate(14deg) translateY(-8px) translateX(6px);
+  animation: gentleBounceRight 3.4s ease-in-out infinite 0.4s;
+}
+
+/* Ongoing Gentle Bouncing Animations */
+@keyframes gentleBounceLeft {
+  0%, 100% {
+    transform: rotate(-14deg) translateY(-8px) translateX(-6px);
+  }
+  50% {
+    transform: rotate(-14deg) translateY(-14px) translateX(-6px);
+  }
+}
+
+@keyframes gentleBounceCenter {
+  0%, 100% {
+    transform: rotate(0deg) scale(1.08) translateY(-12px);
+  }
+  50% {
+    transform: rotate(0deg) scale(1.08) translateY(-18px);
+  }
+}
+
+@keyframes gentleBounceRight {
+  0%, 100% {
+    transform: rotate(14deg) translateY(-8px) translateX(6px);
+  }
+  50% {
+    transform: rotate(14deg) translateY(-15px) translateX(6px);
+  }
+}
+
+/* Responsive adjustments for stack on mobile screens */
+@media (max-width: 768px) {
+  .yoga-card-stack {
+    right: 50%;
+    transform: translateX(50%) translateY(24px) scale(0.85);
+    top: -160px;
+  }
+  .yoga-card-stack.active {
+    transform: translateX(50%) translateY(0) scale(0.9);
+  }
+}
+
 .notebook-item {
   display: flex;
   gap: 16px;
