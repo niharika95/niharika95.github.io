@@ -5,6 +5,7 @@ import {
   selectedWorkGalleryItems,
   selectedWorksCatalog
 } from '../../screens/SelectedWorks/selectedWorksCatalog';
+import Typography from '../Typography';
 import './SelectedWorkShowcase.css';
 
 const WORD_ROW_HEIGHT = 1.35;
@@ -95,13 +96,19 @@ function RotatingCategory({ prefersReducedMotion, onCategoryChange }) {
       setUseTransition(false);
       setPosition(0);
       window.requestAnimationFrame(() => setUseTransition(true));
-    }, 205);
+    }, 405);
 
     return () => window.clearTimeout(timeoutId);
   }, [labels.length, position]);
 
   return (
-    <span className="selected-work-showcase__word-window" aria-hidden="true">
+    <Typography
+      as="span"
+      variant="h4Medium"
+      className="selected-work-showcase__word-window"
+      style={{ color: 'var(--selected-work-yellow)', display: 'block', height: '1.35em', overflow: 'hidden', whiteSpace: 'nowrap', fontWeight: 600, '--typography-font-weight': 600 }}
+      aria-hidden="true"
+    >
       <span
         className={`selected-work-showcase__word-track ${useTransition ? 'is-transitioning' : ''}`}
         style={{ transform: `translate3d(0, -${position * WORD_ROW_HEIGHT}em, 0)` }}
@@ -109,30 +116,45 @@ function RotatingCategory({ prefersReducedMotion, onCategoryChange }) {
         {extendedLabels.map((label, index) => (
           <span className="selected-work-showcase__word" key={`${label}-${index}`}>
             {label.toLowerCase()}
+            <Typography
+              as="span"
+              variant="h6Medium"
+              style={{
+                color: '#666666',
+                fontWeight: 500,
+                '--typography-font-weight': 500,
+                marginLeft: '1px'
+              }}
+            >
+              .
+            </Typography>
           </span>
         ))}
       </span>
-    </span>
+    </Typography>
   );
 }
 
 function GalleryGroup({ duplicate = false }) {
   return (
     <div className="selected-work-showcase__gallery-group" aria-hidden={duplicate || undefined}>
-      {selectedWorkGalleryItems.map((item) => (
-        <Link
-          className={`selected-work-showcase__gallery-card ${item.isMobile ? 'is-mobile' : ''}`}
-          key={`${duplicate ? 'duplicate' : 'primary'}-${item.id}`}
-          to={{ pathname: item.path, hash: `#${item.id}` }}
-          aria-label={`View ${item.title} in ${item.categoryLabel}`}
-          tabIndex={duplicate ? -1 : undefined}
-        >
-          <img src={item.src} alt={item.alt} loading="lazy" />
-          <span className="selected-work-showcase__gallery-caption">
-            {item.categoryLabel}
-          </span>
-        </Link>
-      ))}
+      {selectedWorkGalleryItems.map((item) => {
+        const hasNoBg = item.imageStyle === 'pbr';
+        return (
+          <Link
+            className={`selected-work-showcase__gallery-card ${item.isMobile ? 'is-mobile' : ''} ${hasNoBg ? 'has-no-bg' : ''}`}
+            key={`${duplicate ? 'duplicate' : 'primary'}-${item.id}`}
+            to={{ pathname: item.path, hash: `#${item.id}` }}
+            aria-label={`View ${item.title} in ${item.categoryLabel}`}
+            tabIndex={duplicate ? -1 : undefined}
+          >
+            <img src={item.src} alt={item.alt} loading="lazy" />
+            <span className="selected-work-showcase__gallery-caption">
+              {item.categoryLabel}
+            </span>
+          </Link>
+        );
+      })}
     </div>
   );
 }
@@ -187,7 +209,9 @@ export default function SelectedWorkShowcase({ skipAnimation = false }) {
         </h2>
 
         <div className="selected-work-showcase__statement">
-          <p>Shining a light on the smaller details of</p>
+          <Typography as="p" variant="h6Medium" style={{ color: '#666666', margin: 0 }}>
+            Shining a light on the smaller details of
+          </Typography>
           <RotatingCategory
             prefersReducedMotion={prefersReducedMotion}
             onCategoryChange={setActiveCategory}
@@ -197,8 +221,8 @@ export default function SelectedWorkShowcase({ skipAnimation = false }) {
           </span>
           <Link
             className="selected-work-showcase__category-link"
-            to={category.path}
-            aria-label={`View ${category.label}`}
+            to="/selected-works/dashboards"
+            aria-label="View all selected works"
           >
             <span className="selected-work-showcase__category-link-label">View all</span>
             <svg viewBox="0 0 24 24" aria-hidden="true">

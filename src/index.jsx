@@ -35,6 +35,8 @@ import SelectedWorksDataExtraction from './v2/screens/SelectedWorks/SelectedWork
 import SelectedWorksFormFlows from './v2/screens/SelectedWorks/SelectedWorksFormFlows';
 import SelectedWorksMobileUI from './v2/screens/SelectedWorks/SelectedWorksMobileUI';
 import SelectedWorksChatMessaging from './v2/screens/SelectedWorks/SelectedWorksChatMessaging';
+import SelectedWorksAuthFlows from './v2/screens/SelectedWorks/SelectedWorksAuthFlows';
+import SelectedWorksMarketingDesign from './v2/screens/SelectedWorks/SelectedWorksMarketingDesign';
 import SelectedWorksAll from './v2/screens/SelectedWorks/SelectedWorksAll';
 
 
@@ -71,6 +73,8 @@ root.render(
         <Route path="/selected-works/form-flows" element={<V2Route><SelectedWorksFormFlows /></V2Route>} />
         <Route path="/selected-works/mobile-ui" element={<V2Route><SelectedWorksMobileUI /></V2Route>} />
         <Route path="/selected-works/chat-messaging" element={<V2Route><SelectedWorksChatMessaging /></V2Route>} />
+        <Route path="/selected-works/auth-flows" element={<V2Route><SelectedWorksAuthFlows /></V2Route>} />
+        <Route path="/selected-works/marketing-design" element={<V2Route><SelectedWorksMarketingDesign /></V2Route>} />
 
         <Route path="/selected-works" element={<V2Route><SelectedWorksAll /></V2Route>} />
 

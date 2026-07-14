@@ -85,8 +85,10 @@ function DrawnUnderline() {
 function DrawnArrow() {
   return (
     <svg className="hero-scribble hero-scribble--arrow" viewBox="0 0 154 72" aria-hidden="true">
-      <path className="hero-scribble__stroke hero-scribble__stroke--arrow" d="M5 63 C35 14 88 2 137 34" />
-      <path className="hero-scribble__stroke hero-scribble__stroke--arrow-head" d="M122 34 L139 35 L136 19" />
+      <path className="hero-scribble__stroke hero-scribble__stroke--arrow" d="M6 64 C 20 42, 54 12, 94 11 C 114 11, 128 20, 137 33" />
+      <path className="hero-scribble__stroke hero-scribble__stroke--arrow-echo" d="M9 61 C 28 35, 62 14, 95 14 C 111 14, 123 21, 133 31" />
+      <path className="hero-scribble__stroke hero-scribble__stroke--arrow-head" d="M121 28 C 126 31, 132 34, 139 35" />
+      <path className="hero-scribble__stroke hero-scribble__stroke--arrow-head-return" d="M139 35 C 137 29, 135 22, 132 15" />
     </svg>
   );
 }
@@ -96,11 +98,11 @@ function DrawnCircle() {
     <svg className="hero-scribble hero-scribble--circle" viewBox="0 0 244 66" aria-hidden="true">
       <path
         className="hero-scribble__stroke hero-scribble__stroke--circle"
-        d="M221 12 C176 2 58 2 17 17 C-3 25 7 48 43 56 C91 67 197 61 228 47 C251 37 244 20 221 12"
+        d="M225 15 C160 5, 60 5, 20 18 C-5 25, 5 50, 40 56 C90 64, 190 60, 230 42 C250 32, 230 18, 200 12 C180 8, 160 10, 145 15"
       />
       <path
         className="hero-scribble__stroke hero-scribble__stroke--circle-echo"
-        d="M226 15 C177 7 67 4 24 17 C4 23 5 44 34 54"
+        d="M228 18 C165 8, 65 7, 23 20 C0 27, 8 47, 43 52 C85 58, 180 54, 218 38 C235 28, 215 15, 185 11 C165 7, 150 9, 138 13"
       />
     </svg>
   );
