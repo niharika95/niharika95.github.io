@@ -94,6 +94,12 @@
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.01), 0 1px 3px rgba(0, 0, 0, 0.03);
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
   background-color: #fafafa;
+  scroll-margin-top: 132px;
+}
+
+[data-selected-work-image]:focus-visible {
+  outline: 3px solid #f4b400;
+  outline-offset: 5px;
 }
 
 .dashboard-image-wrapper:hover {
@@ -132,6 +138,7 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.04);
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
   background-color: transparent;
+  scroll-margin-top: 132px;
 }
 
 .mobile-ui-image-wrapper:hover {

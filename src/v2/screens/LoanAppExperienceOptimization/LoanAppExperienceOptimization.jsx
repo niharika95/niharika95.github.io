@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { ChevronLeft } from 'lucide-react';
 import { Icon } from '@iconify/react';
 import HeaderV2 from '../../components/HeaderV2/HeaderV2';
 import Typography from '../../components/Typography';
 import MoreCaseStudies from '../../components/MoreCaseStudies/MoreCaseStudies';
+import HistoryBackLink from '../../components/HistoryBackLink';
 import { useAnalytics } from '../../hooks/useAnalytics';
 import { useScrollTracking } from '../../hooks/useScrollTracking';
 import { useTimeTracking } from '../../hooks/useTimeTracking';
@@ -227,10 +227,10 @@ const LoanAppExperienceOptimization = () => {
       <div className="mx-auto flex max-w-[1440px] px-5 pb-32 pt-10 lg:px-10">
         <aside className="sticky top-[130px] hidden max-h-[calc(100vh-140px)] w-[180px] flex-shrink-0 self-start overflow-y-auto lg:block">
           <nav className="flex flex-col gap-[40px]">
-            <Link to="/" className="back-link-group -ml-1 inline-flex items-center gap-1 text-base font-medium text-gray-500 transition-colors duration-200">
+            <HistoryBackLink className="back-link-group -ml-1 inline-flex items-center gap-1 text-base font-medium text-gray-500 transition-colors duration-200">
               <ChevronLeft size={20} className="icon-solid-hover transition-colors duration-200" />
               <Typography as="span" variant="smallLight" className="shimmer-text">Home</Typography>
-            </Link>
+            </HistoryBackLink>
             <div className="flex flex-col gap-[12px]">
               {TOC.map((item) => (
                 <a

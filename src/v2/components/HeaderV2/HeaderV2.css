@@ -16,7 +16,7 @@
   justify-content: space-between;
   align-items: center;
   width: calc(100% - 48px);
-  max-width: 720px;
+  max-width: 1040px;
   margin: 0 auto;
   padding: 20px 0px;
   box-sizing: border-box;
@@ -176,4 +176,12 @@
 .anim-slide-right {
   opacity: 0;
   animation: slideInRight 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-slide-left,
+  .anim-slide-right {
+    opacity: 1;
+    animation: none;
+  }
 }
