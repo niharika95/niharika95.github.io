@@ -361,7 +361,7 @@
   .portfolio-intro {
     min-height: 0;
     margin-bottom: 50px;
-    padding-top: 34px;
+    padding-top: 26px;
   }
 
   .portfolio-intro__copy {
@@ -370,12 +370,65 @@
 
   .portfolio-intro__headline {
     margin-bottom: 32px;
-    font-size: 24px;
-    line-height: 1.5;
+    font-size: clamp(22px, 6.25vw, 24px);
+    line-height: 1.46;
+    letter-spacing: -0.035em;
+  }
+
+  .portfolio-intro__primary-line {
+    display: block;
+    animation-delay: 450ms;
+  }
+
+  .portfolio-intro__subline {
+    animation-delay: 2100ms;
   }
 
   .role-transition {
+    display: inline;
     white-space: normal;
+  }
+
+  .role-transition__engineer,
+  .role-transition__designer {
+    white-space: nowrap;
+  }
+
+  .role-transition__designer {
+    margin-right: 6px;
+  }
+
+  .hero-scribble--underline {
+    bottom: -5px;
+  }
+
+  .hero-scribble__stroke--underline,
+  .hero-scribble__stroke--underline-echo {
+    animation-delay: 950ms;
+  }
+
+  .hero-scribble__stroke--underline-echo {
+    animation-delay: 1060ms;
+  }
+
+  .hero-scribble--circle {
+    width: calc(100% + 14px);
+    height: calc(100% + 18px);
+    left: -7px;
+    top: -7px;
+  }
+
+  .hero-scribble__stroke--circle,
+  .hero-scribble__stroke--circle-echo {
+    animation-delay: 1450ms;
+  }
+
+  .hero-scribble__stroke--circle-echo {
+    animation-delay: 1610ms;
+  }
+
+  .build-systems-wave__letter {
+    animation-delay: calc(2400ms + var(--letter-index) * 36ms);
   }
 
   .hero-scribble--arrow {
@@ -410,6 +463,16 @@
   .placeholder-card--north-east { --final-x: 58px; --final-y: -31px; --overshoot-x: 64px; --overshoot-y: -36px; }
   .placeholder-card--south-west { --final-x: -40px; --final-y: 45px; --overshoot-x: -45px; --overshoot-y: 52px; }
   .placeholder-card--south-east { --final-x: 49px; --final-y: 46px; --overshoot-x: 55px; --overshoot-y: 53px; }
+}
+
+@media (max-width: 380px) {
+  .portfolio-intro__headline {
+    font-size: 22px;
+  }
+
+  .notebook-row__text {
+    min-height: 112px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

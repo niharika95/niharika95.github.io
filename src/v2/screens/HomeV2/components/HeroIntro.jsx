@@ -17,6 +17,8 @@ const BUILD_SYSTEMS = 'build systems';
 const NOTEBOOK_START_DELAY = 5550;
 const CASE_STUDIES_BREATH_DELAY = 700;
 const SEQUENCE_SAFETY_DELAY = 9500;
+const PHONE_NOTEBOOK_START_DELAY = 3000;
+const PHONE_SEQUENCE_SAFETY_DELAY = 6500;
 const NOTEBOOK_ITEM_LENGTHS = NOTEBOOK_ITEMS.map(
   (item) => item.strong.length + item.normal.length
 );
@@ -34,6 +36,23 @@ function useReducedMotion() {
   }, []);
 
   return prefersReducedMotion;
+}
+
+function usePhoneViewport() {
+  const [isPhoneViewport, setIsPhoneViewport] = useState(() => (
+    typeof window !== 'undefined' ? window.matchMedia('(max-width: 700px)').matches : false
+  ));
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(max-width: 700px)');
+    const updateViewport = () => setIsPhoneViewport(mediaQuery.matches);
+
+    updateViewport();
+    mediaQuery.addEventListener?.('change', updateViewport);
+    return () => mediaQuery.removeEventListener?.('change', updateViewport);
+  }, []);
+
+  return isPhoneViewport;
 }
 
 function AnimatedBuildSystems() {
@@ -115,6 +134,7 @@ function PlaceholderStack({ dealtCount }) {
 
 export default function HeroIntro({ onSequenceComplete, skipAnimation = false }) {
   const prefersReducedMotion = useReducedMotion();
+  const isPhoneViewport = usePhoneViewport();
   const [typingStep, setTypingStep] = useState(skipAnimation ? 3 : 0);
   const [characterCounts, setCharacterCounts] = useState(
     skipAnimation ? NOTEBOOK_ITEM_LENGTHS : [0, 0]
@@ -136,10 +156,10 @@ export default function HeroIntro({ onSequenceComplete, skipAnimation = false })
         hasCompletedSequence.current = true;
         completionCallback.current?.();
       }
-    }, SEQUENCE_SAFETY_DELAY);
+    }, isPhoneViewport ? PHONE_SEQUENCE_SAFETY_DELAY : SEQUENCE_SAFETY_DELAY);
 
     return () => window.clearTimeout(safetyTimer);
-  }, [skipAnimation]);
+  }, [isPhoneViewport, skipAnimation]);
 
   useEffect(() => {
     if (skipAnimation) return undefined;
@@ -154,9 +174,12 @@ export default function HeroIntro({ onSequenceComplete, skipAnimation = false })
       return undefined;
     }
 
-    const startTimer = window.setTimeout(() => setTypingStep(1), NOTEBOOK_START_DELAY);
+    const startTimer = window.setTimeout(
+      () => setTypingStep(1),
+      isPhoneViewport ? PHONE_NOTEBOOK_START_DELAY : NOTEBOOK_START_DELAY
+    );
     return () => window.clearTimeout(startTimer);
-  }, [prefersReducedMotion, skipAnimation]);
+  }, [isPhoneViewport, prefersReducedMotion, skipAnimation]);
 
   useEffect(() => {
     if (skipAnimation || prefersReducedMotion || typingStep !== 3 || hasCompletedSequence.current) {

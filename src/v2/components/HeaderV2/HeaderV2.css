@@ -102,6 +102,25 @@
   .header-v2-nav {
     display: none !important;
   }
+
+  .home-v2 .header-v2-mobile-nav {
+    width: calc(100% - 24px) !important;
+    max-width: 360px !important;
+    padding-right: 10px !important;
+    padding-left: 10px !important;
+    justify-content: space-between;
+    gap: 10px !important;
+  }
+
+  .home-v2 .header-v2-mobile-nav > a {
+    width: 44px !important;
+    min-width: 44px;
+    height: 44px !important;
+  }
+
+  .home-v2 .header-v2-logo {
+    min-height: 44px;
+  }
 }
 
 .header-v2-logo:hover .nav-text,
