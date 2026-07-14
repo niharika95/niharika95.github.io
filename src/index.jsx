@@ -29,6 +29,14 @@ import RamenNagiCaseStudyV2 from './v2/screens/RamenNagiCaseStudy/RamenNagiCaseS
 import ResumeV2 from './v2/screens/Resume/Resume';
 import ExposureToolV2 from './v2/screens/ExposureTool/ExposureTool';
 import HomeV2LargeThumbnails from './v2/screens/HomeV2LargeThumbnails/HomeV2LargeThumbnails';
+import SelectedWorksDashboards from './v2/screens/SelectedWorks/SelectedWorksDashboards';
+import SelectedWorksDataTables from './v2/screens/SelectedWorks/SelectedWorksDataTables';
+import SelectedWorksDataExtraction from './v2/screens/SelectedWorks/SelectedWorksDataExtraction';
+import SelectedWorksFormFlows from './v2/screens/SelectedWorks/SelectedWorksFormFlows';
+import SelectedWorksMobileUI from './v2/screens/SelectedWorks/SelectedWorksMobileUI';
+import SelectedWorksChatMessaging from './v2/screens/SelectedWorks/SelectedWorksChatMessaging';
+import SelectedWorksAll from './v2/screens/SelectedWorks/SelectedWorksAll';
+
 
 const container = document.getElementById('root');
 const root = createRoot(container);
@@ -57,6 +65,16 @@ root.render(
         <Route path="/loan-app-experience-optimization" element={<V2Route><LoanAppExperienceOptimizationV2 /></V2Route>} />
         <Route path="/about" element={<V2Route><AboutV2 /></V2Route>} />
         <Route path="/resume" element={<V2Route><ResumeV2 /></V2Route>} />
+        <Route path="/selected-works/dashboards" element={<V2Route><SelectedWorksDashboards /></V2Route>} />
+        <Route path="/selected-works/data-tables" element={<V2Route><SelectedWorksDataTables /></V2Route>} />
+        <Route path="/selected-works/data-extraction" element={<V2Route><SelectedWorksDataExtraction /></V2Route>} />
+        <Route path="/selected-works/form-flows" element={<V2Route><SelectedWorksFormFlows /></V2Route>} />
+        <Route path="/selected-works/mobile-ui" element={<V2Route><SelectedWorksMobileUI /></V2Route>} />
+        <Route path="/selected-works/chat-messaging" element={<V2Route><SelectedWorksChatMessaging /></V2Route>} />
+
+        <Route path="/selected-works" element={<V2Route><SelectedWorksAll /></V2Route>} />
+
+
 
         {/* V2 Archived Routes */}
         <Route path="/archived-large-thumbnails" element={<V2Route><HomeV2LargeThumbnails /></V2Route>} />
