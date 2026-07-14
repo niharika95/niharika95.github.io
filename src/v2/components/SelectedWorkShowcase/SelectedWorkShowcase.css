@@ -386,23 +386,61 @@
   }
 
   .selected-work-showcase__gallery-bleed {
+    width: calc(100% + 32px);
     margin-top: 32px;
+    margin-left: -16px;
+  }
+
+  .selected-work-showcase__gallery {
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 46px 0 62px;
+    scroll-padding-inline: 16px;
+    scroll-snap-type: x proximity;
+    overscroll-behavior-inline: contain;
+    scrollbar-width: none;
+    touch-action: pan-x pan-y;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .selected-work-showcase__gallery::-webkit-scrollbar {
+    display: none;
+  }
+
+  .selected-work-showcase.is-gallery-manual .selected-work-showcase__gallery-track {
+    animation: none;
+    transform: none;
+    will-change: auto;
   }
 
   .selected-work-showcase__gallery-group {
-    gap: 24px;
-    padding-right: 24px;
+    gap: 18px;
+    padding: 0 16px;
   }
 
   .selected-work-showcase__gallery-card {
     width: min(84vw, 410px);
     height: min(58vw, 282px);
     padding: 10px;
+    scroll-snap-align: center;
   }
 
   .selected-work-showcase__gallery-card.is-mobile {
     width: min(58vw, 250px);
     height: min(79vw, 350px);
+  }
+
+  .selected-work-showcase__gallery-caption {
+    right: 16px;
+    bottom: 16px;
+    opacity: 1;
+    transform: none;
+  }
+
+  .selected-work-showcase__category-link {
+    width: 112px;
+    min-width: 112px;
+    height: 44px;
   }
 }
 

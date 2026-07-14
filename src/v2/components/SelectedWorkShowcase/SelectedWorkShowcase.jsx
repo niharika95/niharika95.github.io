@@ -10,6 +10,16 @@ import './SelectedWorkShowcase.css';
 
 const WORD_ROW_HEIGHT = 1.35;
 
+function getTranslateX(transform) {
+  if (!transform || transform === 'none') return 0;
+
+  const match = transform.match(/^matrix(3d)?\((.+)\)$/);
+  if (!match) return 0;
+
+  const values = match[2].split(',').map(Number);
+  return match[1] ? values[12] : values[4];
+}
+
 function useReducedMotion() {
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(() => (
     typeof window !== 'undefined'
@@ -152,13 +162,36 @@ function GalleryGroup({ duplicate = false }) {
 export default function SelectedWorkShowcase({ skipAnimation = false }) {
   const prefersReducedMotion = useReducedMotion();
   const [activeCategory, setActiveCategory] = useState(0);
+  const [isGalleryManual, setIsGalleryManual] = useState(prefersReducedMotion);
   const [sectionRef, isVisible] = useRevealOnView(prefersReducedMotion, skipAnimation);
+  const galleryRef = useRef(null);
+  const galleryTrackRef = useRef(null);
   const category = selectedWorksCatalog[activeCategory];
+
+  useEffect(() => {
+    if (prefersReducedMotion) setIsGalleryManual(true);
+  }, [prefersReducedMotion]);
+
+  const enableManualGallery = () => {
+    if (isGalleryManual || !window.matchMedia('(max-width: 760px)').matches) return;
+
+    const gallery = galleryRef.current;
+    const track = galleryTrackRef.current;
+    if (!gallery || !track) return;
+
+    const translateX = getTranslateX(window.getComputedStyle(track).transform);
+    const visualScrollPosition = Math.max(0, -translateX);
+
+    setIsGalleryManual(true);
+    window.requestAnimationFrame(() => {
+      gallery.scrollLeft = visualScrollPosition;
+    });
+  };
 
   return (
     <section
       ref={sectionRef}
-      className={`selected-work-showcase ${isVisible ? 'is-visible' : ''} ${skipAnimation ? 'is-static' : ''}`}
+      className={`selected-work-showcase ${isVisible ? 'is-visible' : ''} ${skipAnimation ? 'is-static' : ''} ${isGalleryManual ? 'is-gallery-manual' : ''}`}
       aria-labelledby="selected-work-showcase-title"
     >
       <div className="selected-work-showcase__content">
@@ -200,8 +233,15 @@ export default function SelectedWorkShowcase({ skipAnimation = false }) {
       </div>
 
       <div className="selected-work-showcase__gallery-bleed">
-        <div className="selected-work-showcase__gallery" role="group" aria-label="Selected work gallery">
-          <div className="selected-work-showcase__gallery-track">
+        <div
+          ref={galleryRef}
+          className="selected-work-showcase__gallery"
+          role="group"
+          aria-label="Selected work gallery. Touch or press to browse manually."
+          onPointerDown={enableManualGallery}
+          onFocusCapture={enableManualGallery}
+        >
+          <div ref={galleryTrackRef} className="selected-work-showcase__gallery-track">
             <GalleryGroup duplicate />
             <GalleryGroup />
           </div>

@@ -55,7 +55,7 @@ export default function HeaderV2({ isInitialLoad = false, style = {} }) {
       <div className="header-v2-spacer" />
 
       {/* Mobile Floating Pill Navigation */}
-      <div className="fixed md:hidden bottom-5 left-1/2 -translate-x-1/2 bg-white rounded-[32px] shadow-[0_4px_24px_rgba(0,0,0,0.12)] px-6 sm:px-8 py-3 flex items-center gap-8 z-[1000] border border-gray-100 w-max max-w-[90%]">
+      <div className="header-v2-mobile-nav fixed md:hidden bottom-5 left-1/2 -translate-x-1/2 bg-white rounded-[32px] shadow-[0_4px_24px_rgba(0,0,0,0.12)] px-6 sm:px-8 py-3 flex items-center gap-8 z-[1000] border border-gray-100 w-max max-w-[90%]">
         <Link to="/" aria-label="Home" className={`flex items-center justify-center w-[32px] h-[32px] no-underline relative transition-colors duration-200 ${isHomeActive ? 'text-gray-900' : 'text-gray-400'}`}>
           <span className={`material-symbols-outlined nav-icon-material select-none text-[32px] block ${isHomeActive ? 'nav-icon-material-active' : ''}`}>home</span>
         </Link>
