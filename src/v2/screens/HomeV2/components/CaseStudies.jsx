@@ -19,7 +19,8 @@ const SMALL_CASE_STUDIES = [
     description: 'A grueling 2-hour wait experience was actively dismantling the product value.',
     image: '/v2/images/projects/ramen-nagi/ramen-nagi-thumbnail.png',
     imageAlt: 'Ramen Nagi digital waitlist concept shown on a phone',
-    imageClassName: 'case-study-card__image--ramen'
+    imageClassName: 'case-study-card__image--ramen',
+    badge: 'AI'
   },
   {
     to: '/loan-app-experience-optimization',
@@ -100,6 +101,22 @@ export default function CaseStudies({ isVisible, skipAnimation = false }) {
                 alt={project.imageAlt}
                 className={`case-study-card__image ${project.imageClassName}`}
               />
+              {project.badge && (
+                <span className="case-study-card__badge">
+                  <svg className="case-study-card__badge-icon" viewBox="0 0 24 24" aria-hidden="true" width="16" height="16">
+                    <defs>
+                      <linearGradient id="magic-star-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#fff59d" />
+                        <stop offset="30%" stop-color="#fbc02d" />
+                        <stop offset="70%" stop-color="#f57f17" />
+                        <stop offset="100%" stop-color="#ffb300" />
+                      </linearGradient>
+                    </defs>
+                    <path fill="url(#magic-star-gradient)" d="M12 2c-.4 0-.8.3-.9.7L9.5 7.6 4.7 9.1c-.4.1-.7.5-.7.9s.3.8.7.9l4.8 1.5 1.6 4.9c.1.4.5.7.9.7s.8-.3.9-.7l1.5-4.9 4.9-1.6c.4-.1.7-.5.7-.9s-.3-.8-.7-.9l-4.9-1.5-1.5-4.8c-.1-.4-.5-.7-.9-.7z" />
+                  </svg>
+                  <span>{project.badge}</span>
+                </span>
+              )}
             </div>
             <div className="case-study-card__content">
               <Typography as="h3" variant="bodySemibold" className="case-study-card__title">

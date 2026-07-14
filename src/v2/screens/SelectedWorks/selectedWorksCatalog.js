@@ -221,6 +221,59 @@ export const selectedWorksCatalog = [
         ]
       }
     ]
+  },
+  {
+    slug: 'auth-flows',
+    label: 'Auth Flows',
+    path: '/selected-works/auth-flows',
+    hideOnLanding: true,
+    items: [
+      {
+        slug: 'enterprise-access-verification',
+        title: 'Enterprise Access & Verification',
+        description: 'Design of a login and welcome portal. The layout balances a clean input form with an engaging brand section. The welcome section highlights product features and security guidelines.',
+        images: [`${ASSET_ROOT}/selected-works-auth-flows/NBS login.png`]
+      },
+      {
+        slug: 'platform-gateway-experience',
+        title: 'Platform Gateway Experience',
+        description: 'This sequence illustrates a complete authentication flow. It includes screens for initial login, one-time passcode confirmation, password recovery, verification success state, user registration, and account creation confirmation.',
+        images: [
+          `${ASSET_ROOT}/selected-works-auth-flows/Henry - images/Sign in - code sent.png`,
+          `${ASSET_ROOT}/selected-works-auth-flows/Henry - images/Sign in - code typed in.png`,
+          `${ASSET_ROOT}/selected-works-auth-flows/Henry - images/Sign in - forgot password.png`,
+          `${ASSET_ROOT}/selected-works-auth-flows/Henry - images/Sign in - password reset.png`,
+          `${ASSET_ROOT}/selected-works-auth-flows/Henry - images/Sign up - filled.png`,
+          `${ASSET_ROOT}/selected-works-auth-flows/Henry - images/Sign up - password created.png`
+        ]
+      }
+    ]
+  },
+  {
+    slug: 'marketing-design',
+    label: 'Marketing Design',
+    path: '/selected-works/marketing-design',
+    hideOnLanding: true,
+    items: [
+      {
+        slug: 'conversion-driven-web-design',
+        title: 'Conversion-Driven Web Design',
+        description: 'Design of a clean and conversion-driven marketing page that features clear value propositions, interactive UI showcases, and direct calls to action to drive user registration.',
+        images: [`${ASSET_ROOT}/selected-works-marketing-design/orion.png`]
+      },
+      {
+        slug: 'interactive-ui-challenge',
+        title: 'Interactive UI Challenge',
+        description: 'A marketing page for a design challenge. It features a clean hero layout with a high-fidelity lightbulb mockup, followed by interactive feature cards and structured design challenges.',
+        images: [`${ASSET_ROOT}/selected-works-marketing-design/drippy.png`]
+      },
+      {
+        slug: 'design-system-component-lab',
+        title: 'Design System & Component Lab',
+        description: 'A dark mode developer portal showcasing design system components, interactive color palettes, code snippets, and responsive layout templates to accelerate web application building.',
+        images: [`${ASSET_ROOT}/selected-works-marketing-design/ds.png`]
+      }
+    ]
   }
 ];
 
@@ -252,6 +305,7 @@ export const selectedWorkGalleryItems = galleryPicks.map(([categorySlug, itemSlu
     title: item.title,
     categoryLabel: category.label,
     path: category.path,
-    isMobile: (item.display || category.display) === 'mobile'
+    isMobile: (item.display || category.display) === 'mobile',
+    imageStyle: item.imageStyle
   };
 });
