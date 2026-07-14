@@ -253,6 +253,90 @@ export default function HomeV2() {
             </Link>
           </div>
         </section>
+
+        {/* Selected Works Section - Max Width 720px */}
+        <section className={`selected-works-section ${showCaseStudies ? 'selected-works-entrance' : 'selected-works-hidden'}`}>
+          <Typography 
+            as="div" 
+            variant="smallRegular" 
+            className="selected-works-label text-gray-600"
+          >
+            Selected works
+          </Typography>
+
+
+          <div className="selected-works-grid">
+            {/* Card 1: Dashboards */}
+            <Link to="/selected-works/dashboards" className="selected-works-card">
+              <div className="selected-works-thumbnail">
+                <img 
+                  src="/v2/images/home/selected-works/selected-works-dashboards/New Business Submission Case Management - dark.png" 
+                  alt="Dashboards preview" 
+                  className="selected-works-thumb-img" 
+                />
+              </div>
+              <div className="selected-works-card-content">
+                <Typography as="span" variant="bodySemibold" className="selected-works-title">
+                  Dashboards
+                </Typography>
+              </div>
+              <div className="selected-works-btn">
+                <span className="selected-works-cta-text">View</span>
+                <Icon icon="material-symbols:arrow-forward" className="selected-works-arrow" width="24" height="24" />
+              </div>
+            </Link>
+
+            {/* Card 2: Data Tables */}
+            <Link to="/selected-works/data-tables" className="selected-works-card">
+              <div className="selected-works-thumbnail">
+                <img 
+                  src="/v2/images/home/selected-works/selected-works-data-tables/Omnichannel Campaign Execution & Analytics Platform - 1.png" 
+                  alt="Data Tables preview" 
+                  className="selected-works-thumb-img" 
+                />
+              </div>
+              <div className="selected-works-card-content">
+                <Typography as="span" variant="bodySemibold" className="selected-works-title">
+                  Data Tables
+                </Typography>
+              </div>
+              <div className="selected-works-btn">
+                <span className="selected-works-cta-text">View</span>
+                <Icon icon="material-symbols:arrow-forward" className="selected-works-arrow" width="24" height="24" />
+              </div>
+            </Link>
+
+            {/* Card 3: Data Extraction */}
+            <Link to="/selected-works/data-extraction" className="selected-works-card">
+              <div className="selected-works-thumbnail">
+                <img 
+                  src="/v2/images/home/selected-works/selected-works-data-extraction/Intelligent Document Extraction & Verification - 1.png" 
+                  alt="Data Extraction preview" 
+                  className="selected-works-thumb-img" 
+                />
+              </div>
+              <div className="selected-works-card-content">
+                <Typography as="span" variant="bodySemibold" className="selected-works-title">
+                  Data Extraction
+                </Typography>
+              </div>
+              <div className="selected-works-btn">
+                <span className="selected-works-cta-text">View</span>
+                <Icon icon="material-symbols:arrow-forward" className="selected-works-arrow" width="24" height="24" />
+              </div>
+            </Link>
+
+            {/* Card 4: View all */}
+            <Link to="/selected-works/dashboards" className="selected-works-card view-all-card">
+              <div className="view-all-btn">
+                <span className="view-all-text">View all</span>
+                <div className="view-all-arrow-wrapper">
+                  <Icon icon="material-symbols:arrow-forward" className="view-all-arrow" width="24" height="24" />
+                </div>
+              </div>
+            </Link>
+          </div>
+        </section>
       </main>
     </div>
   );
