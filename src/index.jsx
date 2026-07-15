@@ -38,7 +38,13 @@ import SelectedWorksChatMessaging from './v2/screens/SelectedWorks/SelectedWorks
 import SelectedWorksAuthFlows from './v2/screens/SelectedWorks/SelectedWorksAuthFlows';
 import SelectedWorksMarketingDesign from './v2/screens/SelectedWorks/SelectedWorksMarketingDesign';
 import SelectedWorksAll from './v2/screens/SelectedWorks/SelectedWorksAll';
+import Clarity from '@microsoft/clarity';
 
+// Initialize Microsoft Clarity if Project ID is configured
+const clarityProjectId = import.meta.env.VITE_CLARITY_PROJECT_ID || window.clarityProjectId;
+if (clarityProjectId) {
+  Clarity.init(clarityProjectId);
+}
 
 const container = document.getElementById('root');
 const root = createRoot(container);
