@@ -225,8 +225,8 @@
   display: flex;
   flex: none;
   align-items: center;
-  gap: 38px;
-  padding-right: 38px;
+  gap: 28px;
+  padding-right: 28px;
 }
 
 .selected-work-showcase__gallery-card {
@@ -234,8 +234,8 @@
   --frame-angle: 0deg;
   position: relative;
   display: block;
-  width: clamp(390px, 35vw, 520px);
-  height: clamp(270px, 24vw, 360px);
+  width: clamp(320px, 28vw, 420px);
+  height: clamp(220px, 19.5vw, 290px);
   padding: 0;
   flex: none;
   overflow: hidden;
@@ -253,8 +253,8 @@
 }
 
 .selected-work-showcase__gallery-card.is-mobile {
-  width: clamp(240px, 22vw, 300px);
-  height: clamp(330px, 31vw, 430px);
+  width: clamp(190px, 17.5vw, 240px);
+  height: clamp(270px, 25vw, 340px);
 }
 
 .selected-work-showcase__gallery-card:nth-child(1) { --frame-offset: 25px; --frame-angle: -1.1deg; }
@@ -414,20 +414,20 @@
   }
 
   .selected-work-showcase__gallery-group {
-    gap: 18px;
+    gap: 14px;
     padding: 0 16px;
   }
 
   .selected-work-showcase__gallery-card {
-    width: min(84vw, 410px);
-    height: min(58vw, 282px);
-    padding: 10px;
+    width: min(76vw, 320px);
+    height: min(52vw, 220px);
+    padding: 8px;
     scroll-snap-align: center;
   }
 
   .selected-work-showcase__gallery-card.is-mobile {
-    width: min(58vw, 250px);
-    height: min(79vw, 350px);
+    width: min(48vw, 190px);
+    height: min(68vw, 270px);
   }
 
   .selected-work-showcase__gallery-caption {
