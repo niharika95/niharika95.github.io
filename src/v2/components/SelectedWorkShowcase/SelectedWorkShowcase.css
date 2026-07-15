@@ -212,7 +212,7 @@
 .selected-work-showcase__gallery-track {
   display: flex;
   width: max-content;
-  animation: selectedWorkMarqueeLeftToRight 54s linear infinite;
+  animation: selectedWorkMarqueeRightToLeft 54s linear infinite;
   will-change: transform;
 }
 
@@ -356,9 +356,9 @@
   to { stroke-dashoffset: 0; }
 }
 
-@keyframes selectedWorkMarqueeLeftToRight {
-  from { transform: translate3d(-50%, 0, 0); }
-  to { transform: translate3d(0, 0, 0); }
+@keyframes selectedWorkMarqueeRightToLeft {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
 }
 
 @media (max-width: 760px) {
