@@ -287,11 +287,14 @@ export const getSelectedWorkImageId = (categorySlug, itemSlug, imageIndex) => (
 
 const galleryPicks = [
   ['dashboards', 'campaign-audience-segmentation', 0],
+  ['dashboards', 'new-business-submission', 1],
   ['data-tables', 'omnichannel-campaign-analytics', 0],
-  ['data-extraction', 'automated-check-analysis', 0],
-  ['form-flows', 'omnichannel-campaign-creation', 0],
   ['mobile-ui', 'restaurant-booking-ordering', 0],
-  ['chat-messaging', 'ai-document-synthesis', 0]
+  ['form-flows', 'insurance-quote-enrollment', 0],
+  ['data-extraction', 'intelligent-document-extraction', 1],
+  ['auth-flows', 'enterprise-access-verification', 0],
+  ['mobile-ui', 'sports-arena-companion', 1],
+  ['data-tables', 'job-queue-monitoring', 0]
 ];
 
 export const selectedWorkGalleryItems = galleryPicks.map(([categorySlug, itemSlug, imageIndex]) => {
