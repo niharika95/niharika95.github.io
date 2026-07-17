@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import HeaderV2 from '../../components/HeaderV2/HeaderV2';
 import Typography from '../../components/Typography';
 import { useAnalytics } from '../../hooks/useAnalytics';
@@ -7,7 +8,6 @@ import { useTimeTracking } from '../../hooks/useTimeTracking';
 import { ChevronLeft } from 'lucide-react';
 import { Icon } from '@iconify/react';
 import MoreCaseStudies from '../../components/MoreCaseStudies/MoreCaseStudies';
-import HistoryBackLink from '../../components/HistoryBackLink';
 
 const TOC = [
   { id: 'intro', label: 'Intro' },
@@ -201,10 +201,10 @@ const InsuranceCompanyWebsiteRedesign = () => {
         {/* Left Sidebar TOC */}
         <aside className="hidden lg:block w-[180px] flex-shrink-0 sticky top-[130px] self-start max-h-[calc(100vh-140px)] overflow-y-auto">
           <nav className="flex flex-col gap-[40px]">
-            <HistoryBackLink className="back-link-group inline-flex items-center text-gray-500 transition-colors duration-200 gap-1 font-ibm-plex text-base font-medium -ml-1">
+            <Link to="/" className="back-link-group inline-flex items-center text-gray-500 transition-colors duration-200 gap-1 font-ibm-plex text-base font-medium -ml-1 no-underline hover:text-gray-900">
               <ChevronLeft size={20} className="icon-solid-hover transition-colors duration-200" />
               <Typography as="span" variant="smallLight" className="shimmer-text">Home</Typography>
-            </HistoryBackLink>
+            </Link>
             <div className="flex flex-col gap-[12px]">
               {TOC.map((item) => (
                 <a

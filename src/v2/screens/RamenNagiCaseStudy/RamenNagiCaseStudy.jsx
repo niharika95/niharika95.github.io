@@ -6,13 +6,13 @@ import KeyTakeaways from './components/KeyTakeaways';
 import WalkInFlow from './components/WalkInFlow';
 import Problem from './components/Problem';
 import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import ReservationFlow from './components/ReservationFlow';
 import Solution from './components/Solution';
 import WhyThisWorks from './components/WhyThisWorks';
 import HeaderV2 from '../../components/HeaderV2/HeaderV2';
 import { ChevronLeft } from 'lucide-react';
 import MoreCaseStudies from '../../components/MoreCaseStudies/MoreCaseStudies';
-import HistoryBackLink from '../../components/HistoryBackLink';
 
 const RamenNagiCaseStudy = () => {
     const progressBarRef = useRef(null);
@@ -54,10 +54,10 @@ const RamenNagiCaseStudy = () => {
 
             <div className="w-full pt-8 px-[5vw] max-w-[1440px] mx-auto z-10 relative">
                 <div className="max-w-[1160px] mx-auto px-5 w-full">
-                    <HistoryBackLink className="back-link-group inline-flex items-center text-[#999] transition-colors duration-200 gap-1 font-ibm-plex text-base font-medium">
+                    <Link to="/" className="back-link-group inline-flex items-center text-[#999] transition-colors duration-200 gap-1 font-ibm-plex text-base font-medium no-underline hover:text-neutral-900">
                         <ChevronLeft size={20} className="icon-solid-hover transition-colors duration-200" />
                         <span className="shimmer-text">Home</span>
-                    </HistoryBackLink>
+                    </Link>
                 </div>
             </div>
 
