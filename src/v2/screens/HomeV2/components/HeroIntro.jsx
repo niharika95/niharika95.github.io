@@ -14,11 +14,11 @@ const NOTEBOOK_ITEMS = [
 ];
 
 const BUILD_SYSTEMS = 'build systems';
-const NOTEBOOK_START_DELAY = 5550;
-const CASE_STUDIES_BREATH_DELAY = 700;
-const SEQUENCE_SAFETY_DELAY = 9500;
-const PHONE_NOTEBOOK_START_DELAY = 3000;
-const PHONE_SEQUENCE_SAFETY_DELAY = 6500;
+const NOTEBOOK_START_DELAY = 2200;
+const CASE_STUDIES_BREATH_DELAY = 250;
+const SEQUENCE_SAFETY_DELAY = 4200;
+const PHONE_NOTEBOOK_START_DELAY = 1200;
+const PHONE_SEQUENCE_SAFETY_DELAY = 2800;
 const NOTEBOOK_ITEM_LENGTHS = NOTEBOOK_ITEMS.map(
   (item) => item.strong.length + item.normal.length
 );
@@ -207,11 +207,11 @@ export default function HeroIntro({ onSequenceComplete, skipAnimation = false })
 
     if (currentCount < NOTEBOOK_ITEM_LENGTHS[itemIndex]) {
       const currentCharacter = fullText[currentCount];
-      const delay = /[.!?]/.test(currentCharacter) ? 34 : 8;
+      const delay = /[.!?]/.test(currentCharacter) ? 18 : 4;
       const typingTimer = window.setTimeout(() => {
         setCharacterCounts((counts) => {
           const nextCounts = [...counts];
-          nextCounts[itemIndex] = Math.min(currentCount + 2, NOTEBOOK_ITEM_LENGTHS[itemIndex]);
+          nextCounts[itemIndex] = Math.min(currentCount + 3, NOTEBOOK_ITEM_LENGTHS[itemIndex]);
           return nextCounts;
         });
       }, delay);
@@ -225,7 +225,7 @@ export default function HeroIntro({ onSequenceComplete, skipAnimation = false })
       } else {
         setTypingStep(3);
       }
-    }, typingStep === 1 ? 240 : 320);
+    }, typingStep === 1 ? 120 : 160);
 
     return () => window.clearTimeout(pauseTimer);
   }, [characterCounts, prefersReducedMotion, skipAnimation, typingStep]);

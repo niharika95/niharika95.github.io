@@ -6,12 +6,12 @@ import './CaseStudies.css';
 
 const SMALL_CASE_STUDIES = [
   {
-    to: '/exposure-tool',
-    title: 'Aligning system architecture with user mental models in a high-density financial tool.',
-    description: 'Disjointed pages treated identical datasets as separate workflows.',
-    image: '/v2/images/projects/exposure-tool/exposure-thumbnail.png',
-    imageAlt: 'Financial tool system architecture table mockup',
-    imageClassName: 'case-study-card__image--exposure'
+    to: '/insurance-company-website-redesign',
+    title: 'Rethinking the website of a $1 billion-bound insurance company.',
+    description: "The navigation wasn't broken; it had never considered one of its two audiences.",
+    image: '/v2/images/projects/insurance-company-website-design/Insurance - thumbnail.png',
+    imageAlt: 'Insurance company website redesign mockup',
+    imageClassName: ''
   },
   {
     to: '/ramen-nagi',
@@ -63,11 +63,11 @@ export default function CaseStudies({ isVisible, skipAnimation = false }) {
         <SectionScribble />
       </h2>
 
-      <Link to="/insurance-company-website-redesign" className="featured-case-study case-study-entrance case-study-entrance--1">
+      <Link to="/exposure-tool" className="featured-case-study case-study-entrance case-study-entrance--1">
         <div className="featured-case-study__image-wrap">
           <img
-            src="/v2/images/projects/insurance-company-website-design/Insurance - thumbnail.png"
-            alt="Insurance company website redesign mockup"
+            src="/v2/images/projects/exposure-tool/exposure-thumbnail.png"
+            alt="Financial tool system architecture table mockup"
             className="featured-case-study__image"
           />
         </div>
@@ -75,13 +75,13 @@ export default function CaseStudies({ isVisible, skipAnimation = false }) {
         <div className="featured-case-study__content">
           <div>
             <Typography as="h3" variant="h5Regular" className="featured-case-study__title">
-              Rethinking the website of a $1 billion-bound insurance company.
+              Aligning system architecture with user mental models in a high-density financial tool.
             </Typography>
             <Typography as="p" variant="bodyRegular" className="featured-case-study__description">
-              The navigation wasn't broken; it had never considered one of its two audiences.
+              Disjointed pages treated identical datasets as separate workflows.
             </Typography>
             <Typography as="p" variant="extraSmallRegular" className="featured-case-study__tags">
-              Information architecture <span aria-hidden="true">&bull;</span> Design systems <span aria-hidden="true">&bull;</span> Content strategy
+              System architecture <span aria-hidden="true">&bull;</span> Mental models <span aria-hidden="true">&bull;</span> Financial UX
             </Typography>
           </div>
           <ArrowAction theme="dark" />

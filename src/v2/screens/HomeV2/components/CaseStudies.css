@@ -15,7 +15,7 @@
   line-height: 1.4;
   opacity: 0;
   transform: translateY(12px);
-  animation: caseHeadingIn 520ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: caseHeadingIn 360ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .case-studies-heading__scribble {
@@ -37,13 +37,13 @@
   stroke-linejoin: round;
   stroke-dasharray: 145;
   stroke-dashoffset: 145;
-  animation: drawCaseHeading 540ms cubic-bezier(0.55, 0.06, 0.68, 0.19) 270ms forwards;
+  animation: drawCaseHeading 360ms cubic-bezier(0.55, 0.06, 0.68, 0.19) 140ms forwards;
 }
 
 .case-studies-heading__scribble path + path {
   stroke-width: 1;
   opacity: 0.5;
-  animation-delay: 410ms;
+  animation-delay: 210ms;
 }
 
 .featured-case-study,
@@ -79,28 +79,28 @@
 .featured-case-study__image-wrap {
   min-width: 0;
   min-height: 390px;
-  padding: 54px 0 0 40px;
+  padding: 48px 32px 0 40px;
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
   overflow: hidden;
 }
 
 .featured-case-study__image {
   width: 100%;
   height: 100%;
-  min-height: 336px;
   display: block;
   object-fit: cover;
-  object-position: center top;
+  object-position: left top;
   border: 1px solid rgba(255, 255, 255, 0.18);
   border-bottom: 0;
-  border-radius: 14px 14px 0 0;
+  border-radius: 12px 12px 0 0;
+  transform-origin: left top;
   transition: transform 650ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .featured-case-study:hover .featured-case-study__image,
 .featured-case-study:focus-visible .featured-case-study__image {
-  transform: scale(1.018);
+  transform: scale(1.025);
 }
 
 .featured-case-study__content {
@@ -308,13 +308,13 @@
 .case-study-entrance {
   opacity: 0;
   transform: translateY(52px) scale(0.985);
-  animation: springCaseStudyIn 800ms linear forwards;
+  animation: springCaseStudyIn 520ms linear forwards;
 }
 
-.case-study-entrance--1 { animation-delay: 1000ms; }
-.case-study-entrance--2 { animation-delay: 1150ms; }
-.case-study-entrance--3 { animation-delay: 1300ms; }
-.case-study-entrance--4 { animation-delay: 1450ms; }
+.case-study-entrance--1 { animation-delay: 120ms; }
+.case-study-entrance--2 { animation-delay: 200ms; }
+.case-study-entrance--3 { animation-delay: 280ms; }
+.case-study-entrance--4 { animation-delay: 360ms; }
 
 .case-studies-redesign--static .case-studies-heading,
 .case-studies-redesign--static .case-study-entrance {

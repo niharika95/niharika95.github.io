@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import HeaderV2 from '../../components/HeaderV2/HeaderV2';
 import SelectedWorkShowcase from '../../components/SelectedWorkShowcase';
 import CaseStudies from './components/CaseStudies';
@@ -14,6 +14,20 @@ export default function HomeV2() {
     hasCompletedHomeExperience = true;
     setShowCaseStudies(true);
   }, []);
+
+  useEffect(() => {
+    if (showCaseStudies) return undefined;
+
+    const handleScroll = () => {
+      if (window.scrollY > 40) {
+        hasCompletedHomeExperience = true;
+        setShowCaseStudies(true);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [showCaseStudies]);
 
   const rememberCompletedExperience = useCallback((event) => {
     const target = event.target instanceof Element ? event.target : null;
