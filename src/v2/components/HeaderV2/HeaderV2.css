@@ -4,11 +4,14 @@
   top: 0;
   left: 0;
   z-index: 999;
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+  background: rgba(255, 255, 255, 0.76);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: inset 0 -0.5px 0 0 rgba(255, 255, 255, 0.7);
+  font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   box-sizing: border-box;
+  transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 .header-v2-inner {
@@ -18,45 +21,50 @@
   width: calc(100% - 48px);
   max-width: 1040px;
   margin: 0 auto;
-  padding: 20px 0px;
+  padding: 18px 0px;
   box-sizing: border-box;
 }
 
 @media (max-width: 768px) {
   .header-v2-inner {
-    padding: 20px 24px;
+    padding: 16px 24px;
     width: 100%;
     max-width: none;
   }
 }
 
 .header-v2-spacer {
-  height: 92px;
+  height: 88px;
   width: 100%;
 }
 
 .header-v2-logo {
   text-decoration: none;
-  font-size: 18px;
-  line-height: 2;
-  font-weight: 300;
-  color: var(--color-gray-600, #666666);
-  transition: color 0.2s ease;
+  font-size: 17px;
+  line-height: 1.5;
+  font-weight: 400;
+  color: var(--color-gray-700, #4d4d4d);
+  transition: color 0.2s ease, transform 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.header-v2-logo:active {
+  transform: scale(0.96);
 }
 
 .header-v2-link {
   text-decoration: none;
-  font-size: 18px;
-  line-height: 2;
-  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
   color: var(--color-gray-600, #666666);
-  transition: color 0.2s ease;
+  transition: color 0.2s ease, transform 0.15s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
-  padding-bottom: 2px;
+  padding: 4px 2px;
 }
 
 .header-v2-link.active .nav-text {
   color: var(--color-gray-900, #1a1a1a);
+  font-weight: 500;
 }
 
 .header-v2-link::after {
@@ -69,10 +77,11 @@
   background-color: var(--color-gray-900, #1a1a1a);
   transform: scaleX(0);
   transform-origin: center;
+  border-radius: 2px;
 }
 
 .header-v2-link.active::after {
-  animation: expand-stroke 0.5s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  animation: expand-stroke 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @keyframes expand-stroke {
@@ -95,7 +104,18 @@
 
 .header-v2-nav {
   display: flex;
-  gap: 32px;
+  gap: 28px;
+}
+
+/* Mobile Floating Pill Navigation with Apple Frosted Glass */
+.header-v2-mobile-nav {
+  background: rgba(255, 255, 255, 0.82) !important;
+  backdrop-filter: blur(24px) saturate(190%) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(190%) !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.08),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.95) !important;
 }
 
 @media (max-width: 768px) {
@@ -106,8 +126,8 @@
   .home-v2 .header-v2-mobile-nav {
     width: calc(100% - 24px) !important;
     max-width: 360px !important;
-    padding-right: 10px !important;
-    padding-left: 10px !important;
+    padding-right: 12px !important;
+    padding-left: 12px !important;
     justify-content: space-between;
     gap: 10px !important;
   }
@@ -116,12 +136,21 @@
     width: 44px !important;
     min-width: 44px;
     height: 44px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), color 0.15s ease;
+  }
+
+  .home-v2 .header-v2-mobile-nav > a:active {
+    transform: scale(0.88) !important;
   }
 
   .home-v2 .header-v2-logo {
     min-height: 44px;
   }
 }
+
 
 .header-v2-logo:hover .nav-text,
 .header-v2-link:hover .nav-text {
