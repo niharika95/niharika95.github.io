@@ -2,24 +2,24 @@
   width: 100%;
   max-width: 1040px;
   min-height: 0;
-  margin: 0 auto 58px;
-  padding-top: 52px;
+  margin: 0 auto 72px;
+  padding-top: 56px;
 }
 
 .portfolio-intro__copy {
   width: 100%;
-  max-width: 720px;
+  max-width: 900px;
   min-width: 0;
 }
 
 .portfolio-intro__headline {
-  margin: 0 0 42px;
-  color: #252525;
-  font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  font-size: clamp(27px, 2.45vw, 32px);
-  font-weight: 500;
-  line-height: 1.35;
-  letter-spacing: -0.02em;
+  margin: 0 0 44px;
+  color: #1d1d1f;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter', 'Segoe UI', sans-serif;
+  font-size: clamp(28px, 3.2vw, 38px);
+  font-weight: 600;
+  line-height: 1.32;
+  letter-spacing: -0.025em;
 }
 
 .portfolio-intro__primary-line,
@@ -34,7 +34,7 @@
 }
 
 .portfolio-intro__subline {
-  color: #4d4d4d;
+  color: #515154;
   font-weight: 300;
   letter-spacing: -0.018em;
   animation: portfolioSentenceIn 380ms cubic-bezier(0.16, 1, 0.3, 1) 1600ms forwards;
@@ -51,6 +51,7 @@
   position: relative;
   display: inline-block;
   z-index: 1;
+  isolation: isolate;
 }
 
 .hero-scribble {
@@ -73,7 +74,8 @@
   left: -2px;
   bottom: -8px;
   width: calc(100% + 4px);
-  height: 14px;
+  height: 15px;
+  z-index: -1;
 }
 
 .hero-scribble__stroke--underline,
@@ -90,10 +92,10 @@
 }
 
 .hero-scribble--arrow {
-  width: 132px;
-  height: 64px;
-  top: -52px;
-  left: 37%;
+  width: 142px;
+  height: 66px;
+  top: -55px;
+  left: 38%;
   transform: rotate(-3deg);
 }
 
@@ -124,17 +126,18 @@
 }
 
 .hero-scribble--circle {
-  width: calc(100% + 28px);
-  height: calc(100% + 29px);
-  left: -14px;
-  top: -12px;
+  width: calc(100% + 32px);
+  height: calc(100% + 30px);
+  left: -16px;
+  top: -13px;
   transform: rotate(1.5deg);
+  z-index: -1;
 }
 
 .hero-scribble__stroke--circle,
 .hero-scribble__stroke--circle-echo {
-  stroke-dasharray: 750;
-  stroke-dashoffset: 750;
+  stroke-dasharray: 780;
+  stroke-dashoffset: 780;
   animation: drawHeroScribble 380ms cubic-bezier(0.25, 1, 0.5, 1) 1100ms forwards;
 }
 
@@ -159,7 +162,7 @@
 .notebook-list-redesign {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 10px;
 }
 
 .notebook-row {
@@ -178,27 +181,25 @@
 .notebook-row__icon {
   width: 20px;
   height: 20px;
-  margin-top: 3px;
-  color: #343434;
+  margin-top: 2px;
+  color: #1d1d1f;
 }
 
 .notebook-row__text {
-  min-height: 56px;
+  min-height: 0;
   margin: 0;
-  padding: 0 4px 2px;
-  color: #5b5b5b;
-  font-family: 'IBM Plex Mono', 'SFMono-Regular', Consolas, monospace;
-  font-size: 15px;
-  line-height: 28px;
-  background-image: linear-gradient(#dedede 1px, transparent 1px);
-  background-size: 100% 28px;
-  background-position: 0 25px;
+  padding: 0;
+  color: #6e6e73;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.011em;
 }
 
 .notebook-row__text strong {
-  color: #4b4b4b;
+  color: #1d1d1f;
   font-family: inherit;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .notebook-cursor {
@@ -384,8 +385,8 @@
 
   .portfolio-intro__headline {
     margin-bottom: 32px;
-    font-size: clamp(22px, 6.25vw, 24px);
-    line-height: 1.46;
+    font-size: clamp(24px, 6.25vw, 28px);
+    line-height: 1.4;
     letter-spacing: -0.035em;
   }
 
@@ -414,6 +415,9 @@
 
   .hero-scribble--underline {
     bottom: -5px;
+    left: -2px;
+    width: calc(100% + 4px);
+    height: 14px;
   }
 
   .hero-scribble__stroke--underline,
@@ -450,11 +454,11 @@
   }
 
   .notebook-list-redesign {
-    gap: 20px;
+    gap: 12px;
   }
 
   .notebook-row__text {
-    min-height: 84px;
+    min-height: 0;
     font-size: 14px;
   }
 
