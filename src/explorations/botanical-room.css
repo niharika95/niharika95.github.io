@@ -1,0 +1,595 @@
+/* A central installation: architecture, light, plant, then typography in depth. */
+.botanical-nav {
+  position: fixed;
+  inset: 20px 3% auto;
+  width: auto;
+  height: 64px;
+  padding: 0 24px;
+  z-index: 65;
+  color: #e5e7d6;
+  background: #101914d9;
+  border: 1px solid #b5bca32b;
+  border-radius: 4px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 8px 35px #00000012;
+}
+.botanical-name {
+  font-size: 14px;
+  gap: 40px;
+}
+.botanical-name span {
+  color: #abb5a2;
+  font-size: 10px;
+}
+.botanical-nav sup {
+  color: #b9c19c;
+}
+.botanical-nav-flower {
+  color: #e1d29d;
+  font-size: 24px;
+}
+.botanical-sun-cursor {
+  z-index: 70;
+}
+.botanical-page :is(#work, #botanical-about) {
+  scroll-margin-top: 110px;
+}
+.botanical-hero-track {
+  height: 195svh;
+  min-height: 1440px;
+}
+.botanical-room {
+  --light: 0;
+  --unfurl: 0;
+  min-height: 740px;
+  color: #e5e7cf;
+  background: #0c1510;
+}
+.botanical-room-architecture {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at 50% 45%,
+    #233122 0,
+    #101a13 40%,
+    #09110d 85%
+  );
+}
+.room-daylight {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      ellipse at 95% 0%,
+      #fff2bf9c,
+      #e8d89b24 35%,
+      transparent 64%
+    ),
+    radial-gradient(ellipse at 56% 40%, #9fa57555, transparent 66%),
+    linear-gradient(125deg, #2f493529, #7e835434 72%, #ded9ad27);
+  opacity: var(--light);
+}
+.room-back-wall {
+  position: absolute;
+  inset: 8% 14% 43%;
+  border: 1px solid #bcc79b14;
+  background: linear-gradient(100deg, #040a071a, #53653a0d 50%, #040a0740);
+}
+.room-back-wall:before,
+.room-back-wall:after {
+  content: "";
+  position: absolute;
+  top: -45%;
+  bottom: -65%;
+  width: 1px;
+  background: #b9c49a12;
+}
+.room-back-wall:before {
+  left: 0;
+  transform: rotate(-18deg);
+  transform-origin: 0 61%;
+}
+.room-back-wall:after {
+  right: 0;
+  transform: rotate(18deg);
+  transform-origin: 0 61%;
+}
+.room-floor {
+  position: absolute;
+  left: -30%;
+  right: -30%;
+  bottom: -38%;
+  height: 80%;
+  transform: perspective(450px) rotateX(57deg);
+  transform-origin: center top;
+  border-top: 1px solid #acb5921a;
+  background: linear-gradient(#35412a, #122219);
+}
+.room-aperture {
+  position: absolute;
+  z-index: 1;
+  left: 78%;
+  top: -10%;
+  width: 25%;
+  height: 39%;
+  rotate: -17deg;
+  border: 10px solid #d7d6ab88;
+  background:
+    linear-gradient(
+      90deg,
+      transparent 48%,
+      #65785380 48%,
+      #65785380 51%,
+      transparent 51%
+    ),
+    linear-gradient(
+      0deg,
+      transparent 47%,
+      #65785380 47%,
+      #65785380 50%,
+      transparent 50%
+    ),
+    linear-gradient(150deg, #daedf4, #fff7d5 60%, #ffecad);
+  box-shadow:
+    0 0 35px 10px #fff5c438,
+    0 0 120px 65px #ffefad30;
+  opacity: calc(0.06 + var(--light) * 0.94);
+  transform: translateX(calc(var(--mx) * 12px));
+}
+.room-light-shaft {
+  position: absolute;
+  z-index: 1;
+  left: 16%;
+  width: 90%;
+  top: -2%;
+  height: 98%;
+  transform: rotate(calc(var(--mx) * 3deg));
+  transform-origin: 87% 0;
+  filter: blur(24px);
+  opacity: var(--light);
+  mix-blend-mode: screen;
+}
+.room-light-shaft:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  clip-path: polygon(72% 0, 98% 0, 54% 100%, 0 100%);
+  background: linear-gradient(135deg, #fff1bc55, #f7e2a526 50%, #f5e7ab05);
+}
+.room-window-cast {
+  position: absolute;
+  left: 35%;
+  top: 60%;
+  width: 62%;
+  height: 25%;
+  background:
+    linear-gradient(
+      90deg,
+      transparent 48%,
+      #24301c99 48%,
+      #24301c99 51%,
+      transparent 51%
+    ),
+    linear-gradient(
+      0deg,
+      transparent 48%,
+      #24301c99 48%,
+      #24301c99 52%,
+      transparent 52%
+    ),
+    linear-gradient(140deg, #ffedac55, #f2e3a914);
+  transform: perspective(450px) rotateX(57deg) rotateZ(-28deg);
+  filter: blur(5px);
+  opacity: var(--light);
+  mask-image: linear-gradient(
+    100deg,
+    transparent,
+    #000 15%,
+    #000 75%,
+    transparent
+  );
+}
+.room-light-pool {
+  position: absolute;
+  width: 64%;
+  height: 21%;
+  left: 18%;
+  bottom: 24%;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse,
+    #f1dc9352,
+    #c1bc731a 48%,
+    transparent 70%
+  );
+  filter: blur(13px);
+  opacity: var(--light);
+  transform: translateX(calc(var(--mx) * 20px));
+}
+.botanical-room-eyebrow {
+  position: absolute;
+  z-index: 5;
+  top: 16%;
+  width: 100%;
+  text-align: center;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: #d5dec3;
+}
+.botanical-room-heading {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.botanical-room-word {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-family: "DM Serif Display", Georgia, serif;
+  font-weight: 400;
+  line-height: 0.87;
+  letter-spacing: -0.055em;
+}
+.room-rooted {
+  z-index: 1;
+  top: 22%;
+  font-size: clamp(90px, 11.2vw, 190px);
+  color: #bdc5a1;
+  opacity: calc(0.16 + var(--light) * 0.52);
+  transform: translateY(calc(var(--growth, 0) * -40px));
+}
+.room-curiosity {
+  z-index: 5;
+  bottom: 21%;
+  font-size: clamp(100px, 15vw, 225px);
+  color: #e9e8ce;
+  text-shadow: 0 10px 45px #08110950;
+  opacity: calc(0.3 + var(--light) * 0.7);
+  transform: translateY(calc(var(--growth, 0) * 18px));
+}
+.botanical-room .botanical-specimen {
+  inset: 7% 0 19%;
+  width: 100%;
+  height: auto;
+  z-index: 3;
+}
+.botanical-room .botanical-canvas {
+  inset: 0;
+  mask-image: linear-gradient(transparent, #000 4%, #000 84%, transparent);
+}
+.botanical-room .botanical-plant-fallback {
+  left: 40%;
+  width: 20%;
+  top: 15%;
+  bottom: 20%;
+  opacity: calc(0.08 + var(--light) * 0.92);
+  filter: brightness(0.7);
+  transform: scale(calc(0.3 + var(--unfurl) * 0.7));
+  transform-origin: 50% 100%;
+}
+.botanical-room .is-ready .botanical-plant-fallback {
+  opacity: 0;
+}
+.botanical-room-vignette {
+  position: absolute;
+  z-index: 4;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at 50% 44%,
+    transparent 30%,
+    #060d0914 72%,
+    #040b0738
+  );
+}
+.botanical-room-introduction {
+  position: absolute;
+  z-index: 5;
+  left: 25%;
+  width: 50%;
+  bottom: 15%;
+  text-align: center;
+  font-size: 12px;
+  color: #e2e6ce;
+  letter-spacing: 0.01em;
+}
+.botanical-room-introduction span {
+  display: inline-block;
+  margin-left: 5px;
+}
+.botanical-room-coordinate {
+  position: absolute;
+  z-index: 5;
+  left: 3.5%;
+  top: 42%;
+  writing-mode: vertical-rl;
+  font-size: 8px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #c3cbaa;
+}
+.botanical-room .botanical-scroll-cue {
+  left: 5%;
+  bottom: 10%;
+  gap: 18px;
+}
+.botanical-room .botanical-scroll-cue span {
+  color: #dce1c9;
+  font-size: 10px;
+}
+.botanical-room .botanical-scroll-cue > div {
+  width: 65px;
+  background: #acb78b30;
+}
+.botanical-room .botanical-scroll-cue > div > i {
+  background: #d2d5ac;
+}
+.botanical-page .botanical-room-work {
+  position: absolute;
+  right: 5%;
+  bottom: 10%;
+  z-index: 5;
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding: 0 0 10px;
+  border-bottom: 1px solid #b3c09c66;
+}
+.botanical-room-instruction {
+  position: absolute;
+  z-index: 5;
+  left: 0;
+  right: 0;
+  bottom: 9.5%;
+  text-align: center;
+  font-size: 9px;
+  letter-spacing: 0.03em;
+  color: #d0d7b9;
+  pointer-events: none;
+}
+[data-motion="off"] .room-rooted,
+[data-motion="off"] .room-curiosity {
+  transform: none;
+}
+@media (min-width: 1600px) {
+  .room-rooted {
+    font-size: 11vw;
+  }
+  .room-curiosity {
+    font-size: 14vw;
+  }
+}
+@media (max-width: 1000px) {
+  .botanical-room .botanical-specimen {
+    inset: 9% 0 20%;
+  }
+  .room-rooted {
+    top: 24%;
+    font-size: 12.5vw;
+  }
+  .room-curiosity {
+    font-size: 17vw;
+    bottom: 23%;
+  }
+  .botanical-room-introduction {
+    left: 20%;
+    width: 60%;
+    bottom: 17%;
+    font-size: 11px;
+  }
+  .botanical-room-instruction {
+    display: none;
+  }
+  .room-back-wall {
+    left: 8%;
+    right: 8%;
+  }
+}
+@media (max-width: 700px) {
+  .botanical-nav {
+    inset: 12px 16px auto;
+    height: 58px;
+    padding: 0 16px;
+    gap: 16px;
+  }
+  .botanical-name {
+    font-size: 12px;
+  }
+  .botanical-nav nav {
+    gap: 19px;
+  }
+  .botanical-nav nav button {
+    font-size: 11px;
+  }
+  .botanical-page :is(#work, #botanical-about) {
+    scroll-margin-top: 90px;
+  }
+  .botanical-hero-track {
+    height: 180svh;
+    min-height: 1280px;
+  }
+  .botanical-room {
+    min-height: 710px;
+  }
+  .botanical-room-eyebrow {
+    top: 16%;
+    font-size: 7px;
+    letter-spacing: 0.16em;
+  }
+  .room-rooted {
+    top: 23%;
+    font-size: 19vw;
+  }
+  .room-curiosity {
+    bottom: 24%;
+    font-size: 22vw;
+  }
+  .botanical-room .botanical-specimen {
+    inset: 12% -5% 22%;
+    width: 110%;
+  }
+  .botanical-room-introduction {
+    bottom: 18%;
+    left: 14%;
+    width: 72%;
+    font-size: 10px;
+  }
+  .botanical-room-introduction span {
+    display: block;
+    margin: 0;
+  }
+  .botanical-room-coordinate {
+    left: 5%;
+    top: 41%;
+    font-size: 6px;
+  }
+  .room-back-wall {
+    inset: 12% 9% 43%;
+  }
+  .room-aperture {
+    top: -2%;
+    left: 77%;
+    width: 37%;
+    height: 30%;
+    border-width: 6px;
+  }
+  .room-light-shaft {
+    top: 0;
+    left: -24%;
+    width: 145%;
+    height: 85%;
+  }
+  .room-light-pool {
+    width: 90%;
+    left: 5%;
+    bottom: 30%;
+  }
+  .botanical-room .botanical-scroll-cue {
+    left: 6%;
+    bottom: 11%;
+    width: auto;
+    flex-wrap: nowrap;
+    gap: 9px;
+  }
+  .botanical-room .botanical-scroll-cue span {
+    max-width: 75px;
+    font-size: 8px;
+  }
+  .botanical-room .botanical-scroll-cue > div {
+    display: none;
+  }
+  .botanical-page .botanical-room-work {
+    right: 6%;
+    bottom: 11%;
+    font-size: 9px;
+    gap: 15px;
+    padding-bottom: 7px;
+  }
+  .botanical-room .botanical-plant-fallback {
+    left: 34%;
+    width: 32%;
+    top: 26%;
+    bottom: 23%;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .botanical-hero-track {
+    height: 100svh;
+    min-height: 710px;
+  }
+  .botanical-room {
+    position: relative;
+  }
+}
+
+.folio-lab .fl-mini-quiet {
+  background: radial-gradient(
+    ellipse at 100% 0%,
+    #bfc092,
+    #4f5b3f 42%,
+    #14261a
+  );
+  color: #e6e7c9;
+  border-color: #46503b;
+  container-type: inline-size;
+}
+.fl-mini-quiet .mini-botanical {
+  isolation: isolate;
+}
+.fl-mini-quiet .mini-botanical:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(130deg, #fff1bc55, #f7e2a505);
+  clip-path: polygon(70% 0, 100% 0, 56% 100%, 0 100%);
+  filter: blur(10px);
+  z-index: -1;
+}
+.fl-mini-quiet .mini-botanical:after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  right: -10%;
+  top: -18%;
+  width: 26%;
+  height: 48%;
+  rotate: -17deg;
+  background:
+    linear-gradient(
+      90deg,
+      transparent 47%,
+      #879477 47%,
+      #879477 51%,
+      transparent 51%
+    ),
+    linear-gradient(
+      0deg,
+      transparent 47%,
+      #879477 47%,
+      #879477 51%,
+      transparent 51%
+    ),
+    #f5efd2;
+}
+.fl-mini-quiet .mini-botanical > small {
+  display: block;
+  text-align: center;
+  font-size: 5px;
+  color: #a7b290;
+}
+.fl-mini-quiet .mini-botanical > strong {
+  left: 0;
+  width: 100%;
+  top: 20%;
+  height: 64%;
+  text-align: center;
+  font-size: clamp(30px, 9cqw, 70px);
+  letter-spacing: -1px;
+}
+.fl-mini-quiet .mini-botanical > strong i {
+  position: absolute;
+  z-index: 3;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: #e6e7c9;
+  font-size: 1.3em;
+}
+.fl-mini-quiet .mini-botanical > svg {
+  left: 30%;
+  top: 19%;
+  width: 40%;
+  height: 60%;
+  fill: #849253;
+}
+.fl-mini-quiet .mini-botanical > span {
+  left: 0;
+  width: 100%;
+  text-align: center;
+  color: #9cac88;
+}

@@ -1,6 +1,6 @@
 import './index.css';
 
-import { HashRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { HashRouter, Navigate, Route, Routes, useParams } from 'react-router-dom';
 
 import AboutV1 from './v1/screens/About/About';
 import AdmissionsProcessAccelerationV1 from './v1/screens/AdmissionsProcessAcceleration/AdmissionsProcessAcceleration';
@@ -38,7 +38,22 @@ import SelectedWorksChatMessaging from './v2/screens/SelectedWorks/SelectedWorks
 import SelectedWorksAuthFlows from './v2/screens/SelectedWorks/SelectedWorksAuthFlows';
 import SelectedWorksMarketingDesign from './v2/screens/SelectedWorks/SelectedWorksMarketingDesign';
 import SelectedWorksAll from './v2/screens/SelectedWorks/SelectedWorksAll';
+const Exploration = React.lazy(() => import('./explorations/Explorations'));
+const ExplorationIndex = React.lazy(() => import('./explorations/Explorations').then(module => ({ default: module.ExplorationIndex })));
 
+
+function ExplorationLoading() {
+  const { concept } = useParams();
+  const colors = {
+    editorial: ['#743b45', '#f4f0e8'],
+    systems: ['#17251f', '#b5f5ce'],
+    playroom: ['#2534a5', '#eeeaf6'],
+    quiet: ['#0d1511', '#e6e7c9'],
+    cinema: ['#151715', '#dfed99'],
+  };
+  const [background, color] = colors[concept] || ['#f4f0e8', '#743b45'];
+  return <div role="status" aria-label="Loading portfolio direction" style={{ position: 'fixed', inset: 0, display: 'grid', placeItems: 'center', background, color }}><span aria-hidden="true" style={{ font: 'italic 52px Georgia, serif' }}>nd.</span></div>;
+}
 
 const container = document.getElementById('root');
 const root = createRoot(container);
@@ -55,6 +70,8 @@ root.render(
     <HashRouter>
       <ScrollToTop />
       <Routes>
+        <Route path="/explorations" element={<React.Suspense fallback={<ExplorationLoading />}><ExplorationIndex /></React.Suspense>} />
+        <Route path="/explorations/:concept" element={<React.Suspense fallback={<ExplorationLoading />}><Exploration /></React.Suspense>} />
         <Route path="/presentation" element={<PresentationV1 />} />
         <Route path="/v2" element={<Navigate to="/" replace />} />
         <Route path="/archived" element={<Navigate to="/archived-geometrical" replace />} />
